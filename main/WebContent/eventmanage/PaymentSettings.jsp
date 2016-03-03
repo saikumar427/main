@@ -181,7 +181,7 @@ var ccNameValues={"paypal_pro":"Eventbee","braintree_manager":"Braintree","autho
 							<option value="authorize.net" id="authorize.net" <s:if test="%{#eventbeevendor=='authorize.net'}">selected='selected'</s:if>><s:text name="ps.authorize.net.lbl"/></option>
 							<option value="braintree_manager" id="braintree_manager" <s:if test="%{#eventbeevendor=='braintree_manager'}">selected='selected'</s:if>><s:text name="ps.braintree.lbl"/></option>
 							<option value="stripe" id="stripe"  <s:if test="%{#eventbeevendor=='stripe'}">selected='selected'</s:if>><s:text name="ps.stripe.lbl"/></option>
-							<option value="payulatam" id="payulatamopt" <s:if test="%{#eventbeevendor=='payulatam'}">selected='selected'</s:if>><s:text name="ps.payu.lbl"/></option>
+							<option value="payulatam" id="payulatam" <s:if test="%{#eventbeevendor=='payulatam'}">selected='selected'</s:if>><s:text name="ps.payu.lbl"/></option>
 						
 						</select>
 				</div>   <%-- ptype:<s:property value="%{#eventbeevendor}"/>  --%>
@@ -952,7 +952,7 @@ function generateCCDropDown(SupportedPayments){
 	}	
 
 	if(SupportedPayments.indexOf("PAYU")>-1){
-		$('#ccdropdown').append('<option value="payulatam">PayU</option>');
+		$('#ccdropdown').append('<option value="payulatam">'+props.ps_payu_lbl+'</option>');
 	 	ccDropMenu.push('payulatam'); 
 	}	
 }
@@ -1015,13 +1015,23 @@ $('#ccdescdiv').show();
     		$('#ccpindb').html(': Stripe');
     		return;
           }
-      if(ccDropMenu.length>1){
-    	  $('#ccdropdown').val("braintree_manager");
-  		$('#braintree').show();
-  		if($('#creditcardid').is(':checked'))
-  		$('#ccpindb').html(': Braintree');
-  		return;
+     
+       if(ccDropMenu.length>1){
+    	    if(ccDropMenu.indexOf("payulatam")>-1){
+    	    	$('#ccdropdown').val("stripe");
+    			$('#stripe').show();
+    			if($('#creditcardid').is(':checked'))
+    			$('#ccpindb').html(': Stripe');
+    			return;
+    	    }else{
+    	    	$('#ccdropdown').val("braintree_manager");
+    	  		$('#braintree').show();
+    	  		if($('#creditcardid').is(':checked'))
+    	  		$('#ccpindb').html(': Braintree');
+    	  		return;
+    	    }
         }
+      
 	
 }
 
@@ -1030,7 +1040,6 @@ $('#ccdescdiv').show();
 	function changepaymentsettings() {
 		var cctypeselected=$('#ccdropdown').val();
 		var currency=document.getElementById("currency").value;
-		
 		var SupportedPayments=CurrencySupports[currency];
 		$('#ccdescdiv').hide();
 		$('#ccpindb').html("");
