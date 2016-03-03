@@ -1,0 +1,505 @@
+img {
+border:none;
+}
+
+
+a {
+color: #0C50A1;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+body {
+margin: 0;
+padding: 0;
+background: #f3f6fa;
+font-family:Lucida Grande,Lucida Sans Unicode,sans-serif;
+font-size:12px;
+line-height:20px;
+color: #000;
+font-weight:normal;
+margin: 0px;
+padding: 0px;
+}
+
+.background .inner,#trends{
+width:974px;
+margin:0 auto;
+}
+
+.background .inner{
+position:relative;
+}
+
+#header_top {
+margin:0 auto;
+width:100%;
+background: #515661;
+position:fixed;
+top:0px;
+right:0px;
+color: #fff;
+height:20px;
+padding-top: 1px;
+z-index:9999;
+}
+
+	
+.header_top_content {
+color: #f5f5f5;
+ font-family: proxima_nova_rgregular,Proxima Nova,Helvetica Neue,Helvetica,sans-serif;
+ font-size: 12px;
+ padding:0px;
+ margin: 0;
+ 
+}
+
+.header_top_content a{
+text-decoration:none;
+color: #F5F5F5;
+ font-family: proxima_nova_rgregular,Proxima Nova,Helvetica Neue,Helvetica,sans-serif;
+ font-size: 12px;
+ line-height: 1.4em;
+ margin: 0;
+ padding: 0;
+}
+
+#header{
+margin:0px;
+width:100%;
+background: #fff;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+height:113px;
+}
+
+#topnav{
+z-index:40;
+padding:0;
+font-size:14px;
+text-align:right;
+vertical-align: middle;
+color:#444;
+}
+
+#topnav a {
+color:#444;;
+}
+
+#container {
+margin: 0 auto;
+text-align: left;
+width: 974px;
+background: transparent;
+padding: 10px;
+}
+
+.overlay{
+position:absolute;
+z-index:20;
+right:0;
+top:53px;
+width:300px;
+background:#fff;
+padding:10px;
+-webkit-border-radius:12px;
+-moz-border-radius:12px;
+border-radius:12px;
+}
+
+.logo {
+align:left;
+padding-top: 28px;
+padding-bottom:0px;
+padding-left: 0px;
+margin: 0px; 
+width:230px;
+text-align: center;
+}
+
+.logo h1 {
+font-family: Myraid Pro;
+font-size: 15px;
+color: #0058A4;
+margin-top:0px;
+font-weight: 1800;
+}
+
+.logo a:hover {
+text-decoration:none;
+}
+
+
+
+.headerfont {
+font: 13px/1.231 arial,helvetica,clean,sans-serif;
+color:#444;
+font-weight: 800;
+font-size: 14px;
+line-height: 20px;
+text-align: middle;
+height: 13px;
+width:140px;
+}
+
+
+#bar {
+margin:0px;
+padding: 0px;
+height:1px;
+background: #CDDCED;
+opacity:0.9;
+}
+
+#content-wrapper{
+width: 974px;
+background: #fff;
+margin:0 auto;
+}
+
+#rectbox {
+background: #9cc0ff;
+padding: 0px;
+margin: 10px;
+width:644px;
+}
+
+#footer {
+color: #eee;
+clear: both;
+margin: 0px;
+padding: 0px;
+}
+
+.footertop {
+margin: auto;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 0px;
+padding-right: 0px;
+text-align: center;
+background: #464646 url('../images/home/darkgraygradientbg.png') repeat-x;
+}
+
+.footerbottom {
+margin: auto;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 0px;
+padding-right: 0px;
+text-align: center;
+background: #333333;
+}
+
+#footer a {
+color:#CCC;
+text-decoration: none;
+}
+
+#footer a:hover{
+color:#CCC;
+font-style: none;
+text-decoration: underline;
+}
+
+#footer  td {
+ color: #EEEEEE;
+ font-family: Lucida Grande,Lucida Sans Unicode,sans-serif;
+ font-size: 12px;
+ line-height: 20px;
+ margin: 0;
+ padding: 0;
+}
+
+.footertabheader {
+ color: #B0B0B0;
+ font-family: Lucida Grande,Lucida Sans Unicode,sans-serif;
+ font-size: 12px;
+ line-height: 20px;
+ margin: 0;
+ padding: 0;
+}
+
+.footertab {
+ color: #CCC;
+ font-family: Lucida Grande,Lucida Sans Unicode,sans-serif;
+ font-size: 10px;
+ line-height: 20px;
+ margin: 0;
+ padding: 0;
+}
+
+/* begin of styles for nifty corners */
+.rtop,.rbottom{
+display:block;
+}
+.rtop *,.rbottom *{
+display:block;
+height: 1px;
+overflow: hidden;
+}
+.r1{
+margin: 0 5px;
+}
+.r2{
+margin: 0 3px;
+}
+.r3{
+margin: 0 2px;
+}
+.r4{
+margin: 0 1px;
+height: 2px;
+}
+.rs1{
+margin: 0 2px;
+}
+.rs2{
+margin: 0 1px
+}
+
+.roundedbox {
+margin-bottom: 10px;
+padding: 0px;
+background: #e5e5e5;
+}
+
+/* end of styles for nifty corners #FFE898 */
+.niftyboxcontent{
+padding: 5px 10px 5px 10px;
+}
+
+.content2d{
+padding-top: 5px;
+padding-left: 5px;
+padding-right:5px;
+padding-bottom:5px;
+background: #dce8ff url(http://eventbee.com/home/images/gradient_lightblue.gif) repeat-x 0 -5px; color:#000;
+}
+
+.content2b{
+padding-top: 5px;
+padding-left: 5px;
+padding-right:5px;
+padding-bottom:5px;
+background: #FFE696  url(http://eventbee.com/main/images/home/gradient_lightorange.gif) repeat-x 0 -5px;
+color:#0000;
+}
+
+.roundedboxheader {
+font-family: Myraid Pro;
+color: #333;
+font-size: 18px;
+font-weight: 1200;
+}
+
+.roundedboxheader  h2{
+font-family: Myraid Pro;
+color: #333;
+font-size: 18px;
+font-weight: 1200;
+}
+
+.rectboxheader {
+font-family: Myraid Pro;
+color:#09509e;
+font-size: 18px;
+font-weight: 1200;
+}
+
+.rectboxheader  h1{
+font-family: Myraid Pro;
+color:#09509e;
+font-size: 20px;
+font-weight: 1200;
+}
+
+.rectboxheader  h2{
+font-family: Myraid Pro;
+color:#09509e;
+font-size: 18px;
+font-weight: 1200;
+}
+
+.layoutwidget{
+display:none;
+background-color:#F5F5F5;
+padding-left:10px;
+padding-right:10px;
+padding-bottom:20px;
+margin-left:-70px;
+z-index: 100003;
+position:absolute;
+padding: 20px;
+border: 20px solid #ddd;
+/*--CSS3 Box Shadows--*/
+-webkit-box-shadow: 0px 0px 20px #000;
+-moz-box-shadow: 0px 0px 20px #000;
+box-shadow: 0px 0px 20px #000;
+/*--CSS3 Rounded Corners--*/
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+width: 550px;
+}
+
+.layoutwidget .imgclose{
+float:right;
+margin-right:-35px;
+margin-top:-35px;
+}
+
+.layoutwidget2{
+display:none;
+background-color:#F5F5F5;
+padding-left:10px;
+padding-right:10px;
+padding-bottom:20px;
+margin-left:-70px;
+z-index: 100003;
+position:absolute;
+padding: 20px;
+border: 20px solid #ddd;
+/*--CSS3 Box Shadows--*/
+-webkit-box-shadow: 0px 0px 20px #000;
+-moz-box-shadow: 0px 0px 20px #000;
+box-shadow: 0px 0px 20px #000;
+/*--CSS3 Rounded Corners--*/
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+width: 350px;
+}
+
+.layoutwidget2 .imgclose{
+float:right;
+margin-right:-35px;
+margin-top:-35px;
+position:relative;
+} 
+
+#backgroundPopup {
+   background-color: #080808;
+   display: none;
+   height: 1500px;
+   left: 0;
+   opacity: 0.5;
+   position: absolute;
+   top: 0;
+   width: 100%;
+   z-index: 1000;
+}
+
+.signuporloginbutton {
+     background: transparent;
+    border: 1px solid #BBBBBB;
+    box-shadow: 0 1px transparent;
+    border-radius:5px;
+    opacity:0.6;
+    cursor: pointer;
+    font-family: proxima_nova_rgregular,Proxima Nova,Helvetica Neue,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color:#626263;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 10;
+    padding: 4px 14px;
+}
+.signuporloginbuttonhover {
+   background: transparent;
+    border: 1px solid #626263;
+    box-shadow: 0 1px transparent;
+    border-radius:5px;
+    color: #45494D;
+    cursor: pointer;
+     font-family: proxima_nova_rgregular,Proxima Nova,Helvetica Neue,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+     margin-left: 10;
+    padding: 4px 14px;
+}
+
+.header_links a {
+    opacity:0.6;
+    cursor: pointer;
+    font-family: proxima_nova_rgregular,Proxima Nova,Helvetica Neue,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color:#626263;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 10;
+    padding: 4px 9px;
+}
+
+.header_links:hover a:hover{
+    opacity:1.0;
+    cursor: pointer;
+    font-family: proxima_nova_rgregular,Proxima Nova,Helvetica Neue,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color:#45494D;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 10;
+    padding: 4px 9px;
+    text-decoration:none;
+}
+
+
+.searchform {
+    background: transparent;
+    border: 0px solid rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    position: relative;
+	padding:3px;
+    margin-bottom:20px;
+}
+
+.searchform .icon-search {
+    background: url(/main/images/home/icon_search.png) no-repeat;
+	border: 0px;
+    bottom: 3px;
+    color: #FFFFFF;
+    padding: 10px;
+    position: absolute;
+    right: 3px;
+    cursor:pointer;
+    top:100px;
+	top:11px;
+}
+
+.visuallyhidden {
+    border: 0 none;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+
+.searchform input {
+    background: transparent;
+	border: 0px solid #ccc;
+    box-shadow: none;
+    font: 12px/1.3 "Lucida Grande",Lucida,Verdana,sans-serif;
+    margin: 0;
+    padding: 5px 10px;
+    text-decoration: none;
+   width: 95%;
+   margin:4px;
+}
+
+.searchform input:-moz-placeholder {
+    color: #ccc;
+}

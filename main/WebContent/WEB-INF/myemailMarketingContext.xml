@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="myemailmarketing_home" class="com.myemailmarketing.actions.EmailMarketingSummaryAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+<bean id="myemailmarketing_maillist" class="com.myemailmarketing.actions.EmailMarketingMailListAction" singleton="false">
+<property name="actionTitle" value="Member List: "></property>
+</bean>
+<bean id="myemailmarketing_maillistmanage" class="com.myemailmarketing.actions.EmailMarketingMailListAction" singleton="false">
+<property name="actionTitle" value="Manage"></property>
+</bean>
+<bean id="myemailmarketing_createcampaign" class="com.myemailmarketing.actions.CampaignAddAction" singleton="false">
+<property name="actionTitle" value="Create Campaign"></property>
+</bean>
+
+<bean id="myemailmarketing_campaignlistmanage" class="com.myemailmarketing.actions.CampaignManageAction" singleton="false">
+<property name="actionTitle" value="Create Campaign"></property>
+</bean>
+</beans>

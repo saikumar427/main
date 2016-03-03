@@ -1,0 +1,228 @@
+<!DOCTYPE  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta name="verify-v1" content="/2obWcBcvVqISVfmAFOvfTgJIfdxFfmMOe+TE8pbDJg=" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META Http-Equiv="Cache-Control" Content="no-cache">
+<META Http-Equiv="Pragma" Content="no-cache">
+<META Http-Equiv="Expires" Content="0">
+
+<title>Eventbee - Your Online Registration, Event Ticketing, Email Marketing And Event Promotion Solution</title>
+
+<meta name="Description" content="Easy to use web based Event Management solution that includes Event Ticketing, Email Marketing, Event Promotion and Membership Management" />
+
+<meta name="Keywords" content="event registration, event ticketing, online registration, online ticketing, conference registration, online event payments, event software, email marketing, membership management, paypal ticketing, google ticketing, facebook ticketing, ning ticketing, party ticketing, sports ticketing, venue ticketing"/>
+
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" type="text/css" href="css/homepage.css" />
+<link rel="stylesheet" type="text/css" href="build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="build/container/assets/skins/sam/container.css" />
+
+<script type="text/javascript" src="build/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="build/connection/connection-min.js"></script>
+<script type="text/javascript" src="build/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="build/container/container-min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="css/yuioverrides.css"/>
+
+<script type="text/javascript" src="js/common/nifty.js"></script>
+<script type="text/javascript" src="js/common/common.js"></script>
+<script type="text/javascript" src="js/homepagenifty.js"></script>
+<script language="javascript" src="js/popup.js">
+ 	function popupdummy(){}
+</script>
+<script>
+window.onload=function(){
+if(!NiftyCheck())
+    return;
+Rounded("div#hangingpanel1", "#e5e5e5");
+Rounded("div#hangingpanel2", "#e5e5e5");
+Rounded("div#hangingpanel3", "#e5e5e5");
+Rounded("div#hangingpanel4", "#e5e5e5");
+Rounded("div#hangingpanel5", "#e5e5e5");
+Rounded("div#hangingpanel6", "#e5e5e5");
+}
+</script>
+</head>
+<body class="yui-skin-sam">
+
+
+<div id="header">
+<!-------------------------Begin of Header----------------------------->
+ <div class="background">
+  <div class="inner">
+    <div class="logo"><a href="" ><img src="http://www.eventbee.com/home/images/logo_big.jpg" style="border-style: none">
+    <br/><img src="http://www.eventbee.com/home/images/caption.jpg" style="border-style: none"></a>
+    </div>
+    <div id="topnav">
+    <% 
+    if(session.getAttribute("SESSION_USER")==null){
+    	%>
+	   <span>
+	   <a href="user/signup" STYLE="text-decoration: none">
+	   	  <b><span class="headerfont">Sign Up</span></b>
+	   	  </a>
+	   	   |  
+	   	  <a href="user/login" STYLE="text-decoration: none">
+	   	  <b><span class="headerfont">Login</span></b>
+	   	  </a>
+	   	   |  
+	   	  <a href="http://help.eventbee.com"  target="_blank" STYLE="text-decoration: none">
+	   	  <b><span class="headerfont">Help</span></b>
+	   	  </a>
+<!--
+	   	  | 
+	   	  <a href="javascript:popupwindow('http://www.eventbee.com/home/links/livechat.html','Tags','600','400')" STYLE="text-decoration: none">
+	   	  <b><span class="headerfont">Chat</span></b>
+	   </a>
+-->
+	   </span>
+<%
+    }else{
+%>
+<span>
+		<a href="/mainnew/myevents/home" STYLE="text-decoration: none">
+	   	  <b><span class="headerfont">My Account</span></b>
+	   	  </a>|
+	   
+	   <a href="user/logout" STYLE="text-decoration: none">
+	   	  <b><span class="headerfont">Logout</span></b>
+	   	  </a>|
+
+	   	  <a href="http://help.eventbee.com"  target="_blank" STYLE="text-decoration: none">
+	   	  <b><span class="headerfont">Help</span></b>
+	   	  </a> |
+	   	  <a href="javascript:popupwindow('http://www.eventbee.com/home/links/livechat.html','Tags','600','400')" STYLE="text-decoration: none">
+	   	  <b><span class="headerfont">Chat</span></b>
+	   </a>
+	   </span>
+<%
+    }
+%>
+    </div><!-- end top-nav -->
+    <div class="overlay"><!-- -------- SignUp image nsertion -->
+   <div id="hangingpanel1" class="roundedbox"> 
+	 	   <div class="niftyboxcontent"><table width="100%" class="content2b"><tr><td>
+	 	  <%@ include file="/home/signup.jsp" %>
+	 	   </td></tr></table>
+	 	   </div>
+	 </div> 
+	 <div id="hangingpanel6" class="roundedbox">
+	 	 <div class="niftyboxcontent" class="content2">
+	 	 <table width="100%"  valign="top" cellpadding="0" cellspacing="0" height="150">
+	         <tr><td class="roundedboxheader">Customers & Testimonials</td></tr>
+	 	 <tr><td>
+	 	 <jsp:include page="home/testimonials.jsp">
+	 	 <jsp:param name="type" value="event"/>
+	 	 </jsp:include>
+	 	 </td></tr>
+	      </table>
+	      </div>
+	 </div>
+        
+	 
+	 <div id="hangingpanel2" class="roundedbox"  id="container">
+	  	  	   <div class="niftyboxcontent"><table width="100%" class="content2">
+	  	  	   <tr><td>
+	  	  	   <%@ include file="/home/creditcardprocessinghelp.jsp" %>
+	 	  </td></tr></table>
+	  	  	   </div>
+	  </div>
+	   <div id="hangingpanel3" class="roundedbox"  id="container">
+	  	  	   <div class="niftyboxcontent"><table width="100%" class="content2">
+	  	  	   <tr><td>
+	  	  	   <%@ include file="/home/eventbeeservices.jsp" %>
+	 	  </td></tr></table>
+	  	  	   </div>
+	  </div>
+	  <div id="hangingpanel4" class="roundedbox"  id="container">
+	  	  	   <div class="niftyboxcontent"><table width="100%" class="content2">
+	  	  	   <tr><td>
+	  	  	   <%@ include file="/home/twitterimage.jsp" %>
+	 	  </td></tr></table>
+	  	  	   </div>
+	  </div>
+	 
+
+    </div><!--end overlay -->
+  </div><!-- end inner-->
+ </div><!--end background-->
+<div id="bar"></div>
+<!-------------------------End of Header----------------------------->
+</div>
+<div id="content-wrapper">
+ <table valign="top" cellpadding="0" cellspacing="0"><tr><td>
+
+
+    <div id="rectbox"><table cellpadding="0" cellspacing="0"><tr><td height="150"><a href="/mainnew/user/signup"><img src="http://www.eventbee.com/mainnew/images/home/ebee4.jpg" width="644" border="0"/></a></td></tr></table>
+    </div>
+
+
+
+
+<div id="rectbox">
+<div id="eventcontent" class="leftboxcontent">
+<table width="100%" class="content2d" valign="top" cellpadding="3" height="150">
+<tr><td valign="top" class="rectboxheader">Featured Events</td></tr>
+<tr><td>
+<jsp:include page="home/getevents.jsp">
+<jsp:param name="type" value="event"/>
+</jsp:include>
+</td></tr>
+<tr>
+<td  align='right' colspan="2"  >
+	&raquo;&nbsp;<a href="/mainnew/myevents/createevent">List Event</a>&nbsp;&nbsp;&nbsp;
+	</td></tr>
+</table>
+</div>
+</div>
+<div id="rectbox">
+<div id="classcontent" class="leftboxcontent">
+<table width="100%" class="content2d" valign="top" cellpadding="3" height="150">
+<tr><td valign="top" class="rectboxheader">Featured Classes</td></tr>
+<tr><td>
+ <jsp:include page="home/getevents.jsp">
+<jsp:param name="type" value="class"/>
+</jsp:include>
+</td></tr>
+<tr >
+<td  colspan="2" align="right" >
+&raquo;&nbsp;<a href="/mainnew/myevents/createevent">List Class</a>&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div id="rectbox"><table width="100%" class="content2d">
+<tr><td valign="top" class="rectboxheader">Press Quotes</td></tr>
+<tr><td height="150"><%@ include file="/home/pressquotes.jsp" %></td></tr></table>
+</div>
+<div>
+<table height="250" style="background: #fff;"><tr><td></td></tr></table>
+</div>
+
+</td></tr></table>
+</div>
+
+<div  id="footer" >
+ <!-------------------------Begin of Footer----------------------------->
+ <jsp:include page="/layout/footer.jsp"></jsp:include>
+ <!-------------------------End of Footer----------------------------->
+ </div>
+ <div id="iframepopupdialog"><div id="hd"></div><div id="bd"></div></div>
+<!-- Start of HubSpot Logging Code  -->
+<script type="text/javascript" language="javascript">
+var hs_portalid=17765; 
+var hs_salog_version = "2.00";
+var hs_ppa = "eventbee.app101.hubspot.com";
+document.write(unescape("%3Cscript src='" + document.location.protocol + "//" + hs_ppa + "/salog.js.aspx' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- End of HubSpot Logging Code -->
+</body>
+</html>
+

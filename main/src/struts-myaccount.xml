@@ -1,0 +1,53 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+   <package name="myaccount" extends="struts-default" namespace="/myaccount">
+   <result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+	</result-types>
+	 <interceptors>
+   
+<interceptor name="authenticate"  class="com.eventbee.interceptors.AuthInterceptor"/>
+<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />	
+<interceptor-stack name="authenticateStack">
+<interceptor-ref name="fileUpload" />
+<interceptor-ref name="prepare" />
+<interceptor-ref name="params" />
+<interceptor-ref name="chain" />
+<interceptor-ref name="conversionError" />
+<interceptor-ref name="i18nSession" />
+<interceptor-ref name="i18n" />
+<interceptor-ref name="authenticate" />
+<interceptor-ref name="validation" />
+<interceptor-ref name="workflow" />
+</interceptor-stack>
+</interceptors>
+<default-interceptor-ref name="authenticateStack" /> 
+
+	<action name="home"  class="mysettings_accountinfo">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="input" type="tiles">myaccount.accountinfo.page</result>
+			<result name="validationerrors">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+			<result name="success">/mysettings/accinfoajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="beecreditshistory">/eventmanage/seating/ajaxjson.jsp</result>
+            <result name="exporttoexcel">/eventmanage/ExcelExport.jsp</result>
+		    <result name="exporttocsv">/eventmanage/ExportToCSV.jsp</result>
+			<result name="paypalscreen">paymentdata.jsp</result>
+		    <result name="closepaypalscreen">closepaypalscreen.jsp</result>
+	</action>
+	<action name="alerts"  class="mysettings_alerts">
+			<result name="error">/user/login</result>
+			<result name="input">/mysettings/alerts.jsp</result>
+			<result name="success" type="tiles">myaccount.home.page</result>
+	</action>
+	<action name="*"  class="mysettings_{1}">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">mysettings.{1}.page</result>
+	</action>		 
+	</package>
+</struts>
+
+

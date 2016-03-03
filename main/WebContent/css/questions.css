@@ -1,0 +1,145 @@
+.lists {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    #border-bottom: 1px solid #ddd;
+    display: block;
+    #margin-bottom: 2px;
+    padding: 10px 6px;
+}
+
+.question img{
+	vertical-align: sub !important;
+	margin-bottom: -6px;
+	margin-right: 5px;
+	cursor: move;
+}
+
+.tktquestion img{
+	vertical-align: sub !important;
+	margin-bottom: -6px;
+	margin-right: 5px;
+	cursor: move;
+}
+
+.multisort img{
+	vertical-align: sub !important;
+	margin-bottom: -7px;
+	#margin-right: 5px;
+	#margin-left: 10px;
+	cursor: move;
+}
+
+.tktmultisort img{
+	vertical-align: sub !important;
+	margin-bottom: -7px;
+	#margin-right: 5px;
+	#margin-left: 10px;
+	cursor: move;
+}
+
+.extramargin > .pull-right {
+        float: right !important;
+    }
+    
+
+@media (max-width: 1200px) {
+    .extramargin > .pull-right {
+        float: none !important;
+    }
+}
+
+
+@media (min-width: 768px) {
+	.extramargin > .pull-right {
+        float: right !important;
+    }
+}
+@media (min-width: 992px) {
+  .extramargin > .pull-right {
+        float: right !important;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .extramarginform > .pull-right {
+        float: none !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .extramarginforminline > .pull-right {
+        float: none !important;
+    }
+}
+
+.extramarginques > .pull-right {
+        float: right !important;
+    }
+@media (min-width: 320px) {
+	.extramarginques > .pull-right {
+        float: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+	.extramarginques > .pull-right {
+        float: right !important;
+    }
+}
+@media (min-width: 992px) {
+  .extramarginques > .pull-right {
+        float: right !important;
+    }
+}
+
+
+
+.form-inline .form-control {
+    width: 100% !important;
+}
+
+.dragicon{
+	position:relative;
+	#left:-8px;
+	top:25px;
+}
+
+.dragiconDelete{
+	position:relative;
+	#left:-8px;
+	top:3px;
+}
+
+.listsLabel{
+	padding: 12px 6px;
+}
+.extramarginques{
+	
+	margin:10px 0;
+}
+
+.sub-questions{
+	position:relative;
+	top:3px;
+}
+
+.top-gap{
+	margin-top: 10px;
+}
+
+.bottom-top-gap{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.qn-name{
+	padding:0px;
+	margin-left:15px;
+}
+
+/* .well{
+	border:0px !important;
+	border-radius:0px !important;
+	box-shadow:none !important;
+} */

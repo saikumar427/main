@@ -1,0 +1,207 @@
+.result{
+	background-color: white;
+	position:relative;
+    -webkit-box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.25); 
+	-moz-box-shadow:    0px -1px 3px 0px rgba(0, 0, 0, 0.25); 
+	box-shadow:       0px 0px 3px 0px rgba(0, 0, 0, 0.25); 
+	
+	background-clip: padding-box;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 7px 15px 15px;
+    padding-top:15px;
+    border-bottom:none;
+    margin-top: 10px;
+    min-height: 0px;
+    margin-bottom: 0px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+}
+.resultblock{
+	background-color: white;
+	border-top:none;
+	-webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25); 
+	-moz-box-shadow:    0px 1px 3px 0px rgba(0, 0, 0, 0.25); 
+	box-shadow:        0px 0px 3px 0px rgba(0, 0, 0, 0.25); 
+	background-clip: padding-box;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+	margin-top: -10px;
+	padding: 0 15px 15px;  
+	border-top:none; 
+	border-top-left-radius:0px;
+	border-top-right-radius:0px;
+}
+
+.hideDiv{
+height:10px;
+border:none;
+background:white;
+position:relative;
+}
+
+.all-date-range{
+	width:auto !important;
+	padding-right:0px !important;
+}
+
+.all-datepicker{
+	
+	display:none;
+}
+
+.date-range-from{
+	#width:100px;
+	#margin-left: 15px;
+}
+
+.date-range-to{
+	#width:100px;
+}
+
+.date-range-label-to{
+		#margin-left: 15px;
+  #margin-right: 15px;
+ 
+}
+
+.date-range-label{
+	padding-top:8px;
+	 
+}
+
+.view-div{
+	padding-left:25px !important;
+	padding-right:0px !important; 
+	margin-bottom:10px !important;
+}
+
+.view-btn{
+	margin-left: 8px;
+	margin-right: 15px;
+}
+
+.display-fields-link{
+	padding-top:6px !important;
+	padding-left:0px !important;
+}
+
+.display-fields-div{
+	display:none;
+	margin:0px !important;
+	margin-bottom:10px !important;
+}
+
+.display-fields{
+	width: 3.333%;
+}
+
+.fields-select-all{
+	margin-top: 10px;
+}
+
+.rep-filter-nav{
+	background:#f5f5f5; 
+	margin: 0px !important;
+	padding:6px;
+	border:1px solid #ddd;
+}
+
+.status-filter{
+	width:auto !important;
+	padding-right:0px !important;
+	padding-left:0px !important;
+}
+
+.tickets-filter{
+	width:auto !important;
+	padding-right:0px !important;
+	padding-left:0px !important;
+}
+
+@media (max-width: 1200px) {
+    .inputwidth {
+        width:113px !important;
+    }
+}
+
+.form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+
+.form-validate-theme {
+    border-radius: 5px; 
+    border: 2px solid #ff4747;
+    background: #ffffff;
+    color: #000;
+}
+.form-validate-theme .tooltipster-content {
+    /*font-family: Tahoma, sans-serif;*/
+    width:100%;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 8px 10px;
+}
+
+.extramargintabs{
+	margin:10px 0px;
+}
+
+.dataTables_paginate {
+  margin-top: 8px !important;
+}
+
+.report-content{
+	margin-top:-15px;
+}
+
+.excel-csv-links{
+	padding: 6px;
+}
+
+.dataTables_filter.closeClass {
+  transition: all 0.35s, border-radius 0s;
+  width: 34px;
+  height: 34px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 0px;
+  border: 1px solid #ccc;
+  cursor:pointer !important;
+  
+}
+
+.form-inline .form-control{
+	width:inherit;
+}
+.open{
+  width: 220px;
+  border-radius: 0px;
+}
+
+.dataTables_filter span.search-result {
+    position: relative;
+    top: -34px;
+    #left: 0px;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.aFname{
+margin-top: 8px;
+}
+
+.nowell:hover{
+background-color:#fff !important;
+}
+
+

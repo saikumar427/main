@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="eventmanageInterceptorClass" class="com.eventbee.interceptors.EventManageInterceptor" singleton="false">
+<property name="actionTitleMap">
+ <map>
+ 	<!-- Summary Section -->
+     <entry key="Snapshot"><value>Event Summary</value></entry>
+     <entry key="EventDetails"><value>Event Summary</value></entry>
+     <entry key="EditEvent"><value>Event Details</value></entry>
+     <entry key="UpgradeEvent"><value>Upgrade Event</value></entry>
+     <entry key="PaymentSettings"><value>Payment Settings</value></entry>
+     <entry key="ManageTickets"><value>Tickets</value></entry>
+     <entry key="regquestions"><value>Questions</value></entry>
+     <entry key="ManageDiscounts"><value>Discounts</value></entry>
+     <entry key="DiscountDetails"><value>Discounts &gt; Discount Details</value></entry>
+     <entry key="RSVPReports"><value>RSVP Reports</value></entry>
+     <entry key="RSVPSettings"><value>RSVP Settings</value></entry>
+     <entry key="Reports"><value>Reports</value></entry>
+    
+     <!-- Integration Section -->
+    <entry key="integrationeventurl"><value>Event URL</value></entry>
+     <entry key="integrationbuttons"><value>Buttons Code</value></entry>
+     <entry key="integrationwidget"><value>Widget Code</value></entry>
+     <entry key="integrationfb"><value>Facebook URL</value></entry>
+     <entry key="IntegrationLinks"><value>Integration Links</value></entry>
+     <!-- Attendee Section -->
+     <entry key="AttendeeActions"><value>Manage Attendees</value></entry>
+     <entry key="EmailAttendees"><value>Email Attendees</value></entry>
+	 <entry key="emailattendeepopup"><value>Email Attendees</value></entry>
+     <entry key="addattendeemanual"><value>Add Attendee</value></entry>
+	 <entry key="searchattendee"><value>Search Attendee</value></entry>
+     <entry key="TransactionDetails"><value>Transaction Details</value></entry>
+     <entry key="EditAttendee"><value>Edit Profile</value></entry>
+     <entry key="EditAttendeeProfile"><value>Edit Profile</value></entry> 
+     <entry key="EditBuyerInfo"><value>Edit Profile</value></entry>
+     <entry key="EditTransactionTickets"><value>Edit Tickets</value></entry> 
+      <entry key="RSVPEditResponses"><value>Edit Responses</value></entry>
+     <entry key="Badges"><value>Badges</value></entry>     
+     <!-- Customization Section -->
+     <!--entry key="EventThemes"><value>Theme</value></entry-->
+     <entry key="CustomizationActions"><value>Manage Customization</value></entry>
+     <!--entry key="themepage"><value>Look &amp; Feel</value></entry-->
+     <!--entry key="htmlncsscustomization"><value>Theme HTML &amp; CSS</value></entry-->
+     <entry key="EventPageContent"><value>Content</value></entry>     
+     <entry key="DisplayTickets"><value>Ticket Display</value></entry>
+     <entry key="RSVPWordCustomize"><value>RSVP Wordings</value></entry>
+     <entry key="RegWordCustomize"><value>Wording</value></entry>
+     <entry key="RegEmailSettings"><value>Confirmation Email</value></entry>
+     <entry key="ConfirmationPageSettings"><value>Confirmation Page</value></entry>
+     <entry key="LooknFeel"><value>Look &amp; Feel</value></entry> 
+     <entry key="LayOutManager"><value>Page Design</value></entry> 
+     <entry key="BuyerPage"><value>Buyer Page</value></entry>
+     <!-- Marketing Section -->
+     <entry key="MarketingActions"><value>Marketing</value></entry>
+     <entry key="PublishtoFacebook"><value>Facebook Listing</value></entry>
+     <!-- Track URL Section -->
+     <entry key="ManageGroupDealTickets"><value>Group Tickets</value></entry>
+     <entry key="TrackURL"><value>Tracking URLs</value></entry>
+     <entry key="manageappsettings"><value>Manager App Settings</value></entry>
+     <entry key="manageTrackURLs"><value>Manage Track URL</value></entry>
+     <entry key="trackURLsreport"><value>Track URL Report</value></entry>
+     <entry key="TrackURLsReportsSummary"><value>All Reports</value></entry>     
+     <entry key="TicketURLs"><value>Private Tickets URLs</value></entry> 
+     <entry key="NTSTickets"><value>Network Ticket Selling</value></entry>
+     <entry key="ScanIDs"><value>Scan IDs</value></entry> 
+     <entry key="Seating"><value>Venue Seating</value></entry>
+     <entry key="seatingaddmanual"><value>Venue Seating &gt; Availability Status</value></entry>  
+     <entry key="SubManager"><value>Sub Manager</value></entry>
+     <entry key="WaitList"><value>Waitlist</value></entry>    
+     <entry key="WaitListDetails"><value>Waitlist Details</value></entry>           
+     <entry key="priorityregistration"><value>Priority Registration</value></entry> 
+     <entry key="printedtickets"><value>Preprinted Tickets</value></entry>
+     <entry key="createprintedtickets"><value>Preprinted Tickets</value></entry>
+     <entry key="OrderConfirmation"><value>Order Confirmation</value></entry>
+     <entry key="TicketSettings"><value>Ticket Settings</value></entry>
+     <entry key="TicketingRules"><value>Ticketing Rules</value></entry>
+      
+      
+     
+ </map>
+</property>  
+<property name="menuMap">
+ <map>
+ 	<!-- Summary Section -->
+     <entry key="Snapshot"><value>EventDetails</value></entry>
+	 <entry key="EventDetails"><value>Snapshot</value></entry>    
+ 	 <entry key="EditEvent"><value>EditEvent</value></entry>
+     <entry key="UpgradeEvent"><value>UpgradeEvent</value></entry>
+     <entry key="PaymentSettings"><value>PaymentSettings</value></entry>
+     <entry key="ManageTickets"><value>ManageTickets</value></entry>
+     <entry key="regquestions"><value>ManageRegistrationForm</value></entry>
+     <entry key="ManageDiscounts"><value>ManageDiscounts</value></entry>
+     <entry key="DiscountDetails"><value>ManageDiscounts</value></entry>
+     <entry key="RSVPReports"><value>RSVPReports</value></entry>
+     <entry key="RSVPSettings"><value>RSVPSettings</value></entry>     
+     <entry key="Reports"><value>Reports</value></entry>
+     <!-- Integration Section -->
+      <entry key="integrationeventurl"><value>integrationeventurl</value></entry>
+     <entry key="integrationbuttons"><value>integrationbuttons</value></entry>
+     <entry key="integrationwidget"><value>integrationwidget</value></entry>
+     <entry key="integrationfb"><value>integrationfb</value></entry>
+     <entry key="IntegrationLinks"><value>IntegrationLinks</value></entry>
+     <!-- Attendee Section -->
+     <entry key="searchattendee"><value>searchattendee</value></entry> 
+     <entry key="AttendeeActions"><value>AttendeeActions</value></entry>
+     <entry key="EmailAttendees"><value>EmailAttendees</value></entry>
+	 <entry key="emailattendeepopup"><value>EmailAttendees</value></entry>
+     <entry key="addattendeemanual"><value>AddAttendee</value></entry>
+     <entry key="TransactionDetails"><value>TransactionDetails</value></entry>
+     <entry key="EditTransactionTickets"><value>EditTransactionTickets</value></entry>
+     <entry key="EditAttendee"><value>EditAttendee</value></entry> 
+     <entry key="EditAttendeeProfile"><value>EditAttendeeProfile</value></entry>   
+     <entry key="RSVPEditResponses"><value>RsvpEditResponses</value></entry>            
+     <entry key="Badges"><value>Badges</value></entry> 
+     <!-- Customization Section -->
+     <!--entry key="EventThemes"><value>EventThemes</value></entry-->
+     <entry key="CustomizationActions"><value>CustomizationActions</value></entry>
+     <!--entry key="themepage"><value>EventCustomization</value></entry-->
+     <!--entry key="htmlncsscustomization"><value>HTMLnCSSCustomization</value></entry-->
+     <entry key="EventPageContent"><value>EventPageContent</value></entry>     
+     <entry key="DisplayTickets"><value>DisplayTickets</value></entry>
+     <entry key="RSVPWordCustomize"><value>RSVPWordCustomize</value></entry>
+     <entry key="RegWordCustomize"><value>RegWordCustomize</value></entry>
+     <entry key="RegEmailSettings"><value>RegEmailSettings</value></entry>
+     <entry key="SpecialFeeHelper"><value>SpecialFeeHelper</value></entry>
+     <entry key="ConfirmationPageSettings"><value>ConfirmationPageSettings</value></entry>
+     <entry key="LooknFeel"><value>LooknFeel</value></entry> 
+     <entry key="LayOutManager"><value>LayOutManager</value></entry> 
+     <entry key="BuyerPage"><value>BuyerPage</value></entry>
+     <!-- Marketing Section -->
+     <entry key="MarketingActions"><value>MarketingActions</value></entry>
+     <entry key="PublishtoFacebook"><value>PublishtoFacebook</value></entry>  
+     <!-- Track URL Section -->
+     <entry key="ManageGroupDealTickets"><value>ManageGroupTickets</value></entry>     
+     <entry key="manageappsettings"><value>ManagerAppSettings</value></entry>
+     <entry key="TrackURL"><value>TrackURL</value></entry>
+     <entry key="manageTrackURLs"><value>TrackURL</value></entry>
+     <entry key="trackURLsreport"><value>TrackURL</value></entry> 
+     <entry key="TrackURLsReportsSummary"><value>TrackURL</value></entry>     
+     <entry key="TicketURLs"><value>TicketURLs</value></entry>
+     <entry key="NTSTickets"><value>NetworkTicketSelling</value></entry>
+     <entry key="ScanIDs"><value>ScanIDs</value></entry>   
+     <entry key="Seating"><value>Seating</value></entry>  
+     <entry key="seatingaddmanual"><value>Seating</value></entry>
+     <entry key="SubManager"><value>SubManager</value></entry>
+     <entry key="WaitList"><value>WaitList</value></entry>       
+     <entry key="WaitListDetails"><value>WaitListDetails</value></entry>
+     <entry key="priorityregistration"><value>PriorityRegistration</value></entry>
+     <entry key="printedtickets"><value>PrintedTickets</value></entry>    
+     <entry key="createprintedtickets"><value>PrintedTickets</value></entry>
+     <entry key="OrderConfirmation"><value>OrderConfirmation</value></entry>
+     <entry key="TicketSettings"><value>TicketSettings</value></entry>
+     <entry key="TicketingRules"><value>TicketingRules</value></entry>
+     
+ </map>
+</property>  
+</bean>
+<!-- Summary Section -->
+<bean id="eventmanageSnapshotClass" class="com.eventmanage.actions.SnapshotAction" singleton="false"></bean>
+<bean id="eventmanageEditEventClass" class="com.eventmanage.actions.EditEventAction" singleton="false"></bean>
+<bean id="eventmanageUpgradeEventClass" class="com.eventmanage.actions.ListingOptionsAction" singleton="false"></bean>
+<bean id="myevents_copyevent" class="com.myevents.actions.CopyEventAction" singleton="false"></bean>
+<bean id="eventmanagePaymentSettingsClass" class="com.eventmanage.actions.PaymentSettingsAction" singleton="false"></bean>
+<bean id="eventmanageManageTicketsClass" class="com.eventmanage.actions.ticketing.ManageTicketsAction" singleton="false"></bean>
+<bean id="eventmanageTicketDetailsClass" class="com.eventmanage.actions.ticketing.TicketDetailsAction" singleton="false"></bean>
+<bean id="eventmanageGroupDetailsClass" class="com.eventmanage.actions.ticketing.GroupDetailsAction" singleton="false"></bean>
+<bean id="eventmanageTicketShowHideClass" class="com.eventmanage.actions.TicketShowHideAction" singleton="false"></bean>
+<bean id="eventmanageRegistrationClass" class="com.eventmanage.actions.RegistrationAction" singleton="false"></bean>
+<bean id="eventmanageManageDiscountsClass" class="com.eventmanage.actions.ManageDiscountsAction" singleton="false"></bean>
+<bean id="eventmanageDiscountDetailsClass" class="com.eventmanage.actions.DiscountDetailsAction" singleton="false"></bean>
+<bean id="eventmanageRSVPSettingsClass" class="com.eventmanage.rsvp.actions.RSVPSettingsAction" singleton="false"></bean>
+<bean id="eventmanageRSVPReportsClass" class="com.eventmanage.rsvp.actions.RSVPReportsAction" singleton="false"></bean>
+<bean id="eventmanageReportsClass" class="com.eventmanage.actions.ReportsAction" singleton="false"></bean>
+<bean id="eventmanageVolumeTicketDetailsClass" class="com.eventmanage.actions.ticketing.VolumeTicketDetailsAction" singleton="false"></bean>
+<bean id="eventmanagePriorityRegistrationClass" class="com.eventmanage.actions.PriorityRegistrationAction"></bean>
+<!-- Integration Section -->
+<bean id="eventmanageIntegrationLinksClass" class="com.eventmanage.actions.ButtonLinksAction" singleton="false"></bean>
+<!-- Attendee Section -->
+<bean id="eventmanageAttendeeActionsClass" class="com.eventmanage.actions.SimpleAction" singleton="false"></bean>
+<bean id="eventmanageEmailAttendeesClass" class="com.eventmanage.actions.EmailAttendeesAction" singleton="false"></bean>
+<bean id="eventmanageAddAttendeeClass" class="com.eventmanage.actions.AddAttendeeAction" singleton="false"></bean>
+<bean id="eventmanageAddAttendeeTemplateClass" class="com.eventmanage.actions.AddAttendeeVmAction" singleton="false"></bean>
+<bean id="eventmanageAddAttendeeTicketsClass" class="com.eventmanage.actions.AddAttendeeTicketsAction" singleton="false"></bean>
+<bean id="eventmanageAddAttendeePaymentClass" class="com.eventmanage.actions.AddAttendeePaymentAction" singleton="false"></bean>
+<bean id="eventmanageProfileJsonDataClass" class="com.eventmanage.actions.ProfileJsonDataAction" singleton="false"></bean>
+<bean id="eventmanageProfileVmDataClass" class="com.eventmanage.actions.ProfileVmDataAction" singleton="false"></bean>
+<bean id="eventmanageRSVPProfileJsonDataClass" class="com.eventmanage.actions.RSVPProfileJsonDataAction" singleton="false"></bean>
+<bean id="eventmanageRSVPProfileVmDataClass" class="com.eventmanage.actions.RSVPProfileVmDataAction" singleton="false"></bean>
+<bean id="eventmanageSaveRSVPProfileDetailsClass" class="com.eventmanage.actions.SaveRSVPProfileDetailsAction" singleton="false"></bean>
+<bean id="eventmanageSaveProfileDetailsClass" class="com.eventmanage.actions.SaveProfileDetailsAction" singleton="false"></bean>
+<bean id="eventmanageUpdateRegDbClass" class="com.eventmanage.actions.UpdateRegDbAction" singleton="false"></bean>
+<bean id="eventmanageTransactionDetailsClass" class="com.eventmanage.actions.TransactionDetailsAction" singleton="false"></bean>
+<bean id="eventmanageEditTransactionTicketsClass" class="com.eventmanage.actions.EditTransactionTicketsAction" singleton="false" ></bean>
+<bean id="eventmanageEditAttendeeClass" class="com.eventmanage.actions.EditAttendeeAction" singleton="false"></bean>
+<bean id="eventmanageEditProfileClass" class="com.eventmanage.actions.EditProfileAction" singleton="false"></bean>
+<bean id="eventmanageEditProfileDataClass" class="com.eventmanage.actions.EditProfileDataAction" singleton="false"></bean>
+<bean id="eventmanageBadgesClass" class="com.eventmanage.actions.BadgesAction" singleton="false"></bean>
+<bean id="eventmanageManageAttendeeSeatsClass" class="com.eventmanage.seating.actions.ManageAttendeeSeatsAction" singleton="false"></bean>
+<!-- Customization Section -->
+<bean id="eventmanageLooknFeelClass" class="com.eventmanage.actions.customization.LooknFeelAction" singleton="false"></bean>
+<bean id="eventManageLayOutManagerClass" class="com.eventmanage.layout.actions.LayoutManageAction" singleton="false"></bean>
+<bean id="eventmanageBuyerPageClass" class="com.eventmanage.buyerpage.actions.BuyerPageAction" singleton="false"></bean>
+<bean id="eventmanageEventThemesClass" class="com.eventmanage.actions.customization.EventThemesAction" singleton="false"></bean>
+<bean id="eventmanageCustomizationActionsClass" class="com.eventmanage.actions.SimpleAction" singleton="false"></bean>
+<bean id="eventmanageEventCustomizationClass" class="com.eventmanage.actions.customization.EventCustomizationAction" singleton="false"></bean>
+<bean id="eventmanageHTMLnCSSCustomizationClass" class="com.eventmanage.actions.customization.HTMLnCSSCustomizationAction" singleton="false"></bean>
+<bean id="eventmanageEventPageContentClass" class="com.eventmanage.actions.EventPageContentAction" singleton="false"></bean>
+<bean id="eventmanageAttendeeListDisplayFields" class="com.eventmanage.actions.AttendeeListDisplayFieldsAction" singleton="false"></bean>
+<bean id="eventmanageDisplayTicketsClass" class="com.eventmanage.actions.DisplayTicketsAction" singleton="false"></bean>
+<bean id="eventmanageRegWordCustomizeClass" class="com.eventmanage.actions.customization.RegWordCustomizeAction" singleton="false"></bean>
+<bean id="eventmanageRSVPWordCustomizeClass" class="com.eventmanage.actions.customization.RSVPWordCustomizeAction" singleton="false"></bean>
+<bean id="eventmanageRegEmailSettingsClass" class="com.eventmanage.actions.RegEmailSettingsAction" singleton="false"></bean>
+<bean id="eventmanageConfirmationPageSettingsClass" class="com.eventmanage.actions.ConfirmationPageSettingsAction" singleton="false"></bean>
+<bean id="eventmanageOrderConfirmationClass" class="com.eventmanage.actions.OrderConfirmationAction" singleton="false"></bean>
+<bean id="eventmanageSpecialFeeClass" class="com.eventmanage.actions.SpecialFeeAction" singleton="false"></bean>
+ <!-- Marketing Section -->
+ <bean id="eventmanageMarketingActionsClass" class="com.eventmanage.actions.SimpleAction" singleton="false"></bean>
+<bean id="eventmanagePublishtoFacebookClass" class="com.eventmanage.actions.PublishtoFacebookAction" singleton="false"></bean>
+<!-- Track URL Section -->
+
+<bean id="eventmanageManagerAppClass" class="com.eventmanage.actions.ManagerAppSettings" singleton="false"></bean>
+<bean id="eventmanageTrackURLClass" class="com.eventmanage.actions.TrackURLAction" singleton="false"></bean>
+<bean id="eventmanageTicketURLsClass" class="com.eventmanage.actions.TicketURLsAction" singleton="false"></bean>
+<bean id="eventmanageNoticeBoardClass" class="com.eventmanage.actions.NoticeboardAction" singleton="false"></bean>
+<bean id="eventmanageScanIDsClass" class="com.eventmanage.actions.ScanIDsAction" singleton="false"></bean>
+<bean id="eventmanageManageGroupDealTicketsClass" class="com.eventmanage.groupticketing.actions.ManageGroupDealTicketsAction" singleton="false"></bean>
+<bean id="eventmanageGroupTicketsShowHideClass" class="com.eventmanage.groupticketing.actions.GroupTicketsShowHideAction" singleton="false"></bean>
+<bean id="eventmanageGroupTicketDetailsClass" class="com.eventmanage.groupticketing.actions.GroupTicketDetailsAction" singleton="false"></bean>
+<bean id="eventmanageGroupTicketConfirmationPageSettingsClass" class="com.eventmanage.groupticketing.actions.GroupTicketConfirmationPageSettingsAction" singleton="false"></bean>
+<bean id="eventmanageGroupTicketConfirmationEmailClass" class="com.eventmanage.groupticketing.actions.GroupTicketConfirmationEmailAction" singleton="false"></bean>
+<bean id="eventmanageSeatingClass" class="com.eventmanage.seating.actions.SeatingAction" singleton="false"></bean>
+<bean id="eventmanageNetworkSellingClass" class="com.eventmanage.actions.NetworkSellingAction" singleton="false"></bean>
+<bean id="eventmanageSubManagerClass" class="com.eventmanage.actions.SubManagerAction" singleton="false"></bean>
+<bean id="eventmanageRefundClass" class="com.eventmanage.actions.RefundAction" singleton="false"></bean>
+<bean id="eventmanageWaitListClass" class="com.eventmanage.actions.WaitListAction" singleton="false"></bean>
+<bean id="eventmanagePrintedTicketsClass" class="com.eventmanage.actions.PrintedTicketsAction" singleton="false"></bean>
+<bean id="eventmanageTicketSettingsClass" class="com.eventmanage.actions.TicketSettingsAction" singleton="false"></bean>
+<bean id="eventmanageTicketingRulesClass" class="com.eventmanage.actions.TicketingRulesAction" singleton="false"></bean>
+</beans>

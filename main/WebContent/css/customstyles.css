@@ -1,0 +1,315 @@
+p {
+font-family:Lucida Grande,Lucida Sans Unicode,sans-serif;
+font-size:12px;
+padding: 0; margin: 0; 
+line-height:20px;
+text-shadow: 1px 1px 1px #5F8717;
+}
+
+
+h1 {
+color: #FFFFFF;
+float: center;
+font-size: 40px;
+font-weight: 800;
+letter-spacing: -1px;
+line-height: normal;
+margin-top: 2px;
+position: relative;
+text-shadow: 1px 1px 1px #5F8717;
+z-index: 10001;
+}
+
+h3 {
+font-family: droid-sans-1,droid-sans-2,sans-serif;
+color:#ffffff;
+font-size: 14px;
+font-weight: 800;
+letter-spacing: -1px;
+line-height: normal;
+margin-top: 2px;
+position: relative;
+text-shadow: 1px 1px 1px #5F8717;
+z-index: 10001;
+}
+
+td { 
+vertical-align:top;
+}
+
+ul, ol {
+margin: 0; padding: 0;
+}
+
+.title, .date {
+text-shadow: #8aa3c6 0px 1px 0px;
+}
+
+.textshadow {
+text-shadow: #000000;
+}
+.trxtshadow-2 {
+text-shadow: #768296 0px -1px 0px;
+}
+
+
+
+body {
+font-family:Lucida Grande,Lucida Sans Unicode,sans-serif;
+font-size:12px;
+color: #000000;
+line-height: 20px;
+background: url(http://www.eventbee.com/home/images/happy-new-year.jpg);
+margin: 0px;
+padding: 0px;
+}
+
+#topheader{
+width: 100%;
+min-height:30px;
+float: center;
+text-align: center;
+valign: middle;
+border-bottom:0px blue solid;
+padding: 10px;
+margin: 0px auto;
+background-color: #000;
+
+}
+
+#header{
+width: 100%;
+min-height:40px;
+float: center;
+text-align: center;
+valign: middle;
+border-bottom:0px blue solid;
+padding: 10px;
+margin: 0px auto;
+background: url(http://www.eventbee.com/home/images/nyeheaderbg.jpg);
+
+}
+
+
+
+#container {
+text-align: left;
+width: 1100px;
+background: url(http://www.eventbee.com/home/images/happy-fireworks-newyear-sky.gif) center;
+border-top: 2px solid url(http://www.eventbee.com/home/images/happy-new-year.jpg);
+margin-top: -40px;
+padding-top: 30px;
+position: relative;
+}
+
+# container {
+margin: 0 auto;
+}
+#container a {
+text-decoration: none;
+color: #610B0B;
+}
+
+#footer {
+margin: 0px auto;
+text-align: left;
+color: #fff;
+width: 100%;
+padding: 10px;
+text-align: center;
+font-size: 11px;
+font-valign: center;
+font-family: verdana;
+font-weight:normal;
+line-height: 140%;
+min-height: 40px;
+background-color: #888;
+background: url(http://www.eventbee.com/home/images/bg-footer.gif)  repeat-x;
+}
+
+#footer a:hover{
+color:#aaa;
+font-style: none;
+}
+
+#footer a {
+color:#eee;
+font-style: none;
+}
+
+#footer2 {
+margin: 0px auto;
+text-align: left;
+color: #fff;
+width: 100%;
+padding: 10px;
+text-align: center;
+font-size: 10px;
+font-valign: center;
+font-family: verdana;
+font-weight:normal;
+line-height: 140%;
+background-color: #555;
+background: url(http://www.eventbee.com/home/images/bg-grey3.gif)  repeat-x;
+
+}
+
+#footer2 a:hover{
+color:#aaa;
+font-style: none;
+}
+
+#footer2 a {
+color:#aaa;
+font-style: none;
+text-decoration: none;
+}
+
+.leftcol {
+align: left;
+margin: 0px;
+width: 820px;
+border: 0;
+padding: 0px;
+}
+
+.rightcol {
+align: right;
+text-align: left;
+width: 300px;
+margin: 0px;
+padding: 0px;
+}
+
+.rightcol ul li {
+margin: .2em 0 .4em .5em;
+list-style: circle;
+}
+
+.rightcol li {
+margin: .2em 0.5em .4em .9em;
+list-style: disc;
+}
+
+.rightcol a {
+text-decoration: none;
+color: #610B0B;
+;
+}
+
+.rightcol .attendeelist ul {
+margin: .2em 0 .4em .5em;
+list-style: disc;
+align: left;
+}
+
+.box {
+align: left;
+margin-top:10px;
+margin-bottom:20px;
+margin-left:10px;
+margin-right:10px;
+border: opx solid #eee;
+padding: 0px;
+spacing: 0px;
+}
+
+.boxheader {
+background: url(http://images.eventbee.com/images/photos/thumbnail/rUGTdnlG.jpg) 30% 20% repeat-x;
+margin: 0px;
+padding: 5px;
+}
+
+.boxcontent {
+background: #f5f5f5;
+margin: 0px;
+padding: 5px;
+}
+
+.hrline {
+color: #E0E0E0;
+width:100%;
+}
+
+.large {
+font-family:Verdana, sans-serif;font-size: 24px;color:#666666;
+font-weight:bold;
+line-height: 140%;
+}
+
+.medium {
+font-family: droid-sans-1,droid-sans-2,sans-serif;
+font-size:14px;
+color:#610B0B;
+font-weight:bold;
+line-height: 20px;
+margin: 0 0 10px;
+}
+
+
+.small {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: lighter;
+color: #666666;
+}
+
+.refundpolicy{
+background-color: #FFFFFF;
+width: 100%;
+padding: 0;
+color: #000000;
+height: auto;
+}
+
+.error{ 
+font-family: verdana; 
+font-size: 13px; 
+font-weight: normal; 
+color: #FF0000;
+}
+
+.fbbox {
+border: 1px solid #ccc;
+padding:5px;
+}
+
+.button-style {
+background: url(http://www.eventbee.com/main/images/bgimage.jpg) repeat-x scroll 0 0 transparent;
+border: 0.077em solid #BD9E43;
+cursor: pointer;
+font-family: arial;
+font-size: 13px;
+font-weight: bold;
+height: 21px;
+margin: 5px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 2px;
+width: 75px;
+text-align: center
+}000000;
+height: auto;
+}
+
+.error{ 
+font-family: verdana; 
+font-size: 13px; 
+font-weight: normal; 
+color: #FF0000;
+}
+
+.fbbox {
+border: 1px solid #ccc;
+padding:5px;
+}
+
+#caldatelink{text-decoration:none;}
+.CalendarRed{width:400px;height:40px;}
+.CalendarRed td{text-align:center;}
+.CalendarRed tr.TitleBar td{font-weight:bold;}
+.CalendarRed .WeekName td{font-weight:bold;}
+.CalendarRed{font:normal 10px Verdana, Arial, sans-serif;}
+#content .logo { position:relative; border-bottom:1px solid #48372b; padding:0 0 20px 13px; margin-bottom:12px;}
+#page5 #content .col-1 { background:url(http://www.lot46sf.com/images/bottle-bg.png) no-repeat top;}
+

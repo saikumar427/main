@@ -1,0 +1,7 @@
+<title>Facebook Event Promotion, Twitter Event Promotion with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Event Management solution that includes Online Registration, Event Ticketing, Event Promotion on Facebook and Twitter" />
+
+<meta name="Keywords" content="sell tickets, online registration, event ticketing, facebook ticketing, twitter ticketing, facebook rsvp, twitter rsvp, facebook event promotion, twitter event promotion" />
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/social-event-promotion" />

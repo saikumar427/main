@@ -1,0 +1,9 @@
+
+
+<title>Box Office Ticketing, Venue Ticketing, Venue Seating with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Event Management solution to power your Box Office Ticketing, Theater Ticketing, Venue Ticketing, Venue Seating with Venue Charts" />
+
+<meta name="Keywords" content="venue tickets, venue seating, venue booking, venue charts, venue promotion, box office ticketing, box office software, theater ticketing, theater seating"/>
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/theater-box-office-ticketing" />

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="mymarketing_home" class="com.mymarketing.actions.MarketingSummaryAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+<bean id="mymarketing_marketingmanage" class="com.mymarketing.actions.MarketingManageAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+</beans>

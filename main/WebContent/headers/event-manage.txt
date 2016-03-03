@@ -1,0 +1,6 @@
+<title>Event Management - iPhone, Android Check-In with Eventbee.</title>
+
+<meta name="Description" content="Easily track and manage every aspect of your event using Eventbee. Check-In attendees at the venue using our iPhone, Android real-time Attendee Check-In application.
+" />
+
+<meta name="Keywords" content="eventbee, attendee management, attendee list, iphone attendee check-in app, android attendee check-in app, onsite event management, onsite event tools"/>

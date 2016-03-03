@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="user_login" class="com.user.actions.LoginAction" singleton="false" >
+<property name="schemeToUse" value="http"></property>
+<property name="domain" value="www.eventbee.com"></property>
+<property name="ssldomain" value="www.eventbee.com"></property>
+</bean>
+<bean id="user_loginproblem" class="com.user.actions.LoginProblemAction" singleton="false" />
+<bean id="user_signup" class="com.user.actions.SignUpAction" singleton="false" >
+<property name="domain" value="www.eventbee.com"></property>
+</bean>
+<bean id="user_mytickets" class="com.user.actions.MyTicketsAction" singleton="false" />
+<bean id="user_emailcamp" class="com.user.actions.UnsubscribeCampaignAction" singleton="false"/>
+</beans>

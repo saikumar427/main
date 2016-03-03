@@ -1,0 +1,145 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+   <package name="myevents" extends="struts-default" namespace="/myevents">
+   <result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+	</result-types>
+	 <interceptors>
+   
+<interceptor name="authenticate"  class="com.eventbee.interceptors.AuthInterceptor"/>
+<interceptor-stack name="authenticateStack">
+<interceptor-ref name="fileUpload" />
+<interceptor-ref name="prepare" />
+<interceptor-ref name="params">
+ <param name="acceptParamNames">\w+((\.\w+)|(\[\d+\])|(\['\w+(\.\w+)*'\]))*</param>
+</interceptor-ref>
+<interceptor-ref name="chain" />
+
+<interceptor-ref name="conversionError" />
+<interceptor-ref name="authenticate" />
+<interceptor-ref name="validation" />
+<interceptor-ref name="workflow" />
+</interceptor-stack>
+</interceptors>
+<default-interceptor-ref name="authenticateStack" /> 
+	<action name="createevent"  class="myevents_createevent">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">myevents.createevent.page</result>
+			<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+			<result name="inserteventlistrack" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>
+			<result name="listed" type="tiles">myevents.eventlistsuccess.page</result>
+			<result name="jsondata">/myevents/listeventjson.jsp</result>
+			<result name="listingpopup">/myevents/listingpopup.jsp</result>
+
+	</action>
+	<action name="CopyEvent" class="myevents_copyevent">
+		<result name="error" type="redirect">/user/nologin.jsp</result>
+		<result name="success">/myevents/copyevent.jsp</result>
+                <result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>		
+		<result name="copiedsuccess" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>
+		<result name="jsondata">/myevents/listeventjson.jsp</result>
+	</action>
+	
+	<action name="eventslist" class="myevents_eventslist">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="eventsJson">/myevents/eventsbystatusjsondata.jsp</result>	
+		<result name="eventgroupsJson">/myevents/eventgroupsjsondata.jsp</result>	
+		<result name="eventthemesJson">/myevents/eventthemesjsondata.jsp</result>
+		<result name="preview" >/eventmanage/showfilename.jsp</result>
+		<result name="themecreated" type="redirect">/myevents/others</result>
+		<result name="usertheme" type="tiles">myevents.usertheme.page</result>
+		<result name="htmlncss" type="tiles">myevents.themehtmlncss.page</result>
+		<result name="eventsPageJson">/myevents/eventspagejsondata.jsp</result>
+		<result name="trackingpartnercreated" >/myevents/trackingpartnerjsondata.jsp</result>	
+	</action>
+	<action name="CreateTrackingPartner" class="myevents_createtrackingpartner">
+		<result name="error" type="redirect">/user/nologin.jsp</result>
+		<result name="success">/myevents/createtrackingpartner.jsp</result>
+		<result name="deleted" type="redirect">/myevents/home</result>
+		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>			
+	</action>
+	
+	<action name="others" class="my_others">
+	<result name="error" type="redirect">/user/login</result>
+	<result name="success" type="tiles">myevents.myothers.page</result>
+	</action>
+	
+	
+	
+	<action name="CreateEventGroup" class="myevents_createeventgroup">
+		<result name="error" type="redirect">/user/nologin.jsp</result>
+		<result name="add">/myevents/createeventgroup.jsp</result>
+		<result name="edit">/myevents/createeventgroup.jsp</result>
+		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>	
+		<result name="deleted">/mysettings/home</result>
+	</action>
+	<action name="ManageGroup" class="com.myevents.actions.GroupSummaryAction">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success"  type="tiles">myevents.manageeventgroup.page</result>
+		<result name="invalid" type="redirect">/myevents/home</result>
+		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+		<result name="preview" >/eventmanage/showfilename.jsp</result>
+		<result name="themeinput">/myevents/grouptheme.jsp</result>
+		<result name="themesaved">/eventmanage/ajaxmsg.jsp?msgKey=success</result>
+		<result name="customurl">/myevents/groupcustomurl.jsp</result>
+	</action>
+	<action name="ManageStreamer" class="myevents_managestreamer">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">myevents.managestreamer.page</result>
+		<result name="saved" type="redirect">/mysettings/home</result>
+		<result name="preview" >/myevents/showstreamerpreview.jsp</result>
+		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+	</action>
+	<action name="ManageTrackingPartner" class="myevents_managetrackingpartner">
+	          <result name="error" type="redirect">/user/login</result>
+		  <result name="managetrackingpartner" type="tiles">myevents.managetrackingpartner.page</result>
+		  <result name="trackmanagemessage" >/myevents/managetrackpartnermsg.jsp</result>
+		  <result name="trackmanagephotourl" >/myevents/managetrackpartnerphotourl.jsp</result>
+		  <result name="trackmanagestatus">/myevents/managetrackpartnerstatus.jsp</result>
+		  <result name="trackmanagepassword" >/myevents/managetrackpartnerpassword.jsp</result>
+		  <result name="deletetrackpartner" >/myevents/managetrackpartnerdelete.jsp</result>
+		  <result name="myotherevents" >/myevents/managemyotherevents.jsp</result>
+		  <result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+		  <result name="jsondata">/myevents/trackingpartnerurljsondata.jsp</result>
+	</action>
+	<action name="GetStreamerCode" class="com.myevents.actions.GetStreamerCodeAction">
+	         <result name="success" >/myevents/showstreamercode.jsp</result>
+	</action>
+	<action name="home"  class="myevents_home">
+		   <result name="error" type="redirect">/user/login</result>
+		   <result name="dummy">/myevents/dummy.jsp</result>
+		   <result name="success" type="tiles">myevents.myevents_home.page</result>
+	</action>
+	<action name="CustomizeEventsPageTheme" class="myevents_CustomizeEventsPageTheme">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="themeinput">/myevents/eventspagecustomization.jsp</result>
+		<result name="contentinput">/myevents/eventspagepreferences.jsp</result>
+		<result name="success">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>		
+		<result name="manage" type="tiles">myevents.manageeventspagetheme.page</result>	
+		<result name="preview" type="redirect">/eventmanage/showfilename.jsp</result>
+	</action>
+
+        <action name="accountreports" class="accountlevel_reports">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">myevents.accountlevelreports.page</result>	
+		<result name="reportsjson">/eventmanage/seating/ajaxjson.jsp</result>
+		<result name="exporttoexcel">/eventmanage/ExcelExport.jsp</result>
+		<result name="exporttocsv">/eventmanage/ExportToCSV.jsp</result>
+		<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+		<result name="duepopup">/myevents/duepopup.jsp</result>
+		<result name="chargepopup">/myevents/chargepopup.jsp</result>
+		<result name="ccjson">/eventmanage/ccjson.jsp</result>
+		<result name="alleventsjson">/eventmanage/alleventsjson.jsp</result>
+	</action>
+	
+   	<action name="*"  class="myevents_{1}">
+		   <result name="error" type="redirect">/user/login</result>
+		   <result name="success" type="tiles">myevents.{1}.page</result>
+	</action>		 
+	</package>
+</struts>
+

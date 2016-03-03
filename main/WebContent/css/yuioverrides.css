@@ -1,0 +1,68 @@
+.yui-dt table{
+width:100%;
+}
+.yui-navset div.loading div {           
+    background:url(../build/assets/skins/sam/ajax-loader.gif) no-repeat center center;
+    height:8em; /* hold some space while loading */
+}
+
+.yui-skin-sam .yui-panel td{
+padding-bottom: 10px;
+}
+
+.yui-navset div.loading div * {
+    display: none;
+}
+
+.yui-skin-sam .yui-panel .hd {
+padding: 6px 6px 6px 5px;
+}
+.yui-skin-sam .yui-navset .yui-content, .yui-skin-sam .yui-navset .yui-navset-top .yui-content {
+padding:5px;
+border-style: solid;
+
+}
+.yui-skin-sam .yui-panel .bd {
+padding:2px;
+}
+
+.yui-skin-sam .yui-navset .yui-nav, .yui-skin-sam .yui-navset .yui-navset-top .yui-nav {
+border-color: #5388c4;
+border-width: 0 0 1px;
+}
+
+.yui-skin-sam .yui-navset .yui-nav .selected a, .yui-skin-sam .yui-navset .yui-nav .selected a:focus, .yui-skin-sam .yui-navset .yui-nav .selected a:hover
+{
+background:#5388c4;
+}
+
+.yui-skin-sam .yui-navset .yui-nav a, .yui-skin-sam .yui-navset .yui-navset-top .yui-nav a {
+background: #f5f5f5;
+}
+.yui-skin-sam .yui-dt th {
+background: #f5f5f5;
+}
+.yui-skin-sam .yui-navset .yui-nav a:hover, .yui-skin-sam .yui-navset .yui-nav a:focus {
+background:  #5388c4;
+color: #ffffff;
+}
+
+.yui-skin-sam .yui-navset .yui-content, .yui-skin-sam .yui-navset .yui-navset-top .yui-content {
+border-style: solid;
+border-width: 1px;
+border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0;
+}
+
+.yui-skin-sam .yui-navset .yui-nav .selected a, .yui-skin-sam .yui-navset .yui-nav .selected a em {
+border-color:#C0C0C0;
+}
+.yui-skin-sam .yui-navset .yui-nav li, .yui-skin-sam .yui-navset .yui-navset-top .yui-nav li {
+margin: 0 0.32em 0 0;
+}
+.yui-skin-sam .yui-navset .yui-nav .selected, .yui-skin-sam .yui-navset .yui-navset-top .yui-nav .selected {
+margin: 0 0.32em 0 0;
+}
+
+.yui-skin-sam .container-close {
+top: 11px;
+}

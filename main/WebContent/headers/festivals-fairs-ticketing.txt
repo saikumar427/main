@@ -1,0 +1,8 @@
+
+<title>Fair Ticketing, Festival Ticketing with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Event Management solution to power your Festivals and Fairs online ticketing" />
+
+<meta name="Keywords" content="festivals, festival ticketing, festival registration, fairs, fairs ticketing, fairs registration" />
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/festivals-fairs-ticketing" />

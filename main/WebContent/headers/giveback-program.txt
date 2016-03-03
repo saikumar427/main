@@ -1,0 +1,7 @@
+<title>Charity Event Ticketing - Registration, Fundraising with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Charity Event Management software to power your Nonprofit event ticketing and Fundraising" />
+
+<meta name="Keywords" content="charity events, charity event ticketing, charity fundraising, non-profit events, non-profit ticketing, non-profit fundraising, non profit fundraising, non profit ticketing, nonprofit event management"/>
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/giveback-program" />

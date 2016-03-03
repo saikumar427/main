@@ -1,0 +1,116 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<package name="mycommunities" extends="struts-default" namespace="/mycommunities">
+<result-types>
+	<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+</result-types>
+<interceptors>
+<interceptor name="groupOwner"  class="communitymanageInterceptorClass"/>
+<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />	
+<interceptor-stack name="authenticateStack">
+<interceptor-ref name="fileUpload" />
+<interceptor-ref name="prepare" />
+<interceptor-ref name="params" />
+<interceptor-ref name="chain" />
+<interceptor-ref name="conversionError" />
+<interceptor-ref name="i18nSession" />
+<interceptor-ref name="i18n" />
+<interceptor-ref name="groupOwner" />
+<interceptor-ref name="validation" />
+<interceptor-ref name="workflow" />
+</interceptor-stack>
+</interceptors>
+<default-interceptor-ref name="authenticateStack" /> 
+  
+   <action name="AddCommunityMember"  class="mycommunities_AddCommunityMember">
+    <result name="jsondata">/mycommunities/communititeslistjsondata.jsp</result>
+    <result name="success" type="tiles">communitymanage.addunitmember.page</result>
+    <result name="changepwd">/mycommunities/changepwdpopup.jsp</result>
+    <result name="addmember" type="tiles">communitymanage.addmemberscreen.page</result>
+    <result name="addpassivemember" type="tiles">communitymanage.addpassivememberscreen.page</result>
+    <result name="onsavemember" type="redirect">AddCommunityMember?groupId=${groupId}</result>
+    <result name="managemembers" type="redirect">CommunityManage!showManageMembers?groupId=${groupId}</result>
+    <result name="ajaxmsg" type="redirect">/mycommunities/ajaxmsg.jsp?msgKey=success</result>
+    <result name="pwderror" >/eventmanage/ticketing/ticketadderrors.jsp</result>
+    <result name="error" type="redirect">/user/login</result>
+   </action>
+   
+   
+	<action name="CommunitesAction"  class="mycommunities_CommunitesAction">
+		<result name="jsondata">/mycommunities/communititeslistjsondata.jsp</result>
+		<result name="createcommunity">/mycommunities/createcommunity.jsp</result>
+		<result name="ajaxmsg" type="redirect">/mycommunities/ajaxmsg.jsp?msgKey=success</result>
+		<result name="inputerror" >/eventmanage/ticketing/ticketadderrors.jsp</result>
+	</action>
+	<action name="CommunityManage"  class="mycommunities_manageCommunity">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">communitymanage.snapshot.page</result>
+		<result name="showtermcond" type="tiles">communitymanage.termsandcond.page</result>
+		<result name="membershipsignup" type="tiles">communitymanage.membershipsignupreport.page</result>
+		<result name="membershiprenewal" type="tiles">communitymanage.membershiprenewalreport.page</result>
+		<result name="addmembershiptype" >/mycommunities/addmembershiptype.jsp</result>
+		<result name="managemembers" type="tiles">communitymanage.managemembers.page</result>
+		<result name="membershiptypesaved" >/mycommunities/success.jsp</result>
+		<result name="membershipdeleted" >/mycommunities/success.jsp</result>
+		<result name="displaymembershiplistjson">/mycommunities/membershiplistjsondata.jsp</result>
+		<result name="addmembershiperrors">/eventmanage/ticketing/ticketadderrors.jsp</result>
+		<result name="termcondsaved">/mycommunities/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+	</action>	
+	<action name="DiscountDetails"  class="com.mycommunities.actions.DiscountDetailsAction">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="input" >/mycommunities/discountdetailspage.jsp</result>
+		<result name="inputerror" >/eventmanage/ticketing/ticketadderrors.jsp</result>			
+		<result name="success" type="redirect">showdiscounts?groupId=${groupId}</result>
+	</action>
+	<action name="home"  class="mycommunities_home">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">mycommunities.communities_home.page</result>
+	</action>
+	<action name="IntegrationLinks"  class="mycommunities_IntegrationLinks">
+        <result name="error" type="redirect">/user/login</result>
+        <result name="success" type="tiles">communitymanage.IntegrationLinks.page</result>
+    </action>
+    <action name="ManageDiscounts"  class="mycommunities_manageDiscounts">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="jsondata">/discountdetails/discountdetailsjsondata.jsp</result>
+		<result name="deleted" type="redirect">showdiscounts?groupId=${groupId}</result>
+	</action>
+	<action name="ManageRegistrationForm"  class="mycommunities_manageRegistrationForm">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">communitymanage.manageregistrationform.page</result>
+		<result name="addquestion">/mycommunities/registrationform/managequestion.jsp</result>			
+		<result name="edit">/mycommunities/registrationform/managequestion.jsp</result>
+		<result name="deleted" type="redirect">ManageRegistrationForm.action?groupId=${groupId}&amp;msgKey=${msgKey}</result>			
+		<result name="saved" type="redirect">ManageRegistrationForm.action?groupId=${groupId}&amp;msgKey=${msgKey}</result>
+	</action>
+	  <action name="membershiptypes"  class="com.mycommunities.actions.MyCommunitiesWrapper">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">communitymanage.membershiptypes.page</result>		
+	</action>
+       
+       <action name="PassiveMemberCreatManual"  class="mycommunities_PassiveMemberCreateManual">
+        <result name="error" type="redirect">/user/login</result>
+        <result name="addPassiveMember" type="tiles">communitymanage.addpassivememberscreen.page</result>
+        <result name="onSave" type="redirect" >AddCommunityMember?groupId=${groupId}</result>
+       </action>
+       
+       
+	<action name="registrationform"  class="com.mycommunities.actions.MyCommunitiesWrapper">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">communitymanage.registrationform.page</result>		
+	</action>
+	<action name="showdiscounts"  class="com.mycommunities.actions.MyCommunitiesWrapper">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">communitymanage.managediscounts.page</result>		
+	</action>	
+	<action name="*"  class="mycommunities_{1}">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">mycommunities.{1}.page</result>
+	</action>		 
+</package>
+</struts>
+
+

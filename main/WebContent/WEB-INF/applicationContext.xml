@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="nqcontext" class="com.eventbee.namedquery.NQEventbeeConnection" singleton="true">
+<property name="context" value="java:/PostgresDS"></property>
+<!-- 
+for test server
+<property name="context" value="java:/PostgresDS"></property>
+-->
+</bean>
+<bean id="gcontext" class="com.eventbee.general.EventbeeConnection" singleton="true">
+<property name="context" value="java:/PostgresDS"></property>
+<!-- 
+for test server
+<property name="context" value="java:/PostgresDS"></property>
+-->
+
+</bean>
+</beans>

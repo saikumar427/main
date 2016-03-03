@@ -1,0 +1,7 @@
+<title>Membership Management - Manage Association, Club Members with Eventbee</title>
+
+<meta name="Description" content="Build community around your events to increase your event ticket sales. Manage your association, club or group membership payments and renewals using Eventbee." />
+
+<meta name="Keywords" content="membership management, membership management software, club management, club management software, association management, association management software"/>
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/membership-management" />

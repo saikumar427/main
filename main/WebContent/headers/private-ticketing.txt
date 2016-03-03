@@ -1,0 +1,7 @@
+<title>Private Event Ticketing, Registration with Eventbee</title>
+
+<meta name="Description" content="Enable private ticketing on your event, and sell tickets to exclusive group using Eventbee." />
+
+<meta name="Keywords" content="private ticketing, private online registration, private event ticketing, private online event registration"/>
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/private-ticketing" />

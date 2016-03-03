@@ -1,0 +1,7 @@
+<title>Sports Ticketing, Activity Ticketing, 5k, 10k Run and Walk Ticketing</title>
+
+<meta name="Description" content="Easy to use Online Event Registration system to power your Sports Events, Running Events, Activities, Races, Marathons, 5k, 10K walk & Half Marathons" />
+
+<meta name="Keywords" content="eventbee, running, marathon, 10k walk, 5k walk, sports ticketing, running registration, walk registration, marathon registration"/>
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/sports-activity-ticketing" />

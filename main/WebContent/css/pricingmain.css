@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+/* HEADER */
+#wrap { width:100%; min-height:840px; margin:-1px; background:url(../images/bg-home.jpg?r=1309887406) top repeat-x #fff; }
+.ie7 #wrap, .ie8 #wrap {margin:-17px auto;}
+#wrapInside { width:1010px; min-height:600px; margin:0 auto; background:url(../images/bg-inside.gif?r=1309887232) top repeat-y #fff; overflow:hidden; padding-bottom:20px; }
+#wrapMain{ width:970px; min-height:600px; margin:30px auto; padding-bottom:20px;}
+
+
+
+
+span.pt { font-size:12px; }
+
+tbody.content {font-size:13px;}
+tr.cycle { background-color:#f2f1f1; }
+
+
+
+.free { margin-top:12px; font-size:12px; text-align: center; margin-top: 30px; }
+span.strike { font-size:15px; color:#d30000; font-weight:normal; display:block; text-decoration:line-through; text-shadow:none; }
+
+
+
+
+/*Pricing table ok*/
+/* PRICING TABLE */
+
+#pricing_ok { padding:0px; margin:0px; clear:both; width:990px; }
+html>body table#pricing_ok {* width: 1135px;}
+table#pricing_ok .even td { background: #f8f7f7; height:34px; border-left:1px solid #cecccc; text-align:center; }
+table#pricing_ok .odd td { background: #f2f1f1; height:34px; border-left:1px solid #cecccc; text-align:center; }
+table#pricing_ok td.noBorder { border-left:none; padding-left:8px; text-align:left; }
+table#pricing_ok td.noBorder img { border:none; vertical-align:top; float:right; margin-right:8px; }
+table#pricing_ok th.thead { width:258px; height:142px; background:url(../images/pricing/gray-bg-left.gif) bottom right no-repeat; }
+html>body table#pricing_ok th.thead { *width:258px; }
+table#pricing_ok th.platinum, table#pricing_ok th.gold, table#pricing_ok th.silver, table#pricing_ok th.bronze, table#pricing_ok th.lite, table#pricing_ok th.free { width:139px; height:120px; color:#2d3238; font-size:22px; text-transform:uppercase; font-weight:normal; text-shadow:#ecedef -1px 1px 0; }
+
+table#pricing_ok th.platinum { background:url(../images/pricing/gray-bg-mid.jpg) bottom right no-repeat; margin:0px; padding:0px;}
+table#pricing_ok th.gold { background:url(../images/pricing/gray-bg-mid.jpg) bottom right no-repeat; margin:0px; padding:0px;}
+table#pricing_ok th.silver { background:url(../images/pricing/gray-bg-mid.jpg) bottom right no-repeat; margin:0px; padding:0px;}
+
+table#pricing_ok th.bronze { background:url(../images/pricing/gray-bg-mid.jpg) bottom right no-repeat; margin:0px; padding:0px;}
+table#pricing_ok th.lite { background:url(../images/pricing/gray-bg-mid.jpg) bottom right no-repeat; margin:0px; padding:0px;}
+table#pricing_ok th.free { background:url(../images/pricing/gray-bg-right.gif) bottom right no-repeat; } 
+
+html>body table#pricing_ok th.recommended { *width: 180px; *margin:0px; *padding:0px;}
+table#pricing_ok th a, table#pricing a:hover {/*color:#2D3238;*/text-transform:uppercase; text-decoration:none;}
+table#pricing_ok th.recommended a {color:#fff;text-decoration: none;}
+table#pricing_ok td.tooltip-help:hover {background-color: #fff;}
+table#pricing td.tool-hover:hover {background-color: #fff;}
+
+table#pricing_ok .learnMore a{color:#1e5ba7;text-decoration:underline;}
+table#pricing_ok .learnMore a:hover{color:#96c2f8;text-transform:capitalize;}
+
+table#pricing_ok th.platinum span.price, table#pricing th.gold span.price, table#pricing th.silver span.price, table#pricing th.bronze span.price,table#pricing th.lite span.price { display:block; color:#595959; font-size:16px; font-weight:bold; }
+table#pricing_ok th.strike {text-decoration:line-through;}
+table#pricing_ok span.price-discount { display:block; color:#595959; font-size:16px; font-weight:bold; margin-top:2px;}
+table#pricing_ok th.recommended span.price-discount {color:#fff;}
+
+
+table#pricing_ok td.section-bg { background-color:#dbe5f1; border-bottom:solid 1px #fff; height:42px; border-right:1px solid #c4cfda;}
+table#pricing_ok td.section-bg-even { background-color:#fff;border-bottom:solid 1px #fff;height:34px; }
+table#pricing_ok td.align-center { text-align:center; border-right:1px solid #c4cfda; }
+table#pricing_ok td.section-item, table#pricing td.section-item-nested { padding:6px 0 6px 0; border-right:1px solid #c4cfda; }
+table#pricing_ok td.section-item li { margin:0 0 0 40px; padding:5px 0; list-style:disc; color:#707070; }
+
+table#pricing_ok .text-pos{width:198px;position:relative;float:left;display:block;left:-25px;text-align:left;font-size:14px; left:2px; margin-top:5px; }
+table#pricing_ok .help-pos{width:16px;float:right;display:block;margin:5px 5px 0 0; }
+html>body table#pricing_ok .help-pos{*margin-right:15px;}
+#message_high_volume{clear: both; text-align: center; margin-bottom: 30px; font-size: 14pt;padding-top: 20px;}
+
+
+
+.small {
+	color: #666666;
+	font-size: 10px;
+	font-weight: lighter;
+}
+
+.rectboxheader {
+	color: #09509E;
+	font-family: Myraid Pro;
+	font-size: 18px;
+}
+
+.rectboxheader h1 {
+	color: #09509E;
+	font-family: Myraid Pro;
+	font-size: 20px;
+}
+
+p {
+	font-family: Lucida Grande, Lucida Sans Unicode, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+td {
+	font-family: Lucida Grande, Lucida Sans Unicode, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+body {
+	font-family: Lucida Grande, Lucida Sans Unicode, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	
+}
+
+
+
+
+.layoutwidget {
+	display: none;
+	background-color: #F5F5F5;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	margin-left: -70px;
+	z-index: 100003;
+	position: absolute;
+	padding: 20px;
+	border: 20px solid #ddd;
+	/*--CSS3 Box Shadows--*/
+	-webkit-box-shadow: 0px 0px 20px #000;
+	-moz-box-shadow: 0px 0px 20px #000;
+	box-shadow: 0px 0px 20px #000;
+	/*--CSS3 Rounded Corners--*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	width: 650px;
+}
+
+.layoutwidget .imgclose {
+	float: right;
+	margin-right: -35px;
+	margin-top: -35px;
+	position: relative;
+}
+
+#backgroundPopup {
+	background-color: #080808;
+	display: none;
+	height: 1600px;
+	left: 0;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+#pricing_ok td,#pricing_ok th,#pricing_ok ul,#pricing_ok li {
+	margin: 0px;
+	padding: 0px;
+}
+
+.roundedboxheader h2 {
+	padding: 0px;
+	margin: 0px;
+}
+
+#wrapMain h1 {
+	margin-bottom: 0px;
+}
+
+

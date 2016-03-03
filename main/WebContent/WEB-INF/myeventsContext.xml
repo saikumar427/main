@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="myevents_home" class="com.myevents.actions.MyEventsSummaryAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+<bean id="myevents_createevent" class="com.myevents.actions.AddEventAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+<bean id="myevents_showeventsbystatus" class="com.myevents.actions.ShowEventsAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+<bean id="myevents_eventslist" class="com.myevents.actions.ShowEventsAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+<bean id="myevents_createeventgroup" class="com.myevents.actions.EventsGroupAction" singleton="false">
+</bean>
+<bean id="myevents_copyevent" class="com.myevents.actions.CopyEventAction" singleton="false">
+</bean>
+<bean id="myevents_managestreamer" class="com.myevents.actions.ManageStreamerAction" singleton="false">
+<property name="actionTitle" value="Event Streamer Settings"></property>
+</bean>
+
+<bean id="my_others" class="com.myevents.actions.MyOthersAction" singleton="false">
+</bean>
+
+<bean id="myevents_CustomizeEventsPageTheme" class="com.myevents.actions.CustomizeEventsPageThemeAction" singleton="false">
+</bean>
+<bean id="myevents_createtrackingpartner" class="com.myevents.actions.TrackingPartnerAction" singleton="false"></bean>
+<bean id="myevents_managetrackingpartner" class="com.myevents.actions.ManageTrackingPartnerAction" singleton="false"></bean>
+<bean id="accountlevel_reports" class="com.myevents.actions.AccountLevelReportsAction" singleton="false"></bean>
+</beans>

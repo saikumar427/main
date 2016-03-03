@@ -1,0 +1,129 @@
+p {
+font-family:Lucida Grande,Lucida Sans Unicode,sans-serif;
+font-size:12px;
+color:#333;
+line-height:20px;
+}
+
+td {
+font-family:Lucida Grande,Lucida Sans Unicode,sans-serif;
+font-size:12px;
+color:#333;
+padding-bottom: 0px; padding-top: 0px; margin: 0;
+line-height:20px;
+}
+
+
+#bodycontainer {
+margin: 0 auto;
+text-align: left;
+width: 974px;
+color: #black;
+padding: 0px;
+background:#F8F8F8;
+margin-top:35px;
+}
+
+
+
+#singledatacol {
+margin:0px auto;
+padding:20px 0px 20px 0px;
+background: transparent;
+}
+
+#maincontent {
+background:#FFFFFF;
+border-radius: 10px 10px 10px 10px;
+border:2px solid #EEEEEE;
+padding:20px;
+}
+
+#datacol{
+width:800px;
+background: transparent;
+float: left; 
+
+}
+
+#footer {
+border-top: #26598C solid 0px;
+clear: both;
+margin: auto;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 0px;
+padding-right: 0px;
+text-align: center;
+font-size: 10px;
+font-valign: center;
+background: #777;
+color: #EEE;
+}
+
+#footer a:hover{
+color:#FFF;
+font-style: none;
+}
+
+/* Header styles start */
+#header{
+position:relative; 
+height: 126px;
+width:100%;
+background-repeat: repeat-x;
+}
+
+#headermenu{
+width:278px;
+height:20px;
+text-align:center;
+font-family:Albertus Medium, Verdana, Arial, sans-serif;
+font-size:13px;
+float:right;
+}
+
+#headermenu a:hover{
+background-color:#F4F4F4;
+color:#FF0000;
+}
+
+#headermenu a:link{
+text-decoration: none;
+color:#005ca1;
+}
+
+#headermenu a:visited{
+color:#005ca1;
+}
+
+/* Header styles end */
+
+#logo{
+width:230px;
+height:80px;
+margin-top:30px;
+float:left;
+}
+
+
+
+#menucol{
+width:150px; 
+float:left; 
+margin: auto;
+height:100%;
+valign:top;
+}
+
+
+#tasktitlebar{
+padding-left:15px;
+padding-right:5px;
+padding-top:5px;
+padding-bottom:5px;
+color:#777;
+background-color:#f8f8f8;
+font-weight: bold;
+font-family:Lucida Grande,Lucida Sans Unicode,sans-serif;
+}

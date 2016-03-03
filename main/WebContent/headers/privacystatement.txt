@@ -1,0 +1,5 @@
+<title>Eventbee - Privacy Statement</title>
+
+<meta name="Description" content="Eventbee privacy statement and policy" />
+
+<meta name="Keywords" content="eventbee, eventbee privacy, eventbee security"/>

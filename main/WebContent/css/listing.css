@@ -1,0 +1,115 @@
+/* tooltip custom theme */
+.my-custom-theme {
+	border-radius: 5px; 
+	border: 2px solid #5388C4;
+	background: #fbfcfd;
+	color: #000;
+	z-index:888;
+}
+.my-custom-theme .tooltipster-content {
+    /*font-family: Tahoma, sans-serif;*/
+    width:100%;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 8px 10px;
+	#opacity:0;
+}
+
+/* tooltip custom theme */
+.form-validate-theme {
+	border-radius: 5px; 
+	border: 2px solid #ff4747;
+	background: #fff4f4;
+	color: #000;
+	z-index:888;
+}
+.form-validate-theme .tooltipster-content {
+    /*font-family: Tahoma, sans-serif;*/
+    width:100%;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 8px 10px;
+}
+
+select {
+    border-radius: 5px;
+    padding: 6px;
+    outline: none;
+}
+
+/* map */
+#map {
+    border: 1px solid #CCC;
+    border-radius:5px;
+}
+
+.cancelremovedate,.confirmremovedate {
+    color:#5388c4;
+    text-decoration:none;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    text-decoration: none;
+}
+.cancelremovedate:hover,.confirmremovedate:hover {
+    color:#ff9933;
+    cursor:pointer;
+    text-decoration: none
+}
+.cancelremovedate:active,.confirmremovedate:active {
+    color:#ff9933;
+    text-decoration: none
+}
+#####
+.xdsoft_datetimepicker{
+z-index: 800;
+}
+
+.xdsoft_datetimepicker .xdsoft_label
+{z-index:700}
+
+.google-map-control{
+	width:100%;
+	height: 250px;
+}
+.google-map-iframe{
+	height: 280px; 
+	width: 100%;
+	border:0px;
+}
+
+.state-control{
+	float:left;
+	width:55%;
+}
+.zip-control{
+	float:right;
+	width:55%;
+}
+
+.recurring-time{
+	padding-bottom:20px;
+}
+
+.recurring-date{
+	padding-left:0px;
+}
+
+.recurring-date-picker{
+	margin-left: 65px;
+	width: 250px;
+}
+
+.recurring-schedule{
+	padding-left: 0;
+}
+
+.recurring-schedule-dates{
+	border:1px solid #ccc;
+	height:100px;
+}
+
+.listing-options{
+	padding-top:7px;
+}

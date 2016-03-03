@@ -1,0 +1,251 @@
+<script>
+var tickets_ticketgroup_helptitle="Event Groups";
+var tickets_showhidetickets_helptitle="Hide Tickets";
+var tickets_donations_helptitle="Donations";
+var tickets_ticketfee_helptitle="Ticketing Fee";
+var tickets_tickettypes_helptitle="Ticket Types";
+var paymentsettings_paymentmethod_helptitle="Payment Methods";
+var paymentsettings_tax_helptitle="Tax";
+var registrationform_transactionlevel_helptitle="Transaction Level Questions";
+var registrationform_ticketlevel_helptitle="Ticket Level Questions";
+var reports_attendeereports_helptitle="Attendee/Ticket Report";
+var reports_salesreports_helptitle="Sales Report";
+var reports_checkinreports_helptitle="Check-In Report (From Mobile App)";
+var content_photo_helptitle="Photo";
+var content_logonmsg_helptitle="Logo &amp; Message";
+var content_whosattending_helptitle="Who's Attending";
+var content_googlemap_helptitle="Google Map Display";
+var content_noticeboard_helptitle="Notice Board";
+var content_password_helptitle="Password Protection";
+var advanced_trackurl_helptitle="Track URLS";
+var advanced_ticketurl_helptitle="Tickets Page URLS";
+</script>
+
+<div id="editevent_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+<!-- End content -->
+</div>
+
+<div id="tickets_donation_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Donation type ticket allows attendee to enter his desired amount in the event registration process.
+<!-- End content -->
+</div>
+
+<div id="tickets_ticketgroup_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Ticket Group allows you to display similar tickets together under one header.
+<!-- End content -->
+</div>
+
+<div id="tickets_showhidetickets_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+You can show or hide tickets on your event page as you wish, by default all tickets are shown on the event page.
+<!-- End content -->
+</div>
+
+<div id="tickets_tickettypes_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Attendee Ticket - By default attendee first name and last name are collected for each ticket sale. Example: VIP Admission Ticket, General Admission Ticket etc.<br/>
+Non-Attendee Ticket - By default no information is collected for this ticket type. Example: T-Shirt, Meals etc.<br/>
+You can also collect as much as custom information for each ticket sale by adding questions to the ticket type in the Registration Form. 
+<!-- End content -->
+</div>
+
+<div id="tickets_ticketfee_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Eventbee service fee is $1 FLAT per ticket, but we allow you to collect whatever fee you want from the attendee. Note, all the money, including the fee you collected goes to you directly (if you are using PayPal or Google payment processing), and we will collect our $1 fee per ticket after the event is over.
+<!-- End content -->
+</div>
+
+<div id="paymentsettings_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Payment Settings help content here
+<!-- End content -->
+</div>
+
+<div id="paymentsettings_tax_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Collect tax on entire purchase by setting tax % here.
+<!-- End content -->
+</div>
+
+<div id="paymentsettings_paypal_helpcontent" style="visibility:hidden;height:0px;display:none;">
+<!-- Begin content -->
+<span class="smallestfont">
+Enter your PayPal email ID, and get payments directly to your PayPal account. If you don't have a PayPal account, <a href='https://www.paypal.com/us/mrb/pal=X7MC9MT27JZ3L' target='_blank'>please click here to sign up for a new PayPal account</a></span>
+<!-- End content -->
+</div>
+
+<div id="paymentsettings_google_helpcontent" style="visibility:hidden;height:0px;display:none;">
+<!-- Begin content -->
+<span class="smallestfont">
+Make sure to integrate your Google Checkout with Eventbee, <a href="javascript:popupwindow('http://www.eventbee.com/home/links/eventpayhelp.html','Tags','600','400')">click here</a> for instructions and slideshow.				
+If you don't have Google Merchant account, <a href="http://checkout.google.com/sell?promo=seeventbee" target="_blank">please click here to sign up for a new Google checkout account</a></span>			
+
+<!-- End content -->
+</div>
+
+<div id="reports_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Select Report type, Search filter, Display fields and click on Submit button to generate Report. You can export Report to Excel, PDF and CSV.
+<!-- End content -->
+</div>
+
+<div id="registrationform_transactionlevel_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Collect as much information as you want from the buyer at transaction level by asking questions. By default buyer's first name, last name, email are collected on each transaction. Click on Add New Question button to create a new transaction level question. 
+<!-- End content -->
+</div>
+
+<div id="registrationform_ticketlevel_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Collect as much information as you want at ticket level by asking questions. By default first name, last name, are collected for all attendee tickets. Click on Add New Question button to create a new ticket level question, and select tickets to which you would like to ask the question.
+<!-- End content -->
+</div>
+
+<div id="reports_attendeereports_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Generate attendee list with tickets information. Make sure of search filter to narrow down report results. Check display fields that you would like to see in report. You can export report to Excel, PDF or CSV.
+<!-- End content -->
+</div>
+
+<div id="reports_salesreports_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Generate ticket sales report with complete transaction report. Make sure of search filter to narrow down report results. Check display fields that you would like to see in report. You can export report to Excel, PDF or CSV.
+<!-- End content -->
+</div>
+
+<div id="reports_checkinreports_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Generate attendee check-in report. To see this you should have used our mobile app to check-in attendees at the venue.
+<!-- End content -->
+</div>
+
+<div id="Integrationlinks_eventurl_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Publish following URL on your website, emails and print media:
+<!-- End content -->
+</div>
+
+<div id="Integrationlinks_buttonscode_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Copy and paste the following code into your website or blog:
+<!-- End content -->
+</div>
+
+<div id="Integrationlinks_widgetcode_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Copy and paste the following widget code into your website to display tickets widget, and enable event registration within your website:
+<!-- End content -->
+</div>
+
+<div id="Integrationlinks_fburl_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Following URL directly takes to tickets page in Facebook context, display it in your Facebooki event description (or any other place within Facebook):
+<!-- End content -->
+</div>
+
+<div id="searchtransaction_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Search Transaction help content here
+<!-- End content -->
+</div>
+
+<div id="sendemail_testmail_helpcontent" style="visibility:hidden;height:0px;display:none;padding:5px;">
+<!-- Begin content -->
+Review your email content by sending test mail to yourself. This optional step helps you to correct any mistakes in the email before sending out to attendees.
+<!-- End content -->
+</div>
+
+<div id="Customization_themes_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+If you customized your event page by editing HTML & CSS or Look & Feel, those changes will be lost when you change the event theme here.
+<!-- End content -->
+</div>
+
+<div id="Customization_looknfeel_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+If you customized your event page by editing HTML & CSS or selecting theme, those changes will be lost when you change Look & Feel here.
+<!-- End content -->
+</div>
+
+<div id="Customization_htmlncss_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+If you customized your event page by selecting theme or Look & Feel, those changes will be lost when you change HTML & CSS here.
+<!-- End content -->
+</div>
+
+<div id="Customization_wordings_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+All the wordings in registration flow can be customized as per your needs.
+By default, words used in event registration flow are displayed in simple US English. You can change these words to whatever you want, and even to your own local language. 
+<!-- End content -->
+</div>
+
+<div id="Customization_confirmationemail_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+You can customize confirmation email that goes out to attendee as you wish, don't change Eventbee keywords that start with $ sign.
+<!-- End content -->
+</div>
+
+<div id="Customization_confirmationpage_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Customize Page Content help text
+<!-- End content -->
+</div>
+
+<div id="content_topheader_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Page Content help content here
+<!-- End content -->
+</div>
+
+<div id="content_photo_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Photo help content here
+<!-- End content -->
+</div>
+
+<div id="content_logonmsg_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Enter Logo URL and Message that will display in your Event Page. To enter URL and message click on Add/Change button
+<!-- End content -->
+</div>
+
+<div id="content_whosattending_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+You can choose to display Attendees in Event Page by clicking on Show radio button
+<!-- End content -->
+</div>
+
+<div id="content_googlemap_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+You can choose to display Google Map in Event Page by clicking on Show radio button
+<!-- End content -->
+</div>
+
+<div id="content_noticeboard_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Notice Board content here
+<!-- End content -->
+</div>
+
+<div id="content_password_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Password Protection content here
+<!-- End content -->
+</div>
+
+<div id="advanced_trackurl_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Track URLS Content Comes Here
+<!-- End content -->
+</div>
+
+<div id="advanced_ticketurl_helpcontent" style="visibility:hidden;height:0px;display:none">
+<!-- Begin content -->
+Tickets Page URLS Content Comes Here
+<!-- End content -->
+</div>
+

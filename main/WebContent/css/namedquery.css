@@ -1,0 +1,31 @@
+.head {
+	font-family: Verdana;
+	font-weight:bold;
+	font-size: medium;
+	background-color: #999999;
+}
+.tablehead {
+	font-family: Verdana;
+	font-weight:bold;
+	font-size: small;
+	background-color: #999999;
+}
+.tabledata {
+	font-family: Verdana;
+	font-size: small;
+	background-color: #CCCCCC;
+}
+.final {
+	font-family: Verdana;
+	font-size: medium;
+	background-color: #CCCCCC;
+	color: #0033FF;
+}
+.error {
+	font-family: Verdana;
+	font-size: small;
+	background-color: #FFFFDE;
+	color: #FF0000;
+}
+.evenbase { background-color: #e4fae6; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; font-family: Verdana; font-size: 12px; color: #000000; } 
+.oddbase { background-color: #f1fcf2; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;  border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; font-family: Verdana; font-size: 12px; color: black; }

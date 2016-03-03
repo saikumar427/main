@@ -1,0 +1,9 @@
+<title>Online Registration and Ticketing - Eventbee FAQ</title>
+
+<meta name="Description" content="Eventbee frequently asked questions on Online Registration, Event Ticketing and Venue Seating" />
+
+<meta name="Keywords" content="online registration, event ticketing, venue seating, paypal payments, google checkout, facebook event promotion, twitter event promotion, social event promotion,"/>
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/frequently-asked-questions" />
+
+

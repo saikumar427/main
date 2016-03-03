@@ -1,0 +1,123 @@
+/* tooltip custom theme */
+.my-custom-theme {
+	border-radius: 5px; 
+	border: 2px solid #5388C4;
+	background: #fbfcfd;
+	color: #000;
+}
+.my-custom-theme .tooltipster-content {
+    /*font-family: Tahoma, sans-serif;*/
+    width:100%;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 8px 10px;
+}
+
+/* tooltip custom theme */
+.form-validate-theme {
+	border-radius: 5px; 
+	border: 2px solid #ff4747;
+	background: #fff4f4;
+	color: #000;
+}
+.form-validate-theme .tooltipster-content {
+    /*font-family: Tahoma, sans-serif;*/
+    width:100%;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 8px 10px;
+}
+
+select {
+    border-radius: 5px;
+    padding: 6px;
+    outline: none;
+    width: 100%;
+    border-color: #ccc;
+}
+
+.panel-title a {
+    display: block;
+    padding: 10px 15px;
+    margin: -10px -15px;
+    text-decoration: none
+}
+
+.panel-group table {
+    margin-bottom: 0;
+}
+
+.panel-group tr a {
+    display: block;
+}
+
+.panel-group tr a {
+    display: block;
+}
+
+.groupticket {
+    text-align: center;
+}
+
+#tickets i.dragHandle {
+    cursor: move;
+}
+
+div.tooltip-inner {
+    max-width: 250px;
+}
+
+/* discounts */
+
+/* Badger
+------------------------- */
+
+[class*="badger"] {
+    position: relative;
+    margin: 15px 0;
+    padding: 5px 19px 14px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+[class*="badger"]:after {
+    content: attr(data-badger);
+    position: absolute;
+    top: 0;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #999;
+    color: #fff;
+}
+
+.badger-left:after {
+    left: 0;
+    border-radius: 6px 0 6px 0;
+}
+
+.badger-right:after {
+    right: 0;
+    border-radius: 0 6px 0 6px;
+}
+
+.badger-danger:after {
+    background: #d9534f;
+}
+
+.badger-warning:after {
+    background: #f0ad4e;
+}
+
+.badger-success:after {
+    background: #5cb85c;
+}
+
+.badger-info:after {
+    background: #5bc0de;
+}
+
+.badger-inverse:after {
+    background: #222;
+}

@@ -1,0 +1,7 @@
+<title>Class Online Registratin, Seminar Online Registration with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Event Management solution to power your Seminar and Class online registration" />
+
+<meta name="Keywords" content="seminar software, seminar registration, seminar online registration, class registration, class online registration" />
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/seminar-class-registration" />

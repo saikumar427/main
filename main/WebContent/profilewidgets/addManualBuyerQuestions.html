@@ -1,0 +1,98 @@
+<style>
+.question{
+margin-left: 4px !important;
+}
+
+</style>
+<div class="form-group" ng-if="question.type=='text'" ng-form="subForm">
+   <table width="100%">
+   <tr>
+	<td align="left" width="50%" valign="top">
+   <span class="col-sm-3 bodytextstyle">
+   <label ng-bind-html="question.label"></label> <span ng-show="question.required=='y'">*</span></span></td>
+	   <td align="left" width="50%" valign="top">
+	    <div ng-if="question.id!='email'" class="col-sm-7" ng-class="{'has-error':subForm.name.$error.required && !subForm.name.$pristine}">
+	        <input type="text" name="name"  ng-model="question.response" class="form-control" ng-required="question.required=='y'" ng-trim="true"/>
+	        <p ng-show="subForm.name.$error.required && !subForm.name.$pristine" class="help-block">This field is required.</p>
+	    </div>
+	  
+	     <div ng-if="question.id=='email'" class="col-sm-7" ng-class="{'has-error':subForm.name.$error.email && !subForm.name.$pristine}">
+	  <!--    {{fbemail}} -->
+	      
+	        <input type="email" name="name" ng-model="question.response" class="form-control" ng-required="question.required=='y'" />
+	        <p ng-show="subForm.name.$error.email && !subForm.name.$pristine" class="help-block">This field is required.</p>
+	    </div>
+	    </td>
+   </tr>
+    </table>
+</div>
+
+<div class="form-group" ng-if="question.type=='textarea'" ng-form="subForm">
+  <div class="row question">   <span class="col-sm-6 bodytextstyle"><label ng-bind-html="question.label"></label> <span ng-show="question.required=='y'">*</span></span></div>
+    <div class="row question"> <div class="col-sm-4" ng-class="{'has-error':subForm.name.$error.required && !subForm.name.$pristine}">
+        <textarea class="form-control" name="name" ng-model="question.response" ng-required="question.required=='y'" ></textarea>
+        <p ng-show="subForm.name.$error.required && !subForm.name.$pristine" class="help-block">This field is required.</p>
+    </div>
+    </div>
+</div>
+
+<div class="form-group" ng-if="question.type=='radio'" ng-form="subForm" ng-init="tempoptions=question.options">
+
+
+<div class="row question" >
+   <span class="col-sm-12  bodytextstyle"><label ng-bind-html="question.label"></label> <span ng-show="question.required=='y'">*</span></span></div>
+   <div class="row question"> 
+   <div class="col-sm-7" ng-class="{'has-error':subForm.name.$error.required}">
+   	 <span ng-repeat="option in question.options">
+        <label class="radio-inline" >
+            <input type="radio" name="{{ question.id }}" ng-model="question.response" value="{{option.value}}" ng-required="question.required=='y'" />{{ option.display }}
+        </label><br/>
+     </span>
+    </div>
+    </div>
+   
+    <span ng-repeat="subqns in tempoptions">
+     <div ng-if="question.response==subqns.value" ng-animate=" 'animate'" class="animate-enter animate-enter-active" >
+       <span ng-repeat="subQuestion in subqns.sub_questions">
+         <div ng-include="'/mainnew/profilewidgets/addManualSubBuyerQuestions.html'"></div>
+     </span> 
+     </div> 
+     </span>
+</div>
+
+<div class="form-group" ng-if="question.type=='checkbox'" ng-form="subForm" ng-init="checkboxoptions=question.options">
+<span ng-init="question.response={}"></span>
+  <div class="row question">  <span class="col-sm-12 bodytextstyle"><label ng-bind-html="question.label"></label> <span ng-show="question.required=='y'">*</span></span></div>
+    <div class="row question">  <div class="col-sm-12" >
+    <span ng-repeat="option in question.options">
+        <label class="checkbox-inline">
+            <input type="checkbox" name="checkboxgroup[]" ng-model="question.response[option.value]" ng-required="(question.required == 'y' && !atleastOneTrue(question.response))" />{{ option.display }}
+        </label><br/>
+        </span>
+    </div></div>
+
+    <span ng-repeat="subqns in checkboxoptions">
+     <div ng-if="question.response[subqns.value]==true" ng-animate=" 'animate'" class="animate-enter animate-enter-active">
+       <span ng-repeat="subQuestion in subqns.sub_questions">
+	 		<div ng-include="'/mainnew/profilewidgets/addManualSubBuyerQuestions.html'"></div>
+     </span> 
+     </div> 
+     </span>
+</div>
+<div class="form-group" ng-if="question.type=='select'" ng-form="subForm" ng-init="selectoptions=question.options">
+   <div class="row question"> <span class="col-sm-12 bodytextstyle"><label ng-bind-html="question.label"></label> <span ng-show="question.required=='y'">*</span></span></div>
+   <div class="row question"> <div class="col-sm-4" ng-class="{'has-error':subForm.name.$error.required && !subForm.name.$pristine}">
+        <select class="form-control" name="name" ng-model="question.response" ng-required="question.required=='y'" ng-options="option.value as option.display for option in question.options">
+            <option value="">-- Select an option --</option>
+        </select>
+        <p ng-show="subForm.name.$error.required && !subForm.name.$pristine" class="help-block">Select an option</p>
+    </div></div>
+    
+     <span ng-repeat="subqns in selectoptions">
+     <div ng-if="question.response==subqns.value" ng-animate="'animate'" class="animate-enter animate-enter-active">
+       <span ng-repeat="subQuestion in subqns.sub_questions">
+	 		<div ng-include="'/mainnew/profilewidgets/addManualSubBuyerQuestions.html'"></div>
+     </span> 
+     </div> 
+     </span>
+</div>

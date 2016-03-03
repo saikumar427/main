@@ -1,0 +1,57 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+   <package name="submanager" extends="struts-default" namespace="/submanager">
+   
+          <result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		   </result-types>
+		
+		<interceptors>
+			<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />				
+			<interceptor-stack name="i18nSessionStack">				
+						<interceptor-ref name="fileUpload" />
+						<interceptor-ref name="prepare" />
+						<interceptor-ref name="params">
+						 <param name="acceptParamNames">\w+((\.\w+)|(\[\d+\])|(\['\w+(\.\w+)*'\]))*</param>
+						</interceptor-ref>     
+						<interceptor-ref name="chain" />
+						<interceptor-ref name="conversionError" />
+						<interceptor-ref name="i18nSession" />
+						<interceptor-ref name="i18n" />
+						<interceptor-ref name="validation" />
+						<interceptor-ref name="workflow" />
+				</interceptor-stack>
+       </interceptors>
+		
+		<default-interceptor-ref name="i18nSessionStack" />
+		<global-results>
+			<result name="commonerror" type="tiles">helplinks.error.page</result>
+			<result name="nopermission" type="tiles">user.nopermission.page</result>
+			<result name="error" type="redirect">/submanager/login</result>
+		</global-results>
+		
+		<action name="login" class="com.submanager.actions.SubManagerLoginAction">
+			<result name="error" type="redirect">invalidrequest</result>
+			<result name="success" type="tiles">submanager.submgrlogin.page</result>
+			<result name="input" type="tiles">submanager.submgrlogin.page</result>
+			<result name="loggedin" type="redirect">/submanager/events</result>	
+		</action>
+		<action name="events" class="com.submanager.actions.SubmanagerEventsAction">
+			<result name="success" type="tiles">submanager.events.page</result>
+            <result name="eventsJson">/myevents/eventsbystatusjsondata.jsp</result>	
+			<result name="eventsjsondata">/myevents/eventsjsondata.jsp</result>	
+		</action>
+		<action name="logout" class="com.submanager.actions.SubManagerLoginAction" method="logout">
+			<result name="loggedout" type="redirect">/submanager/login?lang=${i18nCode}</result>	
+		</action>
+		<action name="changepassword" class="com.submanager.actions.SubManagerLoginAction">
+			<result name="changepwd">/submanager/changepassword.jsp</result>
+			<result name="pwdupdated" type="redirect">/user/ajaxstatusmsg.jsp?msgKey=${msgKey}</result>
+			<result name="inputerror">/eventmanage/mailadderrors.jsp</result>
+		</action>		 
+	</package>
+</struts>

@@ -1,0 +1,1 @@
+{"attributeid":"${attributeid}","qname":"${customattribute.name}"}

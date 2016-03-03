@@ -1,0 +1,7 @@
+<title>Club Ticketing, Party Ticketing and Promotion with Eventbee</title>
+
+<meta name="Description" content="Easy to use Online Ticketing solution to power your Club Ticketing or Party Ticketing" />
+
+<meta name="Keywords" content="party ticketing, club ticketing, club party ticketing, sell party tickets, sell club shows, promote party tickets" />
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/clubs-party-ticketing" />

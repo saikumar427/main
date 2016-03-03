@@ -1,0 +1,7 @@
+<title>Concert Ticketing, Music Ticketing and Promotion with Eventbee</title>
+
+<meta name="Description" content="Easy to use Online Ticketing solution to power your Music or Concert Ticketing" />
+
+<meta name="Keywords" content="concert tickets, music tickets, concert seating, music shows, concerts, concert ticketing, music ticketing" />
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/music-concert-ticketing" />

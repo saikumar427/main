@@ -1,0 +1,9 @@
+<%
+  if(session.getAttribute("SESSION_USER")==null){
+	  if(session.getAttribute("SESSION_SUBMGR")==null)
+		  out.println("false");
+	  else
+		  out.println("true");
+  }else
+	 out.println("true");
+ %>

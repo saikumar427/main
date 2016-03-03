@@ -1,0 +1,9 @@
+<title>Eventbee - Login problem? </title>
+
+<meta name="Description"
+	content="Easy to use web based Event Management solution that includes Event Ticketing, Email Marketing, Event Promotion and Membership Management" />
+
+<meta name="Keywords"
+	content="event registration, event ticketing, online registration, online ticketing, conference registration, online event payments, event software, email marketing, membership management, paypal ticketing, google ticketing, facebook ticketing, ning ticketing, party ticketing, sports ticketing, venue ticketing" />
+
+

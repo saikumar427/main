@@ -1,0 +1,8 @@
+
+<title>Online Ticketing - Sell Event Tickets Online with Eventbee</title>
+
+<meta name="Description" content="Power your event with Eventbee Online Ticketing and sell tickets online for FREE." />
+
+<meta name="Keywords" content="online ticketing, free ticketing, free event ticketing, free online event ticketing, sell tickets online"/>
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/sell-tickets-online" />

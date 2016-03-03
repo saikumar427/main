@@ -1,0 +1,89 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+   <package name="user" extends="struts-default" namespace="/user">
+   <result-types>
+	<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+	</result-types>
+	<interceptors>
+		<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />				
+		<interceptor-stack name="i18nSessionStack">				
+					<interceptor-ref name="fileUpload" />
+					<interceptor-ref name="prepare" />
+					<interceptor-ref name="params">
+					 <param name="acceptParamNames">\w+((\.\w+)|(\[\d+\])|(\['\w+(\.\w+)*'\]))*</param>
+					</interceptor-ref>     
+					<interceptor-ref name="chain" />
+					<interceptor-ref name="conversionError" />
+					<interceptor-ref name="i18nSession" />
+					<interceptor-ref name="i18n" />
+					<interceptor-ref name="validation" />
+					<interceptor-ref name="workflow" />
+			</interceptor-stack>
+	</interceptors>
+	<default-interceptor-ref name="i18nSessionStack" />
+		<action name="attendee"  class="user_login" method="getattendee">
+		<result name="success" type="tiles">user.attendee.page</result>
+		</action>
+		<action name="login"  class="user_login">
+		<result name="input" type="tiles">user.login.page</result>
+		<result name="success" type="tiles">user.login.page</result>
+		<result name="needhttps">/user/changetossl.jsp</result>
+		<result name="loggedin">/user/postlogin.jsp</result>
+		<result name="tokenized" type="redirect">../myevents/home</result>
+		<result name="actionpattern" type="redirect">/eventmanage/${actionPattern}</result>
+		<result name="createeventredirect" type="redirect">/myevents/createevent</result>	
+	  </action>
+		<action name="logout"  class="user_login" method="logout">
+	   	<result name="loggedout" type="redirect">../user/login?lang=${i18nCode}</result>
+		</action>
+		<action name="signup"  class="user_signup" >
+		<result name="success" type="tiles">user.signup.page</result>
+		<result name="loggedin">/user/postlogin.jsp</result>
+        <result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
+		<result name="activate"  type="tiles">user.activateuser.page</result>
+		<result name="actionvationlink"  type="tiles">user.actionvationlink.page</result>		
+		<result name="invalid" type="tiles">user.login.page</result>
+        <result name="error" type="tiles">helplinks.error.page</result>
+        </action>
+		<action name="loginproblem"  class="user_loginproblem" >
+		<result name="success">/user/loginproblem.jsp</result>
+		<result name="input" type="tiles">user.login.page</result>
+		<result name="sent" type="redirect">/user/ajaxstatusmsg.jsp?msgKey=${msgKey}</result>
+		<result name="inputerror">/eventmanage/mailadderrors.jsp</result>
+		</action>
+		<action name="mytickets"  class="user_mytickets" method="getticketsinfo">
+		<result name="ticketinfo" type="tiles">user.submitcontent.page</result>
+		<result name="success" type="redirect">/user/ajaxstatusmsg.jsp?msgKey=${msgKey}</result>
+	 	<result name="fail" type="redirect">/user/ajaxmsg.jsp?msgKey=${msgKey}</result>
+		</action>
+		
+		<action name="gettickets"  class="user_mytickets" method="getpdftickets">
+		<result name="ticketinfo" type="tiles">user.gettickets.page</result>
+		</action>
+		
+		<action name="emailcamp" class="user_emailcamp">
+		<result name="notunsubscribe" type="tiles">user.notunsubmsg.page</result>
+		<result name="decodedemailid" type="tiles">user.unsubscribe.page</result>
+		<result name="unsubscribe" type="tiles">user.unsubscribedone.page</result>
+		<result name="marketingdecodeemail" type="tiles">user.marketingunsubscribe.page</result>
+		<result name="marketingunsubscribe" type="tiles">user.marketingunsubscribedone.page</result>
+		</action>
+		
+		<action name="search" class="com.eventbee.actions.EventSearchAction">
+		<result name="success" type="tiles">helplinks.search.page</result>
+		</action>
+		
+		<action name="referfriend" class="com.user.actions.ReferFriendAction">
+		<result name="displaysuccess" >/eventmanage/success.jsp</result>
+		</action>
+		
+		<action name="*"  class="user_{1}">		   
+		<result name="success" type="tiles">user.{1}.page</result>			
+		</action>
+		 
+	</package>
+</struts>

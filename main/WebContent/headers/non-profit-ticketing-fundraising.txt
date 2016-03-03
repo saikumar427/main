@@ -1,0 +1,7 @@
+<title>Non Profit Ticketing - Nonprofit Events, Fundraising with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Event Management solution to power your Non profit events, Fundraisers and Charity events" />
+
+<meta name="Keywords" content="nonprofits, non profit ticketing, non profit events, non profit online registration, nonprofit event ticketing, non profit fundraising, nonprofit fundraisers, non profit donations, online donations, charity events" />
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/non-profit-ticketing-fundraising" />

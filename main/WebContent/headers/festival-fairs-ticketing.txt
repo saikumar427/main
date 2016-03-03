@@ -1,0 +1,7 @@
+
+<title>Sell Tickets - Festivals and Fairs Ticketing with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Event Management solution to power your Festivals and Fairs Online Registration and Ticketing" />
+
+<meta name="Keywords" content="festival ticketing, festival registration, fairs ticketing, fairs registration"/>
+

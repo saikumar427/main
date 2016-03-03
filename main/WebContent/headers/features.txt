@@ -1,0 +1,6 @@
+
+<title>Event Management Features - Eventbee</title>
+
+<meta name="Description" content="Hundreds of features built based on the experience Eventbee gained in Events industry since 2003." />
+
+<meta name="Keywords" content="events, event registration, event ticketing, online registration, online ticketing, venue seating, event registration form, paypal payments, google check out, event invitations, attendee management, iphone attendee check-in, android attendee check-in, event management"/>

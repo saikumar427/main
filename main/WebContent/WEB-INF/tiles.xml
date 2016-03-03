@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+ 
+  <definition name="baseLayout" template="/layout/baseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="baseref"  value=""/>
+	  <put-attribute name="basecontent"  value=""/>
+      <put-attribute name="header" value="/layout/baseheader.jsp"/>
+      <put-attribute name="maincontent"   value="/layout/body.jsp"/>
+      <put-attribute name="footer"   value="/layout/basefooter.jsp"/>
+  </definition>
+  
+  <definition name="fullPageHelpLayout" template="/layout/helpLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="baseref"  value=""/>
+	  <put-attribute name="basecontent"  value=""/>
+      <put-attribute name="header" value="/layout/helpheader.jsp"/>
+      <put-attribute name="maincontent"   value="/layout/body.jsp"/>
+      <put-attribute name="footer"   value="/layout/basefooter.jsp"/>
+  </definition>
+   <definition name="gapeHelpLayout" template="/layout/gapHelpLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="baseref"  value=""/>
+	  <put-attribute name="basecontent"  value=""/>
+      <put-attribute name="header" value="/layout/helpheader.jsp"/>
+      <put-attribute name="maincontent"   value="/layout/body.jsp"/>
+      <put-attribute name="footer"   value="/layout/basefooter.jsp"/>
+  </definition>
+  
+  
+  <definition name="eventmanageLayout" template="/layout/eventmanageLayout.jsp">
+      <put-attribute name="title"  value="Manage Event"/>
+      <put-attribute name="header"   value="/layout/mytasksheader.jsp"/>
+      <put-attribute name="menu"   value="/layout/eventmanagemenu.jsp"/>
+	  <put-attribute name="submanagermenu"   value="/layout/submanagermenu.jsp"/>
+      <put-attribute name="maincontent"   value=""/>   
+       <put-attribute name="footer"   value="/layout/basefooter.jsp"/>   
+   </definition>
+   
+   <definition name="eventReportsLayout" template="/layout/eventReportsLayout.jsp">
+      <put-attribute name="title"  value="Manage Event"/>
+      <put-attribute name="header"   value="/layout/mytasksheader.jsp"/>
+      <put-attribute name="maincontent"   value=""/>   
+      <put-attribute name="footer"   value="/layout/basefooter.jsp"/>   
+   </definition>
+   
+   <definition name="communitymanageLayout" template="/layout/communitymanageLayout.jsp">
+      <put-attribute name="title"  value="Manage Community"/>
+      <put-attribute name="header"   value="/layout/mytasksheader.jsp"/>
+      <put-attribute name="menu"   value="/layout/communitymanagemenu.jsp"/>
+      <put-attribute name="maincontent"   value=""/>   
+       <put-attribute name="footer"   value="/layout/footer.jsp"/>   
+   </definition>
+   <definition name="mytasksLayout" template="/layout/mytasksLayout.jsp">
+      <put-attribute name="title"  value="My Eventbee"/>
+      <put-attribute name="header"   value="/layout/mytasksheader.jsp"/>
+      <put-attribute name="maincontent"   value=""/>  
+       <put-attribute name="footer"   value="/layout/basefooter.jsp"/>    
+   </definition>
+   
+   <definition name="eventmanage.Reports.page" extends="eventReportsLayout">
+   <put-attribute name="title"  value="Manage Event: Reports"/>
+   <put-attribute name="action"  value="Reports"/>
+   <put-attribute name="menucontext"  value="events"/>
+   <put-attribute name="maincontent"   value="/eventmanage/Reports.jsp"/>
+   </definition>
+   <definition name="eventmanage.RSVPReports.page" extends="eventReportsLayout">
+   <put-attribute name="title"  value="Manage Event: RSVPReports"/>
+   <put-attribute name="action"  value="RSVPReports"/>
+   <put-attribute name="menucontext"  value="events"/>
+   <put-attribute name="maincontent"   value="/eventmanage/RSVPReports.jsp"/>
+   </definition>
+   
+   <definition name="eventmanage.LayOutManager.page" extends="eventReportsLayout">
+   <put-attribute name="title"  value="Manage Event: LayOutManager"/>
+   <put-attribute name="action"  value="LayOutManager"/>
+   <put-attribute name="menucontext"  value="events"/>
+   <put-attribute name="maincontent"   value="/eventmanage/LayOutManager.jsp"/>
+   </definition>
+   
+   <definition name="eventmanage.*.*.page" extends="eventmanageLayout">   
+   <put-attribute name="title"  value="Manage Event: {1}"/>
+   <put-attribute name="action"  value="{2}"/>
+   <put-attribute name="menucontext"  value="events"/>
+   <put-attribute name="maincontent"   value="/eventmanage/{2}.jsp"/>
+   </definition>     
+   <definition name="eventmanage.*Done.page" extends="eventmanageLayout">
+   <put-attribute name="title"  value="Manage Event: {1}"/>
+   <put-attribute name="action"  value="{1}"/>
+   <put-attribute name="menucontext"  value="events"/>
+   <put-attribute name="maincontent"   value="/eventmanage/done.jsp"/>
+   </definition>
+   <definition name="eventmanage.*.page" extends="eventmanageLayout">
+   <put-attribute name="title"  value="Manage Event: {1}"/>
+   <put-attribute name="action"  value="{1}"/>
+   <put-attribute name="menucontext"  value="events"/>
+   <put-attribute name="maincontent"   value="/eventmanage/{1}.jsp"/>
+   </definition>  
+   <definition name="communitymanage.*.page" extends="communitymanageLayout">
+   <put-attribute name="action"  value="{1}"/>
+   <put-attribute name="menucontext"  value="communities"/>
+   <put-attribute name="maincontent"   value="/mycommunities/{1}.jsp"/>      
+  </definition>
+   <definition name="myeventsbtsp.*.page" template="/layout/mytasksLayoutbootstrap.jsp" >
+      <put-attribute name="title"  value="My Eventbee"/>
+      <put-attribute name="header"   value="/layout/mytasksheaderbootstrap.jsp"/>
+      <put-attribute name="maincontent"   value="/myevents/{1}.jsp"/>  
+       <put-attribute name="footer"   value="/layout/basefooter.jsp"/>    
+   </definition>
+  <definition name="my*.*.page" extends="mytasksLayout">
+  <put-attribute name="menucontext"  value="{1}"/>
+  <put-attribute name="othercontext"  value="{2}"/>
+   <put-attribute name="maincontent"   value="/my{1}/{2}.jsp"/>      
+  </definition>   
+  
+        
+       
+   <definition name="user.*.page" extends="baseLayout">
+      <put-attribute name="title"  value="{1}"/>
+      <put-attribute name="baseref"  value="../"/>      
+	  <put-attribute name="basecontent"  value="{1}"/>
+      <put-attribute name="maincontent"   value="/user/{1}.jsp?"/>      
+  </definition> 
+  
+    <definition name="submanager.*.page" extends="baseLayout">
+      <put-attribute name="title"  value="{1}"/>
+      <put-attribute name="baseref"  value="../"/>      
+	  <put-attribute name="basecontent"  value="{1}"/>
+      <put-attribute name="maincontent"   value="/submanager/{1}.jsp"/>      
+  </definition>
+
+ 
+   
+      <definition name="home.*.page" extends="baseLayout">
+      <put-attribute name="title"  value="{1}"/>
+      <put-attribute name="baseref"  value="../"/>      
+	  <put-attribute name="basecontent"  value="{1}"/>
+      <put-attribute name="maincontent"   value="/home/{1}.jsp"/>      
+  </definition>
+  
+    <definition name="helplinksold.*.*.page" extends="gapeHelpLayout">   
+    	<put-attribute name="maincontent"   value="/help/{1}/{2}.jsp"/>
+     	<put-attribute name="baseref"  value="/main/"/>   
+     </definition>
+  
+     <definition name="mainhelp.*.*.page" extends="fullPageHelpLayout">   
+	    <put-attribute name="maincontent"   value="/help/{1}/{2}.jsp"/>
+	     <put-attribute name="baseref"  value="/main/"/>   
+      </definition>
+       
+       
+    <definition name="helplinks.*.page" extends="gapeHelpLayout">   
+    <put-attribute name="maincontent"   value="/help/en-us/{1}.jsp"/>
+     <put-attribute name="baseref"  value="/main/"/>   
+       </definition> 
+  
+</tiles-definitions>

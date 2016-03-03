@@ -1,0 +1,55 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<package name="mymarketing" extends="struts-default" namespace="/mymarketing">
+<result-types>
+	<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+</result-types>
+<interceptors>
+<interceptor name="authenticate"  class="com.eventbee.interceptors.AuthInterceptor"/>
+<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />	
+<interceptor-stack name="authenticateStack">
+<interceptor-ref name="fileUpload" />
+<interceptor-ref name="prepare" />
+<interceptor-ref name="params" />
+<interceptor-ref name="chain" />
+<interceptor-ref name="conversionError" />
+<interceptor-ref name="i18nSession" />
+<interceptor-ref name="i18n" />
+<interceptor-ref name="authenticate" />
+<interceptor-ref name="validation" />
+<interceptor-ref name="workflow" />
+</interceptor-stack>
+</interceptors>
+
+<default-interceptor-ref name="authenticateStack" /> 
+<global-results>
+<result name="error" type="redirect">/user/login</result>
+</global-results>
+
+<action name="marketingmanage"  class="mymarketing_marketingmanage">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="input" type="tiles">mymarketing.templatemanage.page</result>
+		<result name="createschedule" type="tiles">mymarketing.templateschedule.page</result>
+		<result name="schedulelistjson">/mymarketing/schedulelistjsondata.jsp</result>
+		<result name="inputerror">/mymarketing/adderrors.jsp</result>
+		<result name="success" >/eventmanage/success.jsp</result>
+</action>
+
+<action name="home"  class="mymarketing_home">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">mymarketing.marketing_home.page</result>
+		<result name="addtemplate">/mymarketing/templateadd.jsp</result>
+		<result name="testemail">/mymarketing/templatetestmail.jsp</result>
+		<result name="popup">/mymarketing/maillistadd.jsp</result>
+		<result name="unsubscribe">/mymarketing/unsubscribeemail.jsp</result>
+		<result name="inputerror">/mymarketing/adderrors.jsp</result>
+		<result name="bulksummary">/mymarketing/bulksummary.jsp</result>
+		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>
+</action>
+	
+		
+</package>
+</struts>

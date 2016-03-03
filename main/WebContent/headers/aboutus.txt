@@ -1,0 +1,5 @@
+<title>Eventbee - About Us</title>
+
+<meta name="Description" content="Eventbee mission statement and team" />
+
+<meta name="Keywords" content="eventbee, eventbee team, eventbee mission"/>

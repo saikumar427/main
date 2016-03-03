@@ -1,0 +1,7 @@
+<title>Conference, Trade Show Online Registration Software with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Event Management solution to power your Conference and Trade Show online registration" />
+
+<meta name="Keywords" content="conference software, conference registration, conference online registration, trade show registration, trade show tickets, conference planning, trade show planning" />
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/conference-registration" />

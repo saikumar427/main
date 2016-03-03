@@ -1,0 +1,38 @@
+
+textarea,input,select {
+	padding:5px;
+	border:1px solid #aaa;
+	box-shadow: 0 0 5px #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	outline:none;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline:none;
+}
+input:focus,input:hover, textarea:focus,textarea:hover,select:focus,select:hover {
+	box-shadow: 0 0 5px #1b90f2;
+	border: 1px solid #1b90f2;
+}
+ button {
+	padding:6px 10px;
+	margin-bottom:3px;
+	border:1px solid #444;
+	background-color:#444;
+	color:#fff;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+} 
+button:hover,button:focus,button:active {
+	box-shadow: 0 0 8px #1b90f2;
+	border:1px solid #1b90f2;
+}

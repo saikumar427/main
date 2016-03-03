@@ -1,0 +1,5 @@
+<title>Custom Event Page, Registration and Survey Form with Eventbee.</title>
+
+<meta name="Description" content="Create completely customized event page, online registration form, confirmation email and confirmation page using Eventbee." />
+
+<meta name="Keywords" content="eventbee, event customization, event registration form, event surveys, event confirmation email, event ticket display" />

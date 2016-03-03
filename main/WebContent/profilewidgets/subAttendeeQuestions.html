@@ -1,0 +1,68 @@
+<style>
+p{margin-top: -5px;}
+.subqns{margin-left:16px;}
+
+</style>
+
+<div ng-if="subQuestion.type=='text'" ng-form="subForm" id="{{ticket.ticket_id}}_{{profileIndex+1}}_{{subQuestion.id}}">
+   <table width="100%" >
+   <tr>
+	<td align="left" width="50%" valign="top">
+   
+   <span class="subqns" ng-bind-html="subQuestion.label"></span> <span ng-show="subQuestion.required=='y'">*</span></td>
+   
+   <td align="left" width="50%" valign="top">
+    <div ng-if="subQuestion.id!='email'"  ng-class="{'has-error':subForm.name.$error.required && !subForm.name.$pristine}" class="subqns">
+        <input type="text" size="30"  name="name" ng-model="profile.response[subQuestion.id]" ng-required="subQuestion.required=='y'" />
+        <p ng-show="subForm.name.$error.required && !subForm.name.$pristine" class="help-block">This field is required.</p>
+    </div>
+    
+    <!--  <div ng-if="subQuestion.id=='email'" class="col-sm-7" ng-class="{'has-error':subForm.name.$error.email && !subForm.name.$pristine}">
+        <input type="email" name="name" ng-model="profile.response[subQuestion.id]" class="form-control" ng-required="subQuestion.required=='y'" />
+        <p ng-show="subForm.name.$error.email && !subForm.name.$pristine" class="help-block">This field is required.</p>
+    </div> -->
+    </td>
+   </tr>
+    </table>
+</div>
+
+<div ng-if="subQuestion.type=='textarea'" ng-form="subForm" id="{{ticket.ticket_id}}_{{profileIndex+1}}_{{subQuestion.id}}">
+  <span class="subqns control-label bodytextstyle"><span ng-bind-html="subQuestion.label"></span> <span ng-show="subQuestion.required=='y'">*</span></span>
+    <div ng-class="{'has-error':subForm.name.$error.required && !subForm.name.$pristine}" class="subqns">
+        <textarea name="name" ng-model="profile.response[subQuestion.id]" ng-required="subQuestion.required=='y'"></textarea>
+        <p ng-show="subForm.name.$error.required && !subForm.name.$pristine" class="help-block">This field is required.</p>
+    </div>
+</div>
+
+<div ng-if="subQuestion.type=='radio'" ng-form="subForm" id="{{ticket.ticket_id}}_{{profileIndex+1}}_{{subQuestion.id}}">
+
+   <span class="subqns" ng-bind-html="subQuestion.label"></span> <span ng-show="subQuestion.required=='y'">*</span>
+    <div ng-class="{'has-error':subForm.name.$error.required}" class="subqns">
+   	 <span ng-repeat="option in subQuestion.options">
+        <span class="radio-inline" >
+            <input type="radio" name="{{ subQuestion.id }}" ng-model="profile.response[subQuestion.id]" value="{{option.value}}" ng-required="subQuestion.required=='y'" />{{ option.display }}
+        </span><br/>
+     </span>
+    </div>
+</div>
+
+<div ng-if="subQuestion.type=='checkbox'" ng-form="subForm" id="{{ticket.ticket_id}}_{{profileIndex+1}}_{{subQuestion.id}}">
+    <span class="subqns" ng-bind-html="subQuestion.label"></span> <span ng-show="subQuestion.required=='y'">*</span></span>
+    <div ng-init="assignEmpty(profile.response,subQuestion.id)" class="subqns" >
+    <span ng-repeat="option in subQuestion.options">
+        <span class="checkbox-inline">
+            <input type="checkbox" name="checkboxgroup[]" ng-model="(profile.response[subQuestion.id])[option.value]" ng-required="(subQuestion.required == 'y' && !atleastOneTrue(profile.response[subQuestion.id]))" />{{ option.display }}
+        </span><br/>
+        </span>
+    </div>
+</div>
+
+<div ng-if="subQuestion.type=='select'" ng-form="subForm" id="{{ticket.ticket_id}}_{{profileIndex+1}}_{{subQuestion.id}}">
+   <span ng-bind-html="subQuestion.label" class="subqns"></span> <span ng-show="subQuestion.required=='y'">*</span></span>
+    <div ng-class="{'has-error':subForm.name.$error.required && !subForm.name.$pristine}" class="subqns">
+        <select name="name" ng-model="profile.response[subQuestion.id]" ng-required="subQuestion.required=='y'" ng-options="option.value as option.display for option in subQuestion.options">
+            <option value="">-- Select an option --</option>
+        </select>
+        <p ng-show="subForm.name.$error.required && !subForm.name.$pristine" class="help-block">Select an option</p>
+    </div>
+</div>

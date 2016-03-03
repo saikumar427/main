@@ -1,0 +1,139 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.enable.SlashesInActionNames" value="true"/>
+<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+
+<constant name="struts.serve.static" value="true" />
+<constant name="struts.devMode" value="false" />
+<constant name="struts.configuration.xml.reload" value="true" />
+<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+<include file="struts-eventlayoutmanage.xml" />
+
+<include file="struts-eventmanage.xml" />
+<include file="struts-home.xml" />
+<include file="struts-membertasks.xml" />
+<include file="struts-mycommunities.xml" /> 
+<include file="struts-myemailmarketing.xml" /> 
+<include file="struts-myevents.xml" />
+<include file="struts-mysettings.xml" /> 
+<include file="struts-seatingarrangement.xml" /> 
+<include file="struts-user.xml" />
+<include file="struts-widget.xml" />  
+<include file="struts-mymarketing.xml" />  
+<include file="struts-myaccount.xml" />
+<include file="struts-submanager.xml" />    
+	<package name="default" extends="struts-default">
+        
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+				<interceptors>
+		<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />				
+			<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />				
+		<interceptor-stack name="i18nSessionStack">				
+					<interceptor-ref name="fileUpload" />
+					<interceptor-ref name="prepare" />
+					<interceptor-ref name="params">
+					 <param name="acceptParamNames">\w+((\.\w+)|(\[\d+\])|(\['\w+(\.\w+)*'\]))*</param>
+					</interceptor-ref>     
+					<interceptor-ref name="chain" />
+					<interceptor-ref name="conversionError" />
+					<interceptor-ref name="i18nSession" />
+					<interceptor-ref name="i18n" />
+					<interceptor-ref name="validation" />
+					<interceptor-ref name="workflow" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="i18nSessionStack" />		
+		
+		<global-results>
+			<result name="commonerror" type="tiles">helplinks.error.page</result>
+			<result name="nopermission" type="tiles">user.nopermission.page</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="commonerror" exception="java.lang.Exception">
+			</exception-mapping>
+		</global-exception-mappings>
+		<action name="captcha" method="generate" class="com.eventbee.actions.CaptchaAction">
+			<result name="success" type="tiles">helplinks.error.page</result>
+		</action>
+		<action name="invalidrequest" method="process" class="com.eventbee.actions.SimpleAction">
+			<result name="success" type="tiles">helplinks.error.page</result>
+		</action>
+		<action name="payments"  class="com.eventbee.payments.actions.PaymentAction">
+			<result name="paymentScreen">/payments/ccpaymentscreen.jsp</result>
+			<result name="ccpaymentScreen">/payments/creditcardscreen.jsp</result>
+			<result name="btpaymentscreen">/payments/paymentscreen.jsp</result>
+			<result name="success">/payments/success.jsp</result>
+			<result name="onsuccess">/payments/onsuccess.jsp</result>
+			<result name="json">/payments/json.jsp</result>
+			<result name="error">/payments/error.jsp</result>
+			<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+		</action>
+		<action name="eventbeepayments" method="getPaykey" class="com.eventbee.payments.actions.EventbeePaymentsAction">
+			<result name="json">/payments/json.jsp</result>
+		</action>
+		
+        <action name="unsubscribe" class="com.eventbee.actions.SubscribeAction">
+		    <result name="notunsubscribe" type="tiles">user.notunsubmsg.page</result>
+		    <result name="decodedemailid" type="tiles">user.newunsubscribe.page</result>
+		    <result name="unsubscribe" type="tiles">user.unsubscribedone.page</result>
+		    <result name="marketingdecodeemail" type="tiles">user.newmarketingunsubscribe.page</result>
+		    <result name="marketingunsubscribe" type="tiles">user.marketingunsubscribedone.page</result>
+		</action>
+		
+		<action name="emailtrack"  class="com.eventbee.actions.EmailTrackAction">
+		   <result name="loadspacer" type="redirect">${redirecturl}</result>
+		</action>
+       
+       <action name="search" class="com.eventbee.actions.EventSearchAction">
+		<result name="success" type="tiles">helplinks.search.page</result>
+		<result name="result">/help/en-us/searchResult.jsp</result>
+		</action>
+		
+		<action name="TrackUrlManage" class="com.eventbee.actions.TrackUrlManageAction">
+		<result name="success" type="tiles">user.trackurlmanage.page</result>  
+		<result name="report" type="tiles">user.trackurlreport.page</result>
+	    <result name="manageurl" type="redirect">/user/trackajax.jsp</result>
+		<result name="managepage" type="tiles">user.managetrackingurls.page</result>
+        <result name="exporttoexcel">/eventmanage/ExcelExport.jsp</result>
+		<result name="exporttocsv">/eventmanage/ExportToCSV.jsp</result>
+		<result name="pwdscreen">/user/trackurlpwdscreen.jsp</result>
+		<result name="msgscreen">/user/trackurlmsgscreen.jsp</result>
+		<result name="photoscreen">/user/trackurlphotoscreen.jsp</result>
+		<result name="logedin">/user/tracklogedin.jsp</result>
+		<result name="globalpartner" type="tiles">user.globaltrackmanage.page</result>
+		</action>
+		
+		
+        <action name="*Page" method="process" class="com.eventbee.actions.SimpleAction">
+			<result name="success" type="tiles">{1}.page</result>
+		</action>
+		<action name="*" method="process" class="com.eventbee.actions.FileExistsAction">
+			<result name="success" type="tiles">helplinksold.en-us.{1}.page</result>
+			<result name="error" type="tiles">helplinksold.en-us.error.page</result>
+			<result name="pricing" type="tiles">mainhelp.en-us.{1}.page</result>
+		</action>
+		<!-- if we maintain seperate en_CO folder no need to main this action pattern -->
+		<action name="*/en-co" method="process" class="com.eventbee.actions.FileExistsAction">
+			<result name="success" type="tiles">helplinksold.en-us.{1}.page</result>
+			<result name="error" type="tiles">helplinksold.en-us.error.page</result>
+			<result name="pricing" type="tiles">mainhelp.en-us.{1}.page</result>
+		</action>
+		<action name="*/*" method="process" class="com.eventbee.actions.FileExistsAction">
+			<result name="success" type="tiles">helplinksold.{2}.{1}.page</result>
+			<result name="error" type="tiles">helplinksold.{2}.error.page</result>
+			<result name="pricing" type="tiles">mainhelp.{2}.{1}.page</result>
+		</action>
+		
+		
+		
+		
+	</package>
+	 
+	
+</struts>

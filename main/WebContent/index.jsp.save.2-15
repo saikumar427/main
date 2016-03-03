@@ -1,0 +1,300 @@
+<!DOCTYPE  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta name="verify-v1" content="/2obWcBcvVqISVfmAFOvfTgJIfdxFfmMOe+TE8pbDJg=" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META Http-Equiv="Cache-Control" Content="no-cache">
+<META Http-Equiv="Pragma" Content="no-cache">
+<META Http-Equiv="Expires" Content="0">
+
+<title>Eventbee - Your Online Registration, Event Ticketing, Email Marketing And Event Promotion Solution</title>
+
+<meta name="Description" content="Easy to use web based Event Management solution that includes Event Ticketing, Email Marketing, Event Promotion and Membership Management" />
+
+<meta name="Keywords" content="event registration, event ticketing, online registration, online ticketing, conference registration, online event payments, event software, email marketing, membership management, paypal ticketing, google ticketing, facebook ticketing, ning ticketing, party ticketing, sports ticketing, venue ticketing"/>
+
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+<script type="text/javascript" src="/home/js/customfonts/cufon-yui.js">
+</script>
+<script src="/home/js/customfonts/Myriad_Pro_400.font.js" type="text/javascript"></script>
+<script>Cufon.replace('.roundedboxheader,.featuredeventsheader,.newfeaturesheader');</script>
+
+<script src="/home/js/customfonts/Verdana_400.font.js" type="text/javascript"></script>
+<script>Cufon.replace('.hanging_panel_content');</script>
+
+
+<link rel="stylesheet" type="text/css" href="css/newhomepage.css" />
+<link rel="stylesheet" type="text/css" href="build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="build/container/assets/skins/sam/container.css" />
+
+<script type="text/javascript" src="build/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="build/connection/connection-min.js"></script>
+<script type="text/javascript" src="build/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="build/container/container-min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="css/yuioverrides.css"/>
+
+<script type="text/javascript" src="js/common/nifty.js"></script>
+<script type="text/javascript" src="js/common/common.js"></script>
+<script type="text/javascript" src="js/homepagenifty.js"></script>
+
+<script language="javascript" src="js/popup.js">
+ 	function popupdummy(){}
+</script>
+<script>
+window.onload=function(){
+if(!NiftyCheck())
+    return;
+Rounded("div#hangingpanel1", "#e5e5e5");
+Rounded("div#hangingpanel2", "#e5e5e5");
+}
+</script>
+</head>
+<body class="yui-skin-sam">
+
+<!-- Start Main Site -->
+<div id="site">
+ <!-- Start Header -->
+ <div id="header">
+  <!-- Start Hanging Panel -->
+  <div class="hanging-panel">
+   <table cellspacing="0" cellpadding="0" align="center" valign="top">
+   <tr>
+   <td><img src="images/home/hanging_panel_left_corner.jpg" /></td>
+   <td style="background-image: url(images/home/hanging_panel_gray_bar.jpg);background-repeat:repeat-x;padding:0px;" align="center" valign="top"><span><font style="font-size:10px;">Since 2003, over 10,000 Event Managers sold tickets using the powerful Eventbee Platform</font></span>
+   <br/><span class="hanging_panel_content">Questions? Call us at 408 310 6768 or email support@eventbee.com</span></td>
+   <td><img src="images/home/hanging_panel_right_corner.jpg" /></td>
+   </tr>
+   </table>
+  </div>
+  <!-- End Hanging Panel -->
+  
+  <table width="979" align="center" valign="top"><tr>
+  <td align="left">
+   <!-- Start Logo -->
+   <div class="logo"><a href="http://eventbee.com/mainnew/" >
+   <img src="/home/images/logo_big.jpg" style="border-style: none" alt="Eventbee">
+    <br/><img src="/home/images/caption.jpg" style="border-style: none" alt"Sell Tickets With Less Efforts"></a>
+   </div>
+   <!-- End Logo -->
+  </td>
+  <td align="right" valign="bottom">
+   <!-- Start Top Links -->
+   <div id="topnav">
+   <% 
+    if(session.getAttribute("SESSION_USER")==null){
+   %>
+    <table align="right"><tr><td>
+     <a href="user/signup" STYLE="text-decoration: none">
+     <b><span class="headerfont">Sign Up</span></b>
+     </a>
+     <span class="headerfont"> | </span>
+     <a href="user/login" STYLE="text-decoration: none">
+     <b><span class="headerfont">Login</span></b>
+     </a>
+    </td></tr></table>
+   <%
+   }else{
+   %>
+    <table align="right"><tr><td>
+     <a href="/mainnew/myevents/home" STYLE="text-decoration: none">
+     <b><span class="headerfont">My Account</span></b>
+     </a> <span class="headerfont"> | </span>
+     <a href="user/logout" STYLE="text-decoration: none">
+     <b><span class="headerfont">Logout</span></b>
+     </a>
+    </td></tr></table>
+    <%
+     }
+    %>
+   </div>
+   <!-- End Top Links -->
+  </td>
+  </tr></table>
+    
+ </div>
+ <!-- End Header -->
+ 
+ <!-- Start Banner -->
+ <div>
+  <a href="user/signup"><img src="images/home/eventbee4.gif"  width="979px" border="0" alt="Eventbee 4.0" /></a>
+ </div>
+ <!-- End Banner -->
+ 
+ <!-- Start  Featured Events & Testimonials  Rectbox content -->
+ <div id="rectbox">
+ 
+  <table width="100%" cellspacing="10" cellpadding="10"><tr>
+  <!-- Start Left td -->
+  <td valign="top">
+  
+   <!-- Start Featured Events -->
+   <div id="featuredeventsbox">
+    <div id="eventcontent" class="leftboxcontent"> 
+     <table width="100%" class="content2d" valign="top" cellpadding="0" height="200">
+     <tr><td valign="top" class="featuredeventsheader">Featured Events <br/><hr class="hrline" /></td></tr>
+     <tr><td>
+     <jsp:include page="home/getevents.jsp">
+     <jsp:param name="type" value="event"/>
+     </jsp:include>
+     </td></tr>
+     <tr><td>
+      <jsp:include page="home/getevents.jsp">
+      <jsp:param name="type" value="class"/>
+      </jsp:include>
+     </td></tr>
+     <tr>
+     <td  align='right' colspan="2" valign="bottom">
+     	&raquo;&nbsp;<a href="/mainnew/myevents/createevent"><font color="#fea045"> List Your Event</font></a>&nbsp;&nbsp;&nbsp;
+     </td></tr>
+    </table>
+    </div>
+   </div>
+   <!-- End Featured Events -->
+    
+  </td>
+  <!-- End Left td -->
+  
+  <!-- Start Right td -->
+  <td valign="middle" align="center">
+  
+   <!-- Start Customer Testimonials -->
+   <div id="hangingpanel1" class="roundedbox" align="center">
+    <div class="niftyboxcontent" class="content2d">
+     <table width="100%"  valign="top" cellpadding="0" cellspacing="0" height="150">
+     <tr><td class="roundedboxheader">Customers & Testimonials</td></tr>
+     <tr><td>
+      <jsp:include page="home/testimonials.jsp">
+      <jsp:param name="type" value="event"/>
+      </jsp:include>
+     </td></tr>
+     </table>
+    </div>
+   </div>
+   <!-- End Customer Testimonials -->
+  </td>
+  <!-- End Right td -->
+  </tr></table>
+  
+ </div>
+ <!-- End Featured Events & Testimonials Rectbox content -->
+ 
+ <!-- Start New Features & Twitter Rectbox content -->
+ <div id="rectbox">
+  <table width="100%" cellpadding="10px" cellspacing="10px"><tr>
+  <td valign="top">
+   
+    <!-- Start New Features -->
+    <div>
+     <table align="left" valign="top" width="100%" cellpadding="0" cellspacing="5">
+     <tr><td>
+     
+      <table align="left" valign="top" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+      <td valign="top" width="229px" align="center"><span class="newfeaturesheader">New Feature</span></td>
+      
+      <td width="10"></td>
+      
+      <td valign="top" width="229px" align="center"><span class="newfeaturesheader">Savings</span>
+      </td>
+      
+      <td width="10"></td>
+      
+      <td valign="top" width="229px" align="center"><span class="newfeaturesheader">Giveback</span>
+      </td>
+      
+      <td width="10"></td>
+      
+      <td valign="top" width="229px" align="center"><span class="newfeaturesheader">Referral Program</span>
+      </td>
+      
+      </tr>
+      </table>
+     </td></tr>
+     
+     <tr><td width="100%"><hr class="hrline" /></td></tr>
+     
+     <tr><td>
+     
+      <table align="left" valign="top" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+      <td valign="top" width="229px" align="center">
+      <a href="http://eventbee.wordpress.com/2010/07/15/introducing-eventbee-4-0/"><img src="images/home/android.png"><br/>Eventbee Real Time Check-In App</a>
+      </td>
+      
+      <td width="10"></td>
+      
+      <td valign="top" width="229px" align="center">
+      <script>
+       function openPopup(){
+       var url="http://eventbee.com/portal/helplinks/mysavings.jsp";
+       showYUIinIframe("My Eventbee Savings",url,600,650);
+       }
+      </script>
+      <a href="#" onClick="openPopup();"><img src="images/home/savings.png" border="0"><br/>Savings By Switching To Eventbee</a>
+      </td>
+      
+      <td width="10"></td>
+      
+      <td valign="top" width="229px" align="center">
+      <a href="http://eventbee.wordpress.com/2011/02/08/hosting-common-good-events-we-would-like-to-reward-you-with-a-25-discount/"><img src="images/home/giveback.png"  border="0"><br/>Eventbee For Common Good</a>
+      </td>
+      
+      <td width="10"></td>
+      
+      <td valign="top" width="229px" align="center">
+       <a href="http://eventbee.wordpress.com/2011/01/19/introducing-eventbee-referral-program/"><img src="http://eventbee.files.wordpress.com/2011/01/referralprogram-blog.png?w=160&h=120"  border="0"><br/>Eventbee Referral Program</a>
+      </td>
+      
+      </tr></table>
+     </td></tr></table>
+    </div>
+    <!-- End New Featues -->
+   </td>
+   </tr>
+   <tr>
+   <td cellpadding="0" cellspacing="0">
+   <!-- Start Twitter Messages -->
+    <table cellpadding="0"  cellspacing="0" width="100%">
+    <tr><td cellpadding="0" cellspacing="0">
+     <div id="hangingpanel2" class="roundedbox">
+      <div class="niftyboxcontent" class="content2d">
+       <table width="100%" class="content2" cellpadding="0" cellspacing="0">
+       	<tr><td align="center">   	  	  	   
+       	<%@ include file="/home/twitterimage.jsp" %>
+	</td></tr></table>
+      </div>
+     </div>
+    </td></tr></table>
+    <!-- End Twitter Messages -->
+   </td>
+   </tr>
+   </table>
+   
+ </div>
+ <!-- End New Features & Twitter Rectbox content -->
+</div>
+<!-- End Main Site -->
+
+<!-- Start Press Quotes -->
+<div id="pressquotes" align="center">
+<%@ include file="/home/pressquotes.jsp" %>
+</div>
+<!-- End Press Quotes -->
+
+<!-- Start Footer -->
+<div  id="footer" >
+ 
+ <jsp:include page="/layout/footer.jsp"></jsp:include>
+ 
+</div>
+<!-- End Footer -->
+
+<div id="iframepopupdialog"><div id="hd"></div><div id="bd"></div></div>
+</body>
+</html>
+

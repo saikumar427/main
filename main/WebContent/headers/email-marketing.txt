@@ -1,0 +1,8 @@
+
+<title>Event Email Marketing - Event invites with Eventbee.</title>
+
+<meta name="Description" content="Create, send and measure your event email marketing and invitation campaigns using Eventbee. Convert your email campaigns into event registrations with few clicks." />
+
+<meta name="Keywords" content="event email marketing, event email campaigns, email blasts, email registrations, event campaign tools, event campaigns, event promotion"/>
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/email-marketing" />

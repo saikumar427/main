@@ -1,0 +1,6 @@
+
+<title>Sell Tickets - Venue Tickets, Venue Seating Charts with Eventbee</title>
+
+<meta name="Description" content="Easy to use online Event Management solution that includes Online Registration, Event Ticketing, Venue Ticketing with Venue Charts" />
+
+<meta name="Keywords" content="events, sell tickets, online registration, event ticketing, venue tickets, venue seating, venue booking, venue charts, venue promotion, venue ticketing tools"/>

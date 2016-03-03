@@ -1,0 +1,5 @@
+<title>Compare Eventbee - Eventbrite, Regonline, Ticketleap, Brownpaperticket</title>
+
+<meta name="Description" content="Eventbee is the most advanced ticketing system with $1 flat fee model, compare us with competition like Eventbrite, Regonline, Ticketleap and Brown Paper Tickets"/>
+
+<meta name="Keywords" content="eventbrite, eventbright, event brite, event bright, regonline, reg online, ticketleap, ticket leap, brown paper tickets, brownpaper tickets"/>

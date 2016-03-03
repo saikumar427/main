@@ -1,0 +1,53 @@
+<table>
+
+
+<tr>
+<td  height="35" valign="top" colspan="2"> <font color="#006600" size="3" face="Verdana, Arial, Helvetica, sans-serif">Customers & Testimonials</font></td></tr>
+
+<tr><td>
+
+
+<link rel="stylesheet" type="text/css" href="http://developer.yahoo.com/yui/build/fonts/fonts.css">
+<link type="text/css" rel="stylesheet" href="http://developer.yahoo.com/yui/build/carousel/assets/skins/sam/carousel.css">
+
+<script src="http://developer.yahoo.com/yui/build/utilities/utilities.js"></script>
+<script src="js/YUI/carousel-min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/YUI/yui.css">
+<link rel="stylesheet" type="text/css" href="css/YUI/yuioverwrite.css">
+<div id="testimonialcontainer">
+<ol id="carousel">
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/1.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/2.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/3.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/4.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/5.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/6.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/7.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/8.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/9.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/10.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/11.jpg"/></li>
+<li class="item"><img width="300" height="260" border="0" src="/mainnew/images/home/12.jpg"/></li>
+</ol>
+</div>
+</td></tr></table>
+<script>
+    (function () {
+        var carousel;
+
+        YAHOO.util.Event.onDOMReady(function (ev) {
+            var carousel    = new YAHOO.widget.Carousel("testimonialcontainer", {
+                        animation: { speed: 0.5 },
+                        isVertical:false,
+                        numVisible:1,
+                        selectOnScroll:false
+
+                });
+
+            carousel.CONFIG.MAX_PAGER_BUTTONS=12;
+            carousel.render(); // get ready for rendering the widget
+            carousel.show();   // display the widget
+            carousel.startAutoPlay();
+        });
+    })();
+</script>

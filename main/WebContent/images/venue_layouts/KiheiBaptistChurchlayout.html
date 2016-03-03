@@ -1,0 +1,37 @@
+<html>
+<head>
+
+<style>
+#leftimg img{
+width:432px;
+
+border:0px;
+}
+#rightimg img{
+width:100px;
+height:100px;
+border:0px;
+cursor:pointer;
+}
+</style>
+<script type="text/javascript" src='/home/js/jQuery.js'></script>
+</head>
+<body>
+<table width="100%">
+<tr>
+<td id='leftimg'><img src="http://www.eventbee.com/main/images/venue_layouts/20110712_2.JPG"></td>
+<td id='rightimg'>
+<a class="aclass"><img src="http://www.eventbee.com/main/images/venue_layouts/20110712_2.JPG"></a><br><br>
+<a class="aclass"><img src="http://www.eventbee.com/main/images/venue_layouts/20110712_3.JPG "></a><br><br>
+<a class="aclass"><img src="http://www.eventbee.com/main/images/venue_layouts/sc.jpg"></a>
+
+</td>
+</tr>
+</table>
+<script>
+jQuery(".aclass img").click(function(){
+jQuery("#leftimg img").attr("src",jQuery(this).attr("src"))
+});
+</script>
+</body>
+</html>

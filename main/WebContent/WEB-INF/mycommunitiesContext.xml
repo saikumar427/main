@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="communitymanageInterceptorClass" class="com.mycommunities.interceptors.CommunityManageInterceptor" singleton="false">
+<property name="actionTitleMap">
+ <map>
+ 	<!-- Summary Section -->
+      <entry key="snapshot"><value>Summary</value></entry>
+     <entry key="termsandcond"><value>Terms &amp; Conditions</value></entry>
+     <entry key="membershiptypes"><value>Membership Types</value></entry>
+      <entry key="addmembershiptype"><value>Membership Details</value></entry>     
+     <entry key="manageregistrationform"><value>Registration Form</value></entry>
+     <entry key="managediscounts"><value>Discount Coupons</value></entry>
+     <entry key="DiscountDetails"><value>Discount Details</value></entry>
+     
+     <entry key="membershipsignupreport"><value>Signup Reports</value></entry>
+     <entry key="membershiprenewalreport"><value>Renewal Reports</value></entry>
+     <entry key="managemembers"><value>Members</value></entry>
+     <entry key="IntegrationLinks"><value>Integration Links</value></entry>
+     
+     <entry key="addunitmember"><value>Add Community Member</value></entry>
+     <entry key="addmemberscreen"><value>Add Community Member</value></entry>
+     <entry key="addpassivememberscreen"><value>Add Passive Member</value></entry>
+  </map>
+  </property>
+<property name="menuMap">
+ <map>
+ 	<!-- Summary Section -->
+     <entry key="snapshot"><value>snapshot</value></entry>
+     <entry key="termsandcond"><value>termsandcond</value></entry>
+     <entry key="membershiptypes"><value>membershiptypes</value></entry>
+      <entry key="addmembershiptype"><value>membershiptypes</value></entry>     
+     <entry key="manageregistrationform"><value>manageregistrationform</value></entry>
+     <entry key="managediscounts"><value>managediscounts</value></entry>
+     <entry key="DiscountDetails"><value>managediscounts</value></entry>
+     
+     <entry key="membershipsignupreport"><value>membershipsignupreport</value></entry>
+     <entry key="membershiprenewalreport"><value>membershiprenewalreport</value></entry>
+     <entry key="managemembers"><value>managemembers</value></entry>
+     <entry key="IntegrationLinks"><value>IntegrationLinks</value></entry>
+     <entry key="AddCommunityMember"><value>AddCommunityMember</value></entry>
+     
+  </map>
+  </property>
+</bean>
+
+<bean id="mycommunities_CommunitesAction" class="com.mycommunities.actions.CommunitiesAction" singleton="false">
+</bean>
+<bean id="mycommunities_home" class="com.mycommunities.actions.CommunitiesAction" singleton="false">
+</bean>
+<bean id="mycommunities_manageCommunity" class="com.mycommunities.actions.CommunityManageAction" singleton="false">
+<property name="actionTitle" value="My Communities"></property>
+</bean>
+<bean id="mycommunities_manageDiscounts" class="com.mycommunities.actions.ManageDiscountsAction" singleton="false">
+<property name="actionTitle" value="My Communities"></property>
+</bean>
+<bean id="mycommunities_DiscountDetails" class="com.mycommunities.actions.DiscountDetailsAction" singleton="false">
+<property name="actionTitle" value="My Communities"></property>
+</bean>
+<bean id="mycommunities_manageRegistrationForm" class="com.mycommunities.actions.RegistrationAction" singleton="false"></bean>
+<bean id="mycommunities_IntegrationLinks" class="com.mycommunities.actions.IntegrationLinksAction" singleton="false">
+<property name="actionTitle" value="My Communities"></property>
+</bean>
+<bean id="mycommunities_AddCommunityMember" class="com.mycommunities.actions.AddCommunityMemberAction" singleton="false">
+<property name="actionTitle" value="My Communities"></property>
+</bean>
+<bean id="mycommunities_PassiveMemberCreateManual" class="com.mycommunities.actions.PassiveMemberCreateManualAction" singleton="false">
+<property name="actionTitle" value="My Communities"></property>
+</bean>
+
+
+</beans>

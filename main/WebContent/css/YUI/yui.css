@@ -1,0 +1,88 @@
+.yui-carousel-element li {
+        height: 158px;
+        text-align: left;
+    }
+
+    #container {
+        font-size: 13px;
+        margin: 0 auto;
+       
+    }
+
+    #container a {
+        text-decoration: none;
+    }
+            
+    #container .intro {
+        display: inline;
+        margin: 0px 14px 0px 4px;
+        width: 202px;
+    }
+            
+    #container .item {
+        display: inline;
+        /*margin: 0 22px 0 12px;
+        overflow: hidden;
+        padding-right: 80px;
+        width: 106px;*/
+    }
+
+    #container .item .authimg {
+        bottom: 2px;
+        
+        position: absolute;
+        z-index: 1;
+    }
+            
+    #container .item h3 {
+        line-height: 85%;
+        margin-top: 4px;
+    }
+            
+    #container .item h3 a {
+        font: 77% Arial, sans-serif;
+        position: relative;
+        text-transform: uppercase;
+        z-index: 2;
+    }
+            
+    #container .item h3 a:link {
+        color:#35a235;
+    }
+            
+    #container .item h4 {
+        margin-top:5px;
+    }
+            
+    #container .item h4 a {
+        font: 100% Georgia, Times, serif;
+        position: relative;
+        z-index:2;
+    }
+
+    #container .item h4 a:link {
+        color:#00639b;
+    }
+            
+    #container .item cite {
+        color: #888;
+        display: block;
+        font-size: 77%;
+        line-height: normal;
+        margin-bottom: 30px;
+    }
+            
+    #container .item p.all {
+        bottom: 25px;
+        position: absolute;
+        z-index: 2;
+    }
+            
+    #container .item p.all a {
+        font-weight: bold;
+        font-size: 85%;
+    }
+.yui-carousel .yui-carousel-item-selected {
+
+border: 0px;
+}

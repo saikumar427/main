@@ -1,0 +1,28 @@
+.yui-skin-sam .yui-carousel, .yui-skin-sam .yui-carousel-vertical {
+border:0px solid #808080;
+}
+
+.yui-carousel-element {
+width:300px;
+}
+
+.yui-carousel-element li {
+        height: 280px;
+        text-align: left;
+        width:290px;
+        margin:0px;
+    }
+    
+.yui-skin-sam .yui-carousel-nav {
+ background:#e5e5e5;
+ padding:3px;
+ text-align:left;
+}
+
+.yui-skin-sam .yui-carousel-nav ul {
+float:right;
+height:19px;
+margin:0 112px 0 -280px;
+padding:0;
+}
+

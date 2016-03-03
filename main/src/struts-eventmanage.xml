@@ -1,0 +1,694 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+   <package name="eventmanage" extends="struts-default" namespace="/eventmanage">
+   <result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+   <interceptors>
+   
+<interceptor name="eventowner"  class="eventmanageInterceptorClass"/>
+<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />	
+<interceptor-stack name="eventownerStack">
+<interceptor-ref name="fileUpload" />
+<interceptor-ref name="prepare" />
+<interceptor-ref name="params">
+ <param name="acceptParamNames">\w+((\.\w+)|(\[\d+\])|(\['\w+(\.\w+)*'\]))*</param>
+</interceptor-ref>     
+<interceptor-ref name="chain" />
+<interceptor-ref name="conversionError" />
+<interceptor-ref name="i18nSession" />
+<interceptor-ref name="i18n" />
+<interceptor-ref name="eventowner" />
+<interceptor-ref name="validation" />
+<interceptor-ref name="workflow" />
+</interceptor-stack>
+</interceptors>
+<default-interceptor-ref name="eventownerStack" /> 
+		<global-results>
+			<result name="nopermission" type="tiles">user.nopermission.page</result>
+			<result name="error" type="redirect">/user/login</result>
+		</global-results>   
+		<action name="AddAttendee" class="eventmanageAddAttendeeClass"> 
+			<result name="error" type="redirect">/user/login</result> 
+			<result name="success" type="tiles">eventmanage.addattendeemanual.page</result> 
+			<result name="recurringeventresult">/eventmanage/addattendee/recurringeventdata.jsp</result> 
+			<result name="checkcardstatus">/eventmanage/ccjson.jsp</result>
+		</action>
+		
+		<action name="AddAttendeeDiscounts" class="com.eventmanage.actions.AddAttendeeDiscountsAction"> 
+			<result name="ajaxjson">/eventmanage/seating/ajaxjson.jsp</result>
+			<result name="error" type="redirect">/user/login</result> 
+		</action>
+		
+		<action name="AddAttendeeTickets" class="eventmanageAddAttendeeTicketsClass">
+		  	<result name="Success" >/eventmanage/addattendee/ticketsuccess.jsp</result>
+		  	<result name="totalscalculated" >/eventmanage/addattendee/ticketstotal.jsp</result>
+		</action>
+		
+		<action name="AddAttendeePayment" class="eventmanageAddAttendeePaymentClass">
+		  	<result name="success">/eventmanage/addattendee/addattendeepayment.jsp</result>
+		  	<result name="update" >/eventmanage/addattendee/paymentsuccess.jsp</result>
+		</action>
+		
+		<action name="AddAttendeeVm" class="eventmanageAddAttendeeTemplateClass">
+		   	<result name="error" type="redirect">/user/login</result>
+			<result name="success">/eventmanage/addattendee/AttendeeVm.jsp</result>			
+		</action>
+		
+		<action name="AttendeeListDisplayFields"  class="eventmanageAttendeeListDisplayFields">
+		   	<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>
+		   	<result name="displayinfo">/eventmanage/eventpagecontent/displayinformation.jsp</result>
+		   	<result name="confirmscreenattribs">/eventmanage/eventpagecontent/confirmscreenattribs.jsp</result>
+		   	<!--result name="volumetickets">/eventmanage/eventpagecontent/displayvolumetickets.jsp</result-->
+		   	<result name="error" >/eventmanage/ajaxunauthorized.jsp</result>		   					
+		   	<result name="saved" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>		   	
+		</action>
+		
+		<action name="CopyEvent" class="myevents_copyevent">		
+			<result name="success">/myevents/copyevent.jsp</result>
+			<result name="error">/eventmanage/ajaxunauthorized.jsp</result>			
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+			<result name="copiedsuccess" type="redirect">Snapshot.action?eid=${neweventid}</result>		
+		</action>		
+		
+		<action name="DiscountDetails"  class="eventmanageDiscountDetailsClass">
+		    <result name="error" type="redirect">/user/login</result>
+		    <result name="input" >/eventmanage/discountdetailspage.jsp</result>
+		    <result name="inputerror" >/eventmanage/ticketing/ticketadderrors.jsp</result>
+			<result name="input1" type="tiles">eventmanage.ManageDiscounts.DiscountDetails.page</result>			
+			<result name="success">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+		</action>
+		
+		<action name="DisplayTickets"  class="eventmanageDisplayTicketsClass">
+            <result name="error" type="redirect">/user/login</result>
+            <!--<result name="success" type="tiles">eventmanage.DisplayTickets.page</result>-->
+            <result name="success">/eventmanage/DisplayTickets.jsp</result>
+            <result name="displayformat" >/eventmanage/DisplayFormat.jsp</result>
+            <result name="displayformaterror" >/eventmanage/DisplayFormatError.jsp</result>
+            <result name="displaysuccess" >/eventmanage/success.jsp</result>
+            <result name="updated" >/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>  
+            <result name="displayFormatJson" >/eventmanage/displayformatjsondata.jsp</result>    
+            <result name="popupcontent" >/eventmanage/FormatPopup.jsp</result>                 
+        </action>
+		<action name="EditAttendee" class="eventmanageEditAttendeeClass">
+		 	<result name="error" type="redirect">/user/login</result>
+			<result name="success">/eventmanage/EditAttendee.jsp</result>
+			<result name="editbuyerinfo">/eventmanage/EditBuyerInfo.jsp</result>
+            <result name="reportspage" type="redirect">/eventmanage/Reports?eid=${eid}</result>
+			<result name="rsvpreportspage" type="redirect">/eventmanage/RSVPReports?eid=${eid}</result> 
+            <result name="transactiondetailspage" type="redirect">TransactionDetails!getTransactionInfo?tid=${tid}&amp;eid=${eid}</result>
+            <result name="deleteattendeenotes">/eventmanage/deleteattendee.jsp</result>
+             <result name="displaysuccess" >/eventmanage/success.jsp</result>
+		</action>
+		
+		<action name="EditAttendeeProfile" class="eventmanageEditProfileClass">
+		 	<result name="error" type="redirect">/user/login</result>
+			<result name="success" >/eventmanage/edittransactions/editattendeeprofile.jsp</result>
+			<result name="buyerprofile" >/eventmanage/edittransactions/editbuyerprofile.jsp</result>			
+		</action>
+		
+		<action name="EditEvent"  class="eventmanageEditEventClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="populate" type="tiles">eventmanage.EditEvent.page</result>
+			<result name="success" type="tiles">eventmanage.EditEvent.page</result>	
+			<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+			<result name="updated">/eventmanage/editeventjson.jsp</result>				
+		</action>
+		
+		<action name="EditProfileData" class="eventmanageEditProfileDataClass">
+		 	<result name="error" type="redirect">/user/login</result>
+                       <result name="success">/eventmanage/success.jsp</result>
+		<!--	<result name="success" type="redirect">TransactionDetails?eid=${eid}&amp;tid=${tid}</result> -->
+		</action>
+		
+		<action name="EditTransactionTickets" class="eventmanageEditTransactionTicketsClass">
+		   	<result name="error" type="redirect">/user/login</result>
+			<result name="success">/eventmanage/EditTransactionTickets.jsp</result>
+			<result name="rsvpsuccess">/eventmanage/RSVPEditResponses.jsp</result>
+			 <result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
+			<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="transactiondetailspage" type="redirect">TransactionDetails!getTransactionInfo?tid=${tid}&amp;eid=${eid}</result>
+			   <result name="displaysuccess" >/eventmanage/success.jsp</result>
+		</action>
+				
+		<action name="EmailAttendees"  class="eventmanageEmailAttendeesClass">
+		     <result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.EmailAttendees.page</result>
+	
+			<result name="emailattendee">/eventmanage/emailattendeepopup.jsp</result>
+			<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		    <result name="testmail">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>		
+		    <result name="specialfee">/eventmanage/specialfees.jsp</result>
+		    <result name="ajaxjson">/eventmanage/seating/ajaxjson.jsp</result>
+			<result name="blank">/eventmanage/blank.jsp</result>
+			<result name="content">/eventmanage/emailattendeecontent.jsp</result>
+			<result name="sendtestmail">/eventmanage/sendtestmail.jsp</result>	
+			<result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
+			<result name="json" >/eventmanage/success.jsp</result>	
+			<result name="emailAttendeeJson">/eventmanage/emailjson.jsp</result>
+		</action>
+			
+		<action name="EventCustomization"  class="com.eventmanage.actions.customization.EventCustomizationAction">
+		    <result name="error" type="redirect">/user/login</result>
+			<result name="input" type="tiles">eventmanage.themepage.page</result>
+			<result name="photoinput" >/eventmanage/imageupload/imageselection.jsp</result>	
+			<result name="preview" >/eventmanage/showfilename.jsp</result>		
+			<result name="success" >/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>				
+		</action>
+	
+	<!--	<action name="EventDetails" class="eventmanageSnapshotClass" method="eventDetails">
+		<result name="success" type="tiles">eventmanage.EventDetails.page</result>
+		</action>  -->
+
+
+		<action name="EventDetails" class="eventmanageSnapshotClass">
+		 	<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.Snapshot.page</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+			<result name="ajaxjson">/eventmanage/seating/ajaxjson.jsp</result>
+			<result name="promotions">/eventmanage/ntspromotions.jsp</result>
+		</action>
+	
+        <action name="EventListPaymentSettings"  class="eventmanagePaymentSettingsClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">myevents.EventListPaymentSettings.page</result>
+			<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+			<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>	
+			<result name="jsondata">/eventmanage/seating/ajaxjson.jsp</result>		
+		</action>
+        <action name="EventPageContent"  class="eventmanageEventPageContentClass">
+		   	<result name="error" type="redirect">/user/login</result>
+			<result name="success">/eventmanage/EventPageContent.jsp</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="updated" type="tiles">eventmanage.EventPageContentDone.page</result>
+			<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="logonmsg">/eventmanage/logonmsg.jsp</result>
+			<result name="password">/eventmanage/eventpassword.jsp</result>
+			<result name="externalurl">/eventmanage/externalphotourl.jsp</result>
+			<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>			
+		</action>
+		
+		<action name="EventThemes"  class="eventmanageEventThemesClass">
+		   <result name="error" type="redirect">/user/login</result>
+		   <result name="preview" >/eventmanage/showfilename.jsp</result>
+			<result name="success" type="tiles">eventmanage.EventThemes.page</result>
+			<result name="updated" type="tiles">eventmanage.EventThemesDone.page</result>
+			<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>	
+		</action>
+		
+		<action name="GroupDetails" class="eventmanageGroupDetailsClass">
+			<result name="error">/eventmanage/ajaxunauthorized.jsp</result>
+			<result name="success">/eventmanage/ajaxjson.jsp</result>
+			<result name="input">/eventmanage/groupadd.jsp</result>
+			<result name="creategroup">/eventmanage/creategroup.jsp</result>
+		</action>
+		<action name="GroupTicketConfirmationEmail"  class="eventmanageGroupTicketConfirmationEmailClass">
+		    <result name="error" type="redirect">/user/login</result>
+			<result name="onpurchase">/eventmanage/groupticketing/onpurchaseemail.jsp</result>
+			<result name="success">/eventmanage/groupticketing/success.jsp</result>
+			<result name="ontriggerreach">/eventmanage/groupticketing/ontriggerreachemail.jsp</result>
+			<result name="ontriggerfail">/eventmanage/groupticketing/ontriggerfailemail.jsp</result>
+			<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		    <result name="testmail">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>			
+			<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		   	<result name="save" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>		
+		</action>
+		<action name="GroupTicketConfirmationPageSettings" class="eventmanageGroupTicketConfirmationPageSettingsClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success">/eventmanage/groupticketing/groupticketconfirmationpage.jsp</result>
+			<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="onsubmit" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>
+		</action>
+		
+		
+		
+		<action name="GroupTicketDetails"  class="eventmanageGroupTicketDetailsClass">
+		    <result name="error">/eventmanage/ajaxunauthorized.jsp</result>
+			<result name="input" >/eventmanage/groupticketing/groupticketadd.jsp</result>
+			<result name="ajaxjson">/eventmanage/groupticketing/ajaxjson.jsp</result>
+			<result name="discountprice" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="inputerror" >/eventmanage/groupticketing/groupticketadderrors.jsp</result>		
+		</action>
+		
+		<action name="GroupTicketsShowHide"  class="eventmanageGroupTicketsShowHideClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+			<result name="tickets" >/eventmanage/GroupTicketsShowHide.jsp</result>
+			<result name="success" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>			
+		</action>
+		
+		<action name="HTMLnCSSCustomization"  class="eventmanageHTMLnCSSCustomizationClass">
+		    <result name="error" type="redirect">/user/login</result>
+			<result name="input" type="tiles">eventmanage.htmlncsscustomization.page</result>
+			<result name="preview" >/eventmanage/showfilename.jsp</result>
+			<result name="success">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="specialfee">/eventmanage/specialfees.jsp</result>
+			<result name="blank">/eventmanage/blank.jsp</result>
+		</action>
+		
+		<action name="IntegrationLinks"  class="eventmanageIntegrationLinksClass">
+		   <result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.IntegrationLinks.page</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="updated" type="tiles">eventmanage.IntegrationLinksDone.page</result>
+			<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="customurl">/eventmanage/customurl.jsp</result>
+			<result name="eventurl" type="tiles">eventmanage.integrationeventurl.page</result>
+			<result name="buttons" type="tiles">eventmanage.integrationbuttons.page</result>
+		<!--	<result name="widget" type="tiles">eventmanage.integrationwidget.page</result>-->
+			<result name="fb" type="tiles">eventmanage.integrationfb.page</result>
+           	<result name="import">/eventmanage/importTrackUrls.jsp</result>
+			<result name="trackreportsummary" type="tiles">eventmanage.trackreportsummary.page</result> 
+			<result name="manage" type="tiles">eventmanage.manageTrackURLs.page</result> 
+			<result name="report" type="tiles">eventmanage.trackURLsreport.page</result> 
+			<result name="jsondata">/eventmanage/trackurljsondata.jsp</result> 
+			<result name="jsonsummarydata">/eventmanage/trackurlsummaryjsondata.jsp</result> 
+			<result name="trackmanagepwd">/eventmanage/trackmanagepwd.jsp</result> 
+			<result name="trackmanagephoto">/eventmanage/trackmanagephoto.jsp</result> 
+			<result name="trackmanagemessage">/eventmanage/trackmanagemessage.jsp</result> 
+			<result name="createtrackURL">/eventmanage/createtrackURL.jsp</result>
+			<result name="widget">/eventmanage/widget.jsp</result>
+			<result name="specialfee">/eventmanage/specialfees.jsp</result>
+			<result name="blank">/eventmanage/blank.jsp</result> 
+			<result name="exporttoexcel">/eventmanage/ExcelExport.jsp</result>
+			<result name="exporttocsv">/eventmanage/ExportToCSV.jsp</result>
+            <result name="reloadTreckData">/eventmanage/editeventjson.jsp</result>
+			<result name="editTrack">/eventmanage/editTrackUrlData.jsp</result>
+		</action>
+
+
+<action name="ManagerAppSettings" class="eventmanageManagerAppClass">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">eventmanage.manageappsettings.page</result>
+		<result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
+		<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		</action>
+		
+		<action name="ManageAttendeeSeats"  class="eventmanageManageAttendeeSeatsClass">
+			<result name="error" type="redirect">/user/login</result>
+		    <result name="success" type="tiles">eventmanage.ManageAttendeeSeats.page</result>
+		    <result name="seatingchart">/eventmanage/seating/seatstatus.jsp</result>
+		    <result name="ajaxjson">/eventmanage/seating/ajaxjson.jsp</result>
+		    <result name="seatjson">/eventmanage/seating/selectseatstatus.jsp</result>
+		</action>
+
+		
+		<action name="ManageDiscounts"  class="eventmanageManageDiscountsClass">
+		    <result name="ajaxunauthorized" type="tiles">eventmanage.ajaxunauthorized.page</result>			
+			<result name="error" type="redirect">/user/login</result>
+                        <result name="reloadeddiscount">/eventmanage/editeventjson.jsp</result>
+			<result name="jsondata">/discountdetails/discountdetailsjsondata.jsp</result>
+			<result name="success" type="tiles">eventmanage.ManageDiscounts.page</result>
+			<result name="deleted" type="redirect">ManageDiscounts.action?eid=${eid}&amp;msgKey=${msgKey}</result>
+		</action>
+		
+		<action name="ManageRegistrationForm"  class="eventmanageRegistrationClass">		    			
+			<result name="error" type="redirect">/user/login</result>
+			<result name="addquestion">/eventmanage/registrationform/managequestion.jsp</result>	
+					
+			<result name="addtktquestion">/eventmanage/registrationform/managetktquestion.jsp</result>
+			<result name="edit">/eventmanage/registrationform/managequestion.jsp</result>
+			<result name="assigntickets">/eventmanage/registrationform/assigntickets.jsp</result>
+			<result name="assignresponses">/eventmanage/registrationform/assignresponses.jsp</result>		
+			<result name="defaultquestionsettings">/eventmanage/registrationform/defaultquestionsettings.jsp</result>			
+			<result name="deleted" >/eventmanage/success.jsp</result>
+			<!-- <result name="deleted" type="redirect">ManageRegistrationForm.action?eid=${eid}&amp;msgKey=${msgKey}</result> -->	
+			<!-- <result name="swapped" type="redirect">ManageRegistrationForm.action?eid=${eid}&amp;msgKey=${msgKey}</result> -->
+			<result name="success" type="tiles">eventmanage.regquestions.page</result>
+			<!-- <result name="saved" type="redirect">ManageRegistrationForm.action?eid=${eid}&amp;msgKey=${msgKey}</result> -->
+			<result name="saved">/eventmanage/savedQuestion.jsp</result>
+			<result name="saveqsettings" type="redirect">ManageRegistrationForm.action?eid=${eid}</result>	
+			<result name="specialfee">/eventmanage/specialfees.jsp</result>
+			<result name="blank">/eventmanage/blank.jsp</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="refreshTrData">/eventmanage/registrationform/TransactionQnJson.jsp</result>
+			<result name="refreshTktData">/eventmanage/registrationform/TicketQnJson.jsp</result>
+			<result name="inputerror">/eventmanage/inputerror.jsp</result>
+			<result name="subquestions">/eventmanage/registrationform/regsubquestions.jsp</result>
+			<result name="addsubquestion">/eventmanage/registrationform/managesubquestions.jsp</result>
+			<result name="updatetickets" >/eventmanage/success.jsp</result>
+		</action>
+		
+		<action name="NetworkSelling" class="eventmanageNetworkSellingClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="input" type="tiles">eventmanage.NTSTickets.page</result>
+			<result name="commission">/eventmanage/Commission.jsp</result>
+			<result name="success">/eventmanage/success.jsp</result>
+			<result name="inputerror">/eventmanage/NTSerrors.jsp</result>
+			<result name="loadntsvideo">/eventmanage/NTSvideo.jsp</result>
+			<result name="videos">/eventmanage/volumevideo.jsp</result>
+		</action>
+		
+		<action name="NoticeBoard" class="eventmanageNoticeBoardClass">
+		    <result name="error" type="redirect">/user/login</result>
+			<!-- <result name="addnotice" >/eventmanage/noticeboard/noticedata.jsp</result> -->
+			<result name="noticepopup" >/eventmanage/noticeboard/noticeadd.jsp</result>
+			<result name="noticeDeleted" >/eventmanage/noticeboard/noticedeleted.jsp</result>
+			<result name="noticesaved">/eventmanage/noticeboard/noticesaved.jsp</result>
+			<result name="jsondata" >/eventmanage/noticeboard/noticesjsondata.jsp</result>
+			<result name="jsonafteradd" >/eventmanage/noticeboard/noticesjsondataadd.jsp</result>
+		</action>
+	
+ <action name="PrintedTickets" class="eventmanagePrintedTicketsClass">
+		<result name="success" type="tiles">eventmanage.printedtickets.page</result>
+		<result name="savedstatus">/eventmanage/editeventjson.jsp</result>
+		<result name="printedlist" >/eventmanage/printedticketlists.jsp</result>
+		<result name="createprintedticket">/eventmanage/createprintedtickets.jsp</result>
+		<result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
+		<result name="changetoassign">/eventmanage/printedticketstatus.jsp</result>
+		<result name="pdfgenerated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>	
+		<result name="inputerror" >/eventmanage/mailadderrors.jsp</result>	
+		
+<result name="download" type="stream">
+            	<param name="contentType">application/pdf</param>
+            	<param name="inputName">inputStream</param>
+            	<param name="contentDisposition">attachment;filename="tickets.pdf"</param>
+    		</result>
+		
+		</action>
+<action name="PaymentsRefund" class="eventmanageRefundClass">
+		  	<result name="refund">/eventmanage/refund.jsp</result>
+		  	<result name="success">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		  	<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+		</action>
+
+		<action name="PaymentSettings"  class="eventmanagePaymentSettingsClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.PaymentSettings.page</result>
+			<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+			<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>	
+			<result name="jsondata">/eventmanage/seating/ajaxjson.jsp</result>	
+			<result name="brinbtreeScreen">/eventmanage/braintreepaymentapprovalhelp.jsp</result>
+			<result name="stripeScreen">/eventmanage/stripesecretkeyhelp.jsp</result>
+		</action>
+		
+		<action name="ProfileJsonData" class="eventmanageProfileJsonDataClass">
+		 	<result name="Success" >/eventmanage/addattendee/profilejsondata.jsp</result>
+		</action>
+		 
+		<action  name="ProfileVmData" class="eventmanageProfileVmDataClass">
+		 	<result name="Success" >/eventmanage/addattendee/profileblock.jsp</result>
+		</action>
+
+		<action name="PriorityRegistration" class="eventmanagePriorityRegistrationClass">
+		<result name="success" type="tiles">eventmanage.priorityregistration.page</result>
+		<result name="createlist">/eventmanage/createprioritylist.jsp</result>
+		<result name="createfields">/eventmanage/createpriorityfields.jsp</result>	
+		<result name="error" type="redirect">/user/login</result> 
+		 <result name="saved" >/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>  
+		 <result name="jsonData">/myevents/listeventjson.jsp</result>
+		 <result name="addrecords">/eventmanage/addprioritylist.jsp</result>
+		</action>
+		
+		<action name="Reports"  class="eventmanageReportsClass">
+		   <result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.Reports.page</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>
+			<result name="updated" type="tiles">eventmanage.ReportsDone.page</result>
+			<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="attendeeQuestions">/eventmanage/attendeeQuestions.jsp</result>
+			<result name="buyerQuestions">/eventmanage/buyerQuestions.jsp</result>
+			<result name="count" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="reportsjson">/eventmanage/seating/ajaxjson.jsp</result>
+			<result name="exporttoexcel">/eventmanage/ExcelExport.jsp</result>
+			<result name="exporttocsv">/eventmanage/ExportToCSV.jsp</result>
+		</action>
+		<action name="RSVPProfileJsonData" class="eventmanageRSVPProfileJsonDataClass">
+				 	<result name="Success" >/eventmanage/addrsvpattendee/rsvpprofilejsondata.jsp</result>
+				</action>
+
+		<action  name="RSVPProfileVmData" class="eventmanageRSVPProfileVmDataClass">
+				 	<result name="Success" >/eventmanage/addrsvpattendee/rsvpprofileblock.jsp</result>
+		</action>
+		
+		<action name="RSVPReports"  class="eventmanageRSVPReportsClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.RSVPReports.page</result>
+			<result name="responsequestions">/eventmanage/responseQuestions.jsp</result>
+			<result name="transactionquestions">/eventmanage/transactionQuestions.jsp</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>
+			<result name="count" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="json">/eventmanage/seating/ajaxjson.jsp</result>
+			<result name="exporttoexcel">/eventmanage/ExcelExport.jsp</result>
+			<result name="exporttocsv">/eventmanage/ExportToCSV.jsp</result>
+		</action>
+		
+		<action name="RSVPSettings"  class="eventmanageRSVPSettingsClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.RSVPSettings.page</result>
+			<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+			<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		</action>
+				
+		<action name="SaveProfileDetails" class="eventmanageSaveProfileDetailsClass">
+			<!--result name="Success" type="redirect">UpdateRegDb?eid=${eid}&amp;tid=${tid}&amp;eventdate=${eventdate}&amp;seatingenabled=${seatingenabled}</result-->
+			<result name="Success" type="redirect">AddAttendeePayment?eid=${eid}&amp;tid=${tid}</result>
+			<!--result name="Success">/eventmanage/addattendee/addattendeepayment.jsp</result-->
+		</action>
+		
+		<action name="SaveRSVPProfileDetails" class="eventmanageSaveRSVPProfileDetailsClass">
+			<result name="Success" type="redirect">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}&amp;sure=${sure}</result>
+		</action>
+		 
+		<action name="ScanIDs"  class="eventmanageScanIDsClass">
+           	<result name="error" type="redirect">/user/login</result>
+            <result name="success" type="tiles">eventmanage.ScanIDs.page</result>     
+      <result name="scanidpage">/eventmanage/createscanid.jsp</result>
+            <result name="jsondata">/eventmanage/scanidjsondata.jsp</result>
+            <result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+            <result name="updated" type="tiles">eventmanage.ScanIDsDone.page</result>
+            <result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+<result name="reloadedData">/myevents/listeventjson.jsp</result>       
+ </action>
+        <action name="Seating" class="eventmanageSeatingClass"> 
+        	<result name="addmanual" type="tiles">eventmanage.seatingaddmanual.page</result>
+			<result name="error" type="redirect">/user/login</result> 
+			<result name="success" type="tiles">eventmanage.Seating.page</result>
+			<result name="ajaxjson">/eventmanage/seating/ajaxjson.jsp</result>
+			<result name="sections">/eventmanage/seating/sections.jsp</result>
+			<result name="showtickets">/eventmanage/seating/seattickets.jsp</result>
+			<result name="addseat">/eventmanage/seating/addseat.jsp</result>  
+			<result name="needtopay" type="tiles">eventmanage.specialfees.page</result> 
+		</action>
+		
+		<action name="SeatingAddManual" class="com.eventmanage.seating.actions.SeatingAddManualAction">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="ajaxjson">/eventmanage/seating/ajaxjson.jsp</result>
+		</action>
+		
+<!--		<action name="Snapshot"  class="eventmanageSnapshotClass">
+		   	<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.Snapshot.page</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+			<result name="ajaxjson">/eventmanage/seating/ajaxjson.jsp</result>
+			<result name="promotions">/eventmanage/ntspromotions.jsp</result>
+		</action>-->
+
+
+
+		<action name="Snapshot"  class="eventmanageSnapshotClass" method="eventDetails">
+			<result name="success" type="tiles">eventmanage.EventDetails.page</result>                                
+                          <result name="error" type="redirect">/user/login</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+			<result name="ajaxjson">/eventmanage/seating/ajaxjson.jsp</result>
+			<result name="promotions">/eventmanage/ntspromotions.jsp</result>                    
+			<result name="refresh">/eventmanage/seating/ajaxjson.jsp</result>
+                       
+		</action>
+		
+		<action name="SubManager"  class="eventmanageSubManagerClass">
+		   	<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.SubManager.page</result>
+			<result name="jsondata">/eventmanage/scanidjsondata.jsp</result>
+			<result name="input">/eventmanage/createsubmanager.jsp</result>
+			<result name="addsubmgr">/eventmanage/success.jsp</result>
+			<result name="inputerror">/eventmanage/inputerror.jsp</result>
+			<result name="remove">/eventmanage/removesubmanager.jsp</result>
+                        <result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="json">/eventmanage/editeventjson.jsp</result>
+		</action>
+		
+        <action name="TicketDetails"  class="eventmanageTicketDetailsClass">
+		    <result name="error">/eventmanage/ajaxunauthorized.jsp</result>
+			<result name="input" >/eventmanage/ticketing/ticketadd.jsp</result>
+			<result name="inputedit" >/eventmanage/ticketing/ticketedit.jsp</result>			
+			<result name="inputerror" >/eventmanage/ticketing/ticketadderrors.jsp</result>
+			<result name="donationinput" >/eventmanage/ticketing/donationadd.jsp</result>
+			<result name="groupadd">/eventmanage/ticketing/addgroup.jsp</result>
+			<result name="donationinputerror" >/eventmanage/ticketing/donationadderrors.jsp</result>
+			<result name="optselector" >/eventmanage/ticketing/tickettypeselector.jsp</result>
+			<result name="success" >/eventmanage/success.jsp</result>
+			<result name="ajaxmsg">/eventmanage/ajaxjson.jsp</result>
+			<result name="eventcapacity">/eventmanage/eventcapacity.jsp</result>
+			<result name="attribQuestionSelector" >/eventmanage/ticketing/regquestions.jsp</result>		
+		</action>		
+		
+		<action name="TicketShowHide"  class="eventmanageTicketShowHideClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+			<result name="tickets" >/eventmanage/TicketShowHide.jsp</result>
+			<result name="recurringtickets" >/eventmanage/TicketShowHideRecurring.jsp</result>
+			<result name="success" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=success</result>	
+			<result name="volumetickets">/eventmanage/eventpagecontent/displayvolumetickets.jsp</result>		
+		</action>
+		
+		<action name="TicketURLs"  class="eventmanageTicketURLsClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.TicketURLs.page</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+			<result name="tickets" >/eventmanage/eventtickets.jsp</result>
+			<result name="jsondata">/eventmanage/ticketurlsjsondata.jsp</result>
+			<result name="createticketsURL">/eventmanage/createticketsURL.jsp</result>
+			<result name="specialfee">/eventmanage/specialfees.jsp</result>
+			<result name="blank">/eventmanage/blank.jsp</result>		
+            <result name="reloadedData">/eventmanage/seating/ajaxjson.jsp</result>	
+		</action>
+		
+	<action name="LayOutManager" class="eventManageLayOutManagerClass">
+			<result name="error" type="redirect">/user/login</result>
+		    <result name="success" type="tiles">eventmanage.LayOutManager.page</result>
+<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+               
+		</action>
+		<action name="BuyerPage" class="eventmanageBuyerPageClass">
+			<result name="success" >/eventmanage/BuyerPage.jsp</result>
+			<result name="jsondata">/eventmanage/buyerfilesjson.jsp</result>
+		</action>
+		
+		<action name="TrackURL" class="eventmanageTrackURLClass">
+  			<result name="error" type="redirect">/user/login</result> 
+  			<result name="import">/eventmanage/importTrackUrls.jsp</result>
+			<result name="success" type="tiles">eventmanage.TrackURL.page</result> 
+			<result name="trackreportsummary" type="tiles">eventmanage.trackreportsummary.page</result> 
+			<result name="manage" type="tiles">eventmanage.manageTrackURLs.page</result> 
+			<result name="report" type="tiles">eventmanage.trackURLsreport.page</result> 
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result> 
+			<result name="jsondata">/eventmanage/trackurljsondata.jsp</result> 
+			<result name="jsonsummarydata">/eventmanage/trackurlsummaryjsondata.jsp</result> 
+			<result name="trackmanagepwd">/eventmanage/trackmanagepwd.jsp</result> 
+			<result name="trackmanagephoto">/eventmanage/trackmanagephoto.jsp</result> 
+			<result name="trackmanagemessage">/eventmanage/trackmanagemessage.jsp</result> 
+			<result name="createtrackURL">/eventmanage/createtrackURL.jsp</result>
+			<result name="widget">/eventmanage/widget.jsp</result>
+			<result name="specialfee">/eventmanage/specialfees.jsp</result>
+			<result name="blank">/eventmanage/blank.jsp</result> 
+			<result name="exporttoexcel">/eventmanage/ExcelExport.jsp</result>
+			<result name="exporttocsv">/eventmanage/ExportToCSV.jsp</result>
+            <result name="reloadTreckData">/eventmanage/editeventjson.jsp</result>
+            <result name="editTrack">/eventmanage/editTrackUrlData.jsp</result>
+  		</action>
+  		
+  		<action name="TransactionDetails" class="eventmanageTransactionDetailsClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.searchattendee.page</result>
+			<result name="transdata" type="tiles">eventmanage.TransactionDetails.page</result>
+			<result name="deleted" type="redirect">Reports.action?eid=${eid}</result>
+			<result name="notes">/eventmanage/notes.jsp</result>	
+			<result name="deletedrsvp" type="redirect">RSVPReports.action?eid=${eid}</result>
+			<result name="transactiondetailspage" type="redirect">TransactionDetails!getTransactionInfo?tid=${tid}&amp;eid=${eid}</result>
+			<result name="sendingmail">/eventmanage/mailsuccess.jsp</result>		
+            <result name="checkinstatus">/eventmanage/success.jsp</result>	
+            <result name="changestatus">/eventmanage/transactionstatus.jsp</result>	
+            <result name="attendeetraninfojson">/eventmanage/seating/ajaxjson.jsp</result>
+       </action>
+		
+		<action  name="UpdateRegDb" class="eventmanageUpdateRegDbClass">
+		 	<result name="Success" type="redirect">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		 	<result name="fail">/eventmanage/ajaxerrormsg.jsp?msgType=${msgType}</result>
+		</action>
+		
+		<action name="AddAttendeePaymentSuccess" method="process" class="com.eventbee.actions.SimpleAction">
+			<result name="success">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		</action>
+		
+		<action name="UpgradeEvent"  class="eventmanageUpgradeEventClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.UpgradeEvent.page</result>
+			<result name="updated" type="redirect">Snapshot.action?eid=${eid}</result>	
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="paymentScreen" >/eventmanage/payment.jsp</result>			
+		</action>
+		
+		<action name="VolumeTicketDetails"  class="eventmanageVolumeTicketDetailsClass">
+            <result name="error">/eventmanage/ajaxunauthorized.jsp</result>
+            <result name="volumeinput">/eventmanage/ticketing/volumeticketadd.jsp</result>  
+            <result name="inputerror">/eventmanage/ticketing/ticketadderrors.jsp</result>
+            <result name="success">/eventmanage/success.jsp</result>
+            <result name="widget">/eventmanage/ticketing/widgetpopup.jsp</result>
+            <result name="confirmationpage">/eventmanage/ticketing/confirmationpagepopup.jsp</result>  
+            <result name="confirmationemail">/eventmanage/ticketing/confirmationemailpopup.jsp</result>
+            <result name="content">/eventmanage/ticketing/confirmationcontent.jsp</result>
+			<result name="preview">/eventmanage/confirmationpreview.jsp</result>
+			<result name="vbenable">/eventmanage/ticketing/volumeticketingenable.jsp</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+        </action>
+		<action name="WaitList" class="eventmanageWaitListClass">
+        	<result name="error" type="redirect">/user/login</result>
+        	<result name="waitlistsummary" type="tiles">eventmanage.WaitList.page</result>
+        	<!-- <result name="waitlistsummary">/eventmanage/WaitList.jsp</result> -->
+        	<result name="waitlistemail">/eventmanage/Waitlistmail.jsp</result>
+        	<result name="waitlistdetails">/eventmanage/WaitListDetails.jsp</result>
+        	<result name="success">/eventmanage/success.jsp</result>
+        	<result name="activationlink">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+        	<result name="expirationerror" >/eventmanage/mailadderrors.jsp</result>
+        	<result name="soldstatus">/eventmanage/WaitListSoldStatus.jsp</result>
+        	<result name="blank">/eventmanage/blank.jsp</result>
+        	<result name="datejson">/eventmanage/seating/ajaxjson.jsp</result>
+        	<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+        	<result name="emailTemplate">/eventmanage/EmailTemplateJson.jsp</result>
+        	<result name="preview">/eventmanage/waitlistpreview.jsp</result>
+			<result name="jsondata">/eventmanage/jsondata.jsp</result>
+		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+        </action>
+        <action name="ConfirmationPageSettings" class="eventmanageConfirmationPageSettingsClass">
+        	<result name="success">/eventmanage/ConfirmationPageSettings.jsp</result>
+        	<result name="confirmationdata">/eventmanage/emailjson.jsp</result>	
+        	<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+        	<result name="preview">/eventmanage/confirmationpreview.jsp</result>
+		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+        </action>
+        <action name="RegEmailSettings" class="eventmanageRegEmailSettingsClass">
+        	<result name="success">/eventmanage/RegEmailSettings.jsp</result>
+        	<result name="confirmationdata">/eventmanage/emailjson.jsp</result>
+        	<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+        	<result name="preview">/eventmanage/confirmationpreview.jsp</result>
+		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+        </action>
+		<action name="*"  class="eventmanage{1}Class">
+		   <result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.{1}.page</result>
+			<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+			<result name="updated" type="tiles">eventmanage.{1}Done.page</result>
+			<result name="ajaxstatusmsg">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="fontstyles">/eventmanage/fontstyles.jsp</result>
+			<result name="jsondata">/eventmanage/jsondata.jsp</result>
+			<result name="deleted" >/eventmanage/success.jsp</result>
+			<result name="eventinfo" >/fbauth/fbeventdetailsreview.jsp</result>
+			<result name="specialfee">/eventmanage/UpgradePopup.jsp</result>
+			<!-- <result name="upgradeevent">/eventmanage/upgradeeventfeature.jsp</result> -->
+			<result name="upgradeevent">/eventmanage/UpgradePopup.jsp</result>
+			<result name="blank">/eventmanage/blank.jsp</result>
+			<result name="preview">/eventmanage/confirmationpreview.jsp</result>
+			<result name="ccjson">/eventmanage/ccjson.jsp</result>
+			<result name="done" >/eventmanage/success.jsp</result>
+			<result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
+			<result name="errorsuccess">/eventmanage/success.jsp</result>
+			<result name="duepopup">/myevents/duepopup.jsp</result>
+			<result name="chargepopup">/myevents/chargepopup.jsp</result>
+<result name="confirmationdata">/eventmanage/emailjson.jsp</result>		
+	<result name="refresh">/eventmanage/editeventjson.jsp</result>		
+			<result name="badgespdf" type="stream">
+            	<param name="contentType">application/pdf</param>
+            	<param name="inputName">inputStream</param>
+            	<param name="contentDisposition">attachment;filename="attendeebadges.pdf"</param>
+    		</result>
+			<result name="statusjson">/eventmanage/editeventjson.jsp</result>
+		</action>
+		 
+	</package>
+</struts>

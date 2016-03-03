@@ -1,0 +1,13 @@
+#backgroundPopup
+{  
+display:none;  
+position:absolute;
+width:100%;  
+z-index:1000;
+top:0;  
+left:0;  
+background-color: #080808;
+filter:alpha(opacity=50);   
+-moz-opacity:0.5;        
+opacity: 0.5;             
+}

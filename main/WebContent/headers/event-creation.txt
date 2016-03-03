@@ -1,0 +1,6 @@
+<title>Event Online Registration, Ticketing Payments or RSVP with Eventbee
+</title>
+
+<meta name="Description" content="Power your event with Eventbee online registration, ticketing or RSVP feature. Accept payments online using PayPal, Google or Eventbee CC processing." />
+
+<meta name="Keywords" content="eventbee, event registration, event ticketing, event rsvp, paypal payments, google check out, event seating, event discounts, event registration form, event donations" />

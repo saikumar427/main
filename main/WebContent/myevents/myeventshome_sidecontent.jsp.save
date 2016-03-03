@@ -1,0 +1,102 @@
+<script type="text/javascript">
+var openpopupclick=false;
+function openPopUp(url,width,height,classname){
+openpopupclick=true;
+var dynatimestamp = new Date().getTime();
+url=url+"?dyntimestamp="+dynatimestamp;
+if($(classname)){
+ }
+else{
+var cell=$('header');
+var div=document.createElement("div");
+div.setAttribute('id',classname);
+div.className=classname;
+cell.appendChild(div);
+}
+var layout="<a href='javascript:closepopuplayout();'><img src='/home/images/close.png' class='imgclose'></a><iframe width='"+width+"' height='"+height+"' src='"+url+"' id='"+dynatimestamp+"' frameborder='0' allowfullscreen></iframe>";
+document.getElementById(classname).innerHTML=layout;
+document.getElementById(classname).style.display='block';
+if(classname=='layoutwidget'){
+document.getElementById(classname).style.top='10%';
+document.getElementById(classname).style.left='26%';
+}else if(classname=='layoutwidget2'){
+document.getElementById(classname).style.top='10%';
+document.getElementById(classname).style.left='40%';
+}
+if(document.getElementById("backgroundPopup"))
+document.getElementById("backgroundPopup").style.display='block';
+
+
+
+}
+
+function closepopuplayout(){
+openpopupclick=false;
+	if(document.getElementById("backgroundPopup")){
+		document.getElementById("backgroundPopup").style.display='none';
+	}
+	if($('layoutwidget2')){
+		$('layoutwidget2').style.display='none';
+		$('layoutwidget2').innerHTML='';
+	}
+    if($('layoutwidget')){
+		$('layoutwidget').style.display='none';
+		$('layoutwidget').innerHTML='';
+	}
+}
+</script>
+<fieldset>
+
+<table width='100%' cellpadding="0" class="0">
+<tr><td>
+
+  <span>
+  <table border="0" cellpadding="0" cellspacing="0" class1="more" bordercolor="#FFCC33">
+<tr><td>
+<font size="3" color="#CC0000">What's
+      New </font>
+  </td></tr>
+
+  <tr>
+    <td valign="top">
+      <p><font color="#006600" face="verdana">
+        Introducing Eventbee Network Ticket Selling</font></p>
+      <p>Now attendees can sell tickets to their friends on Facebook and get rewarded.<br/><br/>For complete details visit <a href="http://blog.eventbee.com">blog.eventbee.com</a></p>
+      <p><font color="#006600" face="verdana">
+        Tutorial Videos</font></p>
+      <p>
+      <a href="http://youtube.com/eventbee">http://youtube.com/eventbee</a></p>
+      <p><font color="#006600" face="verdana">
+        Connect With Us On Social Web</font></p>
+      <p>
+<a href="http://www.facebook.com/eventbeeinc"><img src="http://www.eventbee.com/mainnew/images/home/icon_facebook.png" border="0"/> Click here to join our Facebook Fan Page</a>
+<br/><br/>
+<a href="http://www.twitter.com/eventbee"><img src="http://www.eventbee.com/mainnew/images/home/icon_twitter.png"  border="0"/> Click here to follow us on Twitter</a>
+
+  <tr>
+    <td valign="top">
+      <p><font color="#006600" face="verdana">Recent Tweets
+        </font></p>
+      <p><table>
+      <tr>
+      <td><span id="twitter_update_list"></span>
+      <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+      <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/eventbee.json?callback=twitterCallback2&count=2"></script>
+      <script src="http://widgets.twimg.com/j/1/widget.js"></script>
+      <link href="http://widgets.twimg.com/j/1/widget.css" type="text/css" rel="stylesheet"></td></tr>
+      </table>
+      </p>
+      If you have any questions, please <a href="#"  onClick="openPopUp('/mainnew/user/supportemail.jsp','350','330','layoutwidget2')">email us</a>
+
+    </td>
+  </tr>
+
+</table>
+</span>
+		</td></tr>
+
+		</table>
+
+</fieldset>
+			 
+		    

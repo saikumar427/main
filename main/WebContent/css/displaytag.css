@@ -1,0 +1,137 @@
+.dataTable {
+	background-color: white;
+	border: 1px solid #7F7F7F;
+	border-spacing: 0;
+	font-size :	9pt;
+	font-weight: normal;
+	margin:	5px;
+	width: 99%;
+	
+}
+
+.dataTable thead {
+ border-bottom:1px solid #CBCBCB;
+}
+
+.dataTable th {
+	font-family: arial;
+	font-weight: normal;
+	color: black;
+	background: url(../images/sprite.png);
+	 -moz-border-bottom-colors: none;
+	    -moz-border-image: none;
+	    -moz-border-left-colors: none;
+	    -moz-border-right-colors: none;
+	    -moz-border-top-colors: none;
+	    border-color: -moz-use-text-color #CBCBCB #CBCBCB -moz-use-text-color;
+	    border-style: none solid solid none;
+   	 border-width: medium 1px 1px medium;
+   	 border-spacing: 0;
+    	margin:0;
+	white-s    	padding-left: 5px;
+pace: nowrap;
+	height:28px;
+	text-align:left;
+}
+
+.dataTable th {
+	font-weight: normal;
+	padding-left: 5px;
+}
+
+.dataTable  td {
+	font-family: verdana;
+	padding-left: 2px;
+	border-style: none solid none none;
+	border-color: -moz-use-text-color #CBCBCB -moz-use-text-color -moz-use-text-color;
+	border-width: medium 1px medium medium;
+}
+
+.dataTable tr.total td.customer {
+	visibility: hidden;
+}
+
+.dataTable td.hidden {
+	display: none;
+}
+
+.dataTable th.hidden {
+	display: none;
+}
+
+.dataTable th.r {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.dataTable th.c {
+	text-align: center;
+}
+
+.dataTable td.r {
+	text-align: right;
+	padding-right: 10px;
+	border-style: none solid none none;
+}
+
+.dataTable td.c {
+	text-align: center;
+	border-style: none solid none none;
+}
+
+.dataTable  tr.odd {
+	background-color: #ffffff;
+	padding-left: 5px;
+	
+}
+.pagelinks img {
+	border:0px;
+	}
+.dataTable tr.even {
+	background-color: #EDF5FF;
+	padding-left: 5px;
+}
+
+.dataTable th.sorted {
+	background-color: red;
+	padding-left: 5px;
+}
+
+.dataTable th.order1 {
+	background: #ccc url(/main/build/datatable/assets/skins/sam/dt-arrow-dn.png) no-repeat;
+	background-position:right; 
+	padding-left: 5px;
+}
+.dataTable th.order2 {
+	background: #ccc url(/main/build/datatable/assets/skins/sam/dt-arrow-up.png) no-repeat;
+	background-position:right; 
+	padding-left: 5px;
+}
+
+
+
+.dataTable th a   ,.dataTable th a:visited {
+	text-align: left;
+	color: black;
+}
+
+
+.dataTable tr.rowMouseOver {
+	background-image: url(../images/selected.gif);
+	background-repeat: repeat-x;
+	background-color: #ffff99;
+}
+.pagebanner{
+	text-align:right;
+	color:white; 
+	font-style:italic;
+	font-weight:bold;
+	font-family:Arial;
+	
+}
+
+div#dtagdivid .exportlinks {
+	padding-top:20px;
+	position:absolute;
+}
+

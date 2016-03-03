@@ -1,0 +1,109 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<package name="myemailmarketing" extends="struts-default" namespace="/myemailmarketing">
+<result-types>
+	<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+</result-types>
+<interceptors>
+<interceptor name="authenticate"  class="com.eventbee.interceptors.AuthInterceptor"/>
+<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />	
+<interceptor-stack name="authenticateStack">
+<interceptor-ref name="fileUpload" />
+<interceptor-ref name="prepare" />
+<interceptor-ref name="params" />
+<interceptor-ref name="chain" />
+<interceptor-ref name="conversionError" />
+<interceptor-ref name="i18nSession" />
+<interceptor-ref name="i18n" />
+<interceptor-ref name="authenticate" />
+<interceptor-ref name="validation" />
+<interceptor-ref name="workflow" />
+</interceptor-stack>
+</interceptors>
+
+<default-interceptor-ref name="authenticateStack" /> 
+<global-results>
+<result name="error" type="redirect">/user/login</result>
+</global-results>
+<action name="campaignlistmanage"  class="myemailmarketing_campaignlistmanage">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">myemailmarketing.campaignmanage.page</result>
+		<result name="scheduleblast" type="tiles">myemailmarketing.scheduleblast.page</result>
+		<result name="displaylistjson">/myemailmarketing/blastlistjsondata.jsp</result>
+		<result name="blastscheduled" type="tiles">myemailmarketing.campaignmanage.page</result>
+		<result name="blasted">/myemailmarketing/success.jsp</result>
+		<result name="ajaxmsg" type="redirect">/myemailmarketing/ajaxmsg.jsp?msgKey=${msg}</result>	
+		<result name="previewCampaign">/myemailmarketing/previewCampaign.jsp</result>
+		<result name="blastreport">/myemailmarketing/emailblastreport.jsp</result>
+		<result name="inputerror">/myemailmarketing/maillistadderrors.jsp</result>
+		<result name="blastexceed">/myemailmarketing/campdata.jsp</result>
+</action>
+<action name="createcampaign"  class="myemailmarketing_createcampaign">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">myemailmarketing.createcampaign.page</result>
+		<result name="fail" type="tiles">myemailmarketing.createcampaign.page</result>
+		<result name="created" >/myemailmarketing/campdata.jsp</result>
+		<result name="preview">/eventmanage/showfilename.jsp</result>
+		<result name="previewCampaign">/myemailmarketing/previewCampaign.jsp</result>
+</action>
+
+<action name="editcampaign"  class="myemailmarketing_createcampaign">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">myemailmarketing.createcampaign.page</result>
+		<result name="fail" type="tiles">myemailmarketing.createcampaign.page</result>
+		<result name="created" type="redirect">/myemailmarketing/campaignlistmanage!campaignInfo?campId=${campId}</result>
+		<result name="preview">/eventmanage/showfilename.jsp</result>
+</action>
+	
+<action name="emailmarketingmaillist"  class="myemailmarketing_maillist">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="input" >/myemailmarketing/addmaillist.jsp</result>						
+</action>
+	
+<action name="editmaillist"  class="myemailmarketing_maillist">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="input">/myemailmarketing/addmaillist.jsp</result>						
+</action>
+	
+<action name="maillistmanage" class="myemailmarketing_maillistmanage">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="input">/myemailmarketing/addmaillist.jsp</result>
+		<result name="listadded">/myemailmarketing/success.jsp</result>
+		<result name="inputerror">/myemailmarketing/maillistadderrors.jsp</result>
+		<result name="listinfo" type="tiles">myemailmarketing.maillistmanage.page</result>
+		<result name="addmanual">/myemailmarketing/addmembermanual.jsp</result>
+		<result name="addmanualerror">/myemailmarketing/maillistadderrors.jsp</result>
+		<result name="manualadded">/myemailmarketing/success.jsp</result>
+		<result name="mergelistsinput">/myemailmarketing/mergelists.jsp</result>
+		<result name="mergelistdone">/myemailmarketing/success.jsp</result>
+		<result name="showvaildations" >/myemailmarketing/showvalidations.jsp</result>
+		<result name="showmemberdata">/myemailmarketing/showmemberdata.jsp?listId=${listId}</result>
+		<result name="savefiledatadone">/myemailmarketing/success.jsp</result>
+		<result name="membersJson">/myemailmarketing/membersjsondata.jsp</result>	
+		<result name="ajaxmsg" type="redirect">/myemailmarketing/ajaxmsg.jsp?msgKey=${msg}</result>
+		<result name="bulk">/myemailmarketing/bulkupload.jsp</result>
+		<result name="bulksummary">/myemailmarketing/bulksummary.jsp</result>
+		<result name="showbulkvaildations">/myemailmarketing/showbulkvalidation.jsp</result>
+</action>
+	
+<action name="maillistshowlists" class="myemailmarketing_home">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="maillistJson">/myemailmarketing/maillistjsondata.jsp</result>
+		<result name="camplistJson">/myemailmarketing/campaignlistjsondata.jsp</result>
+</action>
+	
+<action name="home"  class="myemailmarketing_home">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">myemailmarketing.emailmarketing_home.page</result>
+		<result name="paymentScreen" >/ccprocessing/payment.jsp</result>						
+</action>
+	
+<action name="*"  class="myemailmarketing_{1}">
+		<result name="error" type="redirect">/user/login</result>
+		<result name="success" type="tiles">myemailmarketing.{1}.page</result>			
+</action>		
+</package>
+</struts>

@@ -1,0 +1,6 @@
+<title>Sell Tickets on Social Networks like Facebook, Twitter with Eventbee.</title>
+
+<meta name="Description" content="Sell tickets from your website using Eventbee tickets widget. Post your custom event page URL on social networks like Facebook, Twitter and Ning to maximize ticket sales." />
+
+<meta name="Keywords" content="eventbee, tickets widget, facebook events, ning events, twitter events, event promotion, event links"/>
+

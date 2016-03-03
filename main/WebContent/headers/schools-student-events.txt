@@ -1,0 +1,8 @@
+
+<title>School Event Ticketing, Student Event Ticketing, Reunion Ticketing</title>
+
+<meta name="Description" content="Easy to use online Event Management solution to power your School, Student and Reunion Event Registration and Ticketing" />
+
+<meta name="Keywords" content="school events, school event ticketing, school event registration, student events, student event ticketing, student event registration, reunion events, reunion event registration, commencements, commencement registration" />
+
+<link rel="canonical" href="http://www.eventbee.com/mainnew/schools-student-events" />

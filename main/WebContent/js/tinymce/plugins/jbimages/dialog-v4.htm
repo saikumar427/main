@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<title>Upload image</title>
+	<script type="text/javascript" src="js/dialog-v4.js"></script>
+	<link rel="stylesheet" type="text/css" href="/main/bootstrap/css/bootstrap.css">
+	<link type="text/css" rel="stylesheet" href="/main/bootstrap/font-awesome-4.3.0/css/font-awesome.css" />
+	<link href="css/dialog-v4.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<form class="form-inline" id="upl" name="upl" method="post" enctype="multipart/form-data" onsubmit="uploadImage();">
+		
+		
+		<div style="display:none" id="file_error">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<ul class="alert alert-danger" style="padding:10px;margin-bottom:20px;">
+       				<li style="list-style: none;"><span>Please select a valid file to upload</span></li>
+       			</ul>
+			</div>
+		</div>
+		<div id="upload_form_container">
+			<div style="margin-top:10px">
+			<div class="col-md-8 col-sm-8 col-xs-8">
+				<input id="uploader" class="btn btn-bt" name="userfile" type="file" class="jbFileBox">
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<button class="btn btn-primary" type="button" onclick="uploadImage();">Upload</button>
+				<button class="btn btn-cancel" type="button" onclick="parent.tinymce.EditorManager.activeEditor.windowManager.close(window);">
+					<i class="fa fa-times"></i>
+				</button>
+			</div>
+			</div>
+		</div>
+		<div id="upload_in_progress" class="upload_infobar col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px">
+			<img src="img/spinner.gif" width="16" height="16" class="spinner">Upload in progress&hellip; <div id="upload_additional_info"></div>
+		</div>
+		<div id="upload_infobar" class="upload_infobar"></div>
+	</form>
+
+<script>
+function uploadImage() {
+	if(document.getElementById("uploader").value.length == 0) {
+		document.getElementById("file_error").style.display = "";
+		return false;
+	} else {
+		document.getElementById("upload_in_progress").style.display = "block";
+		jbImagesDialog.inProgress();
+		var fileSelect = document.getElementById('uploader');
+		var files = fileSelect.files;
+		var formData = new FormData();
+		var file = files[0];
+		formData.append('userfile', file, file.name);
+		formData.append('manager_id', window.parent.document.getElementById('managerid').value);
+
+		var xhr = new XMLHttpRequest();
+		//var upload_url = "http://192.168.1.99/image_upload/tiny/tinymce/plugins/jbimages/ci/index.php?upload/english";
+		xhr.open('POST', window.parent.upload_url, true);
+		xhr.onload = function () {
+			if (xhr.status === 200) {
+				document.getElementById("upload_in_progress").style.display = "none";
+				var res = JSON.parse(xhr.responseText);
+				jbImagesDialog.uploadFinish(res);
+			} else {
+				alert('An error occurred!');
+			}
+		};
+		xhr.send(formData);
+	}
+	
+	return false;
+}
+</script>
+
+<style>
+	.btn-bt {
+	    background-color: #F5F5F5;
+    	color: black;
+	}
+	.btn-bt:hover {
+	    background-color: #F5F5F5;
+    	color: black;
+	}
+</style>	
+
+</body>
+</html>

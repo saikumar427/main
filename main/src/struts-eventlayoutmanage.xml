@@ -1,0 +1,49 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+   <package name="layoutmanage" extends="struts-default" namespace="/eventmanage/layoutmanage" >
+   <result-types>
+		<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" /> 
+		</result-types>		
+   <interceptors>
+   
+<interceptor name="eventowner"  class="eventmanageInterceptorClass"/>
+<interceptor name="i18nSession" class="com.eventbee.interceptors.I18nSessionInterceptor" />	
+<interceptor-stack name="eventownerStack">
+<interceptor-ref name="fileUpload" />
+<interceptor-ref name="prepare" />
+<interceptor-ref name="params">
+ <param name="acceptParamNames">\w+((\.\w+)|(\[\d+\])|(\['\w+(\.\w+)*'\]))*</param>
+</interceptor-ref>     
+<interceptor-ref name="chain" />
+<interceptor-ref name="conversionError" />
+<interceptor-ref name="i18nSession" />
+<interceptor-ref name="i18n" />
+<interceptor-ref name="eventowner" />
+<interceptor-ref name="validation" />
+<interceptor-ref name="workflow" />
+</interceptor-stack>
+</interceptors>
+<default-interceptor-ref name="eventownerStack" /> 
+		<global-results>
+			<result name="nopermission" type="tiles">user.nopermission.page</result>
+			<result name="error" type="redirect">/user/login</result>
+		</global-results> 
+       
+   
+			<action name="*" method="editLayout" class="com.eventmanage.layout.actions.LayoutManageAction">
+			<!-- <param name="action" >{1}</param> -->
+			    <result name="success" >{1}.jsp</result>
+			    <result name="forward" >${target}.jsp</result>
+			      <!--   <result name="success" type="tiles"  >eventmanage.layoutmanage.{1}.page</result> -->
+		</action>	 
+		
+			<action name="BuyerAttOption" method="editBuyerLayout" class="com.eventmanage.buyerpage.actions.BuyerPageAction">
+				    <result name="success" >{1}.jsp</result>
+				    <result name="forward" >${target}.jsp</result>
+			</action>
+	</package>
+</struts>

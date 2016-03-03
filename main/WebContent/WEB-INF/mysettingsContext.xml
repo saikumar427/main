@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="mysettings_accountinfo" class="com.mysettings.actions.AccountInfoAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+<bean id="mysettings_alerts" class="com.mysettings.actions.AlertsAction" singleton="false">
+<property name="actionTitle" value="Alerts"></property>
+</bean>
+<bean id="mysettings_home" class="com.mysettings.actions.MySettingsAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+<bean id="mysettings_eventslist" class="com.mysettings.actions.MySettingsEventsAction" singleton="false">
+<property name="actionTitle" value=""></property>
+</bean>
+
+</beans>

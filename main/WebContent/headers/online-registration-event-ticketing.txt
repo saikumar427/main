@@ -1,0 +1,6 @@
+
+<title>Eventbee Custom Registration Form</title>
+
+<meta name="Description" content="Easy to use online Event Management solution that includes Online Registration, Event Ticketing, Event Promotion and Membership Management" />
+
+<meta name="Keywords" content="events, sell tickets, , online registration, event ticketing, social ticketing, paypal payments, google check out, facebook events, ning events, party tickets, sports tickets, venue seating"/>

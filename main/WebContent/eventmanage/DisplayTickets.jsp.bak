@@ -1,0 +1,201 @@
+<%@taglib uri="/struts-tags" prefix="s"%>
+<script type="text/javascript" src="../js/eventmanage/ticketdisplay.js"></script>
+<script>
+_eid=${eid};
+YAHOO.namespace('ticketdisplayformat');
+</script>
+<script type="text/javascript" src="DisplayTickets!populateDisplayFormatList?eid=${eid}"></script>
+<style>
+.yui-skin-sam .yui-navset .yui-content,.yui-skin-sam .yui-navset .yui-navset-top .yui-content
+	{
+	padding: 5px;
+}
+</style>
+<div id="displayticStatusMsg"></div>
+<s:form id="DisplayTicketsform" theme="simple" name="DisplayTicketsform" action="DisplayTickets!save">
+<s:hidden name="eid" ></s:hidden>
+<s:hidden name="formatId" ></s:hidden>
+<div style="height:3px;"></div>
+<div class="taskbox">
+<span class="taskheader">Sold Out Tickets</span><br/>
+<table  border="0" cellpadding="3" cellspacing="0" width="100%" >
+<tr><td colspan="2">Display &nbsp;
+<s:set name="soldouttktmsg" value="ticketDisplayOptionsMap['event.soldouttickets.status']"></s:set>
+<input type="radio" name="ticketDisplayOptionsMap['event.soldouttickets.status']" value="yes" onclick="showDiv('soldouttickets')" <s:if test="%{#soldouttktmsg == 'yes'}">checked="checked"</s:if>/>Show
+<input type="radio" name="ticketDisplayOptionsMap['event.soldouttickets.status']" value="no" onclick="hideDiv('soldouttickets')" <s:if test="%{#soldouttktmsg == 'no'}">checked="checked"</s:if>/>Hide
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="soldouttickets" <s:if test="%{#soldouttktmsg == 'yes'}">style="display:block;"</s:if> <s:else>style="display:none;"</s:else>>
+<table  cellpadding="0" cellspacing="0">
+<tr><td>Status Message&#160;&#160;&#160;&#160;</td>
+<td><s:textfield name="ticketDisplayOptionsMap['event.soldouttickets.statusmessage']" theme="simple"></s:textfield>
+</td>
+</tr>
+<tr><td>Strikethrough Text&#160;&#160;&#160;&#160;</td>
+<td><s:set name="strikethrough" value="ticketDisplayOptionsMap['event.soldouttickets.strikethrough']"></s:set>
+<input type="radio" name="ticketDisplayOptionsMap['event.soldouttickets.strikethrough']" value="yes" <s:if test="%{#strikethrough == 'yes'}">checked="checked"</s:if>/>Yes
+<input type="radio" name="ticketDisplayOptionsMap['event.soldouttickets.strikethrough']" value="no" <s:if test="%{#strikethrough == 'no'}">checked="checked"</s:if>/>No
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<br/>
+<div class="taskbox">
+<span class="taskheader">Not Yet Started Tickets</span><br/>
+<table  border="0" cellpadding="3" cellspacing="0" width="100%" >
+<tr><td colspan="2">Display&nbsp;
+<s:set name="notyetstartedtickets" value="ticketDisplayOptionsMap['event.notyetstartedtickets.status']"></s:set>
+<input type="radio" name="ticketDisplayOptionsMap['event.notyetstartedtickets.status']" value="yes" onclick="showDiv('notyetstarted')" <s:if test="%{#notyetstartedtickets == 'yes'}">checked="checked"</s:if>/>Show
+<input type="radio" name="ticketDisplayOptionsMap['event.notyetstartedtickets.status']" value="no" onclick="hideDiv('notyetstarted')" <s:if test="%{#notyetstartedtickets == 'no'}">checked="checked"</s:if>/>Hide
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="notyetstarted" <s:if test="%{#notyetstartedtickets == 'yes'}">style="display:block;"</s:if> <s:else>style="display:none;"</s:else>>
+<table  cellpadding="0" cellspacing="0">
+<tr>
+<td>Status Message&#160;&#160;&#160;&#160;</td>
+<td><s:textfield name="ticketDisplayOptionsMap['event.notyetstartedtickets.statusmessage']" theme="simple"></s:textfield>
+</td>
+</tr>
+<tr>
+<td>Display Start Date&#160;&#160;</td>
+<s:set name="notyetstarttime" value="ticketDisplayOptionsMap['event.notyetstartedtickets.showstartdate']"></s:set>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.notyetstartedtickets.showstartdate']" value="yes" <s:if test="%{#notyetstarttime == 'yes'}">checked="checked"</s:if>/>Yes
+&nbsp;<input type="radio" name="ticketDisplayOptionsMap['event.notyetstartedtickets.showstartdate']" value="no" <s:if test="%{#notyetstarttime == 'no'}">checked="checked"</s:if>/>No</td>
+</tr>
+<tr>
+<td>Display End Date&#160;&#160;</td>
+<s:set name="notyetendtime" value="ticketDisplayOptionsMap['event.notyetstartedtickets.showenddate']"></s:set>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.notyetstartedtickets.showenddate']" value="yes" <s:if test="%{#notyetendtime == 'yes'}">checked="checked"</s:if>/>Yes
+&nbsp;<input type="radio" name="ticketDisplayOptionsMap['event.notyetstartedtickets.showenddate']" value="no" <s:if test="%{#notyetendtime == 'no'}">checked="checked"</s:if>/>No</td>
+</tr>
+<tr>
+<td>Display Time&#160;&#160;</td>
+<s:set name="notyetshowtime" value="ticketDisplayOptionsMap['event.notyetstartedtickets.showtime']"></s:set>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.notyetstartedtickets.showtime']" value="yes" <s:if test="%{#notyetshowtime == 'yes'}">checked="checked"</s:if>/>Yes
+&nbsp;<input type="radio" name="ticketDisplayOptionsMap['event.notyetstartedtickets.showtime']" value="no" <s:if test="%{#notyetshowtime == 'no'}">checked="checked"</s:if>/>No</td>
+</tr>
+</table>
+
+</div>
+</td>
+</tr>
+</table>
+</div>
+<br/>
+<div class="taskbox">
+<span class="taskheader">Active Tickets</span><br/>
+<table  border="0" cellpadding="3" cellspacing="0" width="100%" >
+<tr><td colspan="2">Display&nbsp;
+<s:set name="activetktsstatus" value="ticketDisplayOptionsMap['event.activetickets.status']"></s:set>
+<input type="radio" disabled="disabled" name="ticketDisplayOptionsMap['event.activetickets.status']" value="yes" onclick="showDiv('activetickets')" <s:if test="%{#activetktsstatus == 'yes'}">checked="checked"</s:if>/>Show
+<!-- <input type="radio" name="ticketDisplayOptionsMap['event.activetickets.status']" value="no" onclick="hideDiv('activetickets')" <s:if test="%{#activetktsstatus == 'no'}">checked="checked"</s:if>/>Hide -->
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="activetickets" <s:if test="%{#activetktsstatus == 'yes'}">style="display:block;"</s:if> <s:else>style="display:none;"</s:else>>
+<table  cellpadding="0" cellspacing="0"><tr>
+<td>Display Start Date&#160;&#160;</td>
+<s:set name="activetktsstartdate" value="ticketDisplayOptionsMap['event.activetickets.showstartdate']"></s:set>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.activetickets.showstartdate']" value="yes" <s:if test="%{#activetktsstartdate == 'yes'}">checked="checked"</s:if>/>Yes</td>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.activetickets.showstartdate']" value="no" <s:if test="%{#activetktsstartdate == 'no'}">checked="checked"</s:if>/>No</td>
+</tr>
+<tr>
+<td>Display End Date&#160;&#160;</td>
+<s:set name="activetktsenddate" value="ticketDisplayOptionsMap['event.activetickets.showenddate']"></s:set>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.activetickets.showenddate']" value="yes" <s:if test="%{#activetktsenddate == 'yes'}">checked="checked"</s:if>/>Yes</td>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.activetickets.showenddate']" value="no" <s:if test="%{#activetktsenddate == 'no'}">checked="checked"</s:if>/>No</td>
+</tr>
+<tr>
+<td>Display Time&#160;&#160;</td>
+<s:set name="activetktsshowtime" value="ticketDisplayOptionsMap['event.activetickets.showtime']"></s:set>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.activetickets.showtime']" value="yes" <s:if test="%{#activetktsshowtime == 'yes'}">checked="checked"</s:if>/>Yes</td>
+<td><input type="radio" name="ticketDisplayOptionsMap['event.activetickets.showtime']" value="no" <s:if test="%{#activetktsshowtime == 'no'}">checked="checked"</s:if>/>No</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<br/>
+<div class="taskbox">
+<span class="taskheader">Closed Tickets</span><br/>
+<table  border="0" cellpadding="3" cellspacing="0" width="100%" >
+<tr><td colspan="2">Display &nbsp;
+<s:set name="closedtktsstatus" value="ticketDisplayOptionsMap['event.closedtickets.status']"></s:set>
+<input type="radio" name="ticketDisplayOptionsMap['event.closedtickets.status']" value="yes" onclick="showDiv('closedtickets')" <s:if test="%{#closedtktsstatus == 'yes'}">checked="checked"</s:if>/>Show
+<input type="radio" name="ticketDisplayOptionsMap['event.closedtickets.status']" value="no" onclick="hideDiv('closedtickets')" <s:if test="%{#closedtktsstatus == 'no'}">checked="checked"</s:if>/>Hide
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="closedtickets" <s:if test="%{#closedtktsstatus == 'yes'}">style="display:block;"</s:if> <s:else>style="display:none;"</s:else>>
+<table  cellpadding="0" cellspacing="0">
+<tr>
+<td>Status Message&#160;&#160;&#160;&#160;</td>
+<td><s:textfield name="ticketDisplayOptionsMap['event.closedtickets.statusmessage']" theme="simple"></s:textfield>
+</td>
+</tr>
+<tr>
+<td>Strikethrough Text&#160;&#160;&#160;&#160;</td>
+<td>
+<s:set name="closedtktstrike" value="ticketDisplayOptionsMap['event.closedtickets.strikethrough']"></s:set>
+<input type="radio" name="ticketDisplayOptionsMap['event.closedtickets.strikethrough']" value="yes" <s:if test="%{#closedtktstrike == 'yes'}">checked="checked"</s:if>/>Yes
+<input type="radio" name="ticketDisplayOptionsMap['event.closedtickets.strikethrough']" value="no" <s:if test="%{#closedtktstrike == 'no'}">checked="checked"</s:if>/>No
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<br/>
+<div class="taskbox">
+<span class="taskheader">General</span><br/>
+<table  border="0" cellpadding="3" cellspacing="0" width="100%" >
+<tr><td colspan="2">Default Ticket Description Mode &nbsp;
+<s:set name="tktDescMode" value="ticketDisplayOptionsMap['event.general.tktDescMode']"></s:set>
+<input type="radio" name="ticketDisplayOptionsMap['event.general.tktDescMode']" value="collapse" <s:if test="%{#tktDescMode == 'collapse'}">checked="checked"</s:if>/>Collapse
+<input type="radio" name="ticketDisplayOptionsMap['event.general.tktDescMode']" value="expand"  <s:if test="%{#tktDescMode == 'expand'}">checked="checked"</s:if>/>Expand
+</td>
+</tr>
+</table>
+</div>
+<br/>
+<div class="taskbox">
+<span class="taskheader">Tickets Availability Display Format</span><br/>
+<table  border="0" cellpadding="0" cellspacing="0" width="100%" >
+<tr>
+ <td align="right">[<a href="#" onClick="creatDisplay('','${eid}')" style="a:{text-decoration:underline}" >Create Display Format</a>]</td>
+</tr>
+<tr><td><div id="displayFormatTable" style="width:100%"></div></td></tr>
+</table>
+</div>
+<p/>
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center">
+<input type="button" name="submit" value="Submit" id="submitBtn"/>
+</td>
+</tr>
+</table>
+
+</s:form>
+<div id="popupdialog"><div id="hd"></div><div id="bd"></div></div>
+<script>
+function init() {
+	loadDisplayFormatTable();
+}
+YAHOO.util.Event.onDOMReady(init);
+var btn = new YAHOO.widget.Button("submitBtn", { onclick: {fn:submitForm,obj:{"formName":"DisplayTicketsform","divName":"displayticStatusMsg"} } });
+</script>

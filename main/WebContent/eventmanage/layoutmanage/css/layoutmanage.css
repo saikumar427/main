@@ -1,0 +1,230 @@
+.wrapper {
+	width: 100%;
+}
+
+.column,.columnBA {
+	background: #fff;
+	float: left;
+}
+
+.column .dragbox .columnBA{
+	position: relative;
+}
+
+.column .placeholder,.columnBA .placeholder {
+	background: #fff;
+	border: 2px dashed #ff893d;
+	padding: 10px;
+	margin-bottom: 15px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+}
+
+.addwidget, .addwidgetBA {
+	border: 1px dashed #5388C4;
+	color: #5388C4;
+	padding: 5px;
+	height: 50px;
+	float: left;
+	margin: 15px 0px;
+	line-height: 28px;
+	position: relative;
+	width: 100%;
+}
+
+.configureHeaderLink {
+	text-decoration: none;
+}
+
+.configureHeader {
+	background: #cce2ff;
+	border: 1px dashed #5388C4;
+	color: #5388C4;
+	height: 60px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 60px;
+	font-weight: bold;
+	-webkit-transition: all 0.20s ease-in-out;
+	-moz-transition: all 0.20s ease-in-out;
+	-ms-transition: all 0.20s ease-in-out;
+	-o-transition: all 0.20s ease-in-out;
+}
+
+.configureHeader:hover {
+	border: 1px dashed #ff893d;
+	color: #ff893d;
+	height: 60px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 60px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.addwidget:hover, .addwidgetBA:hover {
+	border: 1px dashed #ff893d;
+	color: #ff893d;
+}
+
+.addwidget a, .addwidgetBA a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #5388C4;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 5;
+	left: 5;
+	filter: alpha(opacity = 1);
+}
+
+.addwidget a:hover, .addwidgetBA a:hover {
+	font-weight: bold;
+	text-decoration: none;
+	color: #ff893d;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 5;
+	left: 5;
+	filter: alpha(opacity = 1);
+}
+
+.settings {
+	width: 100%;
+	padding: 10px
+}
+
+.options {
+	padding-right: 15px;
+	float: right;
+}
+
+.well {
+	border: 1px dashed #aaa !important;
+	padding: 15px !important;
+	border-radius: 0px !important;
+}
+
+.dragbox .row {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+h2 {
+	font-size: 19px !important;
+}
+
+i {
+	cursor: pointer;
+}
+
+i:hover {
+	color: #888888;
+}
+
+#backgroundPopup {
+	z-index: 1;
+	position: fixed;
+	display: none;
+	height: 100%;
+	width: 100%;
+	background: #000000;
+	top: 0px;
+	left: 0px;
+}
+
+#toPopup {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 13px solid #ccc;
+	border-radius: 3px 3px 3px 3px;
+	color: #333333;
+	display: none;
+	position: absolute;
+	z-index: 2;
+	height: 567px;
+	width: 950px;
+}
+
+.imgclose {
+	position: relative;
+	float: right;
+}
+
+.layouthelp {
+	cursor: default;
+}
+
+p {
+	margin: 0 0 0px !important;
+}
+
+.dragbox-content i {
+	margin-right: 10px;
+}
+.dragbox-content-BA i {
+	margin-right: 10px;
+}
+
+.ui-widget-header {
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.46, #5B90EB
+		), color-stop(1, #5388C4) );
+	background-image: -o-linear-gradient(bottom, #5B90EB 46%, #5388C4 100%);
+	background-image: -moz-linear-gradient(bottom, #5B90EB 46%, #5388C4 100%);
+	background-image: -webkit-linear-gradient(bottom, #5B90EB 46%, #5388C4 100%);
+	background-image: -ms-linear-gradient(bottom, #5B90EB 46%, #5388C4 100%);
+	background-image: linear-gradient(to bottom, #5B90EB 46%, #5388C4 100%);
+	color: #ffffff;
+}
+
+.vBox {
+	height: 45px;
+	border: 1px dashed orange;
+	margin: 15px 0px;
+}
+
+#btnValue .fa {
+	color: #fff;
+}
+/* Add BUtton */
+.btn-floating, .btn-floating-BA {
+	display: inline-block;
+	color: #fff;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	width: 37px;
+	height: 37px;
+	line-height: 37px;
+	padding: 0;
+	background-color: #5388c4;
+	border-radius: 50%;
+	transition: .3s;
+	cursor: pointer;
+	vertical-align: middle;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12);
+}
+
+.btn-floating:hover, .btn-floating-BA:hover {
+	box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.18), 0 3px 12px 0
+		rgba(0, 0, 0, 0.15);
+}
+
+.btn-floating i, .btn-floating-BA i {
+	width: inherit;
+	display: inline-block;
+	text-align: center;
+	color: #fff;
+	font-size: 14px !important;
+	line-height: 37px;
+}
+
+.btn-floating:before,.btn-floating-BA:before {
+	border-radius: 0;
+}
+
+button.btn-floating, button.btn-floating-BA {
+	border: none;
+}

@@ -1,0 +1,231 @@
+<%@taglib uri="/struts-tags" prefix="s" %>
+<script type="text/javascript" src="TicketURLs!populateTicketurlsList?eid=${eid}"></script>
+<style>
+tr.editTktRow:hover {
+  background-color: #FFFFFF !important;
+}
+</style>
+ <h3 class="section-main-header"><s:text name="ptu.section.header"/> <i class="fa fa-info-circle info" id="privateinfo" 
+                                    title="<s:text name="ptu.help.msg"/>" style="cursor:pointer"></i></h3>
+                                    <div class="row sticky-out-button pull-right">
+                                    <button class="btn btn-primary" type="button" id="createPrivateTickets">+ <s:text name="ptu.create.btn.lbl"/></button>
+                                    </div>
+        <div class="panel panel-primary">
+                                <%-- <div class="panel-heading">
+                                    <h3 class="panel-title"><s:text name="ptu.section.header"/> <i class="fa fa-info-circle info" id="privateinfo" 
+                                    title="<s:text name="ptu.help.msg"/>" style="cursor:pointer"></i></h3> 
+                                </div> --%>
+                                <div class="panel-body">
+                                	<s:set name="ticketscount" value="TicketURLsData.ticketscount" />
+									<s:if test="%{#ticketscount!=0}">
+									<div class="table-responsive">
+                                    <table class="table table-hover" id="privateticketsdata" >
+                                        <thead>
+                                            <th><div><s:text name="global.name.lbl"/></div></th>
+                                            <th><div><s:text name="global.url.lbl"/></div></th>                                            
+                                            <th><div><s:text name="global.tickets.lbl"/></div></th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                         <tr class='nodata'> 
+                                             <td colspan='3' class="load"><s:text name="global.loading.msg"/></td>
+                                             </tr>                                            
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                    </s:if>
+                                    <div id="forload"></div>
+                                    <div id="mainTrackUrl"></div>
+                                </div>
+                                <%-- <div class="panel-footer">
+                                    <button class="btn btn-primary" type="button" id="createPrivateTickets"><s:text name="ptu.create.btn.lbl"/></button>                                 
+                                </div> --%>
+                            </div>
+                            
+	<script type="text/javascript" src="/main/js/dataTables.js"></script>
+	<script type="text/javascript" src="/main/js/eventmanage/ticketurls.js"></script>
+	 <script>
+	 /* $('#createPrivateTickets').click(function(){
+			alert('hi'); 
+		 }); */
+		 var eid= "${eid}";
+	 function deleteTicketingURL(eid,code){
+		 var url='TicketURLs!deleteTicketURL?eid='+eid+'&code='+code;			
+		 var dynatimestamp = new Date();
+	     url += '&dynatimestamp='+dynatimestamp.getTime();
+		 bootbox.confirm('<h3>'+props.global_confirm_delete_msg+'</h3>'+props.global_do_you_want_continue_msg, function (result) {
+		     if (result){	           	
+			   parent.loadingPopup();			    	
+	           	$.ajax({
+	           		type : "GET",
+	                url : url,
+	                success:function(result){	                
+	                	parent.hidePopup();	                	
+						if(result.indexOf("success")>-1){
+						// window.location.reload(true);
+						 $('#privateticketsdata').dataTable().fnDestroy(false);
+						$('#'+code).remove();
+						callDataTable();
+						$('.dataTables_empty').html('<span class="not-found">'+props.global_no_data_ticket_lbl+'</span>');
+						$('#notification-holder').html('');
+							$('html, body').animate({ scrollTop: $("#notification-holder").height()}, 1000);
+						notification(props.ptu_ticket_url_deleted_successfully_msg,"success");
+						}
+						else if(result.indexOf("fail")>-1)
+							//alert("Deletion failed, there are registrations with this url.");
+							bootbox.confirm(props.ptu_deletion_failed_there_are_registrations, function (result) {	    		
+					     	});
+	                }
+	           	});
+		     	}
+		     });
+		}
+	 
+	 function closepopup(){
+		 $('#myModal').modal('hide'); 
+	 }
+	 
+	 	/* $('#createPrivateTickets').click(function(){	 		
+	 		var ticketsCount='<s:text name="TicketURLsData.ticketscount"></s:text>';
+	 		if(ticketsCount=='0'){
+	 			//alert('Currently there are no tickets added to the event.');
+	 			bootbox.confirm('Currently there are no tickets added to the event.', function (result) {	    		
+		     	});
+	 			return;
+	 		}
+	 		var eid='${eid}';
+	 		var url='TicketURLs!createTicketingURL?eid='+eid;	 	
+	 		var dynatimestamp = new Date();
+	 		url += '&dynatimestamp='+dynatimestamp.getTime();
+	 		 $.ajax({
+	 			 type:"post",
+	 			 url:url,
+	 			success:function(result){
+	 				$('#myModal').on('show.bs.modal', function () {			    	      
+	 	    	       $('.modal-title').html('Create Tickets URL');		           	
+	 	               $('iframe#popup').attr("src",url);	               
+	 	    	       });	
+	 	 		$('#myModal').modal('show'); 
+	 			}
+	 		 });
+	 	}); */
+	 	
+	 	var currentEid='${eid}';
+	 	
+	 	//{"citems":[{"id":"asdasd","count":"1","ticketnames":[{"name":"Ticket one","tid":"69592"}],privateticketsdata
+	 		//"action":"Manage","ticketname":"Ticket one","code":"asdasd","url":"http://vibhav.citypartytix.com/event?eid=141001225&tc=asdasd"}]}
+	 	
+	 	$(document).ready(function(){ 	
+	 		$.each(data,function(outkey,resObj){	
+	 			if(resObj.length==0){
+	 				$('.table .nodata .load').remove();
+	 				$('.table .nodata').append('<td colspan="4">'+props.global_no_data_ticket_lbl+'</td>');
+	 				//$('#createPrivateTickets').trigger('click');
+	 			}
+	 			$.each( resObj, function( inkey, valueobj ) {
+	 				var ticketsdisplaycontent='';
+	 				$.each( valueobj.ticketnames, function( tickey, ticval ) {
+	 					 ticketsdisplaycontent+="<li> "+ticval.name+"</li>";
+	 				});
+	 			var tempentry=$('<tr id='+valueobj.id+'><td>'+valueobj.id+'</td><td><a href='+valueobj.url+' target="_blank">'+valueobj.url+'</a></td><td id="temp_'+valueobj.id+'">'+ticketsdisplaycontent+'</td><td><span id="editRow_'+valueobj.id+'"><a href="javascript:;"  onclick=getTickets('+currentEid+',"'+valueobj.id+'")>'+props.global_edit_lnk_lbl+'</a>&nbsp;&nbsp;<a href="javascript:;" onclick=deleteTicketingURL('+currentEid+',"'+valueobj.id+'")>'+props.global_delete_lnk_lbl+'</a></td></tr>');
+	 			$('.table .nodata').remove();
+	 			$('#privateticketsdata').prepend(tempentry);
+	 			
+	 			});
+	 		});
+	 		
+	 		
+	 		if(data.citems.length>0){
+	 		 $('#privateticketsdata').dataTable( {
+                 "sPaginationType": "full_numbers",
+                 "iDisplayLength":50,
+                 "bLengthChange": false,
+                 "aoColumns": [null,
+                               null, 
+                               null,
+                               { "bSortable": false }
+                             ] ,
+                             "fnInitComplete": function(oSettings, json) {$('.dataTables_filter input').attr('class','form-control');
+                             
+                             }
+                 /*  "bFilter" : false ,
+                 aaSorting: []  */
+             } );
+	 		}
+	 		if(data.citems.length<=50)
+	 			removePagination('privateticketsdata');
+	 		//$('#privateticketsdata_paginate').hide();
+	 		 
+	 		$('#privateinfo').tooltipster({
+	 		    
+	 		    fixedWidth:'100px',
+	 		        content: $('<span>'+props.ptu_help_msg+'</span>'),
+	 		    });
+	 		
+	 
+	 	});
+	 	
+	 	function ticketUrlView(tckurl){	
+	 		//alert(tckurl.tickets);
+	 		var ticketsdisplaycontent='';
+				$.each( tckurl.tickets, function( index, value ) {
+					 ticketsdisplaycontent+="<li> "+value+"</li>";
+				});
+			var tempentry= $('<tr id='+tckurl.name+'><td>'+tckurl.name+'</td><td><a href='+tckurl.email+' target="_blank">'+tckurl.email+'</a></td><td id="temp_'+tckurl.name+'">'+ticketsdisplaycontent+'</td><td><span id="editRow_'+tckurl.name+'"><a href="javascript:;"  onclick=getTickets('+currentEid+',"'+tckurl.name+'")>'+props.global_edit_lnk_lbl+'</a>&nbsp;&nbsp;<a href="javascript:;" onclick=deleteTicketingURL('+currentEid+',"'+tckurl.name+'")>'+props.global_delete_lnk_lbl+'</a></td></tr>');
+			$('.table .nodata').remove();
+ 			$('#privateticketsdata').append(tempentry);
+ 			$('#privateticketsdata').dataTable().fnDestroy(false);
+ 			$("#notification-holder").html('');
+ 			$('html, body').animate({ scrollTop: $("#notification-holder").height()}, 1000);
+ 			notification(props.ptu_ticket_url_added_successfully_msg,"success");
+ 			callDataTable();
+		}
+	 	function updateTicketsView(chkBoxArray,rowId){
+	 		//alert('arrange');
+	 			var ticketsdisplaycontent='';
+				$.each( chkBoxArray, function( index, value ) {
+					 ticketsdisplaycontent+="<li> "+value+"</li>";
+				});
+				hideProcessing();
+				//salert(ticketsdisplaycontent);
+				$('.editTktRow').remove();
+				visibleLink();
+				$('#createPrivateTickets').prop("disabled",false);
+		 		$('#temp_'+rowId).html(ticketsdisplaycontent);
+		 		ticketsdisplaycontent='';
+		 		$("#notification-holder").html('');
+		 		$('html, body').animate({ scrollTop: $("#notification-holder").height()}, 1000);
+	 			notification(props.global_update_success_msg,"success");	 			
+	 		//alert(chkBoxArray);
+	 		
+	 	}
+		 function callDataTable(){			
+			 $('#privateticketsdata').dataTable( {
+	             "sPaginationType": "full_numbers",
+	             "iDisplayLength":50,
+	             "bLengthChange": false,
+	             "aoColumns": [null,
+	                           null, 
+	                           null,
+	                           { "bSortable": false }
+	                         ] ,
+	                         "fnInitComplete": function(oSettings, json) {$('.dataTables_filter input').attr('class','form-control');
+                             
+                             }
+	             /* "bFilter" : false,
+	             aaSorting: [] */
+	         } );
+			 if(data.citems.length<=50)
+				 removePagination('privateticketsdata');
+	 		//$('#privateticketsdata_paginate').hide();
+		 }
+	 	
+	 
+	 </script>
+	  <style type="text/css" title="currentStyle">
+	  		@import "/main/bootstrap/css/demo_table.css";
+             .dataTables_filter input { 
+            @import '.form-control'; 
+            }
+           
+        </style>
