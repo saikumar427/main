@@ -3,9 +3,12 @@
 <%@page import="com.eventbee.layout.LayoutManager"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="org.json.JSONArray"%>
-
 <%@page import="org.json.JSONObject"%>
 <%@page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
+<s:set name="powertype" value="powertype"></s:set>
+<s:hidden name="powertype" id="powertype" /> 
+<s:set name="currentlevel" value="currentLevel"></s:set>
+<s:hidden value="%{currentlevel}" id="currentlevel" />
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -74,6 +77,7 @@
 			}
 		}
 			
+		
 		$(document).ready(function(){
 				$('.layoutTep').show();
 				$("#styleLabel").click(function(){
@@ -99,13 +103,22 @@
             		globLayoutPage='event-layout';
 	        	 });
 				$("#buyerLabel").click(function(){
-					$('.layoutTep').hide();
-					$('.styleWidget').hide();
-					$('.hideShowBtn').hide();
-					$('.buyerPage').show();
-					$("#activeLabel").removeClass("btn-default").addClass("btn-active");
-					$("#styleLabel").removeClass("btn-default").addClass("btn-active");
-					$("#buyerLabel").removeClass("btn-active").addClass("btn-default");
+					var eid=<%=eventid%>;
+					if($('#currentlevel').val()=='300'){
+						$('.layoutTep').hide();
+						$('.styleWidget').hide();
+						$('.hideShowBtn').hide();
+						$('.buyerPage').show();
+						$("#activeLabel").removeClass("btn-default").addClass("btn-active");
+						$("#styleLabel").removeClass("btn-default").addClass("btn-active");
+						$("#buyerLabel").removeClass("btn-active").addClass("btn-default");
+					 }else{
+						 if($('#powertype').val()=='Ticketing')
+								specialFee(eid,'300','LayOutManager','Ticketing');
+							else
+								specialFee(eid,'150','LayOutManager','RSVP');
+						 
+					 }
 					globLayoutPage='buyer-layout';
 					
 				});
@@ -172,11 +185,9 @@
 					<label id="activeLabel" class="optiontype btn btn-default no-radius">
 						<input class="datesel" id="active" name="layoutOpt" value="1" type="radio"><s:text name="pg.toggle.layout.lbl"/>
 					</label>
-					<span style="display:none;">
 						<label id="buyerLabel" class="optiontype btn btn-active no-radius">
 							<input class="datesel" id="buyer" name="layoutOpt" value="2" type="radio">Buyer Page
 						</label> 
-					</span>
 					<label id="styleLabel" class="optiontype btn btn-active no-radius">
 						<input class="datesel" id="all" name="layoutOpt" value="3" type="radio"><s:text name="pg.toggle.style.lbl" />
 					</label>

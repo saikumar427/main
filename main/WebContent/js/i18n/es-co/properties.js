@@ -946,14 +946,15 @@ var props={
 		"display_options_update_lbl":"Las opciones de visualización fueron actualizadas satisfactoriamente.",
 		"ugpp_upgrate_pro_lbl":"Actualizar a Pro",
 		"ugpp_upgrate_advanced":"Actualizar a Avanzado",
+		"acc_btn_ibl":"Activar",
+		
 		
 		
 		
 		
 		"pg_widget_name_editprofile":"Editar perfil",
 		"pg_widget_name_files":"archivos",
-		"pg_widget_name_mytickets":"Mis entradas",
-		
+		"pg_widget_name_mytickets":"Mis entradas",		
 		"pr_no_data_found":"No hay prioridades en las listas de registro para mostrar.",
 		"pr_recrds_count_lbl":"Archivos",
 		"pr_recrd_count_lbl":"Grabar",
@@ -979,10 +980,9 @@ var props={
 		"pr_sure_del_msg_lbl":"¿Seguro, que desea borrar la lista?",
 		"pr_plz_entr_feld_vals_lbl":"Por favor ingrese la información en el campo.",
 		"rwc_priority_wording_updated_msg":"Redacción prioridad registro actualizado correctamente.",
-		
 		"ps_payu_lbl":"Payu",
-		"ps_payu_invalid_credentials":"Payu credenciales no válidas.",
-		"ps_payu_apikey_empty":"clave de API está vacía.",
-		"ps_payu_apilogin_empty":"API ID de inicio de sesión está vacía."
+		"ps_payu_invalid_credentials":"Payu credenciales no vÃ¡lidas.",
+		"ps_payu_apikey_empty":"clave de API estÃ¡ vacÃ­a.",
+		"ps_payu_apilogin_empty":"API ID de inicio de sesiÃ³n estÃ¡ vacÃ­a."
         
 };

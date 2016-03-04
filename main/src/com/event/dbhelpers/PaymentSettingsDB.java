@@ -1,6 +1,7 @@
 package com.event.dbhelpers;
 
 import com.event.beans.PaymentData;
+import com.event.helpers.I18n;
 import com.eventbee.general.DBManager;
 import com.eventbee.general.DateUtil;
 import com.eventbee.general.DbUtil;
@@ -486,11 +487,11 @@ public class PaymentSettingsDB {
 		Vector paytypevector = new Vector();
 		try{
 			
-		String GET_PAYMENT_DETAILS = "select * from payment_types where refid::int in(select eventid from eventinfo where mgr_id=CAST(? as INTEGER)"+
+		String GET_PAYMENT_DETAILS = "select * from payment_types where refid::int in(select eventid from eventinfo a,config b where mgr_id=CAST(? as INTEGER)  and b.value=? and a.config_id=b.config_id "+
 		 " and status!='CANCEL' and current_level in('100','200','300') order by created_at desc limit 2)";
 		DBManager dbmanager = new DBManager();
 		HashMap hm = null;
-		StatusObj stobj = dbmanager.executeSelectQuery(GET_PAYMENT_DETAILS,new String[]{mgrid});
+		StatusObj stobj = dbmanager.executeSelectQuery(GET_PAYMENT_DETAILS,new String[]{mgrid,I18n.getActualLangFromSession()});
 		if (stobj.getStatus()) {
 			String[] columnnames = dbmanager.getColumnNames();
 			for (int i = 0; i < stobj.getCount(); i++) {

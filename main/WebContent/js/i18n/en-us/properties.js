@@ -951,15 +951,15 @@ var props={
 		"display_options_update_lbl":"Display options updated successfully.",
 		"ugpp_upgrate_pro_lbl":"Upgrade to Pro",
 		"ugpp_upgrate_advanced":"Upgrade to Advanced",
+		"acc_btn_ibl":"Activate",
 		
-		
+			
 		
 		
 		
 		"pg_widget_name_editprofile":"Edit Profile",
 		"pg_widget_name_files":"Files",
-		"pg_widget_name_mytickets":"My Tickets",
-			
+		"pg_widget_name_mytickets":"My Tickets",			
 		"pr_no_data_found":"No priority registration lists to display.",
 		"pr_recrds_count_lbl":"Records",
 		"pr_recrd_count_lbl":"Record",
@@ -985,11 +985,9 @@ var props={
 		"pr_sure_del_msg_lbl":"Are you sure,you want to delete the list?",
 		"pr_plz_entr_feld_vals_lbl":"Please enter the field value.",
 		"rwc_priority_wording_updated_msg":"Priority Registration wording updated successfully.",
-		
 		"ps_payu_lbl":"PayU",
 		"ps_payu_invalid_credentials":"Invalid PayU credentials.",
 		"ps_payu_apikey_empty":"API key is empty.",
 		"ps_payu_apilogin_empty":"API login ID is empty."
-
 
 };

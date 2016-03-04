@@ -161,11 +161,7 @@ public class PriorityRegistrationDB {
 	return false;
 	}
 	
-	/*public static void getRowData(String eid){
-		
-		
-		DbUtil.executeUpdateQuery("insert into priority_list_records(id,password)values(?,?)",new String[]{eid});
-	}*/
+
 	public static ArrayList<HashMap<String,String>> getRSVPData(String uploadedevt){
 		ArrayList<HashMap<String,String>> memberList=new ArrayList<HashMap<String,String>>();
 		String query="select transactionid from profile_base_info where eventid=cast(? as bigint)";
@@ -188,9 +184,8 @@ public class PriorityRegistrationDB {
 	    DbUtil.executeUpdateQuery("insert into priority_list_records(eventid,nooffields,uploadtype,uploadedevent,created_at) values(?,?,?,?,now())",new String[]{eid,fieldcount,type,uploadedevt});
 	}	
 	
-	public static void deleteLoadedData(String list_id, String eid)
-	{System.out.println("in my deleteeeeee....");
-	String purpose="delete";
+	public static void deleteLoadedData(String list_id, String eid){
+		String purpose="delete";
 		DbUtil.executeUpdateQuery("delete from priority_list where list_id=? and eventid=cast(? as bigint)",new String[]{list_id,eid});
 		DbUtil.executeUpdateQuery("delete from priority_list_records where list_id=? and eventid=cast(? as bigint)",new String[]{list_id,eid});
 		insertIntoPriorityListTrack(eid,list_id,purpose,"");
@@ -245,16 +240,10 @@ public class PriorityRegistrationDB {
 	    return saveJson;
 	}
 	
-	/*public static String deleteData(String listId,String eid)
-	{
-		DbUtil.executeUpdateQuery("delete from priority_list_records where eventid=?::bigint and list_id=?",new String[]{eid,listId});
-		return "deleted";
-	}*/
-	
 public static JSONObject saveEditData(String eid,String uploadeddata,String type,String tkts,String listname,String listId){
 		
 		JSONObject saveJson=new JSONObject();
-		System.out.println("in save edit data.........");
+		//System.out.println("in save edit data.........");
 		try{
 	    	JSONArray jsonArray=new JSONArray(uploadeddata);
 	    	if(jsonArray.length()>0){
@@ -265,11 +254,11 @@ public static JSONObject saveEditData(String eid,String uploadeddata,String type
 
 	    		/*String updatequery="update priority_list set nooffields=?,list_name=?,tickets=?,field1=?,field2=?,count=? where eventid=?::bigint and list_id=?";
 	    		DbUtil.executeUpdateQuery(updatequery,new String[]{fieldcount,listname,tkts,firstlbl,secondlbl,jsonArray.length()+"",eid,listId});*/
-	    		String query="insert into priority_list_records(id,password,eventid,status,list_id) values";
-	    		System.out.println("after insert operation..........");
+	    		String query="insert into priority_list_records(id,password,eventid,list_id) values";
+	    		//System.out.println("after insert operation..........");
 	    		for(int i=0;i<jsonArray.length();i++){
 	    			JSONObject js=(JSONObject)jsonArray.get(i);
-	    			query+="('"+js.getString("userid")+"','"+js.getString("password")+"',"+eid+",'NOT USED','"+listId+"')";
+	    			query+="('"+js.getString("userid")+"','"+js.getString("password")+"',"+eid+",'"+listId+"')";
 	    			if(i!=jsonArray.length()-1)
 	    				query+=",";
 	    		}
@@ -297,19 +286,19 @@ public static JSONObject savePriorityListRecords(String eid,String jsonRecords,S
 	
 	JSONObject saveJson=new JSONObject();
 	JSONObject recordsJson=new JSONObject();
-	System.out.println("in save edit data.........jsonRecords: "+jsonRecords);
+	//System.out.println("in save edit data.........jsonRecords: "+jsonRecords);
 	try{
 		String purpose="";
 	try{
     	JSONArray jsonArray=new JSONArray(jsonRecords);
     	if(jsonArray.length()>0){
     		DbUtil.executeUpdateQuery("delete from priority_list_records where eventid=?::bigint and list_id=?",new String[]{eid,listId});
-    		String query="insert into priority_list_records(id,password,eventid,status,list_id) values";
+    		String query="insert into priority_list_records(id,password,eventid,list_id) values";
     		
     		for(int i=0;i<jsonArray.length();i++)
     		{
     			JSONObject js=(JSONObject)jsonArray.get(i);
-    			query+="('"+js.getString("userid")+"','"+js.getString("password")+"',"+eid+",'NOT USED','"+listId+"')";
+    			query+="('"+js.getString("userid")+"','"+js.getString("password")+"',"+eid+",'"+listId+"')";
     			if(i!=jsonArray.length()-1)
     				query+=",";
     		}
@@ -339,7 +328,7 @@ public static JSONObject savePriorityListRecords(String eid,String jsonRecords,S
     return saveJson;
 }
 
-public static HashMap<String, String> getPriListRecordsCount(String eid){
+/*public static HashMap<String, String> getPriListRecordsCount(String eid){
 	String recCountQry="select count(*) as recCount,list_id,status from priority_list_records where eventid=CAST(? AS BIGINT) group by list_id,status";
 	DBManager dbm=new DBManager();
 	StatusObj stb=null;
@@ -376,7 +365,7 @@ public static HashMap<String, String> getPriListRecordsCount(String eid){
 		}
 	}
 	return recCountMap;
-}
+}*/
 	
 	public static String getPriorityList(String eid){
 		//HashMap<String, String> recCountMap=getPriListRecordsCount(eid);
@@ -395,7 +384,7 @@ public static HashMap<String, String> getPriListRecordsCount(String eid){
 				recordcountobj.put(dbm.getValue(i,"list_id",""), eachcountobj);
 			}
 			}catch(Exception e){}
-		System.out.println("recordcount:::"+recordcountobj.toString());
+		//System.out.println("recordcount:::"+recordcountobj.toString());
 		
 		
 		
@@ -487,9 +476,6 @@ public static HashMap<String, String> getPriListRecordsCount(String eid){
 	return items;
 	}
 	
-	
-	//use this query to get records in single query
-	//select  distinct  id,  case when id in(select field1 from priority_reg_transactions where status='Completed' and list_id='1243')  then   'Completed'  else  'Not Completed' end, a.list_id from priority_list_records a left join (select distinct field1,list_id,eventid from  priority_reg_transactions where  status='Completed')b on a.list_id=b.list_id where a.list_id='1243'
 	
 	public static JSONObject getPriorityListData(String eid,String listId){
         DBManager dbm=new DBManager();
@@ -634,17 +620,10 @@ public static HashMap<String, String> getPriListRecordsCount(String eid){
 		return priRegToken;
 	}*/
 	
-	public static void deleteOldRecords(String listId, String eid)
-	{
-		System.out.println(listId+"............."+eid);
-	//	String purpose="delete";
-		/*String updatequery="delete from priority_list_records where eventid=?::bigint and list_id=?";
-		DbUtil.executeUpdateQuery(updatequery,new String[]{eid,listId});*/
-		DbUtil.executeUpdateQuery("delete from priority_list_records where list_id=? and eventid=cast(? as bigint)",new String[]{listId,eid});
-		
-		System.out.println("deleted successfully");
+	public static void deleteOldRecords(String listId, String eid){
 
-		
+		DbUtil.executeUpdateQuery("delete from priority_list_records where list_id=? and eventid=cast(? as bigint)",new String[]{listId,eid});
+				
 	}
 	
 	public static void removePriorityConfiguration(String eventid){

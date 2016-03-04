@@ -75,9 +75,9 @@
 	$('input.password').on('ifChecked', function(event){
 		 if($('#clevel').val()==100 || $('#clevel').val()==90){
 			if(ptype=='Ticketing')
-				specialFee(eid,'200','PasswordProtection','Ticketing');
+				specialFee(eid,'200','EditEvent','Ticketing');
 			else
-				specialFee(eid,'150','PasswordProtection','RSVP');
+				specialFee(eid,'150','EditEvent','RSVP');
 		 }
 	 });
 	 function enableButtons(){

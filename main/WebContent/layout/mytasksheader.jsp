@@ -6,7 +6,7 @@
    
 <%@include file="../getresourcespath.jsp"%>
 <s:set name="I18N_CODE" value="I18N_CODE"></s:set>
-<script src="<%=resourceaddress%>/main/js/i18n/<s:property value="I18N_CODE"/>/properties.js?idj=2"></script>
+<script src="<%=resourceaddress%>/main/js/i18n/<s:property value="I18N_CODE"/>/properties.js?idj=3"></script>
    
    
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -324,8 +324,6 @@
 		//$('#upgradepopup').modal('hide');
 		$('#upgradespecialfee').modal('hide');
 		$('iframe#upgradepopup').attr("src","");
-		if($('#currentlevel').val()=='100' || $('#currentlevel').val()=='90')
-			$('.password').iCheck('unCheck');
 	}
 </script>
 <style type="text/css" title="currentStyle">

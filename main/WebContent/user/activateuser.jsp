@@ -101,7 +101,7 @@ invalidHandler:function(){
 
                     
                     errorPlacement: function (error, element) {
-                    	$('#activatebtn').html('Activate');
+                    	$('#activatebtn').html(props.acc_btn_lbl);
                  		$('#activatebtn').removeAttr('disabled');
                         var lastError = $(element).data('lastError'),
                             newError = $(error).text();
