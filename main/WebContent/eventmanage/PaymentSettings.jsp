@@ -447,7 +447,7 @@ var ccNameValues={"paypal_pro":"Eventbee","braintree_manager":"Braintree","autho
 							<td>
 								<s:textfield style="width:60px;" name="paymentData.tax" id="tax" theme="simple" cssClass="form-control" onfocus="getProcessingFeeAgreeDiv('tax');" onchange="getProcessingFeeAgreeDiv('tax');"></s:textfield>
 							</td>
-							<td style="width: 65px;">&nbsp;%&nbsp;+&nbsp;<s:label name="currencySymbol" id="currencysymbol"></s:label></td>
+							<td style="width: 70px;">&nbsp;%&nbsp;+&nbsp;<s:label name="currencySymbol" id="currencysymbol"></s:label></td>
 							<td>
 								<s:textfield  style="width:60px;" name="paymentData.ccfee" id="ccfee" theme="simple" cssClass="form-control" onfocus="getProcessingFeeAgreeDiv('ccfee');" onchange="getProcessingFeeAgreeDiv('ccfee');"></s:textfield>
 							</td>
@@ -753,9 +753,7 @@ function updatePaymentSettings(val){
 
 
 function getProcessingFeeAgreeDiv(id){
-	
-
-	//alert(document.getElementById('ccfeemode').checked);
+//	alert(document.getElementById('ccfeemode').checked);
 	if(document.getElementById('ccfeemode').checked)
 		getdiv(id);
 }
@@ -800,7 +798,7 @@ function getMaximumFee(){
 			 return maxfee='2.9';
 		else if(document.getElementById('creditcardid').checked && $("#ccdropdown").val()=="stripe")
 			 return maxfee='2.9';
-		else if(document.getElementById('creditcardid').checked && ($("#ccdropdown").val()=="authorize.net" || $("#ccdropdown").val()=="braintree_manager"))
+		else if(document.getElementById('creditcardid').checked && ($("#ccdropdown").val()=="authorize.net" || $("#ccdropdown").val()=="braintree_manager" || $("#ccdropdown").val()=="payulatam"))
 			return maxfee='0';
 	}
 }
