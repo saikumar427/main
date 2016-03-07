@@ -36,28 +36,32 @@ var i18nFooter={
 		              "type": "text",
 		              "label": "Facebook",
 		              "href": "https://www.facebook.com/eventbeeinc",
-		              "target":"_blank"
+		              "target":"_blank",
+					   "i18n_include":false
 		            },
 		            {
 		              "limg": "<i style='padding-right: 20px' class='fa fa-fw fa-2x fa-twitter'></i>",
 		              "type": "text",
 		              "label": "Twitter",
 		              "href": "https://twitter.com/eventbee",
-		              "target":"_blank"
+		              "target":"_blank",
+					   "i18n_include":false
 		            },
 		            {
 		              "limg": "<i style='padding-right: 20px' class='fa fa-fw fa-2x fa-rss-square'></i>",
 		              "type": "text",
 		              "label": "Blog",
 		              "href": "http://blog.eventbee.com/",
-		              "target":"_blank"
+		              "target":"_blank",
+					   "i18n_include":false
 		            },
 		            {
 		              "limg": "<i style='padding-right: 20px' class='fa fa-fw fa-2x fa-youtube-square'></i>",
 		              "type": "text",
 		              "label": "Videos",
 		              "href": "http://www.youtube.com/user/eventbee/videos",
-		              "target":"_blank"
+		              "target":"_blank",
+					   "i18n_include":false
 		            }
 		          ]
 		        }

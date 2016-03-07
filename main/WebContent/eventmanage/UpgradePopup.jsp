@@ -133,6 +133,7 @@
 							<li data-target="#pro_carousel" data-slide-to="7" <s:if test='%{source=="EmailAttendees"}'>class="active"</s:if>></li>
 							<li data-target="#pro_carousel" data-slide-to="8" <s:if test='%{source=="Badges"}'>class="active"</s:if>></li>
 							<li data-target="#pro_carousel" data-slide-to="9" <s:if test='%{source=="SubManager"}'>class="active"</s:if>></li>
+							<!-- <li data-target="#pro_carousel" data-slide-to="9" <s:if test='%{source=="LayOutManager"}'>class="active"</s:if>></li> -->
 							<li data-target="#pro_carousel" data-slide-to="10"></li>
 							<li data-target="#pro_carousel" data-slide-to="11" <s:if test='%{source=="PasswordProtection"}'>class="active"</s:if>></li>
 						</ol>
@@ -379,6 +380,10 @@
 							<div class="head-title two-lines"><s:text name="ugpp.custom.reg.form.questions.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.adv.lbl"/></span>
 							</div>											
 						</div>
+						<%-- <div class="item <s:if test='%{source=="LayOutManager"}'>active</s:if>">
+							<div class="head-title two-lines">LayOutManager<span class="carousel-tkt-btn-lbl"><s:text name="ugpp.adv.lbl"/></span>
+							</div>											
+						</div> --%>
 						<!-- Indicators -->
 					</div>
 					<!-- Controls -->
@@ -404,6 +409,7 @@
 							<li data-target="#adv_carousel" data-slide-to="5" <s:if test='%{source=="Badges"}'>class="active"</s:if>></li>
 							<li data-target="#adv_carousel" data-slide-to="6" <s:if test='%{source=="SubManager"}'>class="active"</s:if>></li>
 							<li data-target="#adv_carousel" data-slide-to="7" <s:if test='%{source=="questions" || source=="tktquestions"}'>class="active"</s:if>></li>
+							<!-- <li data-target="#adv_carousel" data-slide-to="6" <s:if test='%{source=="LayOutManager"}'>class="active"</s:if>></li> -->
 						</ol>
 					</div>
 				</div><!-- adv-carousel end -->

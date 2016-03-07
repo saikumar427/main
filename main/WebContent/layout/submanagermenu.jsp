@@ -189,11 +189,9 @@ li{
 					<li class="<s:if test='%{#actionName=="OrderConfirmation"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="OrderConfirmation"}' >specialFee('${eid}','300','OrderConfirmation','Ticketing');</s:if>" title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.orderconfirmation.lbl"/></span></a></li>
 				</s:if>
 		<%-- PriorityRegistration --%>
-		<span style="display:none;">
 				<s:if test="%{submgr_permissions['PriorityRegistration']=='yes'}">
 					<li class="<s:if test='%{#actionName=="PriorityRegistration"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="PriorityRegistration"}' >specialFee('${eid}','300','PriorityRegistration','Ticketing');</s:if>" title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.priority.reg.lbl"/></span></a></li>
 				</s:if>
-		</span>		
 		<%-- Seating --%>
 				<s:if test="%{submgr_permissions['Seating']=='yes'}">
 				 	<li class="<s:if test='%{#actionName=="Seating"}' >left-item-active</s:if>"><a href="javascript:;"   onclick="<s:if test='%{#actionName!="Seating"}' >specialFee('${eid}','300','Seating','Ticketing');</s:if>" title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.seating.lbl"/></span></a></li>

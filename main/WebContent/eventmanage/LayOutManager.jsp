@@ -185,9 +185,11 @@
 					<label id="activeLabel" class="optiontype btn btn-default no-radius">
 						<input class="datesel" id="active" name="layoutOpt" value="1" type="radio"><s:text name="pg.toggle.layout.lbl"/>
 					</label>
-						<label id="buyerLabel" class="optiontype btn btn-active no-radius">
+						<span style="display:none;">
+							<label id="buyerLabel" class="optiontype btn btn-active no-radius">
 							<input class="datesel" id="buyer" name="layoutOpt" value="2" type="radio">Buyer Page
 						</label> 
+						</span>
 					<label id="styleLabel" class="optiontype btn btn-active no-radius">
 						<input class="datesel" id="all" name="layoutOpt" value="3" type="radio"><s:text name="pg.toggle.style.lbl" />
 					</label>
