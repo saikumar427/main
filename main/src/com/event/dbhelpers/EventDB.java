@@ -438,15 +438,6 @@ public class EventDB {
 		return currency;
 	}
 	public static String getConfigVal(String eid, String keyname, String defaultval){
-		if("event.ticketpage.refundpolicy.statement".equals(keyname)){
-			String lang = I18n.getActualLangFromSession();
-			String managerId=DbUtil.getVal("select mgr_id from eventinfo where eventid=CAST(? AS BIGINT)",new String[]{eid});
-			System.out.println("lang : "+lang+" managerId: "+managerId+" eid: "+eid+" keyname: "+keyname);
-			String description = DbUtil.getVal("select value from config a,eventinfo b where a.config_id=b.config_id "+
-			"and name=? and a.config_id in(select config_id from config where name in ('event.i18n.actual.lang','event.ticketpage.refundpolicy.statement') and value=?)"+
-			" and mgr_id=CAST(? as INTEGER) order by created_at desc limit 1", new String[]{keyname,lang,managerId});
-			return description;
-		}else{
 			String configval=DbUtil.getVal("select value from config a,eventinfo b where a.config_id= b.config_id and b.eventid=CAST(? AS BIGINT) and a.name=?",new String[]{eid, keyname});
 			if(configval==null)
 				configval=defaultval;
@@ -466,7 +457,6 @@ public class EventDB {
 				}
 			}
 			return configval;
-		}
 	}
 	public static String getConfig(String eid, String keyname,String facebookeventid){
 		String configval=DbUtil.getVal("select value from config a,eventinfo b where a.config_id= b.config_id and b.eventid=CAST(? AS BIGINT) and a.name=?",new String[]{eid, keyname});
@@ -710,6 +700,8 @@ public class EventDB {
 
 			DbUtil.executeUpdateQuery(Query,new String [] {purpose,eid});
 		}
+		EventHelperDB.removeGLobalEventCache(eid, "remove", "eventmeta");
+		EventHelperDB.removeGLobalEventCache(eid, "remove", "eventinfo");
 	}
 	public static String getEventPageViews(String eid){
 		

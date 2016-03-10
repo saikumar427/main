@@ -193,7 +193,6 @@ function fillHTML(){
 					<div class="col-md-4"> &nbsp;</div>
 					<div class="col-md-3">&nbsp; </div>
 					<div class="col-md-3">
-					<span style="display:none;">
 						<s:if test="%{I18N_ACTUAL_CODE=='en-us'}">
 						<a style="position:relative;top:-100px;left: 8px;"><select style="margin-bottom: 25px;width:200px;height:36px !important;line-height:35px !important;margin-top:10px !important;padding: 0px !important;" id="states" onchange="languageClick(value)"> 
 						<!-- <option value="en-co" <s:if test="%{I18N_ACTUAL_CODE=='en-co'}">selected='selected' class="select-active" </s:if>>Colombia - English</option>   -->
@@ -205,7 +204,6 @@ function fillHTML(){
 						</select> 
 						</a> 
 						</s:if>
-          		 </span>
         </div>
         </div>
 	<% } else{} %>

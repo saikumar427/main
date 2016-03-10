@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import com.event.beans.EditEventData;
 import com.event.dbhelpers.EditEventDB;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.event.helpers.DataPopulator;
 import com.event.helpers.I18n;
 import com.eventbee.beans.Entity;
@@ -507,7 +508,6 @@ public class EditEventAction extends ActionSupport implements Preparable,
 			}
 		}
 		
-		
 		if (status) {
 			EditEventDB.updateEventData(editEventData, eid, mytextarea);
 			JSONObject json=new JSONObject();
@@ -515,6 +515,7 @@ public class EditEventAction extends ActionSupport implements Preparable,
 				json.put("status","success");
 			}catch(Exception e){}
 			jsonData=json.toString();
+			EventHelperDB.removeGLobalEventCache(eid, "remove", "eventinfo");
 			return "updated";
 		} else {
 			populateData();
