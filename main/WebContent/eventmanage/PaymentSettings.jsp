@@ -181,7 +181,7 @@ var ccNameValues={"paypal_pro":"Eventbee","braintree_manager":"Braintree","autho
 							<option value="authorize.net" id="authorize.net" <s:if test="%{#eventbeevendor=='authorize.net'}">selected='selected'</s:if>><s:text name="ps.authorize.net.lbl"/></option>
 							<option value="braintree_manager" id="braintree_manager" <s:if test="%{#eventbeevendor=='braintree_manager'}">selected='selected'</s:if>><s:text name="ps.braintree.lbl"/></option>
 							<option value="stripe" id="stripe"  <s:if test="%{#eventbeevendor=='stripe'}">selected='selected'</s:if>><s:text name="ps.stripe.lbl"/></option>
-						<%-- 	<option value="payulatam" id="payulatam" <s:if test="%{#eventbeevendor=='payulatam'}">selected='selected'</s:if>><s:text name="ps.payu.lbl"/></option> --%>
+							<option value="payulatam" id="payulatam" <s:if test="%{#eventbeevendor=='payulatam'}">selected='selected'</s:if>><s:text name="ps.payu.lbl"/></option>
 						
 						</select>
 				</div>   <%-- ptype:<s:property value="%{#eventbeevendor}"/>  --%>
@@ -551,7 +551,6 @@ $(document).ready(function(){
 	if(!$('#ccfeemode').is(':checked'))
 		$('#ccfee').val('0');
 		
-
 	
 	$('#ccpindb').html="";
 	   var selectedcc='${eventbeevendor}';
@@ -566,10 +565,8 @@ $(document).ready(function(){
 		$('#ccpindb').html(": "+props.ps_authorize_lbl);
 	else if("stripe"==selectedcc)	
 		$('#ccpindb').html(": "+props.ps_stripe_lbl);
-	
-	// comment for pushing live
-	/* else if("payulatam"==selectedcc)	
-		$('#ccpindb').html(": "+props.ps_payu_lbl); */
+	else if("payulatam"==selectedcc)	
+		$('#ccpindb').html(": "+props.ps_payu_lbl);
 	}
 	
 	/* var ccmodetype='${paymentData.ccprocessingfee}';
@@ -798,9 +795,11 @@ function getMaximumFee(){
 	else{
 		if(document.getElementById('paypal').checked)
 			 return maxfee='2.9';
+		else if(document.getElementById('creditcardid').checked && $("#ccdropdown").val()=="payulatam")
+			return maxfee='4.95';
 		else if(document.getElementById('creditcardid').checked && $("#ccdropdown").val()=="stripe")
 			 return maxfee='2.9';
-		else if(document.getElementById('creditcardid').checked && ($("#ccdropdown").val()=="authorize.net" || $("#ccdropdown").val()=="braintree_manager" || $("#ccdropdown").val()=="payulatam"))
+		else if(document.getElementById('creditcardid').checked && ($("#ccdropdown").val()=="authorize.net" || $("#ccdropdown").val()=="braintree_manager"))
 			return maxfee='0';
 	}
 }
@@ -951,11 +950,10 @@ function generateCCDropDown(SupportedPayments){
 		ccDropMenu.push('stripe');
 	}	
 
-	// comment for pushing live
-	/* if(SupportedPayments.indexOf("PAYU")>-1){
+	if(SupportedPayments.indexOf("PAYU")>-1){
 		$('#ccdropdown').append('<option value="payulatam">'+props.ps_payu_lbl+'</option>');
 	 	ccDropMenu.push('payulatam'); 
-	}	 */
+	}
 }
 
 
