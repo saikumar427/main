@@ -181,6 +181,23 @@ background-color:#fff;
 	border-width: 22px;
 	margin-left: -8px;
 }
+
+.content4:after, .content4:before {
+	bottom: 100%;
+	left: 85%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.content4:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #fff;
+	border-width: 22px;
+	margin-left: -8px;
+}
 .up_grade_close{
 	margin-bottom:0px;
 }

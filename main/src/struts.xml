@@ -118,6 +118,13 @@
 			<result name="error" type="tiles">helplinksold.en-us.error.page</result>
 			<result name="pricing" type="tiles">mainhelp.en-us.{1}.page</result>
 		</action>
+		
+		<action name="*/" method="process" class="com.eventbee.actions.FileExistsAction">
+			<result name="success" type="tiles">helplinksold.en-us.{1}.page</result>
+			<result name="error" type="tiles">helplinksold.en-us.error.page</result>
+			<result name="pricing" type="tiles">mainhelp.en-us.{1}.page</result>
+		</action>
+		
 		<!-- if we maintain seperate en_CO folder no need to main this action pattern -->
 		<action name="*/en-co" method="process" class="com.eventbee.actions.FileExistsAction">
 			<result name="success" type="tiles">helplinksold.en-us.{1}.page</result>

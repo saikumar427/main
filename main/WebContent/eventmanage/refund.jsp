@@ -216,7 +216,7 @@ $.ajax({
 
 function getHelpPopup(){
 	$('#myModal .modal-title').html(props.refund_paypal_api_per_lbl);
-	$('iframe#popup').attr("src",'/main/help/<%=I18n.getLanguageFromSession()%>/paypalrefundapipermission.html');
+	$('iframe#popup').attr("src",'/main/help/<%=I18n.getActualLangFromSession()%>/paypalrefundapipermission.html');
 	$('#myModal').modal('show');
 	
 	//showYUIinIframe('Paypal API Third Party Permissions','/main/help/paypalrefundapipermission.html',775,500);
