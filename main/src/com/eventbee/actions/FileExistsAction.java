@@ -12,6 +12,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FileExistsAction extends ActionSupport {
 	String pattern="";
+	 private String i18nCode="en-us";
+	    
+	    public String getI18nCode() {
+			return i18nCode;
+		}
+		public void setI18nCode(String i18nCode) {
+			this.i18nCode = i18nCode;
+		}   
 	public String getPattern() {
 		return pattern;
 	}
@@ -19,6 +27,12 @@ public class FileExistsAction extends ActionSupport {
 		this.pattern = pattern;
 	}
 	public String process(){
+		try{
+		i18nCode= I18n.getActualLangFromSession();
+		}catch(Exception e){
+			i18nCode="en-us";
+			System.out.println(e);
+		}
 		boolean exists=false;
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String jspFileNi18n = request.getRequestURL().substring(request.getRequestURL().indexOf("main/")+5);	

@@ -527,7 +527,7 @@ a {
 			<div class="row" style="margin-left: 5px !important;">
 				<div class="col-md-7 normal_desc_grey_ans responsive-video">
 					<iframe width="640" height="360"
-						src="http://www.youtube.com/embed/EI1_xDgGvb0?rel=0"
+						src="https://www.youtube.com/embed/EI1_xDgGvb0?rel=0"
 						frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
@@ -591,7 +591,7 @@ Para una descripción más detallada acerca de cómo funciona Eventbee, visita n
 			<div class="row" style="margin-left: 5px !important;">
 				<div class="col-md-7 normal_desc_grey_ans responsive-video">
 					<iframe width="640" height="360"
-						src="http://www.youtube.com/embed/sz9gL5Iz5Gc?rel=0"
+						src="https://www.youtube.com/embed/sz9gL5Iz5Gc?rel=0"
 						frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>

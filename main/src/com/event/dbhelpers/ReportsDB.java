@@ -312,7 +312,7 @@ public static ArrayList<HashMap<String,String>> getAttendeeListInfo(String eid, 
 		if("orderNumber".equals(reportsData.getSearchOn()))
 			GET_ATTENDEELIST_INFO+=" and c.ordernumber='"+reportsData.getSearchContent().trim()+"'";
 		if("email".equals(reportsData.getSearchOn()))
-			GET_ATTENDEELIST_INFO+=" and a.email=lower('"+reportsData.getSearchContent().trim()+"')";
+			GET_ATTENDEELIST_INFO+=" and lower(a.email)=lower('"+reportsData.getSearchContent().trim()+"')";
 		if("name".equals(reportsData.getSearchOn()))
 			GET_ATTENDEELIST_INFO+=" and lower(a.fname||' '||a.lname) like lower('%"+reportsData.getSearchContent().trim()+"%')";
 	}else{
