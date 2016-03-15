@@ -192,13 +192,14 @@ public class SpecialFeeDB {
 		String level="l";
 		if("Y".equalsIgnoreCase(nonprofitstatus)) level="ln";
 		HashMap<String, String> hm=new HashMap<String, String>();
-		statobj=dbmanager.executeSelectQuery("select "+level+"90,"+level+"150,"+level+"100,"+level+"200,"+level+"300 from international_pricing where currency_code=?", new String[]{currencycode});
+		statobj=dbmanager.executeSelectQuery("select "+level+"90,"+level+"150,"+level+"100,"+level+"200,"+level+"300,"+level+"400 from international_pricing where currency_code=?", new String[]{currencycode});
 		if(statobj.getStatus()){
 			hm.put("90",CurrencyFormat.newCurrencyFormat(Double.parseDouble(dbmanager.getValue(0,level+"90",""))));
 			hm.put("150",CurrencyFormat.newCurrencyFormat(Double.parseDouble(dbmanager.getValue(0,level+"150",""))));
 			hm.put("100",CurrencyFormat.newCurrencyFormat(Double.parseDouble(dbmanager.getValue(0,level+"100",""))));
 			hm.put("200",CurrencyFormat.newCurrencyFormat(Double.parseDouble(dbmanager.getValue(0,level+"200",""))));
 			hm.put("300",CurrencyFormat.newCurrencyFormat(Double.parseDouble(dbmanager.getValue(0,level+"300",""))));
+			hm.put("400",CurrencyFormat.newCurrencyFormat(Double.parseDouble(dbmanager.getValue(0,level+"400",""))));
 			hm.put("cur_level", currentLevel);
 			hm.put("ch_level", changeLevel);
 		}else{
@@ -264,7 +265,7 @@ public class SpecialFeeDB {
 			if(currentLevel == null){
 				log.info("****** case:2 currentlevel is null case in getNewSpecialFee for eventid is: "+eid);
 				//changefee = DbUtil.getVal("select "+cLevel+" from international_pricing where currency_code=?", new String[]{currencycode}); 
-				if("200".equals(changeLevel) || "300".equals(changeLevel)) currentLevel="100";
+				if("200".equals(changeLevel) || "300".equals(changeLevel)||"400".equals(changeLevel)) currentLevel="100";
 				else if("150".equals(changeLevel) ) currentLevel="90";
 				serviceFeeMap=getServiceFeesMap(currencycode,nonprofitstatus,currentLevel,changeLevel);
 				changefee = serviceFeeMap.get(changeLevel); 

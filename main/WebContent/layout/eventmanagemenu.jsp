@@ -140,10 +140,10 @@ var featuresJSON={'manage':[
 	                            	         {'label':'<s:text name="em.actions.disc.lbl"/>','action_name':'ManageDiscounts','level':'pro','action':'specialFee("${eid}","200","managediscounts","Ticketing")'},	                          
 	                            	         {'label':'<s:text name="em.actions.integrations.lbl"/>','action_name':'IntegrationLinks','level':'basic','action':'IntegrationLinks?eid=${eid}'},
 	                            	         {'label':'<s:text name="em.actions.waitlist.lbl"/>','action_name':'WaitList','level':'advanced','action':'specialFee("${eid}","300","WaitList","Ticketing")','recurring':false},
-	                            	         {'label':'<s:text name="em.actions.trackurl.lbl"/>','action_name':'TrackURL','level':'pro','action':'specialFee("${eid}","200","TrackURL","Ticketing")'},
-	                            	         {'label':'<s:text name="em.actions.private.tkturl.lbl"/>','action_name':'TicketURLs','level':'pro','action':'specialFee("${eid}","200","TicketURLs","Ticketing")'},
+	                            	         {'label':'<s:text name="em.actions.trackurl.lbl"/>','action_name':'TrackURL','level':'advanced','action':'specialFee("${eid}","300","TrackURL","Ticketing")'},
+	                            	         {'label':'<s:text name="em.actions.private.tkturl.lbl"/>','action_name':'TicketURLs','level':'advanced','action':'specialFee("${eid}","300","TicketURLs","Ticketing")'},
 	                            	         {'label':'<s:text name="em.actions.tkt.settingg.lbl"/>','action_name':'TicketSettings','level':'pro','action':'specialFee("${eid}","200","TicketSettings","Ticketing")'},
-	                            	         {'label':'<s:text name="em.actions.ticketing.rules.lbl"/>','action_name':'TicketingRules','level':'advanced','action':'specialFee("${eid}","300","TicketingRules","Ticketing")'},
+	                            	         {'label':'<s:text name="em.actions.ticketing.rules.lbl"/>','action_name':'TicketingRules','level':'business','action':'specialFee("${eid}","400","TicketingRules","Ticketing")'},
 	                            	         {'label':'<s:text name="em.actions.payment.settings.lbl"/>','action_name':'PaymentSettings','level':'basic','action':'PaymentSettings?eid=${eid}'},
 	                            	        
 	                  /* CUSTOMIZATION */  	 {'label':'<s:text name="em.action.head.lbl"/>','type':'menu-header-customization'},
@@ -151,15 +151,15 @@ var featuresJSON={'manage':[
 	                            	         {'label':'<s:text name="em.actions.questions.lbl"/>','action_name':'ManageRegistrationForm','level':'advanced','action':'ManageRegistrationForm?eid=${eid}'},
 	                            	         {'label':'<s:text name="em.actions.wording.lbl"/>','action_name':'RegWordCustomize','level':'pro','action':'specialFee("${eid}","200","RegWordCustomize","Ticketing")'},
 	                            	         {'label':'<s:text name="em.actions.orderconfirmation.lbl"/>','action_name':'OrderConfirmation','level':'advanced','action':'specialFee("${eid}","300","OrderConfirmation","Ticketing")'},
-	                            	        /*  {'label':'<s:text name="em.actions.priority.reg.lbl"/>','action_name':'PriorityRegistration','level':'advanced','action':'specialFee("${eid}","300","PriorityRegistration","Ticketing")'}, */
+	                            	         {'label':'<s:text name="em.actions.priority.reg.lbl"/>','action_name':'PriorityRegistration','level':'business','action':'specialFee("${eid}","400","PriorityRegistration","Ticketing")'},
 	                            	         {'label':'<s:text name="em.actions.seating.lbl"/>','action_name':'Seating','level':'advanced','action':'specialFee("${eid}","300","Seating","Ticketing")'},
 	                            	         
 	                         /* ADMIN */     {'label':'<s:text name="em.action.head.lbl2"/>','type':'menu-header-admin'},
 	                            	         {'label':'<s:text name="em.actions.add.attendee.lbl"/>','action_name':'AddAttendee','level':'basic','action':'AddAttendee?eid=${eid}&purpose=manageradd'},
 	                            	         {'label':'<s:text name="em.actions.email.attendees.lbl"/>','action_name':'EmailAttendees','level':'advanced','action':'specialFee("${eid}","300","EmailAttendees","Ticketing")'},
 	                            	         {'label':'<s:text name="em.actions.badges.lbl"/>','action_name':'Badges','level':'advanced','action':'specialFee("${eid}","300","Badges","Ticketing")'},
-	                            	         {'label':'<s:text name="em.actions.submgr.lbl"/>','action_name':'SubManager','level':'advanced','action':'specialFee("${eid}","300","SubManager","Ticketing")'},
-	                            	         {'label':'<s:text name="em.actions.priority.reg.lbl"/>','action_name':'PriorityRegistration','level':'advanced','action':'specialFee("${eid}","300","PriorityRegistration","Ticketing")'},
+	                            	         {'label':'<s:text name="em.actions.submgr.lbl"/>','action_name':'SubManager','level':'business','action':'specialFee("${eid}","400","SubManager","Ticketing")'},
+	                            	        /*  {'label':'<s:text name="em.actions.priority.reg.lbl"/>','action_name':'PriorityRegistration','level':'advanced','action':'specialFee("${eid}","300","PriorityRegistration","Ticketing")'}, */
 	                            	         {'label':'<s:text name="em.actions.mrg.app.settings.lbl" />','action_name':'ManagerAppSettings','level':'basic','action':'ManagerAppSettings?eid=${eid}'},
 	                            	        
 	                            	         /*{'label':'<s:text name="em.actions.nts.lbl"/>','action_name':'NetworkTicketSelling','level':'basic','action':'NetworkSelling?eid=${eid}'},
@@ -279,6 +279,14 @@ function getHTMLString(eachPowerType,eachFeature,action,match){
 					 featuresHTML+="<li class='"+(match?"left-item-active":"")+"'><a href='"+action+"' ><span class='arrow_box'>"+eachFeature.label+"</span></a></li>";
 				 else
 					 featuresHTML+="<li class='"+(match?"left-item-active":"")+"'><a  href='javascript:' title='"+props.global_adv_rsvp+"' onclick='"+action+"'><span class='arrow_box'>"+eachFeature.label+"</span><span class='pro-orange removeAdv'>"+props.global_adv_lbl+"</span></a></li>"; 
+			 }
+		 }
+		 else if(eachFeature.level=="business"){
+			 if(eachPowerType.type=="ticketing"){
+				 if('ManageRegistrationForm'==eachFeature.action_name)
+					featuresHTML+="<li class='"+(match?"left-item-active":"")+"'><a href='"+action+"' ><span class='arrow_box'>"+eachFeature.label+"</span></a></li>";
+				else
+					featuresHTML+="<li class='"+(match?"left-item-active":"")+" li-space'><a  href='javascript:' title='"+props.global_bus_ticketing+"' onclick='"+action+"'><span class='arrow_box'>"+eachFeature.label+"</span><span class='pro-orange removeBus'>"+props.business_tip+"</span></a></li>";
 			 }
 		 }
 	}
@@ -446,6 +454,10 @@ function optionsHelper(allActions,powerType,paymentSet){
 		  $('.removePro').remove();
 		  $('.removeAdv').remove();
 		  //$('.li-space').removeClass('li-space');
+	  }else if('400'==currentlevel){
+		  $('.removePro').remove();
+		  $('.removeAdv').remove();
+		  $('.removeBus').remove();
 	  }
 	  
 	  

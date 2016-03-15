@@ -8,7 +8,7 @@ function specialFee(eventid,tickettype,urlcode,powertype){
   _tickettype=tickettype;
   _urlcode=urlcode;
   _powertype=powertype;
-  var url='SpecialFee?eid='+eventid+'&ticketingtype='+tickettype+'&source='+urlcode;
+  var url='SpecialFee?eid='+eventid+'&ticketingtype='+tickettype+'&source='+urlcode+'&powertype='+powertype;
   $.ajax({
 	  type:'get',
 	  url:url,
@@ -91,7 +91,9 @@ function specialFee(eventid,tickettype,urlcode,powertype){
 					}else if(_urlcode=='TicketingRules'){
 						//afterSpcialFeePopup();
 						window.location.href='TicketingRules?eid='+_eventid;
-					}					
+					}else if(_urlcode=='BuyerPage'){
+						window.location.href='LayOutManager?eid='+_eventid;
+					}
 					else
 						window.location.href=_urlcode+'?eid='+_eventid;
 				}
@@ -251,9 +253,9 @@ function submitform(data){
 					}else if(_urlcode=='TicketingRules'){
 						parent.closeUpgradePopup();
 						window.location.href='TicketingRules?eid='+_eventid;
-					}
-					
-					else{
+					}else if(_urlcode=='BuyerPage'){
+						window.location.href='LayOutManager?eid='+_eventid;
+					}else{
 						parent.closeUpgradePopup();
 						window.location.href=_urlcode+'?eid='+_eventid;
 					}

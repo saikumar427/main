@@ -114,9 +114,9 @@
 						$("#buyerLabel").removeClass("btn-active").addClass("btn-default");
 					 }else{
 						 if($('#powertype').val()=='Ticketing')
-								specialFee(eid,'300','LayOutManager','Ticketing');
+								specialFee(eid,'400','BuyerPage','Ticketing');
 							else
-								specialFee(eid,'150','LayOutManager','RSVP');
+								specialFee(eid,'150','BuyerPage','RSVP');
 						 
 					 }
 					globLayoutPage='buyer-layout';
@@ -185,11 +185,12 @@
 					<label id="activeLabel" class="optiontype btn btn-default no-radius">
 						<input class="datesel" id="active" name="layoutOpt" value="1" type="radio"><s:text name="pg.toggle.layout.lbl"/>
 					</label>
-						<span style="display:none;">
+						
 							<label id="buyerLabel" class="optiontype btn btn-active no-radius">
-							<input class="datesel" id="buyer" name="layoutOpt" value="2" type="radio">Buyer Page
+							<input class="datesel" id="buyer" name="layoutOpt" value="2" type="radio"><s:text name="pg.toggle.buyer.lbl"/>&nbsp;&nbsp;
+							<i class="fa fa-info-circle info" style="cursor:pointer;font-size:16px!important;"id="buyerPageInfo" ></i>
 						</label> 
-						</span>
+						
 					<label id="styleLabel" class="optiontype btn btn-active no-radius">
 						<input class="datesel" id="all" name="layoutOpt" value="3" type="radio"><s:text name="pg.toggle.style.lbl" />
 					</label>
@@ -484,7 +485,11 @@
    
     <script>
     
-    
+    var value = props.bu_pg_tl_tp_msg1_lbl+'<br>'+props.bu_pg_tl_tp_msg2_lbl+'<br>'+props.bu_pg_tl_tp_msg3_lbl;
+    $('#buyerPageInfo').tooltipster({
+	    fixedWidth:'100px',
+	     content: $('<span>'+value+'</span>')
+	    }); 
     
     $('#myModalLayout').modal({
 		backdrop : 'static',
@@ -513,7 +518,7 @@
 	function hidestatusmessage(){
 	$('#statusmsg').html("");
 }
-
+	
 
     </script>
     
