@@ -105,10 +105,10 @@
 							<div class="head-title one-line"><s:text name="ugpp.sub.managers.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.pro.lbl"/></span>
 							</div>											
 						</div>
-						<div class="item <s:if test='%{source=="BuyerPage"}'>active</s:if>" >
+						<%-- <div class="item <s:if test='%{source=="BuyerPage"}'>active</s:if>" >
 							<div class="head-title one-line"><s:text name="pg.toggle.buyer.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.pro.lbl"/></span>
 							</div>											
-						</div>
+						</div> --%>
 						<div class="item <s:if test='%{source=="EditEvent"}'>active</s:if>" >
 							<div class="head-title one-line"><s:text name="ugpp.password.protection.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.pro.lbl"/></span>
 							</div>											
@@ -134,8 +134,8 @@
 							<li data-target="#pro_carousel" data-slide-to="7" <s:if test='%{source=="EmailAttendees"}'>class="active"</s:if>></li>
 							<li data-target="#pro_carousel" data-slide-to="8" <s:if test='%{source=="Badges"}'>class="active"</s:if>></li>
 							<li data-target="#pro_carousel" data-slide-to="9" <s:if test='%{source=="SubManager"}'>class="active"</s:if>></li>
-							<li data-target="#pro_carousel" data-slide-to="9" <s:if test='%{source=="BuyerPage"}'>class="active"</s:if>></li>
-							<li data-target="#pro_carousel" data-slide-to="10" <s:if test='%{source=="EditEvent"}'>class="active"</s:if>></li>
+							<!-- <li data-target="#pro_carousel" data-slide-to="" <s:if test='%{source=="BuyerPage"}'>class="active"</s:if>></li> -->
+							<li data-target="#pro_carousel" data-slide-to="9" <s:if test='%{source=="EditEvent"}'>class="active"</s:if>></li>
 						</ol>
 					</div>
 				</div>
@@ -412,7 +412,7 @@
 				<div id="bus_carousel" class="carousel slide"  data-interval="false" align="center" style="<s:if test='%{specialFeeMap["ch_level"]==400}'>display:block;</s:if><s:else>display:none;</s:else>">
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" align="center" >
-						<div class="item <s:if test='%{source=="TicketingRules"}'>active</s:if>" id="bus_first_item">
+						<div class="item <s:if test='%{source=="TicketingRules" || source=="upgradeevent"}'>active</s:if>" id="bus_first_item">
 							<div class="head-title one-line"><s:text name="ugpp.tickting.rules.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="business.tip"/></span>
 							</div>											
 						</div>
@@ -439,7 +439,7 @@
 					</a>
 					<div class="col-lg-12" style="margin-top:50px;padding:0px;">
 						<ol class="carousel-indicators" style="margin-top:20px;padding:0px;"> 
-							<li data-target="#bus_carousel" id="bus_first_li" data-slide-to="0" <s:if test='%{source=="TicketingRules"}'>class="active"</s:if>></li>
+							<li data-target="#bus_carousel" id="bus_first_li" data-slide-to="0" <s:if test='%{source=="TicketingRules" || source=="upgradeevent"}'>class="active"</s:if>></li>
 							<li data-target="#bus_carousel" data-slide-to="1" <s:if test='%{source=="PriorityRegistration"}'>class="active"</s:if>></li>
 							<li data-target="#bus_carousel" data-slide-to="2" <s:if test='%{source=="SubManager"}'>class="active"</s:if>></li>
 							<li data-target="#bus_carousel" data-slide-to="3" <s:if test='%{source=="BuyerPage"}'>class="active"</s:if>></li>

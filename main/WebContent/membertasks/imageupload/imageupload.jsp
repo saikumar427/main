@@ -74,7 +74,9 @@ $(document).ready(function(){
 	}else if('photoWidget'==type){
 		$('.btn-cancel').hide();
 	}
-	
+	var errorData = $('.alert-danger').html();
+	if(errorData.indexOf('Request exceeded allowed size limit!')>-1)
+		$('.alert-danger').html('<ul><li>'+props.pg_image_too_large_error+'</li></ul>');
 });
 
 function closeThis(){

@@ -227,7 +227,8 @@ $(function(){
 		var obj = document.getElementById('frameID');
 		obj.style.height = obj.contentWindow.document.body.scrollHeight+'px';
 		},900);
-		
+	
+	
 </script>
 	
 </body>

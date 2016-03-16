@@ -104,7 +104,7 @@
 	        	 });
 				$("#buyerLabel").click(function(){
 					var eid=<%=eventid%>;
-					if($('#currentlevel').val()=='300'){
+					if($('#currentlevel').val()=='400'){
 						$('.layoutTep').hide();
 						$('.styleWidget').hide();
 						$('.hideShowBtn').hide();
@@ -115,27 +115,26 @@
 					 }else{
 						 if($('#powertype').val()=='Ticketing')
 								specialFee(eid,'400','BuyerPage','Ticketing');
-							else
-								specialFee(eid,'150','BuyerPage','RSVP');
-						 
+							/* else
+								specialFee(eid,'150','BuyerPage','RSVP'); */
 					 }
 					globLayoutPage='buyer-layout';
 					
 				});
-				
-				var urlBuyerPage = "/main/eventmanage/BuyerPage?eid="+<%=eventid%>;
-				$.ajax({
-					url:urlBuyerPage,
-					type:'POST',
-					success:function(resultBuyerPage){
-						if(!isValidActionMessage(resultBuyerPage)) return;
-						$('.buyerPage').html(resultBuyerPage);
-					},
-					error:function(){
-						
-					}
-				});
-				
+				if($('#powertype').val()=='Ticketing'){
+					var urlBuyerPage = "/main/eventmanage/BuyerPage?eid="+<%=eventid%>;
+					$.ajax({
+						url:urlBuyerPage,
+						type:'POST',
+						success:function(resultBuyerPage){
+							if(!isValidActionMessage(resultBuyerPage)) return;
+							$('.buyerPage').html(resultBuyerPage);
+						},
+						error:function(){
+							
+						}
+					});
+				}
 			});
 		
 		   var themeDropDown = function(){
@@ -185,12 +184,12 @@
 					<label id="activeLabel" class="optiontype btn btn-default no-radius">
 						<input class="datesel" id="active" name="layoutOpt" value="1" type="radio"><s:text name="pg.toggle.layout.lbl"/>
 					</label>
-						
-							<label id="buyerLabel" class="optiontype btn btn-active no-radius">
+					<s:if test="%{#powertype=='Ticketing'}">
+						<label id="buyerLabel" class="optiontype btn btn-active no-radius">
 							<input class="datesel" id="buyer" name="layoutOpt" value="2" type="radio"><s:text name="pg.toggle.buyer.lbl"/>&nbsp;&nbsp;
 							<i class="fa fa-info-circle info" style="cursor:pointer;font-size:16px!important;"id="buyerPageInfo" ></i>
 						</label> 
-						
+					</s:if>
 					<label id="styleLabel" class="optiontype btn btn-active no-radius">
 						<input class="datesel" id="all" name="layoutOpt" value="3" type="radio"><s:text name="pg.toggle.style.lbl" />
 					</label>

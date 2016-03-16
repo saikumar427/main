@@ -708,7 +708,7 @@ a {
 				<br>
 				<div class="row">
 					<div class="col-md-12 normal_desc_grey_ans">
-						Yes! We offer a 25% discount on our Advanced and Pro ticketing for
+						Yes! We offer a 25% discount on our Business, Advanced and Pro ticketing for
 						non-profit events. For complete details, visit <a
 							href="/main/good" target="_blank">http://www.eventbee.com/main/good</a>
 					</div>

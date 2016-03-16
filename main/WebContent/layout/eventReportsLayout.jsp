@@ -413,7 +413,7 @@ var classNames=["eventmng each-row","event-title","dataTables_wrapper","glyphico
 
 var level=document.getElementById("currentLevel").value;
 var presentStatus="basic";
-if(level==200 || level==150)presentStatus="pro";else if(level==300 )presentStatus="advanced";
+if(level==200 || level==150)presentStatus="pro";else if(level==300 )presentStatus="advanced";else if(level==400)presentStatus="business";
 var stopLevelChange=false;
 
 
@@ -525,6 +525,7 @@ $(document).ready(function() {
 		var tickettype="200";
 		if(level=="100") tickettype="200";
 		if(level=="200") tickettype="300";
+		if(level=="300") tickettype="400";
 		if(level=="90") tickettype="150";
 			specialFee(${eid},tickettype,'upgradeevent','${powertype}');
 	});
@@ -670,13 +671,18 @@ function fillSearchTable(json){
  			$('.removePro').remove();
             $('.removeAdv').remove();
  			label=props.eml_advanced_lvl_lbl;
+ 		}if(status=='business'){
+ 			$('.removePro').remove();
+            $('.removeAdv').remove();
+            $('.removeBus').remove();
+            label=props.eml_business_lvl_lbl;
  		}
  		$("#first").text(label);
  		//$("#first").text(status.charAt(0).toUpperCase()+status.substring(1,status.length));
  		if(presentStatus=='pro' && typeOfEvent=='RSVP'){
  			presentStatus='advanced';
  		}
- 		if(presentStatus.toLowerCase()=="basic" || presentStatus.toLowerCase()=="pro"){
+ 		if(presentStatus.toLowerCase()=="basic" || presentStatus.toLowerCase()=="pro" || (presentStatus.toLowerCase()=="advanced" && typeOfEvent=='Ticketing')){
  			$("#first").data('status','do');
  			if(presentStatus.toLowerCase()=="basic" && typeOfEvent=='RSVP')
  				level=90;
@@ -684,6 +690,8 @@ function fillSearchTable(json){
  				level=100;
  			else if(presentStatus.toLowerCase()=="pro")
 				level=200; 	
+ 			else if(presentStatus.toLowerCase()=="advanced")
+ 				level=300;
  		}else{
  				$("#first").data('status','stop');
  				$("#second").hide();	

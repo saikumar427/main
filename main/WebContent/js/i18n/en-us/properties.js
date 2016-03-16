@@ -8,6 +8,7 @@ var props={
 		
 		
 		"aa_disc_code_lbl":"Have a discount code, enter it here.",
+		"pg_image_too_large_error":"The image file you have selected is too large. Please select a smaller size image.",
 		"aa_apply_disc_code_btn_lbl":"Apply Code",
 		"aa_attendee_info_section_header":"Attendee Information",
 		"aa_payment_section_header":"Payment Collection",
@@ -108,6 +109,7 @@ var props={
        "eml_basic_lvl_lbl":"Basic",
        "eml_pro_lvl_lbl":"Pro",
        "eml_advanced_lvl_lbl":"Advanced",
+       "eml_business_lvl_lbl":"Business",
        "eml_upgrade_lbl":"Upgrade",
        "eml_suspend_status":"Suspended",
 
