@@ -1,4 +1,6 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
+<s:hidden value="%{powertype}" id="powertype" />
+<s:hidden value="%{currentLevel}" id="currentLevel" />
 <style>
 	.btn-default{
 			cursor:default;
@@ -98,57 +100,65 @@ var loadWaitEmail = function(){
 
 
 $(document).ready(function(){
-	$('#confirmationPage').show();
-	loadPage();
-	$("#confirmationEmailDisplay").click(function(){
-		//$('#confirmationPageDisplay').attr('disabled',true);
-		//$('#customizeWaitlistEmail').attr('disabled',true);
-		if(!$(this).hasClass("btn-default")){
-			showProcessing('forload');
-			$('#confirmationPage').hide();
-			$('#confirmationEmail').show();
-			$('#customizeWaitEmail').hide();
-			$("#confirmationEmailDisplay").addClass("btn-default").removeClass("btn-active");
-			$("#confirmationPageDisplay").removeClass("btn-default").addClass("btn-active");
-			$('#customizeWaitlistEmail').removeClass("btn-default").addClass("btn-active");
-			$('#confirmationPage').html('');
-			$('#customizeWaitEmail').html('');
-	   		loadEmail();
-		}
-	 });
-	$("#confirmationPageDisplay").click(function(){ 
-		//$('#confirmationEmailDisplay').attr('disabled',true);
-		//$('#customizeWaitlistEmail').attr('disabled',true);
-		if(!$(this).hasClass("btn-default")){
-			showProcessing('forload');
-			$('#confirmationPage').show();
-			$('#confirmationEmail').hide();
-			$('#customizeWaitEmail').hide();
-			$("#confirmationPageDisplay").addClass("btn-default").removeClass("btn-active");
-			$("#confirmationEmailDisplay").removeClass("btn-default").addClass("btn-active");
-			$('#customizeWaitlistEmail').removeClass("btn-default").addClass("btn-active");
-			$('#confirmationEmail').html('');
-			$('#customizeWaitEmail').html('');
-			loadPage();
-		}
-	 });
-	
-	$("#customizeWaitlistEmail").click(function(){ 
-		//$('#confirmationEmailDisplay').attr('disabled',true);
-		//$('#confirmationPageDisplay').attr('disabled',true);
-		if(!$(this).hasClass("btn-default")){
-			showProcessing('forload');
-			$('#confirmationPage').hide();
-			$('#confirmationEmail').hide();
-			$('#customizeWaitEmail').show();
-			$("#customizeWaitlistEmail").addClass("btn-default").removeClass("btn-active");
-			$("#confirmationEmailDisplay").removeClass("btn-default").addClass("btn-active");
-			$("#confirmationPageDisplay").removeClass("btn-default").addClass("btn-active");
-			$('#confirmationEmail').html('');
-			$('#confirmationPage').html('');
-			loadWaitEmail();
-		}
-	 });
+	if($('#currentLevel').val()==150 || $('#currentLevel').val()>=300){
+		$('#confirmationPage').show();
+		loadPage();
+		$("#confirmationEmailDisplay").click(function(){
+			//$('#confirmationPageDisplay').attr('disabled',true);
+			//$('#customizeWaitlistEmail').attr('disabled',true);
+			if(!$(this).hasClass("btn-default")){
+				showProcessing('forload');
+				$('#confirmationPage').hide();
+				$('#confirmationEmail').show();
+				$('#customizeWaitEmail').hide();
+				$("#confirmationEmailDisplay").addClass("btn-default").removeClass("btn-active");
+				$("#confirmationPageDisplay").removeClass("btn-default").addClass("btn-active");
+				$('#customizeWaitlistEmail').removeClass("btn-default").addClass("btn-active");
+				$('#confirmationPage').html('');
+				$('#customizeWaitEmail').html('');
+		   		loadEmail();
+			}
+		 });
+		$("#confirmationPageDisplay").click(function(){ 
+			//$('#confirmationEmailDisplay').attr('disabled',true);
+			//$('#customizeWaitlistEmail').attr('disabled',true);
+			if(!$(this).hasClass("btn-default")){
+				showProcessing('forload');
+				$('#confirmationPage').show();
+				$('#confirmationEmail').hide();
+				$('#customizeWaitEmail').hide();
+				$("#confirmationPageDisplay").addClass("btn-default").removeClass("btn-active");
+				$("#confirmationEmailDisplay").removeClass("btn-default").addClass("btn-active");
+				$('#customizeWaitlistEmail').removeClass("btn-default").addClass("btn-active");
+				$('#confirmationEmail').html('');
+				$('#customizeWaitEmail').html('');
+				loadPage();
+			}
+		 });
+		
+		$("#customizeWaitlistEmail").click(function(){ 
+			//$('#confirmationEmailDisplay').attr('disabled',true);
+			//$('#confirmationPageDisplay').attr('disabled',true);
+			if(!$(this).hasClass("btn-default")){
+				showProcessing('forload');
+				$('#confirmationPage').hide();
+				$('#confirmationEmail').hide();
+				$('#customizeWaitEmail').show();
+				$("#customizeWaitlistEmail").addClass("btn-default").removeClass("btn-active");
+				$("#confirmationEmailDisplay").removeClass("btn-default").addClass("btn-active");
+				$("#confirmationPageDisplay").removeClass("btn-default").addClass("btn-active");
+				$('#confirmationEmail').html('');
+				$('#confirmationPage').html('');
+				loadWaitEmail();
+			}
+		 });
+	}else{
+		var eventid ='${eid}';
+		if($('#powertype').val()=='Ticketing')
+			specialFee(eventid,"300","OrderConfirmation","Ticketing");
+		else
+			specialFee(eventid,"150","OrderConfirmation","RSVP");
+	}
 });
 function showProcessing(divid){
     var html='<div id="loading"><center><img src="../images/ajax-loader.gif"></center></div>';

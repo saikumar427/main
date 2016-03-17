@@ -1,5 +1,8 @@
 <%@taglib uri="/struts-tags" prefix="s" %>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<s:hidden value="%{powertype}" id="powertype" />
+<s:hidden value="%{currentLevel}" id="currentLevel" />
+
 <script>
 function searchKeyPress(e) {
 	   
@@ -97,14 +100,16 @@ createTrackingURL(eid);
 $('#createTracking').click(function(){
 	if($('#editTrackURL').is(':visible'))
 		$('#editTrackURL').remove();
-	createTrackingURL(eid);
-	//specialFee("${eid}","200","TrackURL","Ticketing");
-	/* var _powertype = $('#powertype').val();
-	if(_powertype=='RSVP')
-	specialFee("${eid}","150","TrackURL","RSVP");
-	else
-	specialFee("${eid}","200","TrackURL","Ticketing"); */
 	
+	if($('#currentLevel').val()==150 || $('#currentLevel').val()>=300){
+		createTrackingURL(eid);
+	}else{
+		if($('#powertype').val()=='Ticketing')
+			specialFee("${eid}","300","TrackURL","Ticketing");
+		else if($('#powertype').val()=='RSVP')
+			specialFee("${eid}","150","TrackURL","RSVP");
+			
+	}
 });
 function createTrackingURL(eid){
 	//loadingPopup();

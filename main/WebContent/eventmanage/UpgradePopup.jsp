@@ -352,11 +352,11 @@
 							</div>											
 						</div>
 						<div class="item <s:if test='%{source=="TrackURL"}'>active</s:if>">
-							<div class="head-title one-line"><s:text name="ugpp.tracking.urls.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.pro.lbl"/></span>
+							<div class="head-title one-line"><s:text name="ugpp.tracking.urls.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.adv.lbl"/></span>
 							</div>											
 						</div>
 						<div class="item <s:if test='%{source=="TicketURLs"}'>active</s:if>">
-							<div class="head-title one-line"><s:text name="ugpp.private.urls.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.pro.lbl"/></span>
+							<div class="head-title one-line"><s:text name="ugpp.private.urls.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.adv.lbl"/></span>
 							</div>											
 						</div>
 						<div class="item <s:if test='%{source=="OrderConfirmation"}'>active</s:if>" >

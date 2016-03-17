@@ -1,4 +1,6 @@
 <%@taglib uri="/struts-tags" prefix="s" %>
+<s:hidden value="%{powertype}" id="powertype" />
+<s:hidden value="%{currentLevel}" id="currentLevel" />
 <div class="white-box">
 <s:form method="post" name="report" action="Badges!attendeeLabels"  id="badgesform" cssClass="form-horizontal">
 <s:hidden name="eid"></s:hidden>
@@ -294,40 +296,43 @@ $(document).ready(function() {
            timepicker: false
        });
 
-    $('#generatebadges').click(function(){
-    	 var tid=document.getElementById('transactionid').value;
-   		 var allradio=document.getElementById('allradio').checked;
-   	     var dateradio=document.getElementById('dateradio').checked;
-   	    var tidradio=document.getElementById('tidradio').checked;
-   	    var isrecurring=document.getElementById('isrecurr').value;
-
-        if(document.getElementById('tktsradio')){
-
-            var tkts=document.getElementById('tktsradio').checked;
-            if(tkts && $('.tkts:checked').length==0){
-            	 bootbox.confirm(props.global_select_tkt_msg,function(result){});
-            	 return;
-                }
-            }
-            
-   	    
-   	 
-   	 if(tidradio==true && tid==""){
-	   	bootbox.alert(props.bad_tid_empty_error_lbl);
-   	 return false;
-   	 }
-   	     
-        if(isrecurring=="true"){
-       	 var eventdate=document.getElementById('source').value;
-             if(eventdate=="" && (allradio==true || dateradio==true)){
-            	 bootbox.confirm(props.bad_recurring_date_error_lbl,function(result){});
-                }else{ generatePDF();
-                        }
-        }
-        else{
+  $('#generatebadges').click(function() {
+     if($('#currentLevel').val()==150 || $('#currentLevel').val()>=300){
+    	 var tid = document.getElementById('transactionid').value;
+         var allradio = document.getElementById('allradio').checked;
+         var dateradio = document.getElementById('dateradio').checked;
+         var tidradio = document.getElementById('tidradio').checked;
+         var isrecurring = document.getElementById('isrecurr').value;
+         if (document.getElementById('tktsradio')) {
+             var tkts = document.getElementById('tktsradio').checked;
+             if (tkts && $('.tkts:checked').length == 0) {
+                 bootbox.confirm(props.global_select_tkt_msg, function(result) {});
+                 return;
+             }
+         }
+         if (tidradio == true && tid == "") {
+             bootbox.alert(props.bad_tid_empty_error_lbl);
+             return false;
+         }
+         if (isrecurring == "true") {
+             var eventdate = document.getElementById('source').value;
+             if (eventdate == "" && (allradio == true || dateradio == true)) {
+                 bootbox.confirm(props.bad_recurring_date_error_lbl, function(result) {});
+             } else {
+                 generatePDF();
+             }
+         } else {
              generatePDF();
-           }
-        });
+         }
+     }else{
+    	 var eventid = '${eid}';
+    	 if($('#powertype').val()=='Ticketing')
+    		 specialFee(eventid,"300","Badges","Ticketing");
+    	 else
+    		 specialFee(eventid,"150","Badges","RSVP");
+     }
+     
+ });
     
     $('input[type="radio"]').on('ifClicked', function (event) {
         if(this.value==2){

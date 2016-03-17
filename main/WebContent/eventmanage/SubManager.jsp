@@ -6,6 +6,7 @@ tr.editRow:hover {
 
 </style>
 <s:hidden name="powertype" id="powertype"></s:hidden>
+<s:hidden value="%{currentLevel}" id="currentLevel" />
 <!--	<div class="alert alert-info hidden-xs">
 		<i class="fa fa-info-circle"></i>&nbsp;<s:text name="sm.help.msg"/>
 	</div> -->

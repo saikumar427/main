@@ -1,5 +1,7 @@
 <%@taglib uri="/struts-tags" prefix="s" %>
 <script type="text/javascript" src="/main/copy-text-to-clipboard/jquery.zclip.js"></script>
+<s:hidden value="%{powertype}" id="powertype" />
+<s:hidden value="%{currentLevel}" id="currentLevel" />
 <style>
 
  tr#edited:hover {
@@ -80,8 +82,10 @@ font-size: 14px !important;
         $(document).ready(function(){  
         	 $('#adddiscount').click(function(){
             	// loadingPopup();
-        		 openDiscount();
-        		 
+            	if($('#currentLevel').val()>=200)
+            		 openDiscount();
+            	else
+            		specialFee(eid,'200','managediscounts','Ticketing');
       		});
 		prepareDiscountTable(discdata);
        });

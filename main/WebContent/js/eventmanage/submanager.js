@@ -1,10 +1,16 @@
 $(document).ready(function(){
 	$('#submgrid').click(function(){
-		$('html, body').animate({ scrollTop: $("#forload").offset().top-scrollTo}, 1000);
-		showProcessing('forload');
-		arrangeSubBoxes();
-		createSubManager(eid);
-		
+		if($('#currentLevel').val()==150 || $('#currentLevel').val()==400){
+			$('html, body').animate({ scrollTop: $("#forload").offset().top-scrollTo}, 1000);
+			showProcessing('forload');
+			arrangeSubBoxes();
+			createSubManager(eid);
+		}else{
+			if($('#powertype').val()=='Ticketing')
+				specialFee(eid,"400","SubManager","Ticketing");
+			else
+				specialFee(eid,"150","SubManager","RSVP");
+		}
 	});
 	/*$('#subMgrBox').on('click','#permissionsSettings',function(){
         $('#permissionDetails').slideToggle(slideTime);

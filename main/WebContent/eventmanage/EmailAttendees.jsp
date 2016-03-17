@@ -1,4 +1,6 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
+<s:hidden value="%{powertype}" id="powertype" />
+<s:hidden value="%{currentLevel}" id="currentLevel" />
 
  <link href="/main/bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">    
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
@@ -204,16 +206,21 @@ var powertype='${powertype}';
 					}
 				}
 				
-           		 $(document).ready(function() 
-           			{
+           		 $(document).ready(function(){
                		 generateEmailAtteendeeTable(json);
-		           	 $('#createemail').click(function()
-		           			 {
-		           		      document.getElementById("createemail").disabled = true;
-		           		      showProcessing('forLoad');
-		           		      createNewEmail();          		
-		           	         });
-                     });
+		           	 $('#createemail').click(function(){
+		           		 if($('#currentLevel').val()==150 || $('#currentLevel').val()>=300){
+		           			document.getElementById("createemail").disabled = true;
+		           		    showProcessing('forLoad');
+		           		    createNewEmail();
+		           		 }else{
+		           			 if($('#powertype').val()=='Ticketing')
+		           				specialFee(eid,"300","EmailAttendees","Ticketing");
+		           			 else if($('#powertype').val()=='RSVP')
+		           				specialFee(eid,"150","EmailAttendees","RSVP");
+		           		 }
+					});
+				});
 				
 				
            		

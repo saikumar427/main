@@ -27,6 +27,8 @@ tr#removeTR:hover {
 <script type="text/javascript" language="javascript" src="/main/js/dataTables.js"></script>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <s:set name="clist" value="priorityList"></s:set>
+<s:hidden value="%{powertype}" id="powertype" />
+<s:hidden value="%{currentLevel}" id="currentLevel" />
 <%-- <s:property value="%{priorityList}"/> --%>
 
 <s:hidden value="%{fieldcount}" id="myfieldcount"/>

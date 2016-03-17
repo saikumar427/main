@@ -983,6 +983,11 @@ var props={
 		"ps_payu_lbl":"Payu",
 		"ps_payu_invalid_credentials":"Payu credenciales no vÃ¡lidas.",
 		"ps_payu_apikey_empty":"clave de API estÃ¡ vacÃ­a.",
-		"ps_payu_apilogin_empty":"API ID de inicio de sesiÃ³n estÃ¡ vacÃ­a."
-        
+		"ps_payu_apilogin_empty":"API ID de inicio de sesiÃ³n estÃ¡ vacÃ­a.",
+		"bu_pg_tl_tp_msg1_lbl":"Para el comprador página permite a los asistentes para editar su información de perfil,",
+		"bu_pg_tl_tp_msg2_lbl":"y contenido exclusivo destinado a los asistentes.",
+		"bu_pg_tl_tp_msg3_lbl":"Para acceder a esta función, mejorar su nivel de emisión de billetes a la versión de negocios.",
+		"global_bus_ticketing":"Entradas de negocio",
+		"business_tip":"Bus",
+		"eml_business_lvl_lbl":"Negocio"
 };

@@ -4,6 +4,8 @@
 <%@include file="../getresourcespath.jsp"%>
 <script src="/main/js/eventmanage/ticketurls.js"></script>
 <s:set name="ticketurls" value="%{submgr_permissions['TicketURLs']}"></s:set>
+<s:hidden value="%{powertype}" id="powertype" />
+<s:hidden value="%{currentLevel}" id="currentLevel" />
 <style>
 tr.editTktRow:hover{
 	background-color: transparent !important;
