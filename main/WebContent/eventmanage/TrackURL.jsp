@@ -100,8 +100,8 @@ createTrackingURL(eid);
 $('#createTracking').click(function(){
 	if($('#editTrackURL').is(':visible'))
 		$('#editTrackURL').remove();
-	
-	if($('#currentLevel').val()==150 || $('#currentLevel').val()>=300){
+	var curLevel=$('#currentLevel').val();
+	if(curLevel==150 || curLevel>=300){
 		createTrackingURL(eid);
 	}else{
 		if($('#powertype').val()=='Ticketing')

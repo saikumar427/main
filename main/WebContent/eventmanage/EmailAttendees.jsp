@@ -209,7 +209,8 @@ var powertype='${powertype}';
            		 $(document).ready(function(){
                		 generateEmailAtteendeeTable(json);
 		           	 $('#createemail').click(function(){
-		           		 if($('#currentLevel').val()==150 || $('#currentLevel').val()>=300){
+						 var  curLevel= $('#currentLevel').val()
+		           		 if(curLevel==150 || curLevel>=300){
 		           			document.getElementById("createemail").disabled = true;
 		           		    showProcessing('forLoad');
 		           		    createNewEmail();

@@ -132,7 +132,7 @@ public class TicketURLsAction extends ActionSupport implements Preparable,Valida
 				
 				// adding for special fee start
 				String mgrId=ActionContext.getContext().getParameters().get("mgrId").toString();
-				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"200","Private Tickets URLs");
+				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Private Tickets URLs");
 				// special fee end.
 				
 				TicketURLsDB.insertTicketURLs(seltickets, eid, name);

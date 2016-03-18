@@ -26,7 +26,7 @@ if($.trim($('#scanId').val())==''){
 
 var value=$('#scanId').val();
 
-var url = "ScanIDs!insertScanID?eid="+eid+"&name="+value;
+var url = "ScanIDs!insertScanID?eid="+eventid+"&name="+value;
 $.ajax({
     url : url,
     type: 'POST',
@@ -83,7 +83,7 @@ function createScanIdtable(){
 
 
 function reloadData(){
-var url='ScanIDs!reloadedData?eid='+eid;
+var url='ScanIDs!reloadedData?eid='+eventid;
 	$.ajax({
            url:url,
            success:function(result){

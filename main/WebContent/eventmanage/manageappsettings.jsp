@@ -437,6 +437,44 @@ $('#myModal').on('show.bs.modal', function () {
 
 
 
+<div class="box-top-gap">
+	
+<%-- <s:form name="ScanIDsform" action="ScanIDs!createScanId" id="ScanIDsform"> --%>
+<s:hidden name="eid"></s:hidden>
+<div id="statusMsg"></div>
+<div class="section-main-header"><s:text name="sid.section.header" />&nbsp;<span class="status"><s:text name="check.in.app.ios"/></span></div>
+<div class="row sticky-out-button pull-right  box-top-gap">
+	<div class="col-md-12"> 
+		 <div class="pull-right">
+			<button class="btn btn-primary" name="scanid"  id="scanids" type="button"><s:text name="sid.create.scanid.btn.lbl"/></button>   
+		 </div> 
+	 </div> 
+</div>
+
+
+
+<div class="white-box">
+
+<div id="scandatadiv" class="bottom-gap" ></div>	
+<div id="scandata_br" style="height:33px;"></div>
+<div id="loading" class="box-top-gap" style="display:none;"><center><img src="../images/ajax-loader.gif"/></center></div>
+
+<div id="loadedData"></div>
+
+</div>                         
+
+<%-- </s:form> --%>
+</div>
+<script>
+var eventid='${eid}';
+</script>
+<script type="text/javascript" src="ScanIDs!populateScanIdsList?eid=${eid}"></script>
+<script type="text/javascript" src="/main/js/scanids.js"></script>
+<script>
+var scanIDjson = data;
+</script>
+
+
 
 <%-- <div class="taskbox">
 <span class="taskheader">Manager App Settings</span><br/>

@@ -67,7 +67,9 @@ tr.editRow:hover {
 <jsp:include page="/eventmanage/ScanIDs.jsp"></jsp:include>
 </div>	 --%>
 	
-<div class="box-top-gap">
+	
+	<!-- ScanIDs comment this code added at mobile app settings start -->
+<%-- <div class="box-top-gap">
 	
 <s:form name="ScanIDsform" action="ScanIDs!createScanId" id="ScanIDsform">
 <s:hidden name="eid"></s:hidden>
@@ -97,12 +99,15 @@ tr.editRow:hover {
 </div>
 
 <script type="text/javascript" src="ScanIDs!populateScanIdsList?eid=${eid}"></script>
-<script type="text/javascript" src="/main/js/scanids.js"></script>
+<script type="text/javascript" src="/main/js/scanids.js"></script> --%>
+<!-- ScanIDs comment this code added at mobile app settings end -->
+
 <script type="text/javascript" language="javascript" src="/main/js/dataTables.js"></script>
 <script type="text/javascript" language="javascript" src="/main/js/eventmanage/submanager.js"></script>
 <script>
 
-var scanIDjson = data;
+//for scanIds 
+//var scanIDjson = data;
 
 var jsub = 0;
 var eid = '${eid}';

@@ -715,14 +715,14 @@ public class AddEventDB {
 					currentLevel="150";
 				}else{
 					currentFee="1";
-					currentLevel="300";
+					currentLevel="400";
 				}
 			}else{
 			String nonprofitstatus=DbUtil.getVal("select 'Y' from ebee_special_fee where userid=?", new String[]{mgrid});
 			if("Y".equalsIgnoreCase(nonprofitstatus))
-			  statobj=dbmanager.executeSelectQuery("select ln100,ln200,ln300,ln90,ln150 from international_pricing where currency_code='USD'", null);
+			  statobj=dbmanager.executeSelectQuery("select ln100,ln200,ln300,ln400,ln90,ln150 from international_pricing where currency_code='USD'", null);
 			else
-              statobj=dbmanager.executeSelectQuery("select l100,l200,l300,l90,l150 from international_pricing where currency_code='USD'", null);
+              statobj=dbmanager.executeSelectQuery("select l100,l200,l300,l400,l90,l150 from international_pricing where currency_code='USD'", null);
 				
 			if(statobj.getStatus()){
 				try{
@@ -730,8 +730,13 @@ public class AddEventDB {
 					if("Y".equalsIgnoreCase(nonprofitstatus)){
 						if(Double.parseDouble(dbmanager.getValue(0, "ln100", "")) == Double.parseDouble(dbmanager.getValue(0, "ln200", ""))){
 							if(Double.parseDouble(dbmanager.getValue(0, "ln200", "")) == Double.parseDouble(dbmanager.getValue(0, "ln300", ""))){
-								currentLevel = "300";
-								currentFee = dbmanager.getValue(0, "ln300", "");
+								if(Double.parseDouble(dbmanager.getValue(0, "ln300", "")) == Double.parseDouble(dbmanager.getValue(0, "ln400", ""))){
+									currentLevel = "400";
+									currentFee = dbmanager.getValue(0, "ln400", "");
+								}else{
+									currentLevel = "300";
+									currentFee = dbmanager.getValue(0, "ln300", "");
+								}
 							}else{
 								currentLevel = "200";
 								currentFee = dbmanager.getValue(0, "ln200", "");
@@ -744,8 +749,13 @@ public class AddEventDB {
 					}else{
 						if(Double.parseDouble(dbmanager.getValue(0, "l100", "")) == Double.parseDouble(dbmanager.getValue(0, "l200", ""))){
 							if(Double.parseDouble(dbmanager.getValue(0, "l200", "")) == Double.parseDouble(dbmanager.getValue(0, "l300", ""))){
-								currentLevel = "300";
-								currentFee = dbmanager.getValue(0, "l300", "");
+								if(Double.parseDouble(dbmanager.getValue(0, "l300", "")) == Double.parseDouble(dbmanager.getValue(0, "l400", ""))){
+									currentLevel = "400";
+									currentFee = dbmanager.getValue(0, "l400", "");
+								}else{
+									currentLevel = "300";
+									currentFee = dbmanager.getValue(0, "l300", "");
+								}
 							}else{
 								currentLevel = "200";
 								currentFee = dbmanager.getValue(0, "l200", "");

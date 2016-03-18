@@ -100,7 +100,8 @@ var loadWaitEmail = function(){
 
 
 $(document).ready(function(){
-	if($('#currentLevel').val()==150 || $('#currentLevel').val()>=300){
+	var level = $('#currentLevel').val();
+	if(level==150 || level>=300){
 		$('#confirmationPage').show();
 		loadPage();
 		$("#confirmationEmailDisplay").click(function(){

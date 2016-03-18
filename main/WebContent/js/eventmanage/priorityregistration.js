@@ -5,7 +5,8 @@ var uploadlists=false;
 $(document).ready(function(){
 	
 	$(document).on('click','#createprioritylist',function(){
-		if($('#currentLevel').val()==400){
+	var curLevel= $('#currentLevel').val();
+		if(curLevel==400){
 			$('#nodata').hide();
 		//$('#priority_table').html('');
 		createnewPriorityList();

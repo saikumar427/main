@@ -52,7 +52,7 @@ public class CopyEventDB{
 		copyEventConfig(oldEventId, newConfigId, addEventData.getUpgradeLevel());
 		
 		/*Copy Custom Attributes*/
-		if("150".equals(addEventData.getUpgradeLevel()) || "300".equals(addEventData.getUpgradeLevel()))
+		if("150".equals(addEventData.getUpgradeLevel()) || "300".equals(addEventData.getUpgradeLevel()) || "400".equals(addEventData.getUpgradeLevel()))
 			copyEventCustomAttributes(oldEventId,newSeqId,powertype);
 		
 		/*Copy RSVP Attribs*/
@@ -68,14 +68,14 @@ public class CopyEventDB{
 		//copyEventLookAndFeel(oldEventId,newSeqId); //in new UI this is moved to Layout Page
 		
 		/*Copy Event Wording*/
-		if("150".equals(addEventData.getUpgradeLevel()) || "200".equals(addEventData.getUpgradeLevel()) || "300".equals(addEventData.getUpgradeLevel()))
+		if("150".equals(addEventData.getUpgradeLevel()) || "200".equals(addEventData.getUpgradeLevel()) || "300".equals(addEventData.getUpgradeLevel()) || "400".equals(addEventData.getUpgradeLevel()))
 			copyDisplayAttribs(oldEventId,newSeqId,addEventData.getUpgradeLevel());
 		
 		/*Copy Base Profile Questions*/
 		copyBaseProfileQuestions(oldEventId,newSeqId);
 		
 		/*Copy Discount Codes*/
-		if("200".equals(addEventData.getUpgradeLevel()) || "300".equals(addEventData.getUpgradeLevel()))
+		if("200".equals(addEventData.getUpgradeLevel()) || "300".equals(addEventData.getUpgradeLevel()) || "400".equals(addEventData.getUpgradeLevel()))
 			copyDiscountCodesMaster(oldEventId,newSeqId);
 		
 		 /*Copy Tickets*/
@@ -84,7 +84,7 @@ public class CopyEventDB{
 		//copyEventRollerThemes(oldEventId,newSeqId,mgrId,addEventData.getUpgradeLevel(),confightmlcss); //in new UI this is not required
 		
 		 
-		if("150".equals(addEventData.getUpgradeLevel()) || "300".equals(addEventData.getUpgradeLevel())){
+		if("150".equals(addEventData.getUpgradeLevel()) || "300".equals(addEventData.getUpgradeLevel()) || "400".equals(addEventData.getUpgradeLevel())){
 			/*Copy Event EmailTemplates*/
 			copyEventEmailTemplates(oldEventId,newSeqId);
 			
@@ -94,8 +94,10 @@ public class CopyEventDB{
 			copyConfirmationPageSettings(oldEventId,newSeqId);
 		}
 		
-		if("300".equals(addEventData.getUpgradeLevel()))
+		if("300".equals(addEventData.getUpgradeLevel()) || "400".equals(addEventData.getUpgradeLevel()))
 			copyEventSeating(oldEventId,newSeqId);
+		if("400".equals(addEventData.getUpgradeLevel()))
+			copyBuyerLayoutPageSettings(oldEventId,newSeqId,addEventData.getUpgradeLevel());
 		
 		copyLayoutPageSettings(oldEventId,newSeqId,addEventData.getUpgradeLevel());
 	}
@@ -603,7 +605,7 @@ public class CopyEventDB{
 			}
 		}
 		
-		if("300".equals(addeventdata.getUpgradeLevel()) || "150".equals(addeventdata.getUpgradeLevel())){
+		if("300".equals(addeventdata.getUpgradeLevel())|| "400".equals(addeventdata.getUpgradeLevel()) || "150".equals(addeventdata.getUpgradeLevel())){
 			String buyerCustomQnsQry="insert into buyer_custom_questions (eventid,attribid)" +
 					" select CAST(? AS BIGINT),attribid from buyer_custom_questions where " +
 					" eventid = CAST(? AS BIGINT)"; 
@@ -693,7 +695,7 @@ public class CopyEventDB{
 						" 0, min_qty,max_qty, ticket_type, ?,?, status,10," +
 						" CASE WHEN '"+upgradeLevel+"'='"+oldCurrentLevel+"' THEN process_fee ELSE 0 END, partnerlimit,start_before,end_before,start_hours_before," +
 						" end_hours_before,start_minutes_before,end_minutes_before,isdonation,CASE WHEN '"+ upgradeLevel+"'='100' THEN 'Y' ELSE showyn END," +
-						" scan_code_required,created_by,CASE WHEN '"+ upgradeLevel+"'='300' THEN  wait_list_type ELSE 'NO' END, CASE WHEN '"+ upgradeLevel+"'='300' " +
+						" scan_code_required,created_by,CASE WHEN '"+ upgradeLevel+"'='300' OR '"+ upgradeLevel+"'='400' THEN  wait_list_type ELSE 'NO' END, CASE WHEN '"+ upgradeLevel+"'='300' OR '"+ upgradeLevel+"'='400'" +
 						" THEN  wait_list_max_qty ELSE 0 END from price where evt_id = CAST(? AS BIGINT) and price_id = CAST(? AS INTEGER)";
 				String[] inputparams=new String[]{newSeqId,newTicketId,newtktstartdate,newtktenddate,timenow,newtktendtime,oldEventId,oldTicketId};
 				stobj=DbUtil.executeUpdateQuery(ticketInsertQry, inputparams);
@@ -1038,7 +1040,7 @@ public class CopyEventDB{
 				 currentlevel="150";
 			}else{
 				 currentfee="1";
-				 currentlevel="300";
+				 currentlevel="400";
 			}
 		}else{
 			currentlevel=addEventData.getUpgradeLevel();
@@ -1141,7 +1143,7 @@ public class CopyEventDB{
 		StatusObj insetCustom = DbUtil.executeUpdateQuery(copyCustom_widget_Options, new String []{DateUtil.getCurrDBFormatDate(),DateUtil.getCurrDBFormatDate(),newSeqId,oldEventId});
 		/*For Seating*/
 		Boolean isSeating = EventDB.isSeatingEvent(oldEventId);
-		 if("300".equals(ticketlevel)){
+		 if("300".equals(ticketlevel) || "400".equals(ticketlevel)){
 			 if(isSeating){
 				 DBManager dbm = new DBManager();
 				 StatusObj ifSeating;
@@ -1171,6 +1173,26 @@ public class CopyEventDB{
 		String copyWidgetOptionQry = "insert into  widget_options (eventid,widgetid,config_data,widget_title,widget_ref_title,stage,created_at,updated_at) " +
 				"select CAST(? AS BIGINT),widgetid,config_data,widget_title,widget_ref_title,stage,to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS'),to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS') from widget_options where eventid=?::bigint ";
 		//statobj = DbUtil.executeUpdateQuery(copyWidgetOptionQry, new String[]{newSeqId,DateUtil.getCurrDBFormatDate(),DateUtil.getCurrDBFormatDate(),oldEventId});
+	}
+	public static void copyBuyerLayoutPageSettings(String oldEventId,String newSeqId, String ticketlevel){
+		System.out.println("oldEventId : "+oldEventId+" newSeqId : "+newSeqId+" ticketlevel : "+ticketlevel);
+		String copyBuyerEventLayoutQry = "insert into buyer_att_page_layout (eventid,wide_widgets,narrow_widgets,single_widgets,stage,global_style,layout_type,single_bottom_widgets," +
+				"created_at, updated_at,hide_widgets,sync,header_theme) select CAST(? AS BIGINT),wide_widgets,narrow_widgets,single_widgets,stage,global_style,layout_type,single_bottom_widgets,to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS')," +
+				"to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS'),hide_widgets,sync,header_theme from buyer_att_page_layout where eventid=CAST(? AS BIGINT)";
+		StatusObj statobj = DbUtil.executeUpdateQuery(copyBuyerEventLayoutQry, new String[]{newSeqId,DateUtil.getCurrDBFormatDate(),DateUtil.getCurrDBFormatDate(),oldEventId});
+		if(statobj.getCount()==0){
+			copyBuyerEventLayoutQry = "insert into buyer_att_page_layout (eventid,wide_widgets,narrow_widgets,single_widgets,stage,global_style,layout_type,single_bottom_widgets,created_at, updated_at,hide_widgets,sync,header_theme) " +
+					"select CAST(? AS BIGINT),wide_widgets,narrow_widgets,single_widgets,stage,global_style,layout_type,single_bottom_widgets,to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS'),to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS'),hide_widgets,sync,header_theme from buyer_att_page_layout where eventid='1'::bigint";
+			
+			statobj = DbUtil.executeUpdateQuery(copyBuyerEventLayoutQry, new String[]{newSeqId,DateUtil.getCurrDBFormatDate(),DateUtil.getCurrDBFormatDate()});
+		}
+		String buyer_att_custom_widget_options="insert into buyer_att_custom_widget_options (widget_ref_title ,widgetid, updated_at, created_at, stage, widget_title, config_data, eventid,layout_type) select widget_ref_title ,widgetid, to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS'), to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS'), stage, widget_title, config_data, CAST(? AS BIGINT),layout_type from buyer_att_custom_widget_options where eventid=CAST(? AS BIGINT) and widgetid<>'RSVPList'";
+		if("400".equals(ticketlevel) || "150".equals(ticketlevel)){
+		}else{
+			buyer_att_custom_widget_options="insert into buyer_att_custom_widget_options (widget_ref_title ,widgetid, updated_at, created_at, stage, widget_title, config_data, eventid,layout_type) select widget_ref_title ,widgetid, to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS'), to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS'), stage, widget_title, config_data, CAST(? AS BIGINT),layout_type from buyer_att_custom_widget_options where eventid=CAST(? AS BIGINT) and widgetid<>'RSVPList'";
+		}
+		StatusObj insetBuyerCustom = DbUtil.executeUpdateQuery(buyer_att_custom_widget_options, new String []{DateUtil.getCurrDBFormatDate(),DateUtil.getCurrDBFormatDate(),newSeqId,oldEventId});
+	
 	}
 	
 }	

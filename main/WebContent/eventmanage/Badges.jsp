@@ -297,7 +297,8 @@ $(document).ready(function() {
        });
 
   $('#generatebadges').click(function() {
-     if($('#currentLevel').val()==150 || $('#currentLevel').val()>=300){
+	  var curLevel=$('#currentLevel').val()
+     if(curLevel==150 || curLevel>=300){
     	 var tid = document.getElementById('transactionid').value;
          var allradio = document.getElementById('allradio').checked;
          var dateradio = document.getElementById('dateradio').checked;

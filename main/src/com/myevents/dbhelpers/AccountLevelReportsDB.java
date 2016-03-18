@@ -933,11 +933,11 @@ public static HashMap<String,String> getEventsCurrencyMap(String events){
 			if(startdate==null)startdate="";
 			System.out.println("startdate is:"+startdate);
 			if(!"".equals(startdate)){
-				query="select eventid,eventname from eventinfo where mgr_id=cast(? as integer) and status!='CANCEL' and current_level in('100','200','300') and start_date::date between "+
+				query="select eventid,eventname from eventinfo where mgr_id=cast(? as integer) and status!='CANCEL' and current_level in('100','200','300','400') and start_date::date between "+
 					" to_timestamp(?,'mm/dd/yyyy') and to_timestamp(?,'mm/dd/yyyy') and current_level is not null order by start_date";
 				params=new String[]{mgrid,startdate,enddate};
 			}else {
-				query="select eventid,eventname from eventinfo where mgr_id=cast(? as integer) and status!='CANCEL' and current_level in('100','200','300') and "+
+				query="select eventid,eventname from eventinfo where mgr_id=cast(? as integer) and status!='CANCEL' and current_level in('100','200','300','400') and "+
 				" current_level is not null order by start_date";
 				params=new String[]{mgrid};
 			}

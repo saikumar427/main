@@ -35,7 +35,7 @@ try{
 					EventData edata=new EventData();
 					
 					String currentlevel=(String)dbmanager.getValue(k,"current_level","");
-					if("100".equals(currentlevel) || "200".equals(currentlevel) || "300".equals(currentlevel))
+					if("100".equals(currentlevel) || "200".equals(currentlevel) || "300".equals(currentlevel) || "400".equals(currentlevel))
 						edata.setPowertype("Ticketing");
 					else
 						edata.setPowertype("RSVP");

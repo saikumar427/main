@@ -82,7 +82,8 @@ font-size: 14px !important;
         $(document).ready(function(){  
         	 $('#adddiscount').click(function(){
             	// loadingPopup();
-            	if($('#currentLevel').val()>=200)
+				var curLevel= $('#currentLevel').val();
+            	if(curLevel>=200)
             		 openDiscount();
             	else
             		specialFee(eid,'200','managediscounts','Ticketing');

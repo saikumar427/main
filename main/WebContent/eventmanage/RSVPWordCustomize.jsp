@@ -461,7 +461,8 @@ $('#submitBtn').attr('data-loading-text',props.global_processing_lbl);
 		return false;
 	}
 	function savingToserver(data, blockData, id) {
-		if($('#currentLevel').val()==150){
+		var curLevel = $('#currentLevel').val();
+		if(curLevel==150){
 			$.ajax({
 				url : 'RSVPWordCustomize!save',
 				type : 'post',

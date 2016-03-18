@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('#submgrid').click(function(){
-		if($('#currentLevel').val()==150 || $('#currentLevel').val()==400){
+	var curLevel= $('#currentLevel').val();
+		if(curLevel==150 || curLevel==400){
 			$('html, body').animate({ scrollTop: $("#forload").offset().top-scrollTo}, 1000);
 			showProcessing('forload');
 			arrangeSubBoxes();

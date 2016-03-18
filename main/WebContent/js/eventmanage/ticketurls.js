@@ -120,7 +120,8 @@ $(document).on('mouseover','.trcopylink',function(){
  
  
  $(document).on('click','#createprivateurls',function(){
-	 if($('#currentLevel').val()>=300)
+ var curLevel=$('#currentLevel').val();
+	 if(curLevel>=300)
 		 createPrivateTicketURLs();
 	 else{
 		 specialFee(eid,"300","TicketURLs","Ticketing");

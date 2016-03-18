@@ -1,6 +1,5 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
-<s:hidden value="%{powertype}" id="powertype" />
-<s:hidden value="%{currentLevel}" id="currentLevel" />
+
 <style>
 .smallestfont {
     color: #666666;

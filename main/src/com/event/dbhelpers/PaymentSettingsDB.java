@@ -14,6 +14,7 @@ import com.eventbee.util.CoreConnector;
 import java.util.*;
 
 import org.apache.log4j.Logger;
+import org.apache.velocity.runtime.directive.Break;
 import org.json.JSONObject;
 
 public class PaymentSettingsDB {    
@@ -488,7 +489,7 @@ public class PaymentSettingsDB {
 		try{
 			
 		String GET_PAYMENT_DETAILS = "select * from payment_types where refid::int in(select eventid from eventinfo a,config b where mgr_id=CAST(? as INTEGER)  and b.value=? and a.config_id=b.config_id "+
-		 " and status!='CANCEL' and current_level in('100','200','300') order by created_at desc limit 2)";
+		 " and status!='CANCEL' and current_level in('100','200','300','400') order by created_at desc limit 2)";
 		DBManager dbmanager = new DBManager();
 		HashMap hm = null;
 		StatusObj stobj = dbmanager.executeSelectQuery(GET_PAYMENT_DETAILS,new String[]{mgrid,I18n.getActualLangFromSession()});
@@ -555,7 +556,7 @@ public class PaymentSettingsDB {
 		try{
 			/*authorize.net*/
 		query="select attrib_1,attrib_2,attrib_3,attrib_4,attrib_5 from payment_types a,eventinfo b "
-				+"where a.refid::int=b.eventid and current_level in('100','200','300') and b.status!='CANCEL' "
+				+"where a.refid::int=b.eventid and current_level in('100','200','300','400') and b.status!='CANCEL' "
 				+"and mgr_id=CAST(? as INTEGER) and paytype='eventbee' and attrib_5='authorize.net' "
 				+"order by created_at desc limit 1";
 		statobj=dbm.executeSelectQuery(query, new String[]{mgrid});
@@ -576,7 +577,7 @@ public class PaymentSettingsDB {
 		
 		/*stripe*/
 		query="select attrib_2,attrib_5 from payment_types a,eventinfo b "
-				+"where a.refid::int=b.eventid and current_level in('100','200','300') and b.status!='CANCEL' "
+				+"where a.refid::int=b.eventid and current_level in('100','200','300','400') and b.status!='CANCEL' "
 				+"and mgr_id=CAST(? as INTEGER) and paytype='eventbee' and attrib_5='stripe' "
 				+"order by created_at desc limit 1";
 		statobj=dbm.executeSelectQuery(query, new String[]{mgrid});
@@ -595,7 +596,7 @@ public class PaymentSettingsDB {
 		
 		/*braintree_manager*/
 		query= "select attrib_2,attrib_3,attrib_4,attrib_5 from payment_types a,eventinfo b "
-				+"where a.refid::int=b.eventid and current_level in('100','200','300') and b.status!='CANCEL' "
+				+"where a.refid::int=b.eventid and current_level in('100','200','300','400') and b.status!='CANCEL' "
 				+"and mgr_id=CAST(? as INTEGER) and paytype='eventbee' and attrib_5='braintree_manager' "
 				+"order by created_at desc limit 1";
 		statobj=dbm.executeSelectQuery(query, new String[]{mgrid});
@@ -618,7 +619,7 @@ public class PaymentSettingsDB {
 		
 		/*payulatam*/
 		query= "select attrib_2,attrib_3,attrib_4,attrib_5 from payment_types a,eventinfo b "
-				+"where a.refid::int=b.eventid and current_level in('100','200','300') and b.status!='CANCEL' "
+				+"where a.refid::int=b.eventid and current_level in('100','200','300','400') and b.status!='CANCEL' "
 				+"and mgr_id=CAST(? as INTEGER) and paytype='eventbee' and attrib_5='payulatam' "
 				+"order by created_at desc limit 1";
 		statobj=dbm.executeSelectQuery(query, new String[]{mgrid});
@@ -654,7 +655,7 @@ public class PaymentSettingsDB {
 		System.out.println("desData : "+desData);
 		if("".equals(desData) || desData==null){
 			String eventId = DbUtil.getVal("select eventid from eventinfo a, config b, payment_types c where  a.config_id=b.config_id and a.mgr_id=CAST(? as INTEGER) and "+
-					" a.eventid!=CAST(? as BIGINT) and b.value=? and current_level in('100','200','300') and a.status!='CANCEL' and c.attrib_1 is not null and c.attrib_1!=''"+
+					" a.eventid!=CAST(? as BIGINT) and b.value=? and current_level in('100','200','300','400') and a.status!='CANCEL' and c.attrib_1 is not null and c.attrib_1!=''"+
 					" order by a.created_at desc limit 1", new String []{mgrid,eid,lang});
 			String description = DbUtil.getVal("select attrib_1 from payment_types where refid=? and paytype='other'",new String[]{eventId});
 			if("".equals(description)||description==null)
@@ -712,4 +713,23 @@ public class PaymentSettingsDB {
 		  System.out.println("Exception occured in updateCurrencyFee method for manager :: "+mgrid+" :: event :: "+eid+" :: currency "+currency);	
 		}
 	}	
+	
+	public static String refundpolicyListing(String eid){
+		String refPolicy="";
+		String mgr_id= DbUtil.getVal("select mgr_id from eventinfo where eventid=CAST(? AS BIGINT)", new String []{eid});
+		String lang = I18n.getActualLangFromSession();
+		refPolicy = DbUtil.getVal("select value from config where name='event.ticketpage.refundpolicy.statement' and "+
+				"config_id=(select a.config_id from (select config_id from config where name='event.ticketpage.refundpolicy.statement' " +
+				"and value<>'')a, config b,eventinfo c where a.config_id=b.config_id and  b.value=? and b.name='event.i18n.actual.lang' "+
+				"and b.config_id=c.config_id and c.config_id=a.config_id and c.mgr_id=CAST(? as integer)  order by created_at desc limit 1);", new String []{lang,mgr_id});
+		return refPolicy;
+		
+	}
+	public static String refundpolicy(String eid){
+		String refPolicy="";
+		String configId= DbUtil.getVal("select config_id from eventinfo where eventid=CAST(? AS BIGINT)", new String []{eid});
+		refPolicy = DbUtil.getVal("select value from config where name='event.ticketpage.refundpolicy.statement' and config_id=CAST(? AS INTEGER)", new String []{configId});
+		return refPolicy;
+	}
+	
 }

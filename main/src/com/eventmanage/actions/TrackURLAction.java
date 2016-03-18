@@ -265,7 +265,7 @@ public class TrackURLAction extends ActionSupport implements Preparable,Validati
 			if(edata.getPowertype().equals("RSVP"))
 				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"150","Tracking URLs");
 			else
-				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"200","Tracking URLs");
+				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
 			// special fee end.
 		}
 		for(int i=0;i<globalUrls.size();i++)

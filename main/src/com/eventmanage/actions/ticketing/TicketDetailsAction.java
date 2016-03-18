@@ -284,12 +284,12 @@ public class TicketDetailsAction extends ActionSupport implements Preparable,
 				specialfee=specialFeeMap.get(evtlevel);
 		}
 		try{
-			if(Integer.parseInt(currentLevel)<300){
+			if(Integer.parseInt(currentLevel)<400){
 				//advSpecialfee=SpecialFeeDB.getNewSpecialFee(eid,mgrId,"300",currencydetails.get("currencycode"));
 				if(specialFeeMap.isEmpty())
-					specialFeeMap=SpecialFeeDB.getNewSpecialFee(eid,mgrId,"300",currencydetails.get("currencycode"));
+					specialFeeMap=SpecialFeeDB.getNewSpecialFee(eid,mgrId,"400",currencydetails.get("currencycode"));
 				if(!specialFeeMap.isEmpty() && specialFeeMap.get(evtlevel) !=null)
-					advSpecialfee=specialFeeMap.get("300");
+					advSpecialfee=specialFeeMap.get("400");
 			}
 		processingfee=Double.parseDouble(servicefee)*Double.parseDouble(conversionfactor );
 		}catch(Exception e){System.out.println("Exception occured in parsing value to double in TicketDetails Action");}
@@ -797,9 +797,9 @@ if("inputeidt".equals(edit()))
 				specialfee=specialFeeMap.get(evtlevel);
 		}
 		if(specialFeeMap.isEmpty())
-			specialFeeMap=SpecialFeeDB.getNewSpecialFee(eid,mgrId,"300",currencydetails.get("currencycode"));
-		if(!specialFeeMap.isEmpty() && specialFeeMap.get("300") !=null)
-			advSpecialfee=specialFeeMap.get("300");
+			specialFeeMap=SpecialFeeDB.getNewSpecialFee(eid,mgrId,"400",currencydetails.get("currencycode"));
+		if(!specialFeeMap.isEmpty() && specialFeeMap.get("400") !=null)
+			advSpecialfee=specialFeeMap.get("400");
 		//advSpecialfee=SpecialFeeDB.getNewSpecialFee(eid,mgrId,"300",currencydetails.get("currencycode"));
 		if("selecttkt".equals(purpose)){
 		ticketData.setOldTicket(ticketId);

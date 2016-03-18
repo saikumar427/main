@@ -379,6 +379,10 @@
 							<div class="head-title one-line"><s:text name="ugpp.attendee.badges.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.adv.lbl"/></span>
 							</div>											
 						</div>
+						<div class="item <s:if test='%{source=="ManagerAppSettings"}'>active</s:if>">
+							<div class="head-title one-line"><s:text name="em.actions.mrg.app.settings.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.adv.lbl"/></span>
+							</div>											
+						</div>
 						
 						<div class="item <s:if test='%{source=="questions" || source=="tktquestions"}'>active</s:if>">
 							<div class="head-title two-lines"><s:text name="ugpp.custom.reg.form.questions.lbl"/><span class="carousel-tkt-btn-lbl"><s:text name="ugpp.adv.lbl"/></span>
@@ -402,7 +406,8 @@
 							<li data-target="#adv_carousel" data-slide-to="4" <s:if test='%{source=="Seating"}'>class="active"</s:if>></li>
 							<li data-target="#adv_carousel" data-slide-to="5" <s:if test='%{source=="EmailAttendees"}'>class="active"</s:if>></li>
 							<li data-target="#adv_carousel" data-slide-to="6" <s:if test='%{source=="Badges"}'>class="active"</s:if>></li>
-							<li data-target="#adv_carousel" data-slide-to="7" <s:if test='%{source=="questions" || source=="tktquestions"}'>class="active"</s:if>></li>
+							<li data-target="#adv_carousel" data-slide-to="7" <s:if test='%{source=="ManagerAppSettings"}'>class="active"</s:if>></li>
+							<li data-target="#adv_carousel" data-slide-to="8" <s:if test='%{source=="questions" || source=="tktquestions"}'>class="active"</s:if>></li>
 						</ol>
 					</div>
 				</div>
@@ -454,10 +459,10 @@
 					<s:text name="ugpp.gain.access.more.featurs.lbl"/><br/>
 					<s:text name="ugpp.upgreding.tickt.level.lbl"/>								
 				</div>
-				<div class="col-sm-12 col-lg-12 col-md-12 status" >
+				<%-- <div class="col-sm-12 col-lg-12 col-md-12 status" >
 					(<s:text name="ugpp.collect.service.fee.lbl"/><br/>
 					<s:text name="ugpp.attendee.use.eventbee.lbl"/>)
-				</div>
+				</div> --%>
 				<div class="col-sm-12 col-lg-12 col-md-12" style="margin-top: 10px;">
 					<button type="submit" id="upgradesubmitbtn" class="btn upgrade-btn btn-responsive">
 						<span id="upgrade_btn_lbl"><s:if test='%{specialFeeMap["ch_level"]==200}'><s:text name="ugpp.upgrate.pro.lbl"/></s:if><s:elseif test='%{specialFeeMap["ch_level"]==300}'><s:text name="ugpp.upgrate.advanced.lbl"/></s:elseif><s:else>Upgrade to Business</s:else></span>
@@ -515,6 +520,8 @@ function advArrowBlock(){
 	$('#upgrade_btn_lbl').html(props.ugpp_upgrate_advanced);
 	$("#splserfee").val('${splfee_300}');
 	$("#tktingtype").val('300');
+	if(changeLevel=='300')
+		$('#upgradesubmitbtn').removeAttr('disabled');
 	if(changeLevel=='400'){
 		$('#upgradesubmitbtn').attr('disabled','disabled');
 	}
@@ -535,9 +542,10 @@ function busArrowBlock(){
 	$('#upgrade_btn_lbl').html('Upgrade to Business');
 	$("#splserfee").val('${splfee_400}');
 	$("#tktingtype").val('400');
-	if(changeLevel=='400'){
+	if(changeLevel=='400' || changeLevel=='300' || changeLevel=='200')
 		$('#upgradesubmitbtn').removeAttr('disabled');
-	}
+	
+		
 }
 function showBusiness(id){
 	if(id=='pro'){					

@@ -174,7 +174,7 @@
 			<s:set name="accounttype" value="oldeventdates['accounttype']"/>
 			<s:if test="%{#currentlevel!=90 && #currentlevel!=100 && #accounttype!='Gold' && #accounttype!='Platinum'}">
 			<div id="upgrade_div" style="display: none;">
-			<s:text name="copy.event.copy.as"/> <s:if test='%{#currentlevel==150 || #currentlevel==200}'><s:text name="copy.event.pro.lbl"/></s:if><s:else><s:text name="copy.event.adv.lbl"/></s:else> <s:text name="copy.event.event.at.lbl"/> ${currencySymbol}<s:property value="%{oldeventdates['currentFee']}"/> <s:text name="copy.event.pricing.lbl"/>
+			<s:text name="copy.event.copy.as"/> <s:if test='%{#currentlevel==150 || #currentlevel==200}'><s:text name="copy.event.pro.lbl"/></s:if><s:elseif test='%{#currentlevel==300}'><s:text name="copy.event.adv.lbl"/> </s:elseif><s:else><s:text name="business.lbl"/> </s:else><s:text name="copy.event.event.at.lbl"/> ${currencySymbol}<s:property value="%{oldeventdates['currentFee']}"/> <s:text name="copy.event.pricing.lbl"/>
 			<div class="form-group">
 				<%-- <div class="col-md-3 col-xs-4 control-label"><s:if test="%{#currentlevel==150}">RSVP Level</s:if><s:else>Ticketing Level</s:else></div> --%>
 				<div class="col-md-6 col-xs-8">
@@ -182,9 +182,12 @@
 					<s:if test="%{#currentlevel==200 || #currentlevel==150}">
 					<input type="radio"  class="upgrade-level" value="pro" name="upgradeLevel" <s:if test='%{#currentlevel==150 || #currentlevel==200}'>checked='checked'</s:if>>&nbsp;<s:text name="copy.as.pro.lbl"/>
 					</s:if>
-					<s:else>
+					<s:elseif test="%{#currentlevel==300}">
 					<input type="radio"  class="upgrade-level" value="advance" name="upgradeLevel" <s:if test='%{#currentlevel==300}'>checked='checked'</s:if>>&nbsp;<s:text name="copy.as.advanced.lbl"/>
-					</s:else>
+					</s:elseif>
+					<s:if test="%{#currentlevel==400}">
+					<input type="radio"  class="upgrade-level" value="business" name="upgradeLevel" <s:if test='%{#currentlevel==400}'>checked='checked'</s:if>>&nbsp;<s:text name="business.lbl"/>
+					</s:if>
 				</div>
 			</div>
 			</div>

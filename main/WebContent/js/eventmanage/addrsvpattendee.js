@@ -35,7 +35,8 @@ function isNumberKey(evt)
 
 
 function validateRSVPSelectCount(){
-	if($('#currentLevel').val()==150){
+var curLevel= $('#currentLevel').val();
+	if(curLevel==150){
 		if(document.getElementById('event_date')){
 			var index=document.getElementById('event_date').selectedIndex;
 			eventdate=document.getElementById('event_date').options[index].value;

@@ -902,7 +902,8 @@ var labels={"wordAttribs['event.reg.ticket.page.Header']":"<s:text name='rwc.wor
 
 	
 	function savingToserver(data,blockData,id){
-		if($('#currentLevel').val()>=200){
+		var curLevel= $('#currentLevel').val();
+		if(curLevel>=200){
 			loadingPopup();
 			$.ajax({
 				url : 'RegWordCustomize!save',

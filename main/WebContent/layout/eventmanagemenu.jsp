@@ -160,7 +160,8 @@ var featuresJSON={'manage':[
 	                            	         {'label':'<s:text name="em.actions.badges.lbl"/>','action_name':'Badges','level':'advanced','action':'specialFee("${eid}","300","Badges","Ticketing")'},
 	                            	         {'label':'<s:text name="em.actions.submgr.lbl"/>','action_name':'SubManager','level':'business','action':'specialFee("${eid}","400","SubManager","Ticketing")'},
 	                            	        /*  {'label':'<s:text name="em.actions.priority.reg.lbl"/>','action_name':'PriorityRegistration','level':'advanced','action':'specialFee("${eid}","300","PriorityRegistration","Ticketing")'}, */
-	                            	         {'label':'<s:text name="em.actions.mrg.app.settings.lbl" />','action_name':'ManagerAppSettings','level':'basic','action':'ManagerAppSettings?eid=${eid}'},
+	                            	         {'label':'<s:text name="em.actions.mrg.app.settings.lbl" />','action_name':'ManagerAppSettings','level':'advanced','action':'specialFee("${eid}","300","ManagerAppSettings","Ticketing")'},
+	                            	         /* {'label':'<s:text name="em.actions.mrg.app.settings.lbl" />','action_name':'ManagerAppSettings','level':'advanced','action':'ManagerAppSettings?eid=${eid}'}, */
 	                            	        
 	                            	         /*{'label':'<s:text name="em.actions.nts.lbl"/>','action_name':'NetworkTicketSelling','level':'basic','action':'NetworkSelling?eid=${eid}'},
 	                            	         {'label':'<s:text name="em.actions.scanids.lbl"/>','action_name':'ScanIDs','level':'advanced','action':'specialFee("${eid}","300","ScanIDs","Ticketing")'},

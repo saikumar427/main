@@ -217,10 +217,11 @@ public class CopyEventAction extends MyEventsActionWrapper implements Preparable
     			else if("basic".equals(upgradeLevel)) addEventData.setUpgradeLevel("90");
     			else addEventData.setUpgradeLevel("150");
     		}else{
-    			if("Gold".equalsIgnoreCase(accounttype) || "Platinum".equalsIgnoreCase(accounttype)) addEventData.setUpgradeLevel("300");
+    			if("Gold".equalsIgnoreCase(accounttype) || "Platinum".equalsIgnoreCase(accounttype)) addEventData.setUpgradeLevel("400");
     			else if("basic".equals(upgradeLevel)) addEventData.setUpgradeLevel("100");
     			else if("pro".equals(upgradeLevel)) addEventData.setUpgradeLevel("200");
-    			else addEventData.setUpgradeLevel("300");
+    			else if("advance".equals(upgradeLevel)) addEventData.setUpgradeLevel("300");
+    			else addEventData.setUpgradeLevel("400");
     		}
 	    	neweventid = CopyEventDB.copyEvent(mgrId,selectedEvent,newEventName,addEventData,ticketlevel,oldeventdates,powertype);
 	    	msgKey = "copied successfully";
