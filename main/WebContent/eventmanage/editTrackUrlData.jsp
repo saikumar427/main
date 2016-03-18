@@ -219,7 +219,7 @@ $('.save').click(function(){
 			
 			var trackcode = "${trackcode}";
 			var eid = "${eid}";
-			 var url='IntegrationLinks!updateTrackUrlData?eid='+eid+'&trackcode='+trackcode+'&status='+status+'&photourl='+photourl+'&password='+password+'&message='+message;
+			 var url='TrackURL!updateTrackUrlData?eid='+eid+'&trackcode='+trackcode+'&status='+status+'&photourl='+photourl+'&password='+password+'&message='+message;
 			$.ajax({
 				type:'POST',
 				url:url,

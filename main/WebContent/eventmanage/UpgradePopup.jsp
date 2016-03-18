@@ -209,7 +209,7 @@
 		</s:if>
 	</s:if>
 	<s:else>
-		<div class="col-md-8 col-lg-8 col-sm-8 dyna-cont">
+		<div class="col-md-10 col-lg-10 col-sm-10 dyna-cont">
 		<a onclick="showBusiness('pro');">
 			<div class="col-md-10 pro_content <s:if test='%{specialFeeMap["ch_level"]==200}'>open-active</s:if>" id="pro_top_block">
 				<font class="too-big-font">${currencySymbol}<s:property value="%{specialFeeMap[200]}"/><%-- <sup><font style="font-size:11px;">50</font></sup> --%></font>
@@ -233,7 +233,7 @@
 		</div>
 	</s:if>
 	<s:else>
-		<div class="col-md-8 col-lg-8 col-sm-8 adv-dyna-cont">
+		<div class="col-md-10 col-lg-10 col-sm-10 adv-dyna-cont">
 		<a onclick="showBusiness('advanced');">
 			<div class="col-md-10 pro_content <s:if test='%{specialFeeMap["ch_level"]==300}'>open-active</s:if>" id="adv_top_block">
 				<font class="too-big-font">${currencySymbol}<s:property value="%{specialFeeMap[300]}"/></font>
@@ -257,7 +257,7 @@
 		</div>
 	</s:if>
 	<s:else>
-		<div class="col-md-8 col-lg-8 col-sm-8 adv-dyna-cont">
+		<div class="col-md-10 col-lg-10 col-sm-10 adv-dyna-cont">
 		<a onclick="showBusiness('business');">
 			<div class="col-md-10 pro_content <s:if test='%{specialFeeMap["ch_level"]==400}'>open-active</s:if>" id="bus_top_block">
 				<font class="too-big-font">${currencySymbol}<s:property value="%{specialFeeMap[400]}"/></font>
@@ -459,10 +459,10 @@
 					<s:text name="ugpp.gain.access.more.featurs.lbl"/><br/>
 					<s:text name="ugpp.upgreding.tickt.level.lbl"/>								
 				</div>
-				<%-- <div class="col-sm-12 col-lg-12 col-md-12 status" >
-					(<s:text name="ugpp.collect.service.fee.lbl"/><br/>
-					<s:text name="ugpp.attendee.use.eventbee.lbl"/>)
-				</div> --%>
+				<div class="col-sm-12 col-lg-12 col-md-12 status" >
+					<s:text name="ugpp.collect.service.fee.lbl"/><br/>
+					<s:text name="ugpp.attendee.use.eventbee.lbl"/>
+				</div>
 				<div class="col-sm-12 col-lg-12 col-md-12" style="margin-top: 10px;">
 					<button type="submit" id="upgradesubmitbtn" class="btn upgrade-btn btn-responsive">
 						<span id="upgrade_btn_lbl"><s:if test='%{specialFeeMap["ch_level"]==200}'><s:text name="ugpp.upgrate.pro.lbl"/></s:if><s:elseif test='%{specialFeeMap["ch_level"]==300}'><s:text name="ugpp.upgrate.advanced.lbl"/></s:elseif><s:else>Upgrade to Business</s:else></span>

@@ -52,7 +52,7 @@ function inserttrackingurl(){
 	j=0;
 	return;
 	} 
-	submitForm("IntegrationLinks!insertTrackURL",eid,name);
+	submitForm("TrackURL!insertTrackURL",eid,name);
 }
 
 function submitForm(url,eid,name){

@@ -466,7 +466,7 @@ $('#myModal').on('show.bs.modal', function () {
 <%-- </s:form> --%>
 </div>
 <script>
-var eventid='${eid}';
+var eid='${eid}';
 </script>
 <script type="text/javascript" src="ScanIDs!populateScanIdsList?eid=${eid}"></script>
 <script type="text/javascript" src="/main/js/scanids.js"></script>

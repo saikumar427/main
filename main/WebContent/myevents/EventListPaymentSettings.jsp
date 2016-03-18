@@ -753,13 +753,15 @@ function getdiv(id){
 }
 
 function getMaximumFee(){
-	
+		
 	var maxfee='0.0';
     if(document.getElementById('creditcardid').checked && $("#ccdropdown").val()=="paypal_pro")
 		return maxfee='4.95';
 	else{
 		if(document.getElementById('paypal').checked)
 			 return maxfee='2.9';
+		else if(document.getElementById('creditcardid').checked && $("#ccdropdown").val()=="payulatam")
+			return maxfee='4.95';
 		else if(document.getElementById('creditcardid').checked && $("#ccdropdown").val()=="stripe")
 			 return maxfee='2.9';
 		else if(document.getElementById('creditcardid').checked && ($("#ccdropdown").val()=="authorize.net" || $("#ccdropdown").val()=="braintree_manager"))

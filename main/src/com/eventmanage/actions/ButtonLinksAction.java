@@ -217,17 +217,17 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 	
 	
 	
-	public String trackURLexist(){		
+	/*public String trackURLexist(){		
 		alreadyexists=DbUtil.getVal("select 'yes' from event_custom_urls where eventid=?",new String[]{eid});
 		if("yes".equals(alreadyexists))	msgKey="Success";			
 		else msgKey="not exist";		
 		return "ajaxmsg";
-	}
-	public String importURL(){
+	}*/
+	/*public String importURL(){
 		globalTrackUrlList=TrackURLDB.importTrackURL(eid);
 		return "import";
-	}
-	public String insertImportTrackURLs(){
+	}*/
+	/*public String insertImportTrackURLs(){
 		if(globalUrls.size() > 0){
 			// adding for special fee start
 			String mgrId=ActionContext.getContext().getParameters().get("mgrId").toString();
@@ -236,7 +236,7 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 			if(edata.getPowertype().equals("RSVP"))
 				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"150","Tracking URLs");
 			else
-				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"200","Tracking URLs");
+				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
 			// special fee end.
 		}
 		for(int i=0;i<globalUrls.size();i++)
@@ -247,8 +247,8 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 		}
 		msgKey="";
 		return "ajaxmsg";
-	}
-	public String insertTrackURL(){
+	}*/
+	/*public String insertTrackURL(){
 		ProfileValidator pv=new ProfileValidator();
 		if(pv.checkNameValidity(name,true)){
 			String namecheck=name.toLowerCase();
@@ -262,7 +262,7 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 				if(edata.getPowertype().equals("RSVP"))
 					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"150","RSVP Tracking URLs");
 				else
-					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"200","Tracking URLs");
+					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
 				// special fee end.
 				
 			String trackingid=DbUtil.getVal("select nextval('trackingid')",new String[]{});
@@ -281,7 +281,7 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 		msgKey="spacesInUrl";
 		}
 		return "ajaxmsg";
-	}
+	}*/
 	public String manageTrackURL(){
 		TrackURLDB.populateManageEventURL(eid,trackURLData,trackcode);
 		String trackcodetolower=trackcode.toLowerCase();
@@ -289,33 +289,33 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 		return "manage";
 	}
 	
-	public String editTrackURL(){
+	/*public String editTrackURL(){
 		TrackURLDB.populateManageEventURL(eid,trackURLData,trackcode);
 		String trackcodetolower=trackcode.toLowerCase();
 		trackCodeData = TrackURLDB.getTrackCodes(eid,trackcodetolower,scode);
 		return "editTrack";
-	}
+	}*/
 	
-	public String checkTrackCodeReport(){
+	/*public String checkTrackCodeReport(){
 		String trackcodereportexists=TrackURLDB.getTrackReportExists(eid,trackcode);	
 	    if("yes".equalsIgnoreCase(trackcodereportexists))
 	    	msgKey="trackcodereportexists";
 	    else
 	    	msgKey="notrackreport";
 		return "ajaxmsg";
-	}
+	}*/
 	
-	public String deleteTrackURL(){
+	/*public String deleteTrackURL(){
 		TrackURLDB.deleteTrackURLFromReport(eid,trackcode);
 		msgKey="delete";
 		return "ajaxmsg";
-	}
+	}*/
 	
-	public String updateTrackUrlData(){
+	/*public String updateTrackUrlData(){
 		TrackURLDB.updateTrackUrlData(status, password, photourl, message, trackcode, eid);
 		msgKey="success";
 		return "ajaxmsg";
-	}
+	}*/
 	
 	
 	public String changeTrackURLStatus(){		
@@ -334,7 +334,7 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 		TrackURLDB.changeTrackURLMessage(message,eid,trackcode);
 	return "ajaxmsg";
 	}
-	public String trackURLReport(){
+	/*public String trackURLReport(){
 		//dates=ReportsDB.getRecurringEvents(eid,trackcode,scode);
 		//dates=ReportsDB.getRecurringEvents(eid);
 		String eventtype="Ticketing";
@@ -368,13 +368,13 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 				return "exporttocsv";
 		}
 		return "report";
-	}
+	}*/
 	public String TrackURLsReportsSummary(){
 		TrackURLDB.populateEventURL(eid,trackURLData);
 		trackURLList=TrackURLDB.getTrackingURLdetails(eid);
 		return "trackreportsummary";
 	}
-	public String populateTrackurlsList(){
+	/*public String populateTrackurlsList(){
 		TrackURLDB.populateEventURL(eid,trackURLData);
 		//trackURLDetailsList=TrackURLDB.getTrackURLdetails(eid);
 		trackURLDetailsList=TrackURLDB.getTrackURLSummarydetails(eid);
@@ -392,7 +392,7 @@ public class ButtonLinksAction extends ActionSupport implements Preparable,Valid
 	public String getReloadedTrackURLData(){
 		populateTrackurlsList();
 		return "reloadTreckData";
-	}
+	}*/
 	public String populateTrackurlsSummaryList(){
 		TrackURLDB.populateEventURL(eid,trackURLData);
 		trackURLSummaryDetailsList=TrackURLDB.getTrackURLSummarydetails(eid);

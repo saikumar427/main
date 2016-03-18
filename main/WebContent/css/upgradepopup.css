@@ -140,7 +140,7 @@ background-color:#fff;
 }
 .content1:after, .content1:before {
 	bottom: 100%;
-	left: 38%;
+	left: 39%;
 	border: solid transparent;
 	content: " ";
 	height: 0;
@@ -156,7 +156,7 @@ background-color:#fff;
 }
 .content2:after, .content2:before {
 	bottom: 100%;
-	left: 62%;
+	left: 64%;
 	border: solid transparent;
 	content: " ";
 	height: 0;
@@ -173,7 +173,7 @@ background-color:#fff;
 
 .content3:after, .content3:before {
 	bottom: 100%;
-	left: 86%;
+	left: 88%;
 	border: solid transparent;
 	content: " ";
 	height: 0;

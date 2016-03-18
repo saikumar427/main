@@ -26,7 +26,7 @@ if($.trim($('#scanId').val())==''){
 
 var value=$('#scanId').val();
 
-var url = "ScanIDs!insertScanID?eid="+eventid+"&name="+value;
+var url = "ScanIDs!insertScanID?eid="+eid+"&name="+value;
 $.ajax({
     url : url,
     type: 'POST',
@@ -83,7 +83,7 @@ function createScanIdtable(){
 
 
 function reloadData(){
-var url='ScanIDs!reloadedData?eid='+eventid;
+var url='ScanIDs!reloadedData?eid='+eid;
 	$.ajax({
            url:url,
            success:function(result){
@@ -126,8 +126,8 @@ function generateDataTable(){
 
 
 
-function deleteScan(scanid,eventid){	
-	 var url='ScanIDs!deleteScan?scanid='+scanid+'&eid='+eventid;
+function deleteScan(scanid,eid){	
+	 var url='ScanIDs!deleteScan?scanid='+scanid+'&eid='+eid;
 	 var dynatimestamp = new Date();
 	  url += '&dynatimestamp='+dynatimestamp.getTime();
      var agree=props.sid_scanid_delete_msg;	

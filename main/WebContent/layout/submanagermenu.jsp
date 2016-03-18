@@ -154,11 +154,11 @@ li{
 	      		</s:if> --%>
 	    <%-- TrackUrls --%>
 				<s:if test="%{submgr_permissions['TrackURL']=='yes'}">
-					<li class="<s:if test='%{#actionName=="TrackURL"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TrackURL"}' >specialFee("${eid}","200","TrackURL","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.trackurl.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="TrackURL"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TrackURL"}' >specialFee("${eid}","300","TrackURL","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.trackurl.lbl"/></span></a></li>
 				</s:if>
 		<%-- TicketURLs --%>
 				<s:if test="%{submgr_permissions['TicketURLs']=='yes'}">
-					<li class="<s:if test='%{#actionName=="TicketURLs"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TicketURLs"}' >specialFee("${eid}","200","TicketURLs","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.private.tkturl.lbl"/></span></a> </li>
+					<li class="<s:if test='%{#actionName=="TicketURLs"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TicketURLs"}' >specialFee("${eid}","300","TicketURLs","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.private.tkturl.lbl"/></span></a> </li>
 				</s:if>
 		<%-- TicketSettings --%>
 					<s:if test="%{submgr_permissions['DisplayTickets']=='yes' || submgr_permissions['ManageTickets']=='yes'}">

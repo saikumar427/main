@@ -291,7 +291,7 @@ public class TrackURLAction extends ActionSupport implements Preparable,Validati
 				if(edata.getPowertype().equals("RSVP"))
 					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"150","RSVP Tracking URLs");
 				else
-					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"200","Tracking URLs");
+					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
 				// special fee end.
 				
 			String trackingid=DbUtil.getVal("select nextval('trackingid')",new String[]{});
@@ -349,8 +349,6 @@ public class TrackURLAction extends ActionSupport implements Preparable,Validati
 	return "ajaxmsg";
 	}
 	public String trackURLReport(){
-		//dates=ReportsDB.getRecurringEvents(eid,trackcode,scode);
-		//dates=ReportsDB.getRecurringEvents(eid);
 		String eventtype="Ticketing";
 		
 		String powertype=DbUtil.getVal("select value from config where config_id " +
@@ -388,11 +386,22 @@ public class TrackURLAction extends ActionSupport implements Preparable,Validati
 		trackURLList=TrackURLDB.getTrackingURLdetails(eid);
 		return "trackreportsummary";
 	}
+	public String updateTrackUrlData(){
+		TrackURLDB.updateTrackUrlData(status, password, photourl, message, trackcode, eid);
+		msg="success";
+		return "ajaxmsg";
+	}
+	
 	public String populateTrackurlsList(){
 		TrackURLDB.populateEventURL(eid,trackURLData);
 		//trackURLDetailsList=TrackURLDB.getTrackURLdetails(eid);
 		trackURLDetailsList=TrackURLDB.getTrackURLSummarydetails(eid);
 		JSONObject js=TrackURLJSONBuilderHelper.getTrackURLsListJson(trackURLDetailsList,trackURLData);
+		try{
+			js.put("codeData",EventDB.serverAdderess());
+		}catch(Exception e){
+			System.out.println("Exception at widget code.");
+		}
 		jsonData=js.toString();		
 		return "jsondata";
 	}
