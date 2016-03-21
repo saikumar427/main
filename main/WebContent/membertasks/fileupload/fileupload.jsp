@@ -39,7 +39,7 @@ function closeThis(){
 	<div class="col-md-8 col-sm-8 col-xs-8"><s:file name="upload" style="background-color: #f5f5f5;border-color: #6c6c6c;border-radius: 4px;color: #333;padding: 6px 12px;" label="File" id="upload" /></div>
 	<div class="col-md-4 col-sm-4 col-xs-4">
 	<button type="submit" class="btn btn-primary">
-                                 Upload</button>
+                                 <s:text name="epc.external.photo.upload.btn.lbl"/></button>
                             <button class="btn btn-cancel" onclick="parent.closepopup();">
                                  <i class="fa fa-times"></i></button>
 	
@@ -47,7 +47,7 @@ function closeThis(){
 </div>
 </div><br>
 <div class="row">
-<div class="col-xs-12"><span id="message" class="smallestfont">Only XLS and CSV are supported.</span>
+<div class="col-xs-12"><span id="message" class="smallestfont"><s:text name="pr.xls.csv.msg.lbl"/></span>
 </div>
 </div>
 

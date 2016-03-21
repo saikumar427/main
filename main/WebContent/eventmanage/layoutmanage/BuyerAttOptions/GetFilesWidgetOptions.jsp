@@ -80,12 +80,12 @@ padding-left: 20px;
             </div>
             
              <div class="col-md-2 col-sm-2 col-xs-12 ">
-                <label>File Name
+                <label><s:text name="buyer.file.name" />
                 </label>
             </div>
             <div class="col-md-10 col-sm-10 col-xs-12 form-group">
             <input type="text" name="fname" id="fname"   size="30"/>
-            	<a id="coverImg" style="cursor:pointer;    margin-left: 10px;"><span class="sm-font">Upload File</span></a> 
+            	<a id="coverImg" style="cursor:pointer;    margin-left: 10px;"><span class="sm-font"><s:text name="pg.upload.file.lbl"/></span></a> 
             	<span id="docname" style="margin-left: 10px;"></span>  
             </div>
             
@@ -96,7 +96,7 @@ padding-left: 20px;
             
             
             <div class="col-md-2 col-sm-2 col-xs-12 ">
-            	 <label>Description
+            	 <label><s:text name="pg.widget.description.name"/>
                 </label>
             </div>
             
@@ -126,9 +126,9 @@ padding-left: 20px;
         <table class="table table-hover " >
             <thead  >
            <tr> <th>
-            	<div class="col-sm-3 col-md-3 col-xs-3 text-center">File Name</div>
-            	<div class="col-sm-5 col-md-5 col-xs-5 text-center">File Description</div>
-            	<div class="col-sm-2 col-md-2 col-xs-2 text-right">Type</div>
+            	<div class="col-sm-3 col-md-3 col-xs-3 text-center"><s:text name="buyer.file.name" /></div>
+            	<div class="col-sm-5 col-md-5 col-xs-5 text-center"><s:text name="buyer.file.name.description" /></div>
+            	<div class="col-sm-2 col-md-2 col-xs-2 text-right"><s:text name="bad.type.dd.lbl"/></div>
             	<div class="col-sm-2 col-md-2 col-xs-2 text-center"></div>
             </th></tr></thead>
             <tbody id='tabl1'>
@@ -201,11 +201,11 @@ $('.saveButton').click(function(){
 	var msg="";
 	if(docname.trim()=='' || docname.trim()==null){
 		flag=false;
-		$('#errormsg').append('<ul class="errorMessage">  <li><span> File Name is Empty</span></li> </ul>');
+		$('#errormsg').append('<ul class="errorMessage">  <li><span>'+props.filename_is_empty_lbl+'</span></li> </ul>');
 	}
 	if(docpath.trim()=='' || docpath.trim()==null){
 		flag=false;
-		$('#errormsg').append('<ul class="errorMessage">  <li><span>Please upload File</span></li> </ul>');
+		$('#errormsg').append('<ul class="errorMessage">  <li><span>'+props.buyer_please_upload_file+'</span></li> </ul>');
 	}
 	if(flag){
 		var data = getData();
@@ -299,7 +299,7 @@ function closeFileUploadWindow(path,extension,fileid,filename){
 
 
 function deleteFile(fileid,eid){
-	bootbox.confirm("Do you want to Delete File?",function(result)
+	bootbox.confirm(props.buyer_want_to_delete,function(result)
 			{
 			if(result)
 			{

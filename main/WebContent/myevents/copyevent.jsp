@@ -186,7 +186,7 @@
 					<input type="radio"  class="upgrade-level" value="advance" name="upgradeLevel" <s:if test='%{#currentlevel==300}'>checked='checked'</s:if>>&nbsp;<s:text name="copy.as.advanced.lbl"/>
 					</s:elseif>
 					<s:if test="%{#currentlevel==400}">
-					<input type="radio"  class="upgrade-level" value="business" name="upgradeLevel" <s:if test='%{#currentlevel==400}'>checked='checked'</s:if>>&nbsp;<s:text name="business.lbl"/>
+					<input type="radio"  class="upgrade-level" value="business" name="upgradeLevel" <s:if test='%{#currentlevel==400}'>checked='checked'</s:if>>&nbsp;<s:text name="copy.as.businees.lbl"/>
 					</s:if>
 				</div>
 			</div>

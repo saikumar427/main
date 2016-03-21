@@ -375,7 +375,7 @@ var action='<s:text name="actionName" />';
 var TicketingactionObj={"AddAttendee":"AddAttendee?eid=##eid##&purpose=manageradd",
          "SearchAttendee":"TransactionDetails?eid=##eid##","NetworkTicketSelling":"NetworkSelling?eid=##eid##","LayOutManager":"LayOutManager?eid=##eid##","manageappsettings":"ManagerAppSettings?eid=##eid##"};
          
-var TicketingUpgradeObj={"ManageRegistrationForm":"300","ManageDiscounts":"200","integrationeventurl":"200","IntegrationLinks":"200"
+var TicketingUpgradeObj={"ManageRegistrationForm":"300","ManageDiscounts":"200","integrationeventurl":"200"
           ,"integrationwidget":"200","SubManager":"300","TrackURL":"300","TicketURLs":"300","ScanIDs":"300",
           "WaitList":"300","PriorityRegistration":"300","PrintedTickets":"300","EmailAttendees":"300","Badges":"300",
           "DisplayTickets":"200","RegWordCustomize":"200","OrderConfirmation":"300","Seating":"300","TicketSettings":"200","TicketingRules":"400","ManagerAppSettings":"300"};

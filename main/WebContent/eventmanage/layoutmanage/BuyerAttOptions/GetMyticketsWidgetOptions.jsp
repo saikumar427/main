@@ -62,7 +62,7 @@ try{
 	</div>
 
 <div class="col-md-10 col-sm-10 col-xs-12 form-group">
-<textarea rows="4" cols="50" name="des" id="des" placeholder="Enter Description" ><%=jsonData.getString("des")%></textarea>
+<textarea rows="4" cols="50" name="des" id="des" placeholder="<s:text name="pg.enter.description.lbl"/>" ><%=jsonData.getString("des")%></textarea>
 		<!-- <input type="text" name="des" id="des" size="30"/> -->
 	</div>
 
@@ -70,7 +70,7 @@ try{
 		<label><s:text name="pg.widgets.bname" /></label>
 	</div>
 	 <div class="col-md-10 col-sm-10 col-xs-12 form-group">
-		<input type="text" name="btnLbl" id="btnLbl" placeholder="Enter Label" size="30" value="<%=jsonData.getString("btnLbl")%>"/>
+		<input type="text" name="btnLbl" id="btnLbl" placeholder="<s:text name="pg.enter.enter.lbl"/>" size="30" value="<%=jsonData.getString("btnLbl")%>"/>
 	</div> 
 
 
@@ -118,7 +118,7 @@ $(function(){
 			flag=false;
 			savebutton.removeAttr('disabled');
 			savebutton.html(props.pg_widgets_save_lbl);
-			$('#errormsg').html('<ul class="errorMessage">  <li><span>Button name is empty.</span></li> </ul>');
+			$('#errormsg').html('<ul class="errorMessage">  <li><span>'+props.pg_button_name_error_lbl+'</span></li> </ul>');
 			$('#errormsg').show();
 		}
 		if(flag){

@@ -9,6 +9,10 @@ var props={
 		
 		"aa_disc_code_lbl":"Have a discount code, enter it here.",
 		"aa_apply_disc_code_btn_lbl":"Apply Code",
+		
+		"filename_is_empty_lbl":"File Name is Empty",
+		"buyer_please_upload_file":"Please upload File",
+		"buyer_want_to_delete":"Do you want to Delete File?",
 		"aa_attendee_info_section_header":"Attendee Information",
 		"aa_payment_section_header":"Payment Collection",
 		"aa_loading_profiles_lbl":"Loading profiles...",
@@ -16,12 +20,13 @@ var props={
 		"aa_sel_tkts_section_header":"Select Tickets",
 		"aa_loading_tks_lbl":"Loading tickets...",
 		"aa_loading_seats_lbl":"Loading seats...",
+		"pg_button_name_error_lbl":"Button name is empty.",
 		"aa_sel_seats_lbl":"Select seats.",
 		"aa_there_are_errmsg1":"There are",
 		"aa_errors_errmsg2":"errors.",
 		"aa_there_is_an_error_errmsg":"There is an error.",
 		"aa_pls_sel_payment_collection_errmsg":"Please select payment collection.",
-		
+		"pg_image_too_large_error":"The image file you have selected is too large. Please select a smaller size image.",
 		"acc_pay_with_cc_btn_lbl":"Pay with Credit Card",
 		"acc_pay_with_paypal_btn_lbl":"Pay with PayPal",
 		"acc_pay_invoice":"Invoice",

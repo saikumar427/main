@@ -27,7 +27,7 @@ var GetURLParameter = function(sParam) {
 			whosAttending: props.pg_widget_name_whosattending,
 			whosPromoting: props.pg_widget_name_whospromoting,
 			RSVPList: props.pg_widget_name_rsvplist,
-			trackPartner: props.pg_widget_name_trackpartner
+			//trackPartner: props.pg_widget_name_trackpartner
 			
 			//attendeezone: "Attendee Zone"
 	};

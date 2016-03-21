@@ -140,29 +140,29 @@ li{
 				</s:if>
 		<%-- discounts --%>
 				<s:if test="%{submgr_permissions['ManageDiscounts']=='yes'}">
-					<li class="<s:if test='%{#actionName=="ManageDiscounts"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ManageDiscounts"}' >specialFee("${eid}","200","managediscounts","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.disc.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="ManageDiscounts"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ManageDiscounts"}' >specialFee("${eid}","200","managediscounts","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.disc.lbl"/></span></a></li>
 				</s:if>
 		<%-- Integration --%>
 				<s:if test="%{submgr_permissions['IntegrationLinks']=='yes'}">
-					<li class="<s:if test='%{#actionName=="IntegrationLinks"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="IntegrationLinks"}' >specialFee("${eid}","200","IntegrationLinks","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.integrations.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="IntegrationLinks"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="IntegrationLinks"}' >specialFee("${eid}","200","IntegrationLinks","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.integrations.lbl"/></span></a></li>
 				</s:if>
 		<%-- waitlist --%>
 				<%-- <s:if test="%{isrecurring==false}">
 					<s:if test="%{submgr_permissions['WaitList']=='yes'}">
-			   			<li class="<s:if test='%{#actionName=="WaitList"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="WaitList"}' >specialFee("${eid}","300","WaitList","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.waitlist.lbl"/></span></a></li>
+			   			<li class="<s:if test='%{#actionName=="WaitList"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="WaitList"}' >specialFee("${eid}","300","WaitList","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.waitlist.lbl"/></span></a></li>
 					</s:if>
 	      		</s:if> --%>
 	    <%-- TrackUrls --%>
 				<s:if test="%{submgr_permissions['TrackURL']=='yes'}">
-					<li class="<s:if test='%{#actionName=="TrackURL"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TrackURL"}' >specialFee("${eid}","300","TrackURL","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.trackurl.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="TrackURL"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TrackURL"}' >specialFee("${eid}","300","TrackURL","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.trackurl.lbl"/></span></a></li>
 				</s:if>
 		<%-- TicketURLs --%>
 				<s:if test="%{submgr_permissions['TicketURLs']=='yes'}">
-					<li class="<s:if test='%{#actionName=="TicketURLs"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TicketURLs"}' >specialFee("${eid}","300","TicketURLs","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.private.tkturl.lbl"/></span></a> </li>
+					<li class="<s:if test='%{#actionName=="TicketURLs"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TicketURLs"}' >specialFee("${eid}","300","TicketURLs","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.private.tkturl.lbl"/></span></a> </li>
 				</s:if>
 		<%-- TicketSettings --%>
 					<s:if test="%{submgr_permissions['DisplayTickets']=='yes' || submgr_permissions['ManageTickets']=='yes'}">
-						<li class="<s:if test='%{#actionName=="TicketSettings"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TicketSettings"}' >specialFee("${eid}","200","TicketSettings","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.tkt.settingg.lbl"/></span></a> </li>
+						<li class="<s:if test='%{#actionName=="TicketSettings"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TicketSettings"}' >specialFee("${eid}","200","TicketSettings","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.tkt.settingg.lbl"/></span></a> </li>
 					</s:if>
 		<%-- PaymentSettings --%>
 				 <s:if test="%{submgr_permissions['PaymentSettings']=='yes'}">
@@ -178,23 +178,23 @@ li{
 				</s:if>	
 		<%-- Questions --%>
 				<s:if test="%{submgr_permissions['ManageRegistrationForm']=='yes'}">	 
-					<li class="<s:if test='%{#actionName=="ManageRegistrationForm"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ManageRegistrationForm"}' >specialFee("${eid}","300","ManageRegistrationForm","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.questions.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="ManageRegistrationForm"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ManageRegistrationForm"}' >specialFee("${eid}","300","ManageRegistrationForm","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.questions.lbl"/></span></a></li>
 				</s:if>
 		<%-- RegWordCustomize --%>		
 				<s:if test="%{submgr_permissions['RegWordCustomize']=='yes'}">	
-					<li class="<s:if test='%{#actionName=="RegWordCustomize"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="RegWordCustomize"}' >specialFee('${eid}','200','RegWordCustomize','Ticketing');</s:if>" title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.wording.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="RegWordCustomize"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="RegWordCustomize"}' >specialFee('${eid}','200','RegWordCustomize','Ticketing');</s:if>" title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.wording.lbl"/></span></a></li>
 				</s:if>
 		<%-- OrderConfirmation --%>
 				<s:if test="%{submgr_permissions['OrderConfirmation']=='yes'}">
-					<li class="<s:if test='%{#actionName=="OrderConfirmation"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="OrderConfirmation"}' >specialFee('${eid}','300','OrderConfirmation','Ticketing');</s:if>" title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.orderconfirmation.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="OrderConfirmation"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="OrderConfirmation"}' >specialFee('${eid}','300','OrderConfirmation','Ticketing');</s:if>" title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.orderconfirmation.lbl"/></span></a></li>
 				</s:if>
 		<%-- PriorityRegistration --%>
 				<s:if test="%{submgr_permissions['PriorityRegistration']=='yes'}">
-					<li class="<s:if test='%{#actionName=="PriorityRegistration"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="PriorityRegistration"}' >specialFee('${eid}','300','PriorityRegistration','Ticketing');</s:if>" title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.priority.reg.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="PriorityRegistration"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="PriorityRegistration"}' >specialFee('${eid}','300','PriorityRegistration','Ticketing');</s:if>" title="<s:text name="submanager.bus.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.priority.reg.lbl"/></span></a></li>
 				</s:if>
 		<%-- Seating --%>
 				<s:if test="%{submgr_permissions['Seating']=='yes'}">
-				 	<li class="<s:if test='%{#actionName=="Seating"}' >left-item-active</s:if>"><a href="javascript:;"   onclick="<s:if test='%{#actionName!="Seating"}' >specialFee('${eid}','300','Seating','Ticketing');</s:if>" title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.seating.lbl"/></span></a></li>
+				 	<li class="<s:if test='%{#actionName=="Seating"}' >left-item-active</s:if>"><a href="javascript:;"   onclick="<s:if test='%{#actionName!="Seating"}' >specialFee('${eid}','300','Seating','Ticketing');</s:if>" title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.seating.lbl"/></span></a></li>
 				 </s:if>
 		</span>
 		
@@ -207,15 +207,15 @@ li{
 				 </s:if>
 		<%-- EmailAttendees --%>
 				<s:if test="%{submgr_permissions['EmailAttendees']=='yes'}">
-					<li class="<s:if test='%{#actionName=="EmailAttendees"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="EmailAttendees"}' >specialFee("${eid}","300","EmailAttendees","Ticketing")</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.email.attendees.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="EmailAttendees"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="EmailAttendees"}' >specialFee("${eid}","300","EmailAttendees","Ticketing")</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.email.attendees.lbl"/></span></a></li>
 				</s:if>
 		<%-- Badges --%>
 				<s:if test="%{submgr_permissions['Badges']=='yes'}">
-					<li class="<s:if test='%{#actionName=="Badges"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="Badges"}' >specialFee("${eid}","300","Badges","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.badges.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="Badges"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="Badges"}' >specialFee("${eid}","300","Badges","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.badges.lbl"/></span></a></li>
 				</s:if>
 		<%-- ScanIDs --%>
 				<s:if test="%{submgr_permissions['ScanIDs']=='yes'}">
-					<li class="<s:if test='%{#actionName=="ScanIDs"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ScanIDs"}' >specialFee("${eid}","300","ScanIDs","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Advanced Ticketing"><span class='arrow_box'><s:text name="em.actions.scanids.lbl"/></span></a></li>
+					<li class="<s:if test='%{#actionName=="ScanIDs"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ScanIDs"}' >specialFee("${eid}","300","ScanIDs","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.adv.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.scanids.lbl"/></span></a></li>
 				</s:if>
 		</span>
 		
@@ -230,11 +230,11 @@ li{
 		 	</s:if>
 		<%-- Integration --%>
 		 	<s:if test="%{submgr_permissions['IntegrationLinks']=='yes'}">
-		 		<li class="<s:if test='%{#actionName=="IntegrationLinks"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="IntegrationLinks"}' >specialFee("${eid}","150","IntegrationLinks","RSVP");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.integrations.lbl"/></span></a></li>
+		 		<li class="<s:if test='%{#actionName=="IntegrationLinks"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="IntegrationLinks"}' >specialFee("${eid}","150","IntegrationLinks","RSVP");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.integrations.lbl"/></span></a></li>
 		 	</s:if>
 		<%-- TrackUrls --%>
 			<s:if test="%{submgr_permissions['TrackURL']=='yes'}">
-		 		<li class="<s:if test='%{#actionName=="TrackURL"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TrackURL"}' >specialFee("${eid}","150","TrackURL","RSVP");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.trackurl.lbl"/></span></a></li>
+		 		<li class="<s:if test='%{#actionName=="TrackURL"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TrackURL"}' >specialFee("${eid}","150","TrackURL","RSVP");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.trackurl.lbl"/></span></a></li>
 		 	</s:if>
 		 	</span>
 		 	
@@ -247,15 +247,15 @@ li{
 			</s:if>
 		<%-- ManageRegistrationForm --%>
 		 	<s:if test="%{submgr_permissions['ManageRegistrationForm']=='yes'}">
-				<li class="<s:if test='%{#actionName=="ManageRegistrationForm"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ManageRegistrationForm"}' >specialFee("${eid}","150","ManageRegistrationForm","RSVP");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.questions.lbl"/></span></a></li>
+				<li class="<s:if test='%{#actionName=="ManageRegistrationForm"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ManageRegistrationForm"}' >specialFee("${eid}","150","ManageRegistrationForm","RSVP");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.questions.lbl"/></span></a></li>
 			</s:if>
 		<%-- RSVPWordCustomize --%>
 		 	<s:if test="%{submgr_permissions['RSVPWordCustomize']=='yes'}">
-				<li class="<s:if test='%{#actionName=="RSVPWordCustomize"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="RSVPWordCustomize"}'>specialFee('${eid}','150','RSVPWordCustomize','RSVP');</s:if>" title="Pro RSVP"><span class='arrow_box'><s:text name="em.actions.wording.lbl"/></span></a></li>
+				<li class="<s:if test='%{#actionName=="RSVPWordCustomize"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="RSVPWordCustomize"}'>specialFee('${eid}','150','RSVPWordCustomize','RSVP');</s:if>" title="<s:text name="submanager.pro.rsvp"/>"><span class='arrow_box'><s:text name="em.actions.wording.lbl"/></span></a></li>
 			</s:if>
 		<%-- OrderConfirmation --%>
 			<s:if test="%{submgr_permissions['OrderConfirmation']=='yes'}">
-				<li class="<s:if test='%{#actionName=="OrderConfirmation"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="OrderConfirmation"}' >specialFee('${eid}','150','OrderConfirmation','RSVP');</s:if>" title="Pro RSVP"><span class='arrow_box'><s:text name="em.actions.orderconfirmation.lbl"/></span></a></li>
+				<li class="<s:if test='%{#actionName=="OrderConfirmation"}' >left-item-active</s:if>"><a href="javascript:;" onclick="<s:if test='%{#actionName!="OrderConfirmation"}' >specialFee('${eid}','150','OrderConfirmation','RSVP');</s:if>" title="<s:text name="submanager.pro.rsvp"/>"><span class='arrow_box'><s:text name="em.actions.orderconfirmation.lbl"/></span></a></li>
 			</s:if>
 		</span>
 		
@@ -263,19 +263,19 @@ li{
 		<span class="openThiredDiv" style="display:none;">
 		<%-- Addattendee --%>
 			<s:if test="%{submgr_permissions['AddAttendee']=='yes'}">
-				<li class="<s:if test='%{#actionName=="AddAttendee"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="AddAttendee"}' >specialFee("${eid}","150","AddAttendee","RSVP");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.add.attendee.lbl"/></span></a></li>
+				<li class="<s:if test='%{#actionName=="AddAttendee"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="AddAttendee"}' >specialFee("${eid}","150","AddAttendee","RSVP");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.add.attendee.lbl"/></span></a></li>
 			</s:if>
 		<%-- EmailAttendees --%>
 			<s:if test="%{submgr_permissions['EmailAttendees']=='yes'}">
-				<li class="<s:if test='%{#actionName=="EmailAttendees"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="EmailAttendees"}' >specialFee("${eid}","150","EmailAttendees","RSVP");</s:if><s:else>javascript:;</s:else>' title="Pro RSVP"><span class='arrow_box'><s:text name="em.actions.email.attendees.lbl"/></span></a></li>
+				<li class="<s:if test='%{#actionName=="EmailAttendees"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="EmailAttendees"}' >specialFee("${eid}","150","EmailAttendees","RSVP");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.rsvp"/>"><span class='arrow_box'><s:text name="em.actions.email.attendees.lbl"/></span></a></li>
 			</s:if>
 		<%-- Badges --%>
 			<s:if test="%{submgr_permissions['Badges']=='yes'}">
-				<li class="<s:if test='%{#actionName=="Badges"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="Badges"}' >specialFee("${eid}","150","Badges","RSVP");</s:if><s:else>javascript:;</s:else>' title="Pro RSVP"><span class='arrow_box'><s:text name="em.actions.badges.lbl"/></span></a></li>
+				<li class="<s:if test='%{#actionName=="Badges"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="Badges"}' >specialFee("${eid}","150","Badges","RSVP");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.rsvp"/>"><span class='arrow_box'><s:text name="em.actions.badges.lbl"/></span></a></li>
 			</s:if>
 		<%-- ScanIDs --%>
 			<s:if test="%{submgr_permissions['ScanIDs']=='yes'}">
-				<li class="<s:if test='%{#actionName=="ScanIDs"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ScanIDs"}' >specialFee("${eid}","150","ScanIDs","Ticketing");</s:if><s:else>javascript:;</s:else>' title="Pro Ticketing"><span class='arrow_box'><s:text name="em.actions.scanids.lbl"/></span></a></li>
+				<li class="<s:if test='%{#actionName=="ScanIDs"}' >left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="ScanIDs"}' >specialFee("${eid}","150","ScanIDs","Ticketing");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.ticketing"/>"><span class='arrow_box'><s:text name="em.actions.scanids.lbl"/></span></a></li>
 			</s:if>
 		</span>
 		 </s:if>
@@ -312,7 +312,7 @@ li{
 			<li class="<s:if test='%{#actionName=="RSVPReports"}' >left-item-active</s:if>"><a href='<s:if test='%{#actionName!="RSVPReports"}' >RSVPReports?eid=${eid}</s:if><s:else>javascript:;</s:else>'><s:text name="em.actions.rsvp.reports.lbl"/></a></li>
 		</s:if>
 		<s:if test="%{submgr_permissions['TransactionDetails']=='yes'}">
-			<li class="<s:if test='%{#actionName=="TransactionDetails"}'>left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TransactionDetails"}'>specialFee("${eid}","150", "TransactionDetails", "RSVP");</s:if><s:else>javascript:;</s:else>' title="Pro RSVP"><s:text name="em.actions.searchattendee.lbl"/></a></li>
+			<li class="<s:if test='%{#actionName=="TransactionDetails"}'>left-item-active</s:if>"><a href="javascript:;" onclick='<s:if test='%{#actionName!="TransactionDetails"}'>specialFee("${eid}","150", "TransactionDetails", "RSVP");</s:if><s:else>javascript:;</s:else>' title="<s:text name="submanager.pro.rsvp"/>"><s:text name="em.actions.searchattendee.lbl"/></a></li>
 		</s:if>
 	</s:if>
 </s:if>
