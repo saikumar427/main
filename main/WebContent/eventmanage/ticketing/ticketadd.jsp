@@ -249,7 +249,6 @@ margin-left:7px !important;
 				&nbsp;<s:text name="mt.waitlist.limit.lbl"/>
 				<s:textfield class="form-control" id="" name="ticketData.waitListLimit" theme="simple" size="12" placeholder="%{getText('mt.enter.num.lbl')}"   ></s:textfield>
   		</div></div>
-  		${currency}${advSpecialfee}
   		<div class="row">
   		<div class="col-md-6 col-xs-12 col-sm-12">
   		<div style="height:8px;"></div>
