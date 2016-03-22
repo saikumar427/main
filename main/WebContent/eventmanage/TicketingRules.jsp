@@ -6,7 +6,7 @@
 }
 </style>
 <script src="/main/angular/angular.min.js "></script>
-<script src="/main/angular/conditionalticketing/app.js"></script>
+<script src="/main/angular/conditionalticketing/app.js?id=1"></script>
 <script>
 var existingRules = '${existingRules}';
 var tktdata = ${jsonData};

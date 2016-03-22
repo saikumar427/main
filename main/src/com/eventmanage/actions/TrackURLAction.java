@@ -264,8 +264,11 @@ public class TrackURLAction extends ActionSupport implements Preparable,Validati
 			System.out.println("\n insertImportTrackURLs Powertype: "+edata.getPowertype());
 			if(edata.getPowertype().equals("RSVP"))
 				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"150","Tracking URLs");
-			else
-				SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
+			else{
+				if("Yes".equalsIgnoreCase(SpecialFeeDB.checkUpgradeStatus(eid, "TrackURL", "Ticketing", "300")))
+					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
+			}
+				
 			// special fee end.
 		}
 		for(int i=0;i<globalUrls.size();i++)
@@ -290,8 +293,11 @@ public class TrackURLAction extends ActionSupport implements Preparable,Validati
 				System.out.println("insertTrackURL Powertype: "+edata.getPowertype());
 				if(edata.getPowertype().equals("RSVP"))
 					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"150","RSVP Tracking URLs");
-				else
-					SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
+				else{
+					if("Yes".equalsIgnoreCase(SpecialFeeDB.checkUpgradeStatus(eid, "TrackURL", "Ticketing", "300")))
+						SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
+				}
+					
 				// special fee end.
 				
 			String trackingid=DbUtil.getVal("select nextval('trackingid')",new String[]{});

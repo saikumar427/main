@@ -174,7 +174,7 @@
 			<s:set name="accounttype" value="oldeventdates['accounttype']"/>
 			<s:if test="%{#currentlevel!=90 && #currentlevel!=100 && #accounttype!='Gold' && #accounttype!='Platinum'}">
 			<div id="upgrade_div" style="display: none;">
-			<s:text name="copy.event.copy.as"/> <s:if test='%{#currentlevel==150 || #currentlevel==200}'><s:text name="copy.event.pro.lbl"/></s:if><s:elseif test='%{#currentlevel==300}'><s:text name="copy.event.adv.lbl"/> </s:elseif><s:else><s:text name="business.lbl"/> </s:else><s:text name="copy.event.event.at.lbl"/> ${currencySymbol}<s:property value="%{oldeventdates['currentFee']}"/> <s:text name="copy.event.pricing.lbl"/>
+			<s:text name="copy.event.copy.as"/> <s:if test='%{#currentlevel==150 || #currentlevel==200}'><s:text name="copy.event.pro.lbl"/> </s:if><s:elseif test='%{#currentlevel==300}'><s:text name="copy.event.adv.lbl"/> </s:elseif><s:else><s:text name="business.lbl"/> </s:else><s:text name="copy.event.event.at.lbl"/> ${currencySymbol}<s:property value="%{oldeventdates['currentFee']}"/> <s:text name="copy.event.pricing.lbl"/>
 			<div class="form-group">
 				<%-- <div class="col-md-3 col-xs-4 control-label"><s:if test="%{#currentlevel==150}">RSVP Level</s:if><s:else>Ticketing Level</s:else></div> --%>
 				<div class="col-md-6 col-xs-8">

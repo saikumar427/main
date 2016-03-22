@@ -19,27 +19,27 @@
 			<div class="well well-no-margin">
 			<div id="priorityerrors" style="display:none;"class="alert alert-danger"></div>
 				<table id="listfiles">
-					<tr><td><input type="text" id="readonlyfield1" value="" readonly placeholder="<s:text name="pr.code.plc.lbl"/>" class="form-control"></td>
+					<tr><td><input type="text" id="readonlyfield1" value="" readonly placeholder="<s:text name="pr.code.plc.lbl"/>" class="form-control" onkeyup="nospaces(this)"></td>
 						<s:if test="%{noOfFields==2}">
-							<td><input type="text" value="" id="readonlyfield2" readonly placeholder="<s:text name="pr.pass.code.plc.lbl"/>" class="form-control" style="border-left:none !important;display: block"></td>
+							<td><input type="text" value="" id="readonlyfield2" readonly placeholder="<s:text name="pr.pass.code.plc.lbl"/>" class="form-control" style="border-left:none !important;display: block" onkeyup="nospaces(this)"></td>
 						</s:if>
 					</tr>
-					<tr><td><input type="text" value="" class="firstfield form-control"></td>
+					<tr><td><input type="text" value="" class="firstfield form-control"onkeyup="nospaces(this)"></td>
 						<s:if test="%{noOfFields==2}">
-							<td><input type="text" value=""  class="secondfield form-control" style="border-left:none !important;display: block"></td>
+							<td><input type="text" value=""  class="secondfield form-control" style="border-left:none !important;display: block " onkeyup="nospaces(this)"></td>
 						</s:if>
 						<td><a style="cursor: pointer" class="removelink">&nbsp;<s:text name="global.delete.lnk.lbl"/></a></td>
 					</tr>
 					<tr>
-						<td><input type="text" value="" class="firstfield form-control"></td>
+						<td><input type="text" value="" class="firstfield form-control" onkeyup="nospaces(this)"></td>
 							<s:if test="%{noOfFields==2}">
-								<td><input type="text" value=""  class="secondfield form-control" style="border-left:none !important;display: block"></td>
+								<td><input type="text" value=""  class="secondfield form-control" style="border-left:none !important;display: block" onkeyup="nospaces(this)"></td>
 							</s:if>
 						<td><a style="cursor: pointer" class="removelink">&nbsp;<s:text name="global.delete.lnk.lbl"/></a></td>
 					</tr>
-					<tr><td><input type="text" value="" class="firstfield form-control"></td>
+					<tr><td><input type="text" value="" class="firstfield form-control" onkeyup="nospaces(this)"></td>
 						<s:if test="%{noOfFields==2}">
-							<td><input type="text" value="" class="secondfield form-control" style="border-left:none !important;display: block"></td>
+							<td><input type="text" value="" class="secondfield form-control" style="border-left:none !important;display: block" onkeyup="nospaces(this)"></td>
 						</s:if>
 						<td><a style="cursor: pointer" class="removelink">&nbsp;<s:text name="global.delete.lnk.lbl"/></a></td>
 					</tr>
@@ -79,22 +79,26 @@ if(priListRec.length>0){
 	$('#listfiles').html('');
 	var filed1=jsondata.field1;
 	var filed2=jsondata.field2;
-	var html='<tr><td><input type="text" id="readonlyfield1" value="'+filed1+'" readonly="true" class="form-control"></td>';
+	var html='<tr><td><input type="text" id="readonlyfield1" value="'+filed1+'" readonly="true" class="form-control" onkeyup="nospaces(this)"></td>';
 	if(Number(fieldLen)==2)	
-	html+='<td><input type="text" value="'+filed2+'" id="readonlyfield2" readonly="true"  class="form-control" style="border-left:none !important;display: block"></td>';
+	html+='<td><input type="text" value="'+filed2+'" id="readonlyfield2" readonly="true"  class="form-control" style="border-left:none !important;display: block" onkeyup="nospaces(this)"></td>';
 	html+='</tr>';
 	$('#listfiles').append(html);
 	for(var i=0;i<priListRec.length;i++)
 	{
-		var htmldata='<tr><td><input type="text"  value="'+priListRec[i].userid+'" autofocus="autofocus" class="firstfield form-control"></td>';
+		var htmldata='<tr><td><input type="text"  value="'+priListRec[i].userid+'" autofocus="autofocus" class="firstfield form-control" onkeyup="nospaces(this)"></td>';
 		if(Number(fieldLen)==2)
-			htmldata+='<td><input type="text"  value="'+priListRec[i].password+'" class="secondfield form-control"></td>';
+			htmldata+='<td><input type="text"  value="'+priListRec[i].password+'" class="secondfield form-control" onkeyup="nospaces(this)"></td>';
 		htmldata+='<td><a style="cursor: pointer" class="removelink">&nbsp;'+props.global_delete_lnk_lbl+'</a></td></tr>';//Delete
 		$('#listfiles').append(htmldata);
 		$('#addrowsdata').html(props.global_save_btn);
 	}
 }
-
+function nospaces(t){
+	if(t.value.match(/\s/g)){
+	t.value=t.value.replace(/\s/g,'');
+	}
+	}
 $(document).ready(function () {
 	var count = $('.removelink').length;
 	if(count == 1)
@@ -102,9 +106,9 @@ $(document).ready(function () {
 	$(document).on('click','.addrow',function(e){
 		if(e.handled !== true)
 		{console.log(e.handled+"::myhandle");
-			var htmldata='<tr><td><input type="text" value=""  autofocus="autofocus" class="firstfield form-control"></td>';
+			var htmldata='<tr><td><input type="text" value=""  autofocus="autofocus" class="firstfield form-control" onkeyup="nospaces(this)"></td>';
 			if(fieldLen==2)
-				htmldata+='<td><input type="text" value=""  class="secondfield form-control" style="border-left:none !important;display: block"></td>';
+				htmldata+='<td><input type="text" value=""  class="secondfield form-control" style="border-left:none !important;display: block" onkeyup="nospaces(this)"></td>';
 				htmldata+='<td><a style="cursor: pointer" class="removelink">&nbsp;'+props.global_delete_lnk_lbl+'</a></td></tr>';
 				$('#listfiles').append(htmldata);
 	 	e.handled = true;
@@ -114,4 +118,7 @@ $(document).ready(function () {
 		
     });
 });
+
+
+
 </script>

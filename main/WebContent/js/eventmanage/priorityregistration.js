@@ -5,17 +5,12 @@ var uploadlists=false;
 $(document).ready(function(){
 	
 	$(document).on('click','#createprioritylist',function(){
-	var curLevel= $('#currentLevel').val();
-		if(curLevel==400){
-			$('#nodata').hide();
+		$('#nodata').hide();
 		//$('#priority_table').html('');
 		createnewPriorityList();
 		setTimeout(function(){
 			$('#listcount').remove();	
 		},500);
-		}else{
-			specialFee(eid,"400","PriorityRegistration","Ticketing");
-		}
 	});
 	function showLinks(listId){
 		$('.linkDiv_'+listId+' a').each(function(){

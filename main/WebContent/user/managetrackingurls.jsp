@@ -140,7 +140,7 @@ var passwordsuccess = function(value){
 		flag=true;
 		//alert('password cannot be empty');
 		$('#errors').show();
-		$('#errors').html('<ul><li><span>'+props.epc_alert_password_empty+'</span></li> </ul>');
+		$('#errors').html('<ul><li><span>Password cannot be empty.</span></li> </ul>');
 	}
 	else{
 		flag=false;

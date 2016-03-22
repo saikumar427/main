@@ -27,7 +27,7 @@ String ref_tTitle =widgetTitle;//DBHelper.getRefTitle(eventid,widgetid);
 <script src="/main/js/layoutmanage/jquery-1.10.2.min.js"></script>
 <script src="/main/bootstrap/js/bootstrap.min.js"></script>
 <link type="text/css" rel="stylesheet" href="/main/bootstrap/font-awesome-4.3.0/css/font-awesome.css" />
-<script src="/main/js/i18n/<%=I18n.getHyphenSessionLang()%>/properties.js" ></script>
+<script src="/main/js/i18n/<%=I18n.getHyphenSessionLang()%>/properties.js?id=1" ></script>
 <script src="/main/bootstrap/js/bootbox.min.js"></script>
 <script src="/main/bootstrap/js/custom.js"></script>
 <style>

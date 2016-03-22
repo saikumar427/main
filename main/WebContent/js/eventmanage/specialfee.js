@@ -8,7 +8,6 @@ function specialFee(eventid,tickettype,urlcode,powertype){
   _tickettype=tickettype;
   _urlcode=urlcode;
   _powertype=powertype;
-  
   var url='SpecialFee?eid='+eventid+'&ticketingtype='+tickettype+'&source='+urlcode+'&powertype='+powertype;
   $.ajax({
 	  type:'get',
@@ -173,7 +172,6 @@ function submitform(data){
 		        				upgradeLvl=params[i].split("=")[1];
 		        			}
 		        		}
-		        		
 		        		if(upgradeLvl=='200' || upgradeLvl=='150') 
 		        			levelChanged('pro');
 		        		if(upgradeLvl=='300')

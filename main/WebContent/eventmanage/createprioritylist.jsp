@@ -43,11 +43,11 @@
 					  	</div>
 					  	<div class="col-md-8 col-sm-8 col-xs-12">								
 							<div class="col-sm-6 col-md-6 col-xs-12">
-									<s:textfield id="firstlbl" name="firstLabel" size="10" onkeyup="changefirstLabel()" cssClass="form-control" placeholder="%{getText('pr.code.plc.lbl')}"></s:textfield>
+									<s:textfield id="firstlbl" name="firstLabel" size="10" onkeyup="changefirstLabel(),nospaces(this)" cssClass="form-control" placeholder="%{getText('pr.code.plc.lbl')}" ></s:textfield>
 							</div>
 							<div id="secondlabel" style="display:none;">
 								<div class="col-sm-6 col-md-6 col-xs-12">
-									<s:textfield cssClass="form-control" id="secondlbl" type="text" name="secondLabel"  onkeyup="changesecondLabel()" placeholder="%{getText('pr.pass.code.plc.lbl')}"></s:textfield>
+									<s:textfield cssClass="form-control" id="secondlbl" type="text" name="secondLabel"  onkeyup="changesecondLabel(),nospaces(this)" placeholder="%{getText('pr.pass.code.plc.lbl')}"></s:textfield>
 								</div>
 							</div>
 						</div>
@@ -93,6 +93,7 @@
 	</div>
 </s:form>
 <script>
+
 	var applicableTktCount=0;
 	var ifchecked=true;
 	function changeLabel(type) {
@@ -106,7 +107,11 @@
 			$('#secondlbl').val('');
 		}
 	}
-	
+	function nospaces(t){
+		if(t.value.match(/\s/g)){
+		t.value=t.value.replace(/\s/g,'');
+	}
+	}
 		var nooffieldss = '${noOfFields}';
 		if (nooffieldss == 1) {
 			document.getElementById('fieldlevel').value = nooffieldss;

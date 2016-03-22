@@ -50,11 +50,11 @@ margin-bottom:10px;
 			</div>
 			<br/>
 		
-		<div class="links-div bottom-gap" id="sel_clear_all">
-			<span class="sm-font">
+		<div class="links-div bottom-gap" id="sel_clear_all" style="display:none">
+		 <span class="sm-font">
 				<a href="javascript:;" id="wl_sel_all"><s:text name="global.select.all.lbl"/></a>
 				<a href="javascript:;" id="wl_sel_none"><s:text name="global.clear.all.lbl"/></a>
-			</span>
+			</span> 
 		</div>
 		<div class="row col-md-12 table-responsive"> <!-- style="overflow-y:hidden;height:auto;" -->
 		<table class="table table-hover" id="wait_list_table">
