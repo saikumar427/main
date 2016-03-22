@@ -1,17 +1,10 @@
 $(document).ready(function(){
 	$('#submgrid').click(function(){
-	var curLevel= $('#currentLevel').val();
-		if(curLevel==150 || curLevel==400){
-			$('html, body').animate({ scrollTop: $("#forload").offset().top-scrollTo}, 1000);
-			showProcessing('forload');
-			arrangeSubBoxes();
-			createSubManager(eid);
-		}else{
-			if($('#powertype').val()=='Ticketing')
-				specialFee(eid,"400","SubManager","Ticketing");
-			else
-				specialFee(eid,"150","SubManager","RSVP");
-		}
+		$('html, body').animate({ scrollTop: $("#forload").offset().top-scrollTo}, 1000);
+		showProcessing('forload');
+		arrangeSubBoxes();
+		createSubManager(eid);
+		
 	});
 	/*$('#subMgrBox').on('click','#permissionsSettings',function(){
         $('#permissionDetails').slideToggle(slideTime);

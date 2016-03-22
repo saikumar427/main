@@ -143,7 +143,7 @@ li{
 	class="container">
 	<div class="container" style="padding-bottom: 50px; padding-top: 50px;">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div id="basic">
 				<div class="caption_header_blue">Básico</div>
 				<div></div>
@@ -152,7 +152,7 @@ li{
 				<div class="normal_desc_grey">/TIQUETE</div>
 				<div class="normal_desc_grey"></div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 			    <div id="pro">
 				<div class="caption_header_blue">Pro</div>
 				<div></div>
@@ -160,13 +160,22 @@ li{
 				<div class="main_header_orange">$1.50</div>
 				<div class="normal_desc_grey">/TIQUETE</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div id="advanced">
 				<div class="caption_header_blue">Avanzado</div>
 				<div class="normal_desc_grey" style="line-height:0.55">Con reserva de asientos</div>
 				</div>
 				<div class="main_header_orange">$2</div>
 				<div class="normal_desc_grey">/TIQUETE</div>
+			</div>
+			<div class="col-md-3">
+				<div id="business">
+				<div class="caption_header_blue">Negocio</div>
+				<div></div>
+				</div>
+				<div class="main_header_orange">$3</div>
+				<div class="normal_desc_grey">/TIQUETE</div>
+				<div class="normal_desc_grey"></div>
 			</div>
 		</div>
 		<br />
@@ -316,8 +325,11 @@ li{
 				</div>
 				<div class="row" style="padding-top:20px">
 				<div class="col-md-3"></div>
-				<div class="col-md-6">
+				<!-- <div class="col-md-3">
 					<center><img height="50" src="/main/images/logo.png" alt="Eventbee"></center>
+				</div> -->
+				<div class="col-md-6">
+					<center><img height="50" src="/main/images/payuLogo.png" alt="Eventbee"></center>
 				</div>
 				<div class="col-md-3"></div>
 			</div>
@@ -430,13 +442,14 @@ Eventbee no te cobra tarifas diferentes a las mencionadas, y tampoco hay contrat
 	<script>
 	    var fixedfee;
         var pf;
-        var ticketingdata = [{"name":"Página de Evento Organizado por","b":true,"p":true,"a":true},{"name":"Formulario de Registro","b":true,"p":true,"a":true},{"name":"Multiples Tipos de Tiquetes","b":true,"p":true,"a":true},{"name":"Donaciones","b":true,"p":true,"a":true}, {"name":"Configuraciones de Estilo y Apariencia","b":true,"p":true,"a":true},{"name":"Temas para la Página del Evento","b":true,"p":true,"a":true},{"name":"Correos de Confirmación","b":true,"p":true,"a":true},{"name":"E-Tiquetes con Código QR","b":true,"p":true,"a":true},
-                             {"name":"Control del Contenido de la Página del Evento","b":true,"p":true,"a":true},{"name":"Informes de Asistentes","b":true,"p":true,"a":true},{"name":"Informes de Ventas","b":true,"p":true,"a":true}, {"name":"Convertir Informes a (Excel, PDF)","b":true,"p":true,"a":true},{"name":"Busqueda de Asistentes","b":true,"p":true,"a":true},
-                             {"name":"Registros Manuales","b":true,"p":true,"a":true}, {"name":"Comentarios en Facebook","b":true,"p":true,"a":true},{"name":"Facebook/Twitter/Google+","b":true,"p":true,"a":true},{"name":"Cuadro RSVP en Facebook","b":true,"p":true,"a":true},{"name":"Venta de Tiquetes en la Página de Fans en Facebook","b":true,"p":true,"a":true},
-                             {"name":"Red Online de Venta de Tiquetes","b":true,"p":true,"a":true}, {"name":"Personalizar Dirección URL del Evento","b":false,"p":true,"a":true}, {"name":"Opciones  de Visualización de Tiquetes","b":false,"p":true,"a":true},{"name":"Personalizar Redacción","b":false,"p":true,"a":true},  {"name":"Códigos de Descuentos","b":false,"p":true,"a":true},
-                             {"name":"Protección con Contraseña en Página del Evento","b":false,"p":true,"a":true}, {"name":"Rastreo de Direcciones URL y Reportes","b":false,"p":true,"a":true},{"name":"Widget de Taquilla","b":false,"p":true,"a":true},{"name":"Venta de Tiquetes Privados","b":false,"p":true,"a":true},{"name":"Enviar Correos a Asistentes","b":false,"p":false,"a":true},
-                             {"name":"Tarjeta/Carnet de Asistentes","b":false,"p":false,"a":true},  {"name":"Co-Administradores","b":false,"p":false,"a":true},  {"name":"Personalizar Formulario de Registro","b":false,"p":false,"a":true},{"name":"Preguntas del Nivel de Tiquetes","b":false,"p":false,"a":true},{"name":"Página HTML del Evento y Acceso CSS","b":false,"p":false,"a":true},
-                             {"name":"Personalizar Correo de Confirmación","b":false,"p":false,"a":true},{"name":"Personalizar Página de Confirmación","b":false,"p":false,"a":true}, {"name":"Scan ID","b":false,"p":false,"a":true},{"name":"Asientos Reservados*","b":false,"p":false,"a":true}];
+        var ticketingdata = [{"name":"Página de Evento Organizado por","b":true,"p":true,"a":true,"bi":true},{"name":"Formulario de Registro","b":true,"p":true,"a":true,"bi":true},{"name":"Multiples Tipos de Tiquetes","b":true,"p":true,"a":true,"bi":true},{"name":"Donaciones","b":true,"p":true,"a":true,"bi":true}, {"name":"Configuraciones de Estilo y Apariencia","b":true,"p":true,"a":true,"bi":true},{"name":"Temas para la Página del Evento","b":true,"p":true,"a":true,"bi":true},{"name":"Correos de Confirmación","b":true,"p":true,"a":true,"bi":true},{"name":"E-Tiquetes con Código QR","b":true,"p":true,"a":true,"bi":true},
+                             {"name":"Control del Contenido de la Página del Evento","b":true,"p":true,"a":true,"bi":true},{"name":"Informes de Asistentes","b":true,"p":true,"a":true,"bi":true},{"name":"Informes de Ventas","b":true,"p":true,"a":true,"bi":true}, {"name":"Convertir Informes a (Excel, PDF)","b":true,"p":true,"a":true,"bi":true},{"name":"Busqueda de Asistentes","b":true,"p":true,"a":true,"bi":true},
+                             {"name":"Registros Manuales","b":true,"p":true,"a":true,"bi":true}, {"name":"Comentarios en Facebook","b":true,"p":true,"a":true,"bi":true},{"name":"Facebook/Twitter/Google+","b":true,"p":true,"a":true,"bi":true},{"name":"Cuadro RSVP en Facebook","b":true,"p":true,"a":true,"bi":true},{"name":"Venta de Tiquetes en la Página de Fans en Facebook","b":true,"p":true,"a":true,"bi":true},
+                             {"name":"Red Online de Venta de Tiquetes","b":true,"p":true,"a":true,"bi":true}, {"name":"Personalizar Dirección URL del Evento","b":false,"p":true,"a":true,"bi":true}, {"name":"Opciones  de Visualización de Tiquetes","b":false,"p":true,"a":true,"bi":true},{"name":"Personalizar Redacción","b":false,"p":true,"a":true,"bi":true},  {"name":"Códigos de Descuentos","b":false,"p":true,"a":true,"bi":true},
+                             {"name":"Protección con Contraseña en Página del Evento","b":false,"p":true,"a":true,"bi":true},{"name":"Widget de Taquilla","b":false,"p":true,"a":true,"bi":true},{"name":"Enviar Correos a Asistentes","b":false,"p":false,"a":true,"bi":true}, {"name":"Rastreo de Direcciones URL y Reportes","b":false,"p":false,"a":true,"bi":true},{"name":"Venta de Tiquetes Privados","b":false,"p":false,"a":true,"bi":true},
+                             {"name":"Tarjeta/Carnet de Asistentes","b":false,"p":false,"a":true,"bi":true},  {"name":"Co-Administradores","b":false,"p":false,"a":true,"bi":true},  {"name":"Personalizar Formulario de Registro","b":false,"p":false,"a":true,"bi":true},{"name":"Preguntas del Nivel de Tiquetes","b":false,"p":false,"a":true,"bi":true},{"name":"Lista de Espera","b":false,"p":false,"a":true,"bi":true},
+                             {"name":"Personalizar Correo de Confirmación","b":false,"p":false,"a":true,"bi":true},{"name":"Personalizar Página de Confirmación","b":false,"p":false,"a":true,"bi":true}, {"name":"Códigos de Escaneo","b":false,"p":false,"a":true,"bi":true},{"name":"Asientos Reservados*","b":false,"p":false,"a":true,"bi":true},
+                             {"name":"Prioridad de Registro","b":false,"p":false,"a":false,"bi":true},{"name":"Co-Administradores","b":false,"p":false,"a":false,"bi":true},{"name":"Página del Comprador","b":false,"p":false,"a":false,"bi":true},{"name":"Reglas de venta de entradas","b":false,"p":false,"a":false,"bi":true}];
                              
         var data='';
         data+= '<table class="table table-bordered" style="border-top: none !important;padding-top:20px">'+
@@ -444,9 +457,10 @@ Eventbee no te cobra tarifas diferentes a las mencionadas, y tampoco hay contrat
 	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Básico</th>'+
 	 	'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Pro</th>'
 	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Avanzado</th>'
+	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Negocio</th>'
 	 	+'</tr></thead><tbody>';
         $.each(ticketingdata,function(index,value){
-        	data+= '<tr><td class="normal_desc_grey_ans">'+value.name+'</td><td style="text-align:center">'+((value.b)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+((value.p)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+ ((value.a)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td></tr>';
+        	data+= '<tr><td class="normal_desc_grey_ans">'+value.name+'</td><td style="text-align:center">'+((value.b)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+((value.p)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+ ((value.a)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+ ((value.bi)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td></tr>';
         });
         $('#ticketingfeatures').append(data);
         var pricingData,countryimage='';
@@ -458,7 +472,7 @@ Eventbee no te cobra tarifas diferentes a las mencionadas, y tampoco hay contrat
         		pricingData = res;
     			 var html='<table class="table table-bordered" style="border-top: none !important;padding-top:20px">'+
     			 	'<thead><tr><th  class="section_header" style="text-align:left;font-size:24px">MONEDA</th>'
-    			 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Básico</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Pro</th>'+'<th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Avanzado</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Procesadores de pago admitidas</th>'
+    			 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Básico</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Pro</th>'+'<th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Avanzado</th><th class="caption_header_blue" style="font-weight:normal;font-size:24px">Negocio</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Procesadores de pago admitidas</th>'
     			 	+'</tr></thead><tbody>';
     			 	
         		  $.each(pricingData,function(index,value){
@@ -581,9 +595,8 @@ Eventbee no te cobra tarifas diferentes a las mencionadas, y tampoco hay contrat
         			  if(value.currencycode=='VND'){
         				  countryimage='VIETNAM.GIF';
             			  } 
-        			  
 		    			 	//html+= '<tr><td class="normal_desc_grey_ans"><img src="/main/images/flags/'+countryimage+'" height="25" width="27">&nbsp;'+value.currency+'&nbsp;'+value.currencysymbol+'</td><td class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.basicfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.profee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.advancedfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.paymentprocessor+'</td></tr>';
-        			  html+= '<tr><td class="normal_desc_grey_ans"><img src="/main/images/flags/'+countryimage+'" height="25" width="27">&nbsp;'+value.currency+'</td><td class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.basicfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.profee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.advancedfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.paymentprocessor+'</td></tr>';
+        			  html+= '<tr><td class="normal_desc_grey_ans"><img src="/main/images/flags/'+countryimage+'" height="25" width="27">&nbsp;'+value.currency+'</td><td class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.basicfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.profee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.advancedfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.businessfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.paymentprocessor+'</td></tr>';
         		 });  
         		  html+= '</tbody></table>';
         		  $('#internationalPricing').append(html);
@@ -774,8 +787,10 @@ Eventbee no te cobra tarifas diferentes a las mencionadas, y tampoco hay contrat
          $('#basic').css('padding-bottom','15px');
          $('#pro').css('padding-bottom','15px');
          $('#advanced').css('padding-bottom','15px');
+         $('#business').css('padding-bottom','15px');
          $('#basic').height($('#advanced').height());
          $('#pro').height($('#advanced').height());
+         $('#business').height($('#advanced').height());
 		function saveamount(avg,num){
              var tktprice=avg;
             var tktcnt=num;           

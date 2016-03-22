@@ -144,7 +144,7 @@ li{
 	class="container">
 	<div class="container" style="padding-bottom: 50px; padding-top: 50px;">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div id="basic">
 				<div class="caption_header_blue">Basic</div>
 				<div></div>
@@ -153,7 +153,7 @@ li{
 				<div class="normal_desc_grey">/
 					TICKET</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 			    <div id="pro">
 				<div class="caption_header_blue">Pro</div>
 				<div></div>
@@ -162,13 +162,22 @@ li{
 				<div class="normal_desc_grey">/
 					TICKET</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div id="advanced">
 				<div class="caption_header_blue">Advanced</div>
 				<div class="normal_desc_grey" style="line-height:0.55">with
 					seating</div>
 				</div>
 				<div class="main_header_orange">$2</div>
+				<div class="normal_desc_grey">/
+					TICKET</div>
+			</div>
+			<div class="col-md-3">
+				<div id="business">
+				<div class="caption_header_blue">Business</div>
+				<div></div>
+				</div>
+				<div class="main_header_orange">$3</div>
 				<div class="normal_desc_grey">/
 					TICKET</div>
 			</div>
@@ -393,7 +402,7 @@ li{
 		<br />
 		<div class="row">
 			<div class="col-md-12 normal_desc_grey_ans">
-				Yes! We offer a 25% discount on our service fee to non-profit events. For complete details, visit <a href="http://www.eventbee.com/main/good" target="_blank">http://www.eventbee.com/main/good</a>
+				Yes! We offer a 25% discount on our service fee to non-profit events. For complete details, visit <a href="/main/good" target="_blank">http://www.eventbee.com/main/good</a>
 			</div>
 		</div>
 		<br />
@@ -451,13 +460,14 @@ li{
 	<script>
 	    var fixedfee;
         var pf;
-        var ticketingdata = [{"name":"Hosted Event Page","b":true,"p":true,"a":true},{"name":"Registration Form","b":true,"p":true,"a":true},{"name":"Multiple Ticket Types","b":true,"p":true,"a":true},{"name":"Donations","b":true,"p":true,"a":true}, {"name":"Look & Feel Settings","b":true,"p":true,"a":true},{"name":"Event Page Themes","b":true,"p":true,"a":true},{"name":"Confirmation Email","b":true,"p":true,"a":true},{"name":"E-Tickets With QR Code","b":true,"p":true,"a":true},
-                             {"name":"Event Page Content Control","b":true,"p":true,"a":true},{"name":"Attendee Reports","b":true,"p":true,"a":true},{"name":"Sales Reports","b":true,"p":true,"a":true}, {"name":"Export Reports (Excel, PDF)","b":true,"p":true,"a":true},{"name":"Attendee Search","b":true,"p":true,"a":true},
-                             {"name":"Manual Registrations","b":true,"p":true,"a":true}, {"name":"Facebook Commenting","b":true,"p":true,"a":true},{"name":"Facebook/Twitter/Google+ Sharing","b":true,"p":true,"a":true},{"name":"Facebook RSVP Box","b":true,"p":true,"a":true},{"name":"Facebook Fan Page Ticketing","b":true,"p":true,"a":true},
-                             {"name":"Network Ticket Selling","b":true,"p":true,"a":true}, {"name":"Custom Event Page URL","b":false,"p":true,"a":true}, {"name":"Ticket Display Options","b":false,"p":true,"a":true},{"name":"Custom Wording","b":false,"p":true,"a":true},  {"name":"Discount Codes","b":false,"p":true,"a":true},
-                             {"name":"Event Page Password Protection","b":false,"p":true,"a":true}, {"name":"Tracking URLs & Reports","b":false,"p":true,"a":true},{"name":"Tickets Box Widget","b":false,"p":true,"a":true},{"name":"Private Ticketing","b":false,"p":true,"a":true},{"name":"Email Attendees","b":false,"p":false,"a":true},
-                             {"name":"Attendee Badges","b":false,"p":false,"a":true},  {"name":"Sub Managers","b":false,"p":false,"a":true},  {"name":"Custom Registration Form","b":false,"p":false,"a":true},{"name":"Ticket Level Questions","b":false,"p":false,"a":true},{"name":"Event Page HTML & CSS Access","b":false,"p":false,"a":true},
-                             {"name":"Custom Confirmation Email","b":false,"p":false,"a":true},{"name":"Custom Confirmation Page","b":false,"p":false,"a":true}, {"name":"Scan IDs","b":false,"p":false,"a":true},{"name":"Reserved Seating*","b":false,"p":false,"a":true}];
+        var ticketingdata = [{"name":"Hosted Event Page","b":true,"p":true,"a":true,"bi":true},{"name":"Registration Form","b":true,"p":true,"a":true,"bi":true},{"name":"Multiple Ticket Types","b":true,"p":true,"a":true,"bi":true},{"name":"Donations","b":true,"p":true,"a":true,"bi":true}, {"name":"Look & Feel Settings","b":true,"p":true,"a":true,"bi":true},{"name":"Event Page Themes","b":true,"p":true,"a":true,"bi":true},{"name":"Confirmation Email","b":true,"p":true,"a":true,"bi":true},{"name":"E-Tickets With QR Code","b":true,"p":true,"a":true,"bi":true},
+                             {"name":"Event Page Content Control","b":true,"p":true,"a":true,"bi":true},{"name":"Attendee Reports","b":true,"p":true,"a":true,"bi":true},{"name":"Sales Reports","b":true,"p":true,"a":true,"bi":true}, {"name":"Export Reports (Excel, PDF)","b":true,"p":true,"a":true,"bi":true},{"name":"Attendee Search","b":true,"p":true,"a":true,"bi":true},
+                             {"name":"Manual Registrations","b":true,"p":true,"a":true,"bi":true}, {"name":"Facebook Commenting","b":true,"p":true,"a":true,"bi":true},{"name":"Facebook/Twitter/Google+ Sharing","b":true,"p":true,"a":true,"bi":true},{"name":"Facebook RSVP Box","b":true,"p":true,"a":true,"bi":true},{"name":"Facebook Fan Page Ticketing","b":true,"p":true,"a":true,"bi":true},
+                             {"name":"Network Ticket Selling","b":true,"p":true,"a":true,"bi":true}, {"name":"Custom Event Page URL","b":false,"p":true,"a":true,"bi":true}, {"name":"Ticket Display Options","b":false,"p":true,"a":true,"bi":true},{"name":"Custom Wording","b":false,"p":true,"a":true,"bi":true},  {"name":"Discount Codes","b":false,"p":true,"a":true,"bi":true},
+                             {"name":"Event Page Password Protection","b":false,"p":true,"a":true,"bi":true},{"name":"Tickets Box Widget","b":false,"p":true,"a":true,"bi":true}, {"name":"Tracking URLs & Reports","b":false,"p":false,"a":true,"bi":true},{"name":"Private Ticketing","b":false,"p":false,"a":true,"bi":true},{"name":"Email Attendees","b":false,"p":false,"a":true,"bi":true},
+                             {"name":"Attendee Badges","b":false,"p":false,"a":true,"bi":true},  {"name":"Custom Registration Form","b":false,"p":false,"a":true,"bi":true},{"name":"Ticket Level Questions","b":false,"p":false,"a":true,"bi":true},{"name":"Waitlist","b":false,"p":false,"a":true,"bi":true},
+                             {"name":"Custom Confirmation Email","b":false,"p":false,"a":true,"bi":true},{"name":"Custom Confirmation Page","b":false,"p":false,"a":true,"bi":true}, {"name":"Scan IDs","b":false,"p":false,"a":true,"bi":true},{"name":"Reserved Seating*","b":false,"p":false,"a":true,"bi":true},
+                             {"name":"Priority Registrations","b":false,"p":false,"a":false,"bi":true},{"name":"Sub Managers","b":false,"p":false,"a":false,"bi":true},{"name":"Buyer Page","b":false,"p":false,"a":false,"bi":true},{"name":"Ticketing Rules","b":false,"p":false,"a":false,"bi":true}];
                              
         var data='';
         data+= '<table class="table table-bordered" style="border-top: none !important;padding-top:20px">'+
@@ -465,9 +475,10 @@ li{
 	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Basic</th>'+
 	 	'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Pro</th>'
 	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Advanced</th>'
+	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Business</th>'
 	 	+'</tr></thead><tbody>';
         $.each(ticketingdata,function(index,value){
-        	data+= '<tr><td class="normal_desc_grey_ans">'+value.name+'</td><td style="text-align:center">'+((value.b)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+((value.p)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+ ((value.a)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td></tr>';
+        	data+= '<tr><td class="normal_desc_grey_ans">'+value.name+'</td><td style="text-align:center">'+((value.b)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+((value.p)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+ ((value.a)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+ ((value.bi)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td></tr>';
         });
         $('#ticketingfeatures').append(data);
         var pricingData,countryimage='';
@@ -480,9 +491,8 @@ li{
     			 var html='<table class="table table-bordered" style="border-top: none !important;padding-top:20px">'+
     			 	'<thead><tr><th  class="section_header" style="text-align:left;font-size:24px">CURRENCY</th>'
     			 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Basic</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Pro</th>'
-    			 	+'<th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Advanced</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Payment Processors Supported</th>'
+    			 	+'<th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Advanced</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Business</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Payment Processors Supported</th>'
     			 	+'</tr></thead><tbody>';
-    			 	
         		  $.each(pricingData,function(index,value){
         			  if(value.currencycode=='AUD'){
         				  countryimage='Australia.png';        				  
@@ -605,7 +615,7 @@ li{
             			  } 
         			  
 		    			 	//html+= '<tr><td class="normal_desc_grey_ans"><img src="/main/images/flags/'+countryimage+'" height="25" width="27">&nbsp;'+value.currency+'&nbsp;'+value.currencysymbol+'</td><td class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.basicfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.profee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.advancedfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.paymentprocessor+'</td></tr>';
-        			  html+= '<tr><td class="normal_desc_grey_ans"><img src="/main/images/flags/'+countryimage+'" height="25" width="27">&nbsp;'+value.currency+'</td><td class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.basicfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.profee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.advancedfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.paymentprocessor+'</td></tr>';        		 });  
+        			  html+= '<tr><td class="normal_desc_grey_ans"><img src="/main/images/flags/'+countryimage+'" height="25" width="27">&nbsp;'+value.currency+'</td><td class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.basicfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.profee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.advancedfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.currencysymbol+getRoundedValue(value.businessfee)+'</td><td  class="normal_desc_grey_ans" style="text-align:center">'+value.paymentprocessor+'</td></tr>';        		 });  
         		  html+= '</tbody></table>';
         		  $('#internationalPricing').append(html);
         	}        	
@@ -789,14 +799,16 @@ li{
        return x1 + x2;
    }
 		 
-         
+		 		 
          $('#avgticketsprice').height( $('#ticketssold').height());
          $('#currentticket').height($('#ticketssold').height());         
          $('#basic').css('padding-bottom','15px');
          $('#pro').css('padding-bottom','15px');
          $('#advanced').css('padding-bottom','15px');
+         $('#business').css('padding-bottom','15px');
          $('#basic').height($('#advanced').height());
          $('#pro').height($('#advanced').height());
+         $('#business').height($('#advanced').height());
 		function saveamount(avg,num){
              var tktprice=avg;
             var tktcnt=num;           

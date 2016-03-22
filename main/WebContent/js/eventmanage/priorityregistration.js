@@ -396,28 +396,33 @@ $(document).on('click','#addrowsdata',function(){
 					rebuildtable(result);
 					if(uploadlists==true){
 						notification(props.pr_rec_uplded_scess_lbl,"success");
+						$('html, body').animate({ scrollTop: $("#notification-holder").offset().top-200}, 1000);
 						uploadlists=false;
 						showLinks(globalVar);
 					}
 					else if(recordlist==false){
 						notification(props.pr_rec_add_success_lbl,"success");//"Records added successfully"
+						$('html, body').animate({ scrollTop: $("#notification-holder").offset().top-200}, 1000);
 						recordlist=true;
 						showLinks(globalVar);
 					}
 					else if(recordlist==true && uploadlists==false){
 						notification(props.pr_rec_updtd_success_lbl,"success");//"Records updated successfully"
+						$('html, body').animate({ scrollTop: $("#notification-holder").offset().top-200}, 1000);
 						showLinks(globalVar);
 					}
 				}else if(resp.status=="failure"){
 					//console.log("we failed");
 					$('#priorityerrors').show();
 					$('#priorityerrors').html(props.pr_dup_rec_exists_lbl);
+					$('html, body').animate({ scrollTop: $("#priority_table").offset().top-100}, 1000);
 				}
 			}
 		});
 	}else{
 		$('#priorityerrors').show();
 		$('#priorityerrors').html(props.pr_plz_entr_val_txt_feld_lbl);
+		$('html, body').animate({ scrollTop: $("#priority_table").offset().top-100}, 1000);
 		
 	}
 });
@@ -553,15 +558,17 @@ function savelistdata(params)
 	   	 	$('#loadEditDiv').html('<td style="border-top:0px !important;">'+result+'</td>');
 			rebuildtable(result);
 			$('#notification-holder').html('');
-            $('html, body').animate({ scrollTop: $("#notification-holder").height()}, 1000);
+           $('html, body').animate({ scrollTop: $("#notification-holder").offset().top-200}, 1000);
             
 			if(checklist==true){
 				
 				notification(props.pr_list_add_sucesfly_lbl,"success");
+				$('html, body').animate({ scrollTop: $("#notification-holder").offset().top-200}, 1000);
 				showLinks(globalVar);
 			}
             else{
             	notification(props.pr_lst_updtd_sucesfly_lbl,"success");
+				$('html, body').animate({ scrollTop: $("#notification-holder").offset().top-200}, 1000);
             	checklist=true;
             	showLinks(globalVar);
             	
@@ -576,6 +583,7 @@ function savelistdata(params)
 				//console.log("duplicate records exists");
 				$('#priorityerrors').show();
 				$('#priorityerrors').html(props.pr_lst_name_alrdy_exists_lbl);
+				$('html, body').animate({ scrollTop: $("#notification-holder").offset().top-200}, 1000);
 	           $('#loadEditDiv').html('');
 				$('#loadEditDiv').hide();
 				}

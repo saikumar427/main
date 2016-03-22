@@ -35,33 +35,28 @@ function isNumberKey(evt)
 
 
 function validateRSVPSelectCount(){
-var curLevel= $('#currentLevel').val();
-	if(curLevel==150){
-		if(document.getElementById('event_date')){
-			var index=document.getElementById('event_date').selectedIndex;
-			eventdate=document.getElementById('event_date').options[index].value;
-			if(eventdate == ''){
-				//alert("Select a date and time to Attend");
-				bootbox.confirm(props.aa_select_date_time_lbl,function(result){});
-				return false;
-			}
-		}
-		attendingcount=document.getElementById('attendeecount').value;
-		attendingcount=Number(attendingcount);
-		if(attendingcount == 0){
-			//alert("Please Enter Attendee Count");
-			bootbox.confirm(props.aa_enter_attendee_count_lbl,function(result){});
+	if(document.getElementById('event_date')){
+		var index=document.getElementById('event_date').selectedIndex;
+		eventdate=document.getElementById('event_date').options[index].value;
+		if(eventdate == ''){
+			//alert("Select a date and time to Attend");
+			bootbox.confirm(props.aa_select_date_time_lbl,function(result){});
 			return false;
 		}
-		else
-			showimageLoad();
-			getRSVPProfileJsonData(attendingcount);
-		
-		
-		return true;
-	}else{
-		specialFee(eventid,"150","AddAttendee","RSVP")
 	}
+	attendingcount=document.getElementById('attendeecount').value;
+	attendingcount=Number(attendingcount);
+	if(attendingcount == 0){
+		//alert("Please Enter Attendee Count");
+		bootbox.confirm(props.aa_enter_attendee_count_lbl,function(result){});
+		return false;
+	}
+	else
+		showimageLoad();
+		getRSVPProfileJsonData(attendingcount);
+	
+	
+	return true;
 }
 
 function getRSVPProfileJsonData(count){

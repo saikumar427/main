@@ -190,7 +190,11 @@ try{
 		result=null;
 	    HashMap<String,String> hm= filldata(request,paytype);
 	    recid=hm.get("record_id");
-		result=btp.makeARefundPayment(hm);
+	    try{
+			result=btp.makeARefundPayment(hm);
+	    }catch(Exception e){
+	    	System.out.println("Exception in braintreerefund.jsp tid: "+tid+" ERROR: "+e.getMessage());
+	    }
 		if(result!=null){	 
 			jsonObj=processResult(result,paytype,recid);					
 		}else jsonObj.put("status","conerror"); 	 

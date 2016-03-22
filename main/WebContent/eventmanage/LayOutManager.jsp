@@ -186,7 +186,7 @@
 					</label>
 					<s:if test="%{#powertype=='Ticketing'}">
 						<label id="buyerLabel" class="optiontype btn btn-active no-radius">
-							<input class="datesel" id="buyer" name="layoutOpt" value="2" type="radio"><s:text name="pg.toggle.buyer.lbl"/>&nbsp;
+							<input class="datesel" id="buyer" name="layoutOpt" value="2" type="radio"><s:text name="pg.toggle.buyer.lbl"/>
 							<i class="fa fa-info-circle info" style="cursor:pointer;font-size:16px!important;"id="buyerPageInfo" ></i>
 						</label> 
 					</s:if>

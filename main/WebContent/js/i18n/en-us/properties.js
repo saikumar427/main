@@ -9,10 +9,6 @@ var props={
 		
 		"aa_disc_code_lbl":"Have a discount code, enter it here.",
 		"aa_apply_disc_code_btn_lbl":"Apply Code",
-		
-		"filename_is_empty_lbl":"File Name is Empty",
-		"buyer_please_upload_file":"Please upload File",
-		"buyer_want_to_delete":"Do you want to Delete File?",
 		"aa_attendee_info_section_header":"Attendee Information",
 		"aa_payment_section_header":"Payment Collection",
 		"aa_loading_profiles_lbl":"Loading profiles...",
@@ -20,13 +16,12 @@ var props={
 		"aa_sel_tkts_section_header":"Select Tickets",
 		"aa_loading_tks_lbl":"Loading tickets...",
 		"aa_loading_seats_lbl":"Loading seats...",
-		"pg_button_name_error_lbl":"Button name is empty.",
 		"aa_sel_seats_lbl":"Select seats.",
 		"aa_there_are_errmsg1":"There are",
 		"aa_errors_errmsg2":"errors.",
 		"aa_there_is_an_error_errmsg":"There is an error.",
 		"aa_pls_sel_payment_collection_errmsg":"Please select payment collection.",
-		"pg_image_too_large_error":"The image file you have selected is too large. Please select a smaller size image.",
+		
 		"acc_pay_with_cc_btn_lbl":"Pay with Credit Card",
 		"acc_pay_with_paypal_btn_lbl":"Pay with PayPal",
 		"acc_pay_invoice":"Invoice",
@@ -957,6 +952,11 @@ var props={
 		"ugpp_upgrate_pro_lbl":"Upgrade to Pro",
 		"ugpp_upgrate_advanced":"Upgrade to Advanced",
 		"acc_btn_ibl":"Activate",
+		"filename_is_empty_lbl":"File Name is Empty",
+		"buyer_please_upload_file":"Please upload File",
+		"buyer_want_to_delete":"Do you want to Delete File?",
+		"pg_button_name_error_lbl":"Button name is empty.",
+		"pg_image_too_large_error":"The image file you have selected is too large. Please select a smaller size image.",
 		
 			
 		
@@ -979,7 +979,7 @@ var props={
 		"pr_rec_add_success_lbl":"Records added successfully.",
 		"pr_rec_updtd_success_lbl":"Records updated successfully.",
 		"pr_dup_rec_exists_lbl":"Duplicate list exists.",
-		"pr_plz_entr_val_txt_feld_lbl":"please enter a value in the text field.",
+		"pr_plz_entr_val_txt_feld_lbl":"Please enter a value in the text field.",
 		"pr_plz_entr_list_name_lbl":"Enter list name.",
 		"pr_plz_entr_feld_val_lbl":"Enter field value.",
 		"pr_plz_slct_atlst_one_tkt_lbl":"Select at least one ticket.",
@@ -995,7 +995,7 @@ var props={
 		"ps_payu_apikey_empty":"API key is empty.",
 		"ps_payu_apilogin_empty":"API login ID is empty.",
 		"bu_pg_tl_tp_msg1_lbl":"Buyer Page lets attendees to edit their profile information,",
-		"bu_pg_tl_tp_msg2_lbl":"and exclusive content meant for attendees.",
+		"bu_pg_tl_tp_msg2_lbl":"and view exclusive content meant for them.",
 		"bu_pg_tl_tp_msg3_lbl":"To access this feature, upgrade your ticketing level to Business version.",
 		"global_bus_ticketing":"Business Ticketing",
 		"business_tip":"Bus",

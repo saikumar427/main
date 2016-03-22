@@ -2,7 +2,6 @@ package com.eventbee.payments.actions;
 
 import java.io.StringBufferInputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +10,6 @@ import java.util.ResourceBundle;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
 
-import com.event.dbhelpers.EventDB;
 import com.event.helpers.I18n;
 import com.eventbee.beans.CreditCardData;
 import com.eventbee.beans.Entity;
@@ -29,7 +27,6 @@ import com.eventbee.util.ProcessXMLData;
 import com.membertasks.dbhelpers.AccountInfoDB;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.Preparable;
 import com.opensymphony.xwork2.ValidationAware;
 import com.user.beans.UserData;
 
@@ -389,7 +386,8 @@ public  class PaymentAction extends ActionSupport implements ValidationAware{
 		Map paramMap=new HashMap();
 		CurrencyFormat cf=new CurrencyFormat();
 		HashMap<String,String> hmap=CardProcessorDB.getDefaultData(seqId); 
-		paramMap.put("GrandTotal",cf.getCurrency2decimal(hmap.get("AMOUNT")));
+		//paramMap.put("GrandTotal",cf.getCurrency2decimal(hmap.get("AMOUNT"))); //commented on 3rd Mar, 2016 due to getting wrong value 12.03 instead of 12.04 as inserted in db 12.0399...
+		paramMap.put("GrandTotal",hmap.get("AMOUNT"));//now getting value from db round(amount::numeric,2)
 		paramMap.put("ref_id",hmap.get("REFID"));
 	    paramMap.put("paytype",hmap.get("PROCESSTYPE"));   
 	    paramMap.put("internalrefid",Internalref);

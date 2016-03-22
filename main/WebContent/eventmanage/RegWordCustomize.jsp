@@ -1,5 +1,4 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
-<s:hidden value="%{currentLevel}" id="currentLevel" />
 <style>
 .form-horizontal .control-label{
 	padding-top :0px !important;
@@ -902,47 +901,41 @@ var labels={"wordAttribs['event.reg.ticket.page.Header']":"<s:text name='rwc.wor
 
 	
 	function savingToserver(data,blockData,id){
-		var curLevel= $('#currentLevel').val();
-		if(curLevel>=200){
-			loadingPopup();
-			$.ajax({
-				url : 'RegWordCustomize!save',
-				type : 'post',
-				data : data /* $("#ticWordingsForm").serialize() */,
-				success : function(t) {
-					if (isValidActionMessage(t)) {
-						document.getElementById('regWordStatusMsg').scrollIntoView();
-						$("#notification-holder").html('');
-						var message=props.global_updated_msg;
-						if("priorityRegistrationWording"==id)
-							message=props.rwc_priority_wording_updated_msg;
-						else if("ticketsWording"==id)
-							message=props.rwc_tickets_wording_updated_msg;
-						else if("discountsWording"==id)
-							message=props.rwc_discounts_wording_updated_msg;
-						/* else if("memberTicketsWording"==id)
-							message=""; */
-						else if("totalsWording"==id)
-							message=props.rwc_totals_wording_updated_msg;
-						else if("profileWording"==id)
-							message=props.rwc_profile_wording_updated_msg;
-						else if("paymentsWording"==id)
-							message=props.rwc_payments_wording_updated_msg;
-						else if("confirmationWording"==id)
-							message=props.rwc_confirmation_wording_updated_msg;
-						else if("recurringDatesWording"==id)
-							message=props.rwc_recurring_dates_wording_updated_msg;									
-						notification(message,'success');
-						updateAccountInformation(id+"Content",blockData);
-						edit(id);
-						hidePopup();
-					}
+		loadingPopup();
+		$.ajax({
+			url : 'RegWordCustomize!save',
+			type : 'post',
+			data : data /* $("#ticWordingsForm").serialize() */,
+			success : function(t) {
+				if (isValidActionMessage(t)) {
+					document.getElementById('regWordStatusMsg').scrollIntoView();
+					$("#notification-holder").html('');
+					var message=props.global_updated_msg;
+					if("priorityRegistrationWording"==id)
+						message=props.rwc_priority_wording_updated_msg;
+					else if("ticketsWording"==id)
+						message=props.rwc_tickets_wording_updated_msg;
+					else if("discountsWording"==id)
+						message=props.rwc_discounts_wording_updated_msg;
+					/* else if("memberTicketsWording"==id)
+						message=""; */
+					else if("totalsWording"==id)
+						message=props.rwc_totals_wording_updated_msg;
+					else if("profileWording"==id)
+						message=props.rwc_profile_wording_updated_msg;
+					else if("paymentsWording"==id)
+						message=props.rwc_payments_wording_updated_msg;
+					else if("confirmationWording"==id)
+						message=props.rwc_confirmation_wording_updated_msg;
+					else if("recurringDatesWording"==id)
+						message=props.rwc_recurring_dates_wording_updated_msg;									
+					notification(message,'success');
+					updateAccountInformation(id+"Content",blockData);
+					edit(id);
+					hidePopup();
 				}
-			});
-		}else{
-			var eventid = $('#eid').val();
-			specialFee(eventid,"200","RegWordCustomize","Ticketing");
-		}
+			}
+		});
 	}
 
 	/* function isValidActionMessage(messageText) {alert('hi');

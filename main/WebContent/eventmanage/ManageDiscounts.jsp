@@ -81,12 +81,12 @@ font-size: 14px !important;
         
         $(document).ready(function(){  
         	 $('#adddiscount').click(function(){
-            	// loadingPopup();
 				var curLevel= $('#currentLevel').val();
-            	if(curLevel>=200)
+				openDiscount();
+            	/* if(curLevel>=200)
             		 openDiscount();
             	else
-            		specialFee(eid,'200','managediscounts','Ticketing');
+            		specialFee(eid,'200','managediscounts','Ticketing'); */
       		});
 		prepareDiscountTable(discdata);
        });

@@ -120,13 +120,8 @@ $(document).on('mouseover','.trcopylink',function(){
  
  
  $(document).on('click','#createprivateurls',function(){
- var curLevel=$('#currentLevel').val();
-	 if(curLevel>=300)
-		 createPrivateTicketURLs();
-	 else{
-		 specialFee(eid,"300","TicketURLs","Ticketing");
-	 }
-	
+	 //specialFee(eid,"200","TicketURLs","Ticketing");
+	 createPrivateTicketURLs();
 	/* showTktProcessing();
 	 var url = 'TicketURLs!createTicketingURL?eid='+eid;	
 	 $('#ticketurlsbox').load(url,function(){

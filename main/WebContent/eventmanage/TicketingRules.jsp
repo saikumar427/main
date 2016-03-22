@@ -12,7 +12,7 @@ var existingRules = '${existingRules}';
 var tktdata = ${jsonData};
 var eventid = '${eid}';
 var currentEventLevel='<s:property value="currentLevel"></s:property>';
-var requireLevel="400";
+//var requireLevel="400";
 </script>
 
 <div id="conditionalticketing" ng-app="CT" ng-controller='ctController'  ng-cloak>

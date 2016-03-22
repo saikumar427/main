@@ -56,8 +56,8 @@ app.filter('range', function() {
 
 app.controller('ctController', function($scope, $sce, $filter,$http,$rootScope) {
 	$scope.isMsgShow=false;
-	$scope.isTabShow=false;
-	if(currentEventLevel==requireLevel)
+	//$scope.isTabShow=false;
+	//if(currentEventLevel==requireLevel)
 		$scope.isTabShow=true;
 	
 	/*$scope.requireClickProgram=function(index){

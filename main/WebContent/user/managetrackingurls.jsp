@@ -3,6 +3,7 @@
 <div style="padding:20px">
 
    <div class="row">
+   <div id="errors" style="display:none;"class="alert alert-danger"></div>
    <div id="notification-holder"></div>
        <div class="panel panel-primary">
             <div class="panel-heading">
@@ -128,12 +129,21 @@ $('#trckpwd').click(function(){
 	var lable='';
 	openSinglePopUpWithOptions($(this).offset(),passwordsuccess,cancel,$('#hiddenpassword').val(),lable,defval);
 	});
-	
+	var flag=false;
 var passwordsuccess = function(value){
 	var eid='${eid}';
 	var trackcode='${trackcode}';
 	var scode='${secretcode}';
 	var password = value;
+	if(password=="")
+	{
+		flag=true;
+		//alert('password cannot be empty');
+		$('#errors').show();
+		$('#errors').html('<ul><li><span>'+props.epc_alert_password_empty+'</span></li> </ul>');
+	}
+	else{
+		flag=false;
 	var url="TrackUrlManage!savePassword?eid="+eid+"&trackcode="+trackcode+"&password="+password+"&secretcode="+scode;
 	$.ajax({
 	method:'POST',
@@ -144,9 +154,11 @@ var passwordsuccess = function(value){
 			$('#singleValuePopUpOptions').hide();
 			$('html, body').animate({ scrollTop: $("#notification-holder").height()}, 1000);
 			notification(props.mtp_pwd_update_lbl,"success");
+			$('#errors').hide();
 			}
 	}); 
 		
+}
 }
 /* password end */
 

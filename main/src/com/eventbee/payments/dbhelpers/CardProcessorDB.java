@@ -13,7 +13,6 @@ import com.eventbee.general.EncodeNum;
 import com.eventbee.general.GenUtil;
 import com.eventbee.general.StatusObj;
 import com.eventbee.general.StoredProcedureHelper;
-import com.eventbee.general.formatting.CurrencyFormat;
 
 public class CardProcessorDB {
 	/*String  CountryNames[]=new String[]{"USA","Albania","Algeria","Andorra","Angola","Anguilla","Antigua and Barbuda","Armenia","Aruba",
@@ -32,7 +31,7 @@ public class CardProcessorDB {
 			"Morocco","Mozambique","Namibia","Nauru","Nepal","Netherlands","Netherlands Antilles","New Zealand",
 			"New Caledonia","Nicaragua","Niger","Niue","Norfolk Island","Norway","Oman","Palau","Panama","Papua New Guinea",
 			"Peru","Philippines","Pitcairn Islands","Poland","Portugal","Qatar","Republic of the Congo","Reunion",
-			"Romania","Russia","Rwanda","Saint Vincent and the Grenadines","San Marino","Samoa","São Tomé and Príncipe",
+			"Romania","Russia","Rwanda","Saint Vincent and the Grenadines","San Marino","Samoa","Sï¿½o Tomï¿½ and Prï¿½ncipe",
 			"Saudi Arabia","Senegal","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands",
 			"Somalia","South Africa","South Korea","Spain","Sri Lanka","St. Helena","St. Kitts and Nevis",
 			"St. Lucia","St. Pierre and Miquelon","Suriname","Svalbard and Jan Mayen Islands","Swaziland","Sweden",
@@ -103,10 +102,10 @@ public class CardProcessorDB {
 		HashMap<String,String> hm=new HashMap<String,String>(); 
 		DBManager dbm=new DBManager();
 		StatusObj statobj=null;
-		String defaultdataqry="select amount,ref_id,processtype from ccdata where seq_id=?";
+		String defaultdataqry="select round(amount::numeric,2) as amt,ref_id,processtype from ccdata where seq_id=?";
 		statobj=dbm.executeSelectQuery(defaultdataqry, new String[]{seqId});
 		if(statobj.getStatus()){
-			hm.put("AMOUNT",dbm.getValue(0,"amount",""));
+			hm.put("AMOUNT",dbm.getValue(0,"amt",""));
 			hm.put("REFID",dbm.getValue(0,"ref_id",""));
 			hm.put("PROCESSTYPE",dbm.getValue(0,"processtype",""));
 		}

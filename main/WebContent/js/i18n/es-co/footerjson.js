@@ -4,7 +4,7 @@ var i18nFooter={
 		      "grids": 4,
 		      "subsections": [
 		         {
-		          "title": "Con茅ctate",
+		          "title": "Con閏tame",
 		          "sublinks": [
 		            {
 		              "limg": "<i style='padding-right: 20px' class='fa fa-fw fa-2x fa-facebook'></i>",
@@ -64,7 +64,7 @@ var i18nFooter={
 		            },
 		            {
 		              "type": "text",
-		              "label": "Aplicaci贸n Eventbee para iOS",
+		              "label": "Aplicaci髇 Eventbee para iOS",
 		              "href": "javascript:;"
 		            },
 		            {
@@ -82,7 +82,7 @@ var i18nFooter={
 		      "grids": 4,
 		      "subsections": [
 		        {
-		          "title": "C贸mo Funciona",
+		          "title": "C髆o Funciona",
 		          "sublinks": [		           
 		            {
 		              "type": "text",
@@ -92,7 +92,7 @@ var i18nFooter={
 		            },		           
 		            {
 		              "type": "text",
-		              "label": "Gesti贸n de Eventos y Asistentes",
+		              "label": "Gesti髇 de Eventos y Asistentes",
 		              "href": "/main/attendee-event-management-at-the-door",
 		              "strong":true
 		            },
@@ -111,11 +111,11 @@ var i18nFooter={
 		      "grids": 3,
 		      "subsections": [
 						{
-						    "title": "M谩s Soluciones",
+						    "title": "M醩 Soluciones",
 						    "sublinks": [
 						      {
 						        "type": "text",
-						        "label": "Aplicaci贸n en Facebook",
+						        "label": "Aplicaci髇 en Facebook",
 						        "href": "http://apps.facebook.com/eventbeeticketing",
 						        "target":"_blank",
 						        "i18n_include":false

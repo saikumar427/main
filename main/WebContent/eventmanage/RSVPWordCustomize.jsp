@@ -1,5 +1,4 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
-<s:hidden value="%{currentLevel}" id="currentLevel" />
 <style>
 .form-horizontal .control-label {
 	padding-top: 0px !important;
@@ -461,41 +460,33 @@ $('#submitBtn').attr('data-loading-text',props.global_processing_lbl);
 		return false;
 	}
 	function savingToserver(data, blockData, id) {
-		var curLevel = $('#currentLevel').val();
-		if(curLevel==150){
-			$.ajax({
-				url : 'RSVPWordCustomize!save',
-				type : 'post',
-				data : data /* $("#ticWordingsForm").serialize() */,
-				success : function(t) {
-					if (isValidActionMessage(t)) {
-						document.getElementById('RSVPWordStatusMsg')
-								.scrollIntoView();
-						$("#notification-holder").html('');
+		$.ajax({
+			url : 'RSVPWordCustomize!save',
+			type : 'post',
+			data : data /* $("#ticWordingsForm").serialize() */,
+			success : function(t) {
+				if (isValidActionMessage(t)) {
+					document.getElementById('RSVPWordStatusMsg')
+							.scrollIntoView();
+					$("#notification-holder").html('');
 
-						var message=props.global_updated_msg;
-							if("rsvpWording"==id)
-		                        message=props.rwc_rsvp_wording_updated_msg;
-		                    else if("profileWording"==id)
-		                        message=props.rwc_rsvp_profile_wording_updated_msg;
-		                    else if("confirmationWording"==id)
-		                        message=props.rwc_rsvp_confirmation_wording_updated_msg;
-		                    else if("recurringDates"==id)
-		                        message=props.rwc_rsvp_totals_wording_updated_msg;
-		                   
-						notification(message, 'success');
-						updateAccountInformation(id + "Content", blockData);
-						edit(id);
-						hidePopup();
-					}
+					var message=props.global_updated_msg;
+						if("rsvpWording"==id)
+	                        message=props.rwc_rsvp_wording_updated_msg;
+	                    else if("profileWording"==id)
+	                        message=props.rwc_rsvp_profile_wording_updated_msg;
+	                    else if("confirmationWording"==id)
+	                        message=props.rwc_rsvp_confirmation_wording_updated_msg;
+	                    else if("recurringDates"==id)
+	                        message=props.rwc_rsvp_totals_wording_updated_msg;
+	                   
+					notification(message, 'success');
+					updateAccountInformation(id + "Content", blockData);
+					edit(id);
+					hidePopup();
 				}
-			});
-		}else{
-			var eventid = $('#eid').val();
-			specialFee(eventid,"150","RSVPWordCustomize","RSVP");
-		}
-		
-		
+			}
+		});
 	}
 	/* function isValidActionMessage(messageText) {alert('hi');
 		if (messageText.indexOf('nologin') > -1

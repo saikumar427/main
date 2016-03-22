@@ -4,7 +4,7 @@ var i18nFooter={
 		      "grids": 4,
 		      "subsections": [
 		         {
-		          "title": "ConÃ©ctate",
+		          "title": "Conéctate",
 		          "sublinks": [
 		            {
 		              "limg": "<i style='padding-right: 20px' class='fa fa-fw fa-2x fa-facebook'></i>",
@@ -64,7 +64,7 @@ var i18nFooter={
 		            },
 		            {
 		              "type": "text",
-		              "label": "AplicaciÃ³n Eventbee para iOS",
+		              "label": "Aplicación Eventbee para iOS",
 		              "href": "javascript:;"
 		            },
 		            {
@@ -82,7 +82,7 @@ var i18nFooter={
 		      "grids": 4,
 		      "subsections": [
 		        {
-		          "title": "CÃ³mo Funciona",
+		          "title": "Cómo Funciona",
 		          "sublinks": [		           
 		            {
 		              "type": "text",
@@ -92,7 +92,7 @@ var i18nFooter={
 		            },		           
 		            {
 		              "type": "text",
-		              "label": "GestiÃ³n de Eventos y Asistentes",
+		              "label": "Gestión de Eventos y Asistentes",
 		              "href": "/main/attendee-event-management-at-the-door",
 		              "strong":true
 		            },
