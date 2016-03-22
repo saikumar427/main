@@ -291,9 +291,11 @@ public class SpecialFeeDB {
 	
 	public static String checkUpgradeStatus(String eid,String feature,String powertype,String level){
 		String query="select case when e.created_at::date>f.start_date then 'Yes' else 'No' end as status from eventinfo e,feature_upgrade_dates f " +
-				"where f.feature=? and f.powertype=? and f.level=? and e.eventid=CAST(? AS BIGINT) order by f.created_at desc limit 1";
-		String status=DbUtil.getVal(query, new String[]{feature,powertype,level,eid});
+				"where f.feature=? and f.powertype=? and f.level=? and e.eventid=CAST(? AS BIGINT) and " +
+				"e.current_level in(select regexp_split_to_table(current_level,',') from feature_upgrade_dates where feature=? and powertype=?) order by f.created_at desc limit 1";
+		String status=DbUtil.getVal(query, new String[]{feature,powertype,level,eid,feature,powertype});
 		if(status==null) status="Yes";
+		System.out.println("checkUpgradeStatus status: "+status);
 		return status;
 	}
 }

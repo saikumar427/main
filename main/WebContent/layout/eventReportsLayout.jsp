@@ -105,7 +105,7 @@ display:block;
 
 </style>
 </head>
-<script type="text/javascript" src="<%=resourceaddress%>/main/js/eventmanage/specialfee.js?id=1"></script>
+<script type="text/javascript" src="<%=resourceaddress%>/main/js/eventmanage/specialfee.js?id=2"></script>
 <s:hidden name="currentLevel" id="currentLevel"></s:hidden>		
 <body style="background-color: #f3f6fa">
 <div class="mainContentDiv">

@@ -24,6 +24,7 @@
 		   jsonobj.put("basicfee",dbm.getValue(i, "l100", ""));
 		   jsonobj.put("profee",dbm.getValue(i, "l200", ""));
 		   jsonobj.put("advancedfee",dbm.getValue(i, "l300", ""));
+		   jsonobj.put("businessfee",dbm.getValue(i, "l400", ""));
 		   jsonobj.put("paymentprocessor",dbm.getValue(i, "payment_processors", ""));
 		   jarray.put(jsonobj);
 	   }

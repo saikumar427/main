@@ -296,10 +296,8 @@ public class TrackURLAction extends ActionSupport implements Preparable,Validati
 				else{
 					if("Yes".equalsIgnoreCase(SpecialFeeDB.checkUpgradeStatus(eid, "TrackURL", "Ticketing", "300")))
 						SpecialFeeDB.chekingSpecialFee(eid,mgrId,"300","Tracking URLs");
-				}
-					
 				// special fee end.
-				
+				}
 			String trackingid=DbUtil.getVal("select nextval('trackingid')",new String[]{});
 			String secretcode=EncodeNum.encodeNum(trackingid);
 			HashMap inParams = new HashMap();
