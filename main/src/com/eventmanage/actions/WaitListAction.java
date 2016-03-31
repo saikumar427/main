@@ -12,6 +12,7 @@ import com.event.dbhelpers.WaitListDB;
 import com.event.helpers.I18n;
 import com.eventbee.beans.Entity;
 import com.eventbee.general.EbeeConstantsF;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class WaitListAction extends ActionSupport{
@@ -215,10 +216,17 @@ public class WaitListAction extends ActionSupport{
 	}
 
 	public String execute() {
-		System.out.println("WaitListAction eid: "+eid+" purpose: "+purpose);
+		String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+		String pwrType=ActionContext.getContext().getParameters().get("pwrType").toString();
+		int WaitList = 300;
+		System.out.println("Current Level : "+curLvl+" , Power Type : "+pwrType+" & EventId : "+eid);
+		if(Integer.parseInt(curLvl)>=WaitList){
+			jsonData = WaitListDB.getWaitListSummary(eid,waitListData).toString();
+			return "waitlistsummary";
+		}else
+			return "pageRedirect";
 		//emailTemplate();
-		jsonData = WaitListDB.getWaitListSummary(eid,waitListData).toString();
-		return "waitlistsummary";
+		
 	}
 	
 	public String waitListSummary(){

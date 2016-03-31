@@ -187,14 +187,18 @@ public void prepare(){
 	
 	
 public String execute(){
-	System.out.println("in authenticate user action class.."+eid);
-	fieldexists=PriorityRegistrationDB.getPriorityexists(eid);
-	//priorityList=PriorityRegistrationDB.getPriorityList(eid);
-	
-	jsonData=PriorityRegistrationDB.getPriorityList(eid);
-	
-	mgrid=ActionContext.getContext().getParameters().get("mgrId").toString();
-return "success";
+	String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+	String pwrType=ActionContext.getContext().getParameters().get("pwrType").toString();
+	int PriorityReg = 400;
+	System.out.println("Current Level : "+curLvl+" , Power Type : "+pwrType+" & EventId : "+eid);
+	if(Integer.parseInt(curLvl)==PriorityReg){
+		fieldexists=PriorityRegistrationDB.getPriorityexists(eid);
+		//priorityList=PriorityRegistrationDB.getPriorityList(eid);
+		jsonData=PriorityRegistrationDB.getPriorityList(eid);
+		mgrid=ActionContext.getContext().getParameters().get("mgrId").toString();
+		return "success";
+	}else
+		return "pageRedirect";
 }
 public String getPriorityListData(){
 	System.out.println("getPriorityListData::");

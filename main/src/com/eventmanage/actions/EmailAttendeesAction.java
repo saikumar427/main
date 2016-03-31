@@ -163,37 +163,36 @@ public class EmailAttendeesAction extends ActionSupport implements Preparable,Va
 	}
 	
 	public String execute(){
-		
-		
-		//populateDescriptionTypes();
-		String powertype=EventDB.getPowerType(eid);
-		if("Ticketing".equalsIgnoreCase(powertype))
-			ticketsList=EmailAttendeesDB.getTicketsList(eid);
-		
-		
-		emailAttendeesData.setContentlist(EmailAttendeesDB.getCopyFromDetails(eid));
-		isrecurring=EventDB.isRecurringEvent(eid);
-		if(isrecurring)
-			emailAttendeesData.setRecurringlist(EmailAttendeesDB.getRecurringList(eid,powertype));
-		int count=EmailAttendeesDB.getEmailCount(eid);
-		if(count==0)
-		{ 
-			try{
-				jsonData=new JSONObject().put("sent", new JSONArray()).put("drafts", new JSONArray()).put("scheduled", new JSONArray()).toString();
-			}catch(Exception e){				
-			}			
-		}
-		else
-		{	
-		ArrayList scheduledList=EmailAttendeesDB.getScheduledList(eid);
-		ArrayList draftsList=EmailAttendeesDB.getDraftedList(eid);
-		ArrayList sentList=EmailAttendeesDB.getSentList(eid);
-		JSONObject js= EmailAttendeesJsonHelper.getEmailAttendeesJson(scheduledList,draftsList,sentList);
-		jsonData=js.toString();
-		
-		}
-
-		return SUCCESS;
+		String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+		String pwrType=ActionContext.getContext().getParameters().get("pwrType").toString();
+		int EmailAttendeeTkt = 300;
+		int EmailAttendeeRsvp = 150;
+		System.out.println("Current Level : "+curLvl+" , Power Type : "+pwrType+" & EventId : "+eid);
+		if(Integer.parseInt(curLvl)==EmailAttendeeRsvp || Integer.parseInt(curLvl)>=EmailAttendeeTkt){
+			//populateDescriptionTypes();
+			String powertype=EventDB.getPowerType(eid);
+			if("Ticketing".equalsIgnoreCase(powertype))
+				ticketsList=EmailAttendeesDB.getTicketsList(eid);
+			emailAttendeesData.setContentlist(EmailAttendeesDB.getCopyFromDetails(eid));
+			isrecurring=EventDB.isRecurringEvent(eid);
+			if(isrecurring)
+				emailAttendeesData.setRecurringlist(EmailAttendeesDB.getRecurringList(eid,powertype));
+			int count=EmailAttendeesDB.getEmailCount(eid);
+			if(count==0){ 
+				try{
+					jsonData=new JSONObject().put("sent", new JSONArray()).put("drafts", new JSONArray()).put("scheduled", new JSONArray()).toString();
+				}catch(Exception e){				
+				}			
+			}else{	
+				ArrayList scheduledList=EmailAttendeesDB.getScheduledList(eid);
+				ArrayList draftsList=EmailAttendeesDB.getDraftedList(eid);
+				ArrayList sentList=EmailAttendeesDB.getSentList(eid);
+				JSONObject js= EmailAttendeesJsonHelper.getEmailAttendeesJson(scheduledList,draftsList,sentList);
+				jsonData=js.toString();
+			}
+			return SUCCESS;
+		}else
+			return "pageRedirect";
 	}
 	public String reloadData(){
 		execute();

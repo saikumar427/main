@@ -139,7 +139,8 @@ public class EventManageInterceptor extends AbstractInterceptor {
 		context.put("subMgr", session.get("SESSION_SUBMGR"));
 		context.put("submgr_permissions", permittedActions);
 		//System.out.println("permittedActions: "+permittedActions);
-		invocation.getInvocationContext().getValueStack().push(context);
+		invocation.getInvocationContext().getParameters().put("curLvl",edata.getCurrentLevel());
+		invocation.getInvocationContext().getParameters().put("pwrType",edata.getPowertype());
 		invocation.getInvocationContext().getValueStack().push(context);
 		return invocation.invoke();
 	}

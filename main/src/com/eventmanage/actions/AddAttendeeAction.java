@@ -118,12 +118,10 @@ public void setRecurringeventsVec(Vector recurringeventsVec) {
 		boolean recurringevent=EventDB.isRecurringEvent(eid);
 		System.out.println("isrecurring is:"+recurringevent);
 		String module="";
-		if("rsvp".equals(type))
-		{
+		if("rsvp".equals(type)){
 			module="RSVPFlowWordings";
 			getRSVPJsonData();
-		}
-		else{
+		}else{
 			module="RegFlowWordings";
 			getTicketJsonData();
 		}
@@ -132,7 +130,6 @@ public void setRecurringeventsVec(Vector recurringeventsVec) {
 	     if(recurrdatestxtlabel==null || "".equals(recurrdatestxtlabel))
 	    	 recurrdatestxtlabel=DbUtil.getVal("select attribdefaultvalue from default_event_display_attribs where attribname='event.reg.recurringdates.label' and module=? and lang=?",new String[]{module,I18NCacheData.getI18NLanguage(eid)});
 */	     
-	    	
 	    	HashMap<String,String> disAttribsForKeys=new HashMap<String,String>();
 			String lang=I18NCacheData.getI18NLanguage(eid);
 			disAttribsForKeys=DisplayAttribsDB.getAttribValuesForKeys(eid, module, lang, new String []{"event.reg.recurringdates.label"});

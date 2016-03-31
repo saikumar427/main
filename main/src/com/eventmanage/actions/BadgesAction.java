@@ -337,9 +337,17 @@ import com.opensymphony.xwork2.ValidationAware;
 		
 	}
 	public String execute(){
-		getEventDates();
-        populateData();
-		return "success";
+		String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+		String pwrType=ActionContext.getContext().getParameters().get("pwrType").toString();
+		int BadgesTkt = 300;
+		int BadgesRsvp = 150;
+		System.out.println("Current Level : "+curLvl+" , Power Type : "+pwrType+" & EventId : "+eid);
+		if(Integer.parseInt(curLvl)==BadgesRsvp || Integer.parseInt(curLvl)>=BadgesTkt){
+			getEventDates();
+	        populateData();
+			return "success";
+		}else
+			return "pageRedirect";
 	}
 	public void getEventDates(){
 	    dates=BadgesDB.getEventDates(eid);

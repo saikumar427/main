@@ -8,6 +8,7 @@ import com.event.beans.DiscountData;
 import com.event.dbhelpers.DiscountsDB;
 import com.event.dbhelpers.EventDB;
 import com.eventmanage.helpers.JsonBuilderHelper;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.opensymphony.xwork2.ValidationAware;
@@ -47,7 +48,15 @@ public class ManageDiscountsAction extends ActionSupport implements Preparable,V
 	}
 	public String execute()
 	{
-		return "success";		
+		String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+		String pwrType=ActionContext.getContext().getParameters().get("pwrType").toString();
+		int ManageDiscounts = 200;
+		System.out.println("Current Level : "+curLvl+" , Power Type : "+pwrType+" & EventId : "+eid);
+		if(Integer.parseInt(curLvl)>=ManageDiscounts)
+			return "success";
+		else
+			return "pageRedirect";
+				
 	}
 	public String populateDiscountsDetails(){
 		String eventURL=DiscountsDB.populateEventURL(eid);

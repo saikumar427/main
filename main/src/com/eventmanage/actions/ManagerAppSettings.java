@@ -7,8 +7,10 @@ import java.util.Locale;
 
 import com.event.beans.ManagerAppData;
 import com.event.dbhelpers.ManagerAppsDB;
+import com.event.dbhelpers.SpecialFeeDB;
 import com.event.helpers.I18n;
 import com.eventbee.beans.Entity;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.opensymphony.xwork2.ValidationAware;
@@ -78,11 +80,15 @@ public class ManagerAppSettings extends ActionSupport implements Preparable,Vali
 	}
 
 	public String execute(){
-		System.out.println("event id is::"+eid);
-		allTickets = ManagerAppsDB.getAllTickets(eid);
-		selTickets = ManagerAppsDB.getSelTickets(eid);
-		appsData=ManagerAppsDB.getManagerAppData(eid);
-		return "success";
+		Boolean redirect = SpecialFeeDB.checking(eid,"ManagerAppSettings","Ticketing","300");
+		if(redirect)
+			return "pageRedirect";
+		else{
+			allTickets = ManagerAppsDB.getAllTickets(eid);
+			selTickets = ManagerAppsDB.getSelTickets(eid);
+			appsData=ManagerAppsDB.getManagerAppData(eid);
+			return "success";
+		}
 	}
 
 	public String saveAppsSeetings(){

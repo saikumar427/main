@@ -232,20 +232,60 @@ public class TrackURLAction extends ActionSupport implements Preparable,Validati
 	return "success";
 	}*/
 	public String execute(){
-		TrackURLDB.populateEventURL(eid,trackURLData);
-		//trackURLDetailsList=TrackURLDB.getTrackURLdetails(eid);
-		trackURLDetailsList=TrackURLDB.getTrackURLSummarydetails(eid);
-		JSONObject js=TrackURLJSONBuilderHelper.getTrackURLsListJson(trackURLDetailsList,trackURLData);
-		try{
-			js.put("codeData",EventDB.serverAdderess());
-		}catch(Exception e){
-			System.out.println("Exception at widget code.");
+		Boolean redirect =false;
+		String pwrType=ActionContext.getContext().getParameters().get("pwrType").toString();
+		if("Ticketing".equals(pwrType))
+			redirect = SpecialFeeDB.checking(eid,"TrackURL","Ticketing","300");
+		else
+			redirect = rsvpChecking();
+		if(redirect)
+			return "pageRedirect";
+		else{
+			TrackURLDB.populateEventURL(eid,trackURLData);
+			trackURLDetailsList=TrackURLDB.getTrackURLSummarydetails(eid);
+			JSONObject js=TrackURLJSONBuilderHelper.getTrackURLsListJson(trackURLDetailsList,trackURLData);
+			try{
+				js.put("codeData",EventDB.serverAdderess());
+			}catch(Exception e){
+				System.out.println("Exception at widget code.");
+			}
+			jsonData=js.toString();		
+			return "success";
 		}
-		
-		
-		jsonData=js.toString();		
-		return "success";
 	}
+	Boolean rsvpChecking(){
+		String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+		int TrackURL = 150;
+		if(Integer.parseInt(curLvl)==TrackURL)
+			return false;
+		else
+			return true;
+	}
+	/*public String execute(){
+		String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+		String pwrType=ActionContext.getContext().getParameters().get("pwrType").toString();
+		String checking = SpecialFeeDB.checkUpgradeStatus(eid, "TrackURL", "Ticketing", "300");
+		int TrackURLtkt=300;
+		if("Yes".equalsIgnoreCase(checking))
+			TrackURLtkt = 300;
+		else
+			TrackURLtkt = 200;
+		int TrackURLrsvp = 150;
+		System.out.println("Current Level : "+curLvl+" , Power Type : "+pwrType+" & EventId : "+eid);
+		if(Integer.parseInt(curLvl)==TrackURLrsvp || Integer.parseInt(curLvl)>=TrackURLtkt){
+			TrackURLDB.populateEventURL(eid,trackURLData);
+			trackURLDetailsList=TrackURLDB.getTrackURLSummarydetails(eid);
+			JSONObject js=TrackURLJSONBuilderHelper.getTrackURLsListJson(trackURLDetailsList,trackURLData);
+			try{
+				js.put("codeData",EventDB.serverAdderess());
+			}catch(Exception e){
+				System.out.println("Exception at widget code.");
+			}
+			jsonData=js.toString();		
+			return "success";
+		}else
+			return "pageRedirect";
+	}*/
 	public String trackURLexist(){		
 		alreadyexists=DbUtil.getVal("select 'yes' from event_custom_urls where eventid=?",new String[]{eid});
 		if("yes".equals(alreadyexists))	msg="Success";			

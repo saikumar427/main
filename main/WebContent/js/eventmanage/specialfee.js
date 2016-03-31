@@ -8,13 +8,14 @@ function specialFee(eventid,tickettype,urlcode,powertype){
   _tickettype=tickettype;
   _urlcode=urlcode;
   _powertype=powertype;
-  var url='SpecialFee?eid='+eventid+'&ticketingtype='+tickettype+'&source='+urlcode+'&powertype='+powertype;
+  var url='SpecialFee!isPopup?eid='+eventid+'&ticketingtype='+tickettype+'&source='+urlcode+'&powertype='+powertype;
+  var url1='SpecialFee?eid='+eventid+'&ticketingtype='+tickettype+'&source='+urlcode+'&powertype='+powertype;
   $.ajax({
 	  type:'get',
 	  url:url,
 	  success:function(result){
 		  if(!isValidActionMessage(result)) return;
-		  if(result && result.indexOf("specialfee") > -1){
+		  if(result && result.indexOf("success") > -1){
 			  var popuptitle=props.popup_ticketing_title;
 			 	if(_powertype=='RSVP') popuptitle=props.popup_rsvp_title;
 			 	$('#loadIMG').show();
@@ -22,7 +23,7 @@ function specialFee(eventid,tickettype,urlcode,powertype){
 			 	    $('iframe#upgradepopup').load(function(){
 			 	    	$('#loadIMG').hide();
 			 	    });
-			 	   $('iframe#upgradepopup').attr("src",url);
+			 	   $('iframe#upgradepopup').attr("src",url1);
 			 	});
 			 	$('#upgradespecialfee').modal('show');
 				

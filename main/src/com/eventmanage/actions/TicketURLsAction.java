@@ -115,13 +115,19 @@ public class TicketURLsAction extends ActionSupport implements Preparable,Valida
 		alltickets=EventDB.getEventTickets(eid);				
 	}
 	public String execute(){
+		Boolean redirect = SpecialFeeDB.checking(eid,"TicketURLs","Ticketing","300");
+		if(redirect)
+			return "pageRedirect";
+		else{
+			populateTicketurlsList();
+			return "success";
+		}
 		/*populateEventURL();	
 		populateEventTickets();
 		ticketsCount=TicketURLsDB.getTicketsCount(eid);
 		ticketURLsData.setTicketscount(ticketsCount);
 		ticketURLList=TicketURLsDB.getTicketURLdetails(eid);*/
-		populateTicketurlsList();
-		return "success";
+		
 	}
 	public String insertTicketURLs(){
 		ProfileValidator pv=new ProfileValidator();

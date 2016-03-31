@@ -5,8 +5,10 @@ import java.util.HashMap;
 
 import com.event.beans.ticketing.GroupData;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.SpecialFeeDB;
 import com.event.dbhelpers.TicketsDB;
 import com.eventmanage.helpers.JsonBuilderHelper;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class TicketingRulesAction extends ActionSupport{
@@ -58,12 +60,17 @@ public class TicketingRulesAction extends ActionSupport{
 	}
 
 	public String execute() {
-		existingRules=TicketsDB.getExistingRules(eid).toString();
-		String userTimeZone = EventDB.getEventTimeZone(eid);
-		groupsList = TicketsDB.getEventTicketsList(eid, userTimeZone,eventDate);
-		HashMap tktStatusMap=TicketsDB.getTicketsStatus(eid,eventDate);
-		jsonData = JsonBuilderHelper.getTicketsJson(groupsList,tktStatusMap).toString();
-		return "success";
+		Boolean redirect = SpecialFeeDB.checking(eid,"TicketingRules","Ticketing","400");
+		if(redirect)
+			return "pageRedirect";
+		else{
+			existingRules=TicketsDB.getExistingRules(eid).toString();
+			String userTimeZone = EventDB.getEventTimeZone(eid);
+			groupsList = TicketsDB.getEventTicketsList(eid, userTimeZone,eventDate);
+			HashMap tktStatusMap=TicketsDB.getTicketsStatus(eid,eventDate);
+			jsonData = JsonBuilderHelper.getTicketsJson(groupsList,tktStatusMap).toString();
+			return "success";
+		}
 	}
 
 }

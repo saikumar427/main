@@ -1,5 +1,7 @@
 package com.event.dbhelpers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
@@ -290,12 +292,61 @@ public class SpecialFeeDB {
 	}
 	
 	public static String checkUpgradeStatus(String eid,String feature,String powertype,String level){
-		String query="select case when e.created_at::date>f.start_date then 'Yes' else 'No' end as status from eventinfo e,feature_upgrade_dates f " +
+		/*String query="select case when e.created_at::date>f.start_date then 'Yes' else 'No' end as status from eventinfo e,feature_upgrade_dates f " +
 				"where f.feature=? and f.powertype=? and f.level=? and e.eventid=CAST(? AS BIGINT) and " +
 				"e.current_level in(select regexp_split_to_table(current_level,',') from feature_upgrade_dates where feature=? and powertype=?) order by f.created_at desc limit 1";
 		String status=DbUtil.getVal(query, new String[]{feature,powertype,level,eid,feature,powertype});
 		if(status==null) status="Yes";
 		System.out.println("checkUpgradeStatus status: "+status);
-		return status;
+		return status;*/
+		
+		String eventQry="select current_level, to_char(created_at,'yyyy-mm-dd') as datepart from eventinfo where eventid=CAST(? AS BIGINT)";		
+		String featureQry="select level, start_date, least_level from feature_upgrade_dates where feature=? and powertype=?";
+		
+		String current_level="",created_at="",feature_level="",start_date="",least_level="";
+		DBManager dbmgr=new DBManager();
+		StatusObj stobj=dbmgr.executeSelectQuery(eventQry, new String[]{eid});
+		if(stobj.getStatus() && stobj.getCount()>0){
+			current_level=dbmgr.getValue(0,"current_level","");
+			created_at=dbmgr.getValue(0,"datepart","");
+		}
+		stobj=dbmgr.executeSelectQuery(featureQry, new String[]{feature,powertype});
+		if(stobj.getStatus() && stobj.getCount()>0){
+			feature_level=dbmgr.getValue(0,"level","");
+			start_date=dbmgr.getValue(0,"start_date","");
+			least_level=dbmgr.getValue(0,"least_level","");
+		}
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		if("".equals(feature_level) && Integer.parseInt(current_level) < Integer.parseInt(level))
+			return "Yes";
+		else if(!"".equals(feature_level) && !"".equals(created_at) && !"".equals(start_date) && !"".equals(least_level)){
+			try {
+				if(sdf.parse(created_at).compareTo(sdf.parse(start_date)) >=0 && Integer.parseInt(current_level) < Integer.parseInt(feature_level)){
+					System.out.println("!!! checkUpgradeStatus 111111 ");
+					return "Yes";
+				}else if(sdf.parse(created_at).compareTo(sdf.parse(start_date)) <0 && Integer.parseInt(current_level) < Integer.parseInt(least_level)){
+					System.out.println("!!! checkUpgradeStatus 222222 ");
+					return "Yes";
+				}else{
+					System.out.println("!!! checkUpgradeStatus 333333 ");
+					return "No";
+				}
+				
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("!!! checkUpgradeStatus 444444 ");
+		return "No";
+	}
+	
+	public static Boolean checking(String eid,String action,String pType,String level){
+		String checking = SpecialFeeDB.checkUpgradeStatus(eid, action, pType, level);
+		if("Yes".equals(checking))
+			return true;
+		else
+			return false;
 	}
 }

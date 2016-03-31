@@ -137,9 +137,8 @@
 		</action>
 				
 		<action name="EmailAttendees"  class="eventmanageEmailAttendeesClass">
-		     <result name="error" type="redirect">/user/login</result>
+		    <result name="error" type="redirect">/user/login</result>
 			<result name="success" type="tiles">eventmanage.EmailAttendees.page</result>
-	
 			<result name="emailattendee">/eventmanage/emailattendeepopup.jsp</result>
 			<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
 		    <result name="testmail">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>		
@@ -151,6 +150,7 @@
 			<result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
 			<result name="json" >/eventmanage/success.jsp</result>	
 			<result name="emailAttendeeJson">/eventmanage/emailjson.jsp</result>
+			<result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result>
 		</action>
 			
 		<action name="EventCustomization"  class="com.eventmanage.actions.customization.EventCustomizationAction">
@@ -282,11 +282,12 @@
 		</action>
 
 
-<action name="ManagerAppSettings" class="eventmanageManagerAppClass">
-		<result name="error" type="redirect">/user/login</result>
-		<result name="success" type="tiles">eventmanage.manageappsettings.page</result>
-		<result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
-		<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+		<action name="ManagerAppSettings" class="eventmanageManagerAppClass">
+			<result name="error" type="redirect">/user/login</result>
+			<result name="success" type="tiles">eventmanage.manageappsettings.page</result>
+			<result name="inputerror" >/eventmanage/mailadderrors.jsp</result>
+			<result name="updated">/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>
+			<result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result> 
 		</action>
 		
 		<action name="ManageAttendeeSeats"  class="eventmanageManageAttendeeSeatsClass">
@@ -305,6 +306,8 @@
 			<result name="jsondata">/discountdetails/discountdetailsjsondata.jsp</result>
 			<result name="success" type="tiles">eventmanage.ManageDiscounts.page</result>
 			<result name="deleted" type="redirect">ManageDiscounts.action?eid=${eid}&amp;msgKey=${msgKey}</result>
+			<result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result>  
+			
 		</action>
 		
 		<action name="ManageRegistrationForm"  class="eventmanageRegistrationClass">		    			
@@ -396,13 +399,14 @@
 		</action>
 
 		<action name="PriorityRegistration" class="eventmanagePriorityRegistrationClass">
-		<result name="success" type="tiles">eventmanage.priorityregistration.page</result>
-		<result name="createlist">/eventmanage/createprioritylist.jsp</result>
-		<result name="createfields">/eventmanage/createpriorityfields.jsp</result>	
-		<result name="error" type="redirect">/user/login</result> 
-		 <result name="saved" >/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>  
-		 <result name="jsonData">/myevents/listeventjson.jsp</result>
-		 <result name="addrecords">/eventmanage/addprioritylist.jsp</result>
+			<result name="success" type="tiles">eventmanage.priorityregistration.page</result>
+			<result name="createlist">/eventmanage/createprioritylist.jsp</result>
+			<result name="createfields">/eventmanage/createpriorityfields.jsp</result>	
+			<result name="error" type="redirect">/user/login</result> 
+			<result name="saved" >/eventmanage/ajaxstatusmsg.jsp?msgType=${msgType}</result>  
+			<result name="jsonData">/myevents/listeventjson.jsp</result>
+			<result name="addrecords">/eventmanage/addprioritylist.jsp</result>
+			<result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result>
 		</action>
 		
 		<action name="Reports"  class="eventmanageReportsClass">
@@ -509,8 +513,9 @@
 			<result name="addsubmgr">/eventmanage/success.jsp</result>
 			<result name="inputerror">/eventmanage/inputerror.jsp</result>
 			<result name="remove">/eventmanage/removesubmanager.jsp</result>
-                        <result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
+            <result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msgKey}</result>
 			<result name="json">/eventmanage/editeventjson.jsp</result>
+			<result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result>
 		</action>
 		
         <action name="TicketDetails"  class="eventmanageTicketDetailsClass">
@@ -547,6 +552,7 @@
 			<result name="specialfee">/eventmanage/specialfees.jsp</result>
 			<result name="blank">/eventmanage/blank.jsp</result>		
             <result name="reloadedData">/eventmanage/seating/ajaxjson.jsp</result>	
+            <result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result> 
 		</action>
 		
 	<action name="LayOutManager" class="eventManageLayOutManagerClass">
@@ -581,6 +587,7 @@
 			<result name="exporttocsv">/eventmanage/ExportToCSV.jsp</result>
             <result name="reloadTreckData">/eventmanage/editeventjson.jsp</result>
             <result name="editTrack">/eventmanage/editTrackUrlData.jsp</result>
+            <result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result> 
   		</action>
   		
   		<action name="TransactionDetails" class="eventmanageTransactionDetailsClass">
@@ -644,6 +651,7 @@
         	<result name="preview">/eventmanage/waitlistpreview.jsp</result>
 			<result name="jsondata">/eventmanage/jsondata.jsp</result>
 		<result name="ajaxmsg" type="redirect">/eventmanage/ajaxmsg.jsp?msgKey=${msg}</result>
+		<result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result> 
         </action>
         <action name="ConfirmationPageSettings" class="eventmanageConfirmationPageSettingsClass">
         	<result name="success">/eventmanage/ConfirmationPageSettings.jsp</result>
@@ -680,15 +688,15 @@
 			<result name="errorsuccess">/eventmanage/success.jsp</result>
 			<result name="duepopup">/myevents/duepopup.jsp</result>
 			<result name="chargepopup">/myevents/chargepopup.jsp</result>
-<result name="confirmationdata">/eventmanage/emailjson.jsp</result>		
-	<result name="refresh">/eventmanage/editeventjson.jsp</result>		
+			<result name="confirmationdata">/eventmanage/emailjson.jsp</result>		
+			<result name="refresh">/eventmanage/editeventjson.jsp</result>		
 			<result name="badgespdf" type="stream">
             	<param name="contentType">application/pdf</param>
             	<param name="inputName">inputStream</param>
             	<param name="contentDisposition">attachment;filename="attendeebadges.pdf"</param>
     		</result>
 			<result name="statusjson">/eventmanage/editeventjson.jsp</result>
+			<result name="pageRedirect" type="redirect">Snapshot?eid=${eid}</result>
 		</action>
-		 
 	</package>
 </struts>

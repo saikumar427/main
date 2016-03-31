@@ -6,6 +6,7 @@ import com.event.dbhelpers.DisplayAttribsDB;
 import com.event.dbhelpers.EventDB;
 import com.eventbee.general.DbUtil;
 import com.eventbee.general.I18NCacheData;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.opensymphony.xwork2.ValidationAware;
@@ -77,14 +78,20 @@ public class RegWordCustomizeAction extends ActionSupport implements Preparable,
 		
 	}
     public String execute() {
-	seatingEnabled=EventDB.getConfigVal(eid, "event.seating.enabled", "No");
-	String query="select count(*) from priority_list where eventid=?";
-	count=DbUtil.getVal(query, new String[]{eid});
-	HashMap<String, String> hm= new HashMap<String,String>();
-	hm.put("module", "RegFlowWordings");
-	wordAttribs= DisplayAttribsDB.getDisplayAttribs(hm, I18NCacheData.getI18NLanguage(eid), eid);//DisplayAttribsDB.getAttribValues(eid, "RegFlowWordings");
-	//vbEnabled = VolumeTicketsDB.isVolumeTicketingEnabled(eid,"mgr.volumeticketing.enabled");	
-	return "success";
+    	String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+    	System.out.println("Current Level : "+curLvl+" & EventId : "+eid);
+    	int RegWordCustomize = 200;
+    	if(Integer.parseInt(curLvl)>=RegWordCustomize){
+			seatingEnabled=EventDB.getConfigVal(eid, "event.seating.enabled", "No");
+			String query="select count(*) from priority_list where eventid=?";
+			count=DbUtil.getVal(query, new String[]{eid});
+			HashMap<String, String> hm= new HashMap<String,String>();
+			hm.put("module", "RegFlowWordings");
+			wordAttribs= DisplayAttribsDB.getDisplayAttribs(hm, I18NCacheData.getI18NLanguage(eid), eid);//DisplayAttribsDB.getAttribValues(eid, "RegFlowWordings");
+			//vbEnabled = VolumeTicketsDB.isVolumeTicketingEnabled(eid,"mgr.volumeticketing.enabled");	
+			return "success";
+    	}else
+    		return "pageRedirect";
 	}
 	
 	public String save(){

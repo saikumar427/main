@@ -43,10 +43,16 @@ import com.opensymphony.xwork2.ValidationAware;
 			this.wordAttribs = wordAttribs;
 		}
 		public String execute(){
-			HashMap<String, String> hm= new HashMap<String,String>();
-			hm.put("module", "RSVPFlowWordings");
-			wordAttribs= DisplayAttribsDB.getDisplayAttribs(hm, I18NCacheData.getI18NLanguage(eid), eid);//DisplayAttribsDB.getAttribValues(eid, "RSVPFlowWordings");
-			return "success";
+			String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+	    	System.out.println("Current Level : "+curLvl+" & EventId : "+eid);
+	    	int RSVPRegWordCustomize = 150;
+	    	if(Integer.parseInt(curLvl)>=RSVPRegWordCustomize){
+				HashMap<String, String> hm= new HashMap<String,String>();
+				hm.put("module", "RSVPFlowWordings");
+				wordAttribs= DisplayAttribsDB.getDisplayAttribs(hm, I18NCacheData.getI18NLanguage(eid), eid);//DisplayAttribsDB.getAttribValues(eid, "RSVPFlowWordings");
+				return "success";
+	    	}else
+	    		return "pageRedirect";
 		}
 		public String save(){
 			String mgrId=ActionContext.getContext().getParameters().get("mgrId").toString();

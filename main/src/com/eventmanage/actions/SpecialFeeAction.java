@@ -106,17 +106,23 @@ public class SpecialFeeAction extends ActionSupport implements Preparable,Valida
 		currencySymbol=currencyDetailsMap.get("currencysymbol");
 		if(currencySymbol==null || "".equals(currencySymbol))currencySymbol="$";
 		System.out.println("ticketingtype: "+ticketingtype+" source: "+source+" powertype: "+powertype);
-		if("No".equalsIgnoreCase(SpecialFeeDB.checkUpgradeStatus(eid, source, powertype, ticketingtype)))
-			return "blank";
 		specialFeeMap=SpecialFeeDB.getNewSpecialFee(eid,mgrid,ticketingtype,currencyDetailsMap.get("currencycode"));
-		
-		System.out.println("servicefee for event is :: "+eid+" servicefee :: "+servicefee);
+		//System.out.println("servicefee for event is :: "+eid+" servicefee :: "+servicefee);
 		if(specialFeeMap.isEmpty())
 			return "blank";
 		else 
 			return "specialfee";
 	    	
-	}		
+	}	
+	
+	public String isPopup(){
+		if("No".equalsIgnoreCase(SpecialFeeDB.checkUpgradeStatus(eid, source, powertype, ticketingtype)))
+			return "blank";
+		else{
+			ccstatus="success";
+			return "ccjson";
+		}
+	}
 	
 	public String upgradeEvent(){
 		System.out.println("ticketingtype: "+ticketingtype+" source: "+source+" powertype: "+powertype);

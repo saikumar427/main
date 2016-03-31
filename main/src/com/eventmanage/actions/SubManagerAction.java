@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import com.event.beans.SubManagerData;
+import com.event.dbhelpers.SpecialFeeDB;
 import com.event.dbhelpers.SubManagerDB;
 import com.event.helpers.I18n;
 import com.eventbee.beans.Entity;
@@ -82,10 +83,27 @@ public class SubManagerAction  extends ActionSupport implements Preparable,Valid
 		
 	}
 	public String execute(){
-		System.out.println("Save execute powertype: "+powertype);
-		subMgrList = SubManagerDB.getSubManagerList(eid);
-		jsonData = SubManagerJSONHelper.getSubManagerJson(subMgrList).toString();
-		return "success";
+		Boolean redirect =false;
+		String pwrType=ActionContext.getContext().getParameters().get("pwrType").toString();
+		if("Ticketing".equals(pwrType))
+			redirect = SpecialFeeDB.checking(eid,"SubManager","Ticketing","400");
+		else
+			redirect = rsvpChecking();
+		if(redirect){
+			return "pageRedirect";
+		}else{
+			subMgrList = SubManagerDB.getSubManagerList(eid);
+			jsonData = SubManagerJSONHelper.getSubManagerJson(subMgrList).toString();
+			return "success";
+		}
+	}
+	Boolean rsvpChecking(){
+		String curLvl=ActionContext.getContext().getParameters().get("curLvl").toString();
+		int SubManagerRsvp = 150;
+		if(Integer.parseInt(curLvl)==SubManagerRsvp)
+			return false;
+		else
+			return true;
 	}
 	
 	public String reloadData(){
