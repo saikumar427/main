@@ -164,7 +164,7 @@ function submitFormAndHandle(formId, errMsgDivid, reloadYN){
 			    	   
 			          }			       
 			         else {		
-			        	$('ul').attr('style','list-style-type:none');
+			        	//$('ul').attr('style','list-style-type:none');
 		            	$('#'+errMsgDivid).html(result);
 		            	$('#'+errMsgDivid).show();
 		            	 hideProcessing();

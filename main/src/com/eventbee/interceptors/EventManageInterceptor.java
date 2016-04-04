@@ -17,7 +17,6 @@ import com.opensymphony.xwork2.ValidationAware;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.user.beans.UserData;
 import com.event.dbhelpers.SubManagerDB;
-import com.event.helpers.I18n;
 
 public class EventManageInterceptor extends AbstractInterceptor {
 

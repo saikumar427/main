@@ -324,13 +324,10 @@ public class SpecialFeeDB {
 		else if(!"".equals(feature_level) && !"".equals(created_at) && !"".equals(start_date) && !"".equals(least_level)){
 			try {
 				if(sdf.parse(created_at).compareTo(sdf.parse(start_date)) >=0 && Integer.parseInt(current_level) < Integer.parseInt(feature_level)){
-					System.out.println("!!! checkUpgradeStatus 111111 ");
 					return "Yes";
 				}else if(sdf.parse(created_at).compareTo(sdf.parse(start_date)) <0 && Integer.parseInt(current_level) < Integer.parseInt(least_level)){
-					System.out.println("!!! checkUpgradeStatus 222222 ");
 					return "Yes";
 				}else{
-					System.out.println("!!! checkUpgradeStatus 333333 ");
 					return "No";
 				}
 				
@@ -338,7 +335,6 @@ public class SpecialFeeDB {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("!!! checkUpgradeStatus 444444 ");
 		return "No";
 	}
 	

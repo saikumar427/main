@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import com.event.beans.EventData;
 import com.event.beans.PaymentData;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.event.dbhelpers.PaymentSettingsDB;
 import com.event.dbhelpers.SpecialFeeDB;
 import com.event.dbhelpers.TicketsDB;
@@ -628,6 +629,7 @@ public class PaymentSettingsAction extends ActionSupport implements Preparable,V
 				paymentSettingsErrorsExists = "false";
 				PaymentSettingsDB.deleteduplicates(eid,paymentData);
 				PaymentSettingsDB.updateCurrencyFee(eid,mgrid,paymentData.getCurrencytype());
+				EventHelperDB.removeGLobalEventCache(eid, "remove", "ticketsettings");
 				return "updated";
 			}
 			else{

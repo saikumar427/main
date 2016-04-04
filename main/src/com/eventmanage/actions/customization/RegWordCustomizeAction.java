@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.event.dbhelpers.DisplayAttribsDB;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.eventbee.general.DbUtil;
 import com.eventbee.general.I18NCacheData;
 import com.opensymphony.xwork2.ActionContext;
@@ -97,6 +98,8 @@ public class RegWordCustomizeAction extends ActionSupport implements Preparable,
 	public String save(){
 		DisplayAttribsDB.insertDisplayAttribs(eid, "RegFlowWordings", wordAttribs, true);		
 		msgKey="success";
+		EventHelperDB.removeGLobalEventCache(eid, "remove", "ticketsettings");
+		
 		return "ajaxmsg";
 		/*return "ajaxstatusmsg";*/
 	}

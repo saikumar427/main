@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import com.event.beans.DiscountData;
 import com.event.dbhelpers.DiscountsDB;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.eventmanage.helpers.JsonBuilderHelper;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -86,6 +87,7 @@ public class ManageDiscountsAction extends ActionSupport implements Preparable,V
 	public String delete(){
 		log.info("deleting... discounts");
 		DiscountsDB.deleteDiscountData(eid,id);		
+		EventHelperDB.removeGLobalEventCache(eid, "remove", "ticketsettings");
 		msgKey="discount.deleted";
 		return "deleted";		
 	}

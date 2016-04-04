@@ -18,6 +18,7 @@ JSONObject jsonData = new JSONObject(data);
 String title=BuyerAttHelper.getTitle(eventid,widgetid,layout_type); 
 String ref_tTitle =widgetTitle;//DBHelper.getRefTitle(eventid,widgetid);
 
+
 %>
 <!DOCTYPE html>
 <html>

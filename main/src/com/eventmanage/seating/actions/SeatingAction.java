@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.event.dbhelpers.SpecialFeeDB;
 import com.event.dbhelpers.TicketShowHideDB;
 import com.eventbee.beans.Entity;
@@ -257,11 +258,13 @@ public class SeatingAction extends ActionSupport{
 	}
 	public String addSeat(){
 		SeatingDB.addSeat(alltickets, colorCode, eid, venueid);
+		EventHelperDB.removeGLobalEventCache(eid+"_"+venueid, "remove", "seatingvenuedetails");
 		populateData();
 		return "success";
 	}
 	public String deleteSeat(){
 		SeatingDB.deleteSeat(colorCode, eid, venueid);
+		EventHelperDB.removeGLobalEventCache(eid+"_"+venueid, "remove", "seatingvenuedetails");
 		populateData();
 		return "success";
 	}
@@ -279,6 +282,8 @@ public class SeatingAction extends ActionSupport{
 		}catch (Exception e) {
 		}
 		msg="success";
+		EventHelperDB.removeGLobalEventCache(eid, "remove", "eventinfo");
+		EventHelperDB.removeGLobalEventCache(eid+"_"+venueid, "remove", "seatingvenuedetails");
 		return "ajaxjson";
 	}
 	public String getTicketsForColor(){
@@ -294,6 +299,7 @@ public class SeatingAction extends ActionSupport{
 	}
 	public String updateSeatTickets(){
 		SeatingDB.updateSeatTickets(seltickets, eid, venueid, colorCode);
+		EventHelperDB.removeGLobalEventCache(eid+"_"+venueid, "remove", "seatingvenuedetails");
 		populateData();
 		return "success";
 	}

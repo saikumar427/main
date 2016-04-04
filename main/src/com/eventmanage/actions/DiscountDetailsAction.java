@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import com.event.beans.DiscountData;
 import com.event.dbhelpers.DiscountsDB;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.event.dbhelpers.TicketsDB;
 import com.event.helpers.I18n;
 import com.eventbee.beans.Entity;
@@ -235,7 +236,7 @@ public class DiscountDetailsAction extends ActionSupport implements Preparable,V
 			System.out.println("In save method"+status);
 			discountData.setSeltickets(seltickets);
 			DiscountsDB.saveDiscountData(discountData, eid);
-			
+			EventHelperDB.removeGLobalEventCache(eid, "remove", "ticketsettings");
 			return "success";
 		}
 		else{

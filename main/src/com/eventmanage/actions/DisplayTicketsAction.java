@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import com.event.dbhelpers.DisplayAttribsDB;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.event.helpers.I18n;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
@@ -151,6 +152,7 @@ public class DisplayTicketsAction  extends ActionSupport implements Preparable,V
 		if(status){
 		DisplayAttribsDB.insertDisplayAttribs(eid, module, ticketDisplayOptionsMap, true);
 		DisplayAttribsDB.updateRegistrationTimeOut(eid, regtimeout);
+		EventHelperDB.removeGLobalEventCache(eid, "remove", "ticketsettings");
 		return "updated";
 		}else
 			return "displayformaterror";

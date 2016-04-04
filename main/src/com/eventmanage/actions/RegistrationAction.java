@@ -14,6 +14,7 @@ import com.eventbee.beans.Entity;
 import com.event.dbhelpers.CustomAttributesDB;
 import com.event.dbhelpers.DiscountsDB;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.event.dbhelpers.SpecialFeeDB;
 import com.event.helpers.CustomAttribsJSONBuilderHelper;
 import com.event.helpers.I18n;
@@ -413,6 +414,7 @@ public class RegistrationAction extends ActionSupport implements Preparable,Vali
 				}
 			}
 			msgKey = "question.saved";
+			EventHelperDB.removeGLobalEventCache(eid, "remove", "baseprofiles");
 			return "saved";
 		}catch(Exception ex){
 			log.error("Exception in saveQuestion: "+ex);
@@ -649,6 +651,7 @@ public class RegistrationAction extends ActionSupport implements Preparable,Vali
 			if("yes".equals(responseexist))
 				msgKey = "exist";
 			else msgKey = "not";
+			EventHelperDB.removeGLobalEventCache(eid, "remove", "baseprofiles");
 			return "ajaxmsg";
 		}catch(Exception ex){
 			log.error("Exception: "+ex);

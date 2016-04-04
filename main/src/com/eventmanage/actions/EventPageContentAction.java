@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.event.beans.EventPageContentData;
 import com.event.dbhelpers.EventDB;
+import com.event.dbhelpers.EventHelperDB;
 import com.event.dbhelpers.EventPageContentDB;
 import com.event.dbhelpers.SpecialFeeDB;
 import com.event.dbhelpers.VolumeTicketsDB;
@@ -483,6 +484,7 @@ public class EventPageContentAction extends ActionSupport implements Preparable,
 		EventPageContentDB.insertEventPwd(eid,password);
 		eventPageContentData.setEventpassword(EventDB.getEventPassword(eid));
 		msgKey="Updated";
+		EventHelperDB.removeGLobalEventCache(eid, "remove", "ticketsettings");
 		return "ajaxmsg";
 	}
 	

@@ -893,6 +893,7 @@ if("inputeidt".equals(edit()))
 
 	public String deleteTicket() {
 		boolean status = TicketsDB.deleteTicket(eid, ticketId);
+		EventHelperDB.removeGLobalEventCache(eid, "remove", "ticketsinfo");
 		return "success";
 	}
 
