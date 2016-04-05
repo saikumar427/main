@@ -71,7 +71,7 @@ $(function(){
 	var saveRefTitle=function(savebutton){
 		var title=$('#retxttt').val();		
 		$.getJSON('SaveSettings?type=saveRefTiltleBA&eid=<%=eventid%>&widgetid=<%=widgetid%>&layout_type=<%=layout_type%>',{
-			data:parent.convert(getData()),title:parent.convert(title)
+			title:parent.convert(title)
 			}).done(function(response){		
 			parent.changeTitle('<%=widgetid%>',title);			
 				if(savebutton.attr('id').indexOf('Exit')>-1)			
