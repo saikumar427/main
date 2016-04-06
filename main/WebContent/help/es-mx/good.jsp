@@ -38,7 +38,9 @@ padding-bottom:15px;
               <td valign="top" >            
                 </td></tr>
                 <tr><td style="padding-left:8px">
-                <p>We are offering 25% discount on our PRO and ADVANCED ticketing service fees to all non-profit events dedicated to the common good in 2016.
+                <p>
+                We are offering 25% discount on our PRO, ADVANCED and BUSINESS ticketing service fees to all non-profit events dedicated to the common good in 2016.
+                </p>
                  </td></tr>
                 <tr><td style="padding-left:8px">
                 <p>  <span class="roundedboxheader">Non-profit pricing:</span></p>
@@ -47,6 +49,7 @@ padding-bottom:15px;
                 BASIC  Ticketing – $1 per ticket, regardless of ticket price and currency</p>
 			<p>PRO Ticketing – $1.15 per ticket, regardless of ticket price and currency (Regular price $1.50)</p>
 				<p>ADVANCED Ticketing – $1.50 per ticket, regardless of ticket price and currency (Regular price $2)</p>
+				<p>BUSINESS Ticketing – $2.25 per ticket, regardless of ticket price and currency (Regular price $3)</p>
 				 </td></tr>
                 <tr><td >
                 <p> <span class="roundedboxheader">&nbsp; Follow these simple steps to claim your non-profit discount:</span><br><br>
