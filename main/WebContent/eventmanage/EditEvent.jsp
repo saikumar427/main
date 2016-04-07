@@ -581,6 +581,7 @@ $('.submitBtn').click(function(){
  
 function reloadeditors(){
 		var selectedtype = $('input[name="type"]:checked').val();
+		selectedtype='wysiwyg';
 		document.getElementById('descriptiontype').value=selectedtype;
 		document.getElementById('fckdesccontent').style.display = 'block';
 		document.getElementById('fckdesctxtcontent').style.display = 'none';
