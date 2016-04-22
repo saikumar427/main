@@ -20,6 +20,8 @@ import com.eventbee.general.DateUtil;
 import com.eventbee.general.DbUtil;
 import com.eventbee.general.I18NCacheData;
 import com.eventbee.general.StatusObj;
+import com.google.gson.JsonObject;
+import com.membertasks.actions.ImageUploadAction;
 
 public class DBHelper{
 	public static String getLayout(String eventid,String ref,String stage) throws Exception {
@@ -777,8 +779,21 @@ public class DBHelper{
 	
 	public static Boolean saveWidgetOptions(String data,String eventid,String widgetid,String title, String ref_title)throws JSONException {
 		System.out.println("saveWidgetOptions eventid:-"+eventid+", widgetid:-"+widgetid+", ref_title:-"+ref_title);
-		// for rsvplist
 		
+		//for photo widget converting base64 to png image start
+		/*String widgetDetails[]=widgetid.split("_");
+		String widgetName=widgetDetails[0];
+		   if("photo".equals(widgetName)){
+			   System.out.println("Photo url converting base64 to png image.");
+			   JSONObject newData=new JSONObject(data);
+			   String url= newData.getString("url");
+			   String imageUlr = ImageUploadAction.Base64toImg(url);
+			   newData.put("url", imageUlr);
+			   data = newData.toString();
+		   }*/
+		//for photo widget converting base64 to png image end
+		   
+		// for rsvplist start
 		if("RSVPList".equals(widgetid)){
 			JSONObject fbid = new JSONObject(data);
 			String facebookId="";
@@ -794,10 +809,9 @@ public class DBHelper{
 									"from buyer_att_def_widget_options where lang=? and widgetid='RSVPList'";
 					StatusObj statobjBuyerInsert = DbUtil.executeUpdateQuery(insertBuyerCustom, new String[]{eventid,data,DateUtil.getCurrDBFormatDate(),DateUtil.getCurrDBFormatDate(),I18NCacheData.getI18NLanguage(eventid)});
 				}
-				
-				
 			}
 		}
+		// for rsvplist end
 				
 		String updateQry = "update custom_widget_options set config_data=?,widget_title=?,widget_ref_title=?,updated_at=to_timestamp(?,'YYYY-MM-DD HH24:MI:SS.MS') "+
 						"where eventid=?::bigint and widgetid=? and stage='draft'";

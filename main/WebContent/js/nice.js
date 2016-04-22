@@ -179,7 +179,7 @@ var nicUploadButton = nicEditorAdvancedButton.extend({
     },
     onUploaded: function(B) {
         this.removePane();
-        console.log(B);
+        //console.log(B);
         var D = B;
         if (!this.im) {
             this.ne.selectedInstance.restoreRng();

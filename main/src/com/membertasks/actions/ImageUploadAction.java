@@ -8,11 +8,16 @@ import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ResourceBundle;
 
+import javax.imageio.ImageIO;
+
 import org.apache.commons.io.FileUtils;
+
+import sun.misc.BASE64Decoder;
 
 import com.membertasks.dbhelpers.ImageUploadDB;
 import com.event.helpers.I18n;
@@ -37,6 +42,14 @@ public class ImageUploadAction extends ActionSupport{
     private String fullWebPath="";
     private String type="";
     private String purpose="";
+    private String imgId="";
+
+	public String getImgId() {
+		return imgId;
+	}
+	public void setImgId(String imgId) {
+		this.imgId = imgId;
+	}
 	public String getPurpose() {
 		return purpose;
 	}
@@ -106,8 +119,6 @@ public class ImageUploadAction extends ActionSupport{
 	public String save(){
 		ResourceBundle resourceBundle=I18n.getResourceBundle();
 		try {
-			
-			System.out.println("in save methos is::"+uploadFileName);
 			
 			String filepath=EbeeConstantsF.get("photo.image.path","C:\\uploads");
 			String filepath1=EbeeConstantsF.get("thumbnail.photo.image.path","C:\\uploads1"); 
@@ -268,6 +279,28 @@ public class ImageUploadAction extends ActionSupport{
 	return i;
 
 	}
+	
+	
+	public static String Base64toImg(String dataUrl){
+		String parts[] = dataUrl.split(",");
+		String imageString = parts[1];
+		String filepath=EbeeConstantsF.get("photo.image.path","C:\\uploads");
+		String fullWebPath=EbeeConstantsF.get("photo.image.webpath","http://localhost:8080/home/images/");
+		String imgId="";
+		try{
+			imgId=ImageUploadDB.getTempImgName();
+			BASE64Decoder decoder = new BASE64Decoder();
+			byte[] imageByte = decoder.decodeBuffer(imageString);
+			BufferedImage bufImg = ImageIO.read(new ByteArrayInputStream(imageByte));
+			String modfiedName=filepath+"img_"+imgId+".png";
+			java.io.File outputfile = new java.io.File(modfiedName);
+			fullWebPath = fullWebPath+"/img_"+imgId+".png";
+		}catch(Exception e){
+			System.out.println("while converting data image to image : "+e);
+		}
+		return fullWebPath;
+	}
+	
 }
 	
 	
