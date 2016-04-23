@@ -54,7 +54,7 @@ public class FileExistsAction extends ActionSupport {
 			System.out.println("Exception in FileExistsAction ERROR: "+e.getMessage());
 			exists=false;
 		}
-		//exists =true;		
+		exists =true;		
 		setPattern(jspFile);
 		if ((exists && ("eventbee-for-business".equals(jspFile) || "pricing".equalsIgnoreCase(jspFile) || "how-it-works".equalsIgnoreCase(jspFile) || "eventbee-ticketing-kindle-promotion".equalsIgnoreCase(jspFile) || "faq".equalsIgnoreCase(jspFile) || "eventbee-customer-case-study-bishop-kelly-high-school".equalsIgnoreCase(jspFile) || "eventbee-manager-app".equalsIgnoreCase(jspFile) || "eventbee-customer-case-study-demolay-international".equalsIgnoreCase(jspFile) || "refer-a-friend".equalsIgnoreCase(jspFile) || "venue-reserved-seating".equalsIgnoreCase(jspFile) || "sell-tickets-on-facebook".equalsIgnoreCase(jspFile) || "social-media-event-marketing".equalsIgnoreCase(jspFile) || "sell-event-tickets-with-paypal-stripe-braintree-authorize-net".equalsIgnoreCase(jspFile) || "free-event-ticketing-software".equalsIgnoreCase(jspFile) || "free-online-event-registration-software".equalsIgnoreCase(jspFile) || "attendee-event-management-at-the-door".equalsIgnoreCase(jspFile) || "custom-online-registration-form".equalsIgnoreCase(jspFile) ))){ 
 			return "pricing";
