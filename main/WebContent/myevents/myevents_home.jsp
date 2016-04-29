@@ -133,7 +133,8 @@
 		                 <div><label class="icon"><span class="section-main-header" style="cursor:pointer"><s:text name="mes.whats.new.lbl"/></span > <span style="cursor:pointer" class="glyphicon glyphicon-menu-right down"></span></label></div>
 		                 <div class="content" >
 		                     <p>
-		                        <s:text name="mes.we.exicted.lbl"/> <span> <a href="javascript:;" id="uiFeedback"><s:text name='mes.we.excited.lnk'/></a></span>
+		                     <%-- <s:text name="mes.we.exicted.lbl"/> <span> <a href="javascript:;" id="uiFeedback"><s:text name='mes.we.excited.lnk'/></a></span> --%>
+		                        <s:text name="mes.we.exicted.lbl"/> <span> <a href="/main/eventbee-for-business" target="_blank"><s:text name='mes.we.excited.lnk'/></a></span>
 		                     </p>
 		                  		                 
 		                 </div>	                

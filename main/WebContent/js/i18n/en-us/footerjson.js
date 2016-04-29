@@ -213,14 +213,14 @@ var i18nFooter={
 		              "href": "http://apps.facebook.com/eventbeeticketing",
 		              "target":"_blank",
 		              "i18n_include":false
-		            },
+		            }/*,
 		            {
 		              "type": "text",
 		              "label": "Volumebee - Crowd Selling Platform For Tickets & More",
 		              "href": "http://www.volumebee.com",
 		              "target":"_blank",
 		              "i18n_include":false
-		            }
+		            }*/
 		          ]
 		        }
 		      ]

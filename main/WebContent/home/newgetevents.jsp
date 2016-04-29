@@ -81,7 +81,7 @@ public static ArrayList getDisplayEvents(){
 
   public static String getAddressLine(String address1,String address2,String city,String state,String country){
 	  String addressline="";
-	  if(!"".equals(address1))
+	  /* if(!"".equals(address1))
 		  addressline=address1;
 	  if(!"".equals(addressline) && !"".equals(address2))
 		  addressline=addressline+", "+address2;
@@ -90,7 +90,21 @@ public static ArrayList getDisplayEvents(){
 	  if(!"".equals(addressline) && !"".equals(state))
 		  addressline=addressline+", "+state;
 	  if(!"".equals(addressline) && !"".equals(country))
-		  addressline=addressline+", "+country;
+		  addressline=addressline+", "+country; */
+		  
+		  if(!"".equals(address1))
+			  addressline=address1+", ";
+		  if(!"".equals(address2))
+			  addressline+=address2+", ";
+		  if(!"".equals(city))
+			  addressline+=city+", ";
+		  if(!"".equals(state))
+			  addressline+=state+", ";
+		  if(!"".equals(country))
+			  addressline+=country;
+		  
+		  addressline = addressline.replaceAll(", $", "");
+		  
 	  return addressline;
   }
 

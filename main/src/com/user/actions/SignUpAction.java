@@ -2,9 +2,11 @@ package com.user.actions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
+import org.json.JSONObject;
 
 import com.event.helpers.I18n;
 import com.eventbee.beans.Entity;
@@ -45,6 +48,43 @@ public class SignUpAction extends ActionSupport implements Preparable,Validation
 	private Map session;
 	private String token="";
 	private String serverAddress="http://"+EbeeConstantsF.get("serveraddress","www.eventbee.com")+"/"; 
+	private String beeId="";
+	private String password="";
+	private String email="";
+	private String jsonData="";
+	
+	
+	public String getBeeId() {
+		return beeId;
+	}
+
+	public void setBeeId(String beeId) {
+		this.beeId = beeId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getJsonData() {
+		return jsonData;
+	}
+
+	public void setJsonData(String jsonData) {
+		this.jsonData = jsonData;
+	}
 	
 	public String getToken() {
 		return token;
@@ -193,21 +233,21 @@ public class SignUpAction extends ActionSupport implements Preparable,Validation
 				
 				if(status==false){*/
 					System.out.println("we are in validate data status==false");
-					addFieldError("userData.getBeeId()", validateSignUp.get("loginnameExist").toString());
+					addFieldError("beeId", validateSignUp.get("loginnameExist").toString());
 				//}
 		     }
 			if(validateSignUp.get("loginLength")!=null){
-				addFieldError("userData.getBeeId()", validateSignUp.get("loginLength").toString());
+				addFieldError("beeId", validateSignUp.get("loginLength").toString());
 			}/*else{
 				if(userData.getBeeId().trim().length()>20)
 					addFieldError("userData.beeId", " BeeId maximum size exceeds 20");
 			}*/
 			
 			if(validateSignUp.get("invalid_id")!=null){
-			addFieldError("userData.getBeeId()", validateSignUp.get("invalid_id").toString());
+			addFieldError("beeId", validateSignUp.get("invalid_id").toString());
 			}
 			if(validateSignUp.get("pwdLength")!=null){
-				addFieldError("userData.getPassword()", validateSignUp.get("pwdLength").toString());
+				addFieldError("password", validateSignUp.get("pwdLength").toString());
 			}/*else{
 				if(userData.getPassword().trim().length()>20)		
 					addFieldError("userData.password", " Password maximum size exceeds 20");
@@ -231,9 +271,9 @@ public class SignUpAction extends ActionSupport implements Preparable,Validation
 		   }*/
 		}
 	    if ("".equals(userData.getEmail().trim()))
-			addFieldError("userData.email", resourceBundle.getString("global.email.is.empty.errmsg"));
+			addFieldError("email", resourceBundle.getString("global.email.is.empty.errmsg"));
 		else if(!EventBeeValidations.isValidFromEmail(userData.getEmail().trim()))
-			addFieldError("userData.email", resourceBundle.getString("global.invalid.format.for.email.errmsg"));
+			addFieldError("email", resourceBundle.getString("global.invalid.format.for.email.errmsg"));
 		s=s.toLowerCase();
 		/*captcha=captcha.toLowerCase().trim();
 		if("".equals(captcha) || !captcha.equals(s)){
@@ -262,11 +302,11 @@ public class SignUpAction extends ActionSupport implements Preparable,Validation
 		try{
 			System.out.println("email count::"+Integer.parseInt(emailcount)+"ip count:::"+Integer.parseInt(ipcount));
 		if(Integer.parseInt(emailcount)>=3){
-			addFieldError("Email",resourceBundle.getString("su.too.many.signup.email.msg"));
+			addFieldError("email",resourceBundle.getString("su.too.many.signup.email.msg"));
 			query="insert into suspected_user_activities(userid,ip,action,created_at) values(?,?,'signup_action_email',now())";
 			DbUtil.executeUpdateQuery(query,new String[]{null,ip});
 			}else if(Integer.parseInt(ipcount)>=3){	
-			addFieldError("Ip",resourceBundle.getString("su.too.many.signup.ip.msg"));
+			addFieldError("ip",resourceBundle.getString("su.too.many.signup.ip.msg"));
 			query="insert into suspected_user_activities(userid,ip,action,created_at) values(?,?,'signup_action_ip',now())";
 			DbUtil.executeUpdateQuery(query,new String[]{null,ip});			
 		}}catch(Exception e){System.out.println("exception in validatesignup::"+e.getMessage());}			
@@ -298,6 +338,44 @@ public class SignUpAction extends ActionSupport implements Preparable,Validation
 		return "success";
 		}
 	}
+	
+	public String hmPgSignUpProcess(){
+		System.out.println("hmPgSignUpProcess beeId: "+beeId+" password: "+password+" email: "+email);
+		userData.setBeeId(beeId);
+		userData.setPassword(password);
+		userData.setEmail(email);
+		userData.setReferBy("homepage-signup");
+		boolean status=validateData();
+		JSONObject json=new JSONObject();
+		if(status){
+			try{
+				UserDB.processSignUp(userData);
+				json.put("status","success");
+			}catch(Exception e){}
+		}else{	
+			try{
+				Set<String> keyset=getFieldErrors().keySet();
+				Iterator iterator = keyset.iterator();
+				while (iterator.hasNext()){
+					String key=(String)iterator.next();
+					List<String> list=getFieldErrors().get(key);
+					String errormsg="";
+					for(int i=0;i<list.size();i++){
+						errormsg+=list.get(i);
+						if(list.size()-1>i) errormsg+="<br/>";
+					}
+					json.put(key,errormsg);
+				}
+				json.put("status","error");
+			}catch(Exception e){}
+		}
+		jsonData=json.toString();
+		return "jsondata";
+	}
+	
+	public  String hmPgSignUpActivation(){
+		return "actionvationlink";
+	} 
 	
 	
 	public  String activateAccount(){

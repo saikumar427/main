@@ -48,6 +48,7 @@
 		<result name="actionvationlink"  type="tiles">user.actionvationlink.page</result>		
 		<result name="invalid" type="tiles">user.login.page</result>
         <result name="error" type="tiles">helplinks.error.page</result>
+        <result name="jsondata">/eventmanage/jsondata.jsp</result>
         </action>
 		<action name="loginproblem"  class="user_loginproblem" >
 		<result name="success">/user/loginproblem.jsp</result>
