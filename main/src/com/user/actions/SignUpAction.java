@@ -344,7 +344,7 @@ public class SignUpAction extends ActionSupport implements Preparable,Validation
 		userData.setBeeId(beeId);
 		userData.setPassword(password);
 		userData.setEmail(email);
-		userData.setReferBy("homepage-signup");
+		userData.setReferType("homepage-signup");
 		boolean status=validateData();
 		JSONObject json=new JSONObject();
 		if(status){

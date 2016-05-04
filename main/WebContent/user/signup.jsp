@@ -37,11 +37,11 @@
 					</s:if>
                         <form action="signup!signUpProcess" class="form-horizontal" id="signupform" name="signupform" method="post">
                           		<div style="height:8px;"></div>
-                                    <s:textfield id="beeid" name="userData.beeId"  type="text" placeholder="%{getText('la.signup.beeid.ph')}" cssClass="form-control" autofocus="autofocus"/>
+                          			<s:textfield id="email" name="userData.email" type="text" placeholder="%{getText('la.signup.email.ph')}" cssClass="form-control" autofocus="autofocus"/>
+                                <div style="height:15px;"></div>
+                                    <s:textfield id="beeid" name="userData.beeId"  type="text" placeholder="%{getText('la.signup.beeid.ph')}" cssClass="form-control" />
                          		<div style="height:15px;"></div>
                                     <s:password id="password" name="userData.password" type="password" placeholder="%{getText('la.signup.pwd.ph')}" cssClass="form-control"/>
-                                <div style="height:15px;"></div>
-                                    <s:textfield id="email" name="userData.email" type="text" placeholder="%{getText('la.signup.email.ph')}" cssClass="form-control" />
                                 <div style="height:15px;"></div>
                                     <button type="submit" id="signupbtn" class="btn btn-block btn-primary pull-right" data-style="expand-right"data-size="l"><s:text name="global.signup.btn.lbl"/></button>
                                 <div style="height:50px;"></div>

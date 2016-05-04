@@ -77,6 +77,10 @@ h6,
     font-size: 28px;
 }
 
+.service-heading:visited {
+    color: #777 !important;
+}
+
 @import "https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700";
 @font-face {
     font-family: 'twcenmt';
@@ -420,7 +424,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .image-div {
-    background: url(../img/yoga-1366.jpeg) no-repeat center top; 
+    #background: url(../img/yoga-1366.jpeg) no-repeat center top; 
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.2);
 	color: #fff;
@@ -915,9 +919,7 @@ sup {
    
 	background-color: #428bca;
     border-color: #357ebd;
-    color: #fff;
-	
-	
+    color: #fff;	
     text-transform: uppercase;
     font-weight: 500;
     border-radius: 0px;
@@ -933,6 +935,9 @@ sup {
     color: #fff;
     background-color: #3276b1;
     border-color: #285e8e;
+	-webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
 }
 
 
@@ -1015,6 +1020,9 @@ sup {
 		.margin-class{
 			margin-right:5px;
 		}
+		.box-margin{
+	margin-top:8px;
+}
 	}
 	/* Extra Small Devices, Phones */ 
 	@media only screen and (min-width : 480px) {
@@ -1024,6 +1032,9 @@ sup {
 		.intro-lead-in-platform{
 			font-size:30px !important;
 		}
+		.box-margin{
+	margin-top:8px;
+}
 		
 		.padding-text{
 			padding:50px;
@@ -1061,7 +1072,7 @@ sup {
 			font-size:28px;
 		}
 		.margin-class{
-			margin-right:10px;
+			margin-right:8px;
 		}
 	}
 	/* Small Devices, Tablets */
@@ -1069,6 +1080,9 @@ sup {
 		/* body{
 			background:yellow !important;
 		} */
+		.box-margin{
+	margin-top:15x;
+}
 		.block-text-signup{
 			padding:18px !important;
 		}
@@ -1287,7 +1301,7 @@ sup {
 	font-weight:500;
     background-color: #fff;
 	text-align:center;
-	padding:16px 36px;
+	padding:16px;
   	 font-family: Montserrat Light !important;
    	font-size:12px;
 	text-transform: uppercase;
@@ -1307,7 +1321,7 @@ sup {
 	font-family: Montserrat Light !important;
 	font-size:12px;
 	margin:99px auto;
-	padding:16px 36px;
+	padding:16px;
     font-weight:500;
 	text-align:center;
 	
@@ -1415,4 +1429,21 @@ sup {
 #searchcontent::-moz-placeholder {
     color: #777 !important;
     opacity: 1;
+}
+
+.overlay {
+  display: block;
+  position: absolute;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  border:0px solid #eb8823;
+  transition: border-width 0.1s ease-out-in;
+}
+.overlay:hover {
+	border:10px solid #eb8823;
 }
