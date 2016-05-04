@@ -140,8 +140,8 @@
 												</div>
 												<div class="col-md-3 col-sm-3 multidata  labelRow links-div top-gap">
 													<span class="dragiconDelete tktMulOptDelete"><a class="tktDeleteOption" href="javascript:;"><s:text name="global.delete.lnk.lbl"/></a></span>
-													<%-- <span class="sub-questions" style="display:none">
-													<a href="javascript:;" class="addtktcondsubquestions" data-optionid="4">Sub&nbsp;Questions</a></span> --%>
+													<span class="sub-questions">
+													<a href="javascript:;" class="addtktcondsubquestions" data-optionid="4">Sub&nbsp;Questions</a></span>
 													
 												</div>
 											</div>
@@ -161,8 +161,8 @@
 												<div class="col-md-3 col-sm-3 multidata  labelRow links-div top-gap">
 													<span class="dragiconDelete tktMulOptDelete">
 													<a class="tktDeleteOption" href="javascript:;"><s:text name="global.delete.lnk.lbl"/></a></span>
-													<%-- <span class="sub-questions" style="display:none">
-													<a href="javascript:;" class="addtktcondsubquestions" data-optionid="5">Sub&nbsp;Questions</a></span> --%>
+													<span class="sub-questions">
+													<a href="javascript:;" class="addtktcondsubquestions" data-optionid="5">Sub&nbsp;Questions</a></span>
 													
 												</div>
 											</div>
@@ -182,16 +182,16 @@
 												<div class="col-md-3 col-sm-3 multidata  labelRow links-div top-gap">
 													<span class="dragiconDelete tktMulOptDelete">
 													<a class="tktDeleteOption" href="javascript:;"><s:text name="global.delete.lnk.lbl"/></a></span>
-													<%-- <span class="sub-questions" style="display:none">
-													<a href="javascript:;" class="addtktcondsubquestions" data-optionid="6">Sub&nbsp;Questions</a></span> --%>
+													<span class="sub-questions">
+													<a href="javascript:;" class="addtktcondsubquestions" data-optionid="6">Sub&nbsp;Questions</a></span>
 													
 												</div>
 											</div>
 										</li>
 									</ul>
-									<!-- <div id="tktsubqnsdiv" style="display:none;" >
+									<div id="tktsubqnsdiv" style="display:none;" >
 										<iframe id="tktsubqns_iframe" src="" width="100%" frameborder="0" scrolling="no"></iframe>
-									</div> -->
+									</div>
 
 									<div class="row sm-font bottom-top-gap">
 										<div class="col-md-5 col-sm-5 col-xs-5">
@@ -283,7 +283,7 @@
 					+ '<input type="hidden" name="attribOptions" value="'+global_eb_counter+'"/><input type="hidden" name="multipleOptionsList" value="'+arr[i]["key"]+'"/><input style="width:100% !important;margin-left: 18px;" type="text" value="'+ arr[i]["value"]+ '" placeholder="'+props.qn_add_answer_placeholder_lbl+'" onkeyup="showSubQnsLabel(this);" class="form-control focus-tsq"'
 					+ ' name="multipleOptionsMap['+arr[i]["key"]+']"></div><div class="col-md-3 col-sm-3 multidata  labelRow links-div top-gap"><span class="dragiconDelete tktMulOptDelete"><a href="javascript:;" class="tktDeleteOption">'
 					+ ' '+props.global_delete_lnk_lbl+'</a></span>'
-					//+ '<span class="sub-questions"><a href="javascript:;" class="addtktcondsubquestions" data-attriboptionid="'+arr[i]["key"]+'" data-optionid="'+global_eb_counter+'" >Sub&nbsp;Questions</a></span>'
+					+ '<span class="sub-questions"><a href="javascript:;" class="addtktcondsubquestions" data-attriboptionid="'+arr[i]["key"]+'" data-optionid="'+global_eb_counter+'" >Sub&nbsp;Questions</a></span>'
 					+ '</div></div></li>';
 			$('#tktSortableOptions').append(tktAttribHtmldata);
 		}
@@ -381,7 +381,7 @@ $('#chk_app_tkts').on('ifUnchecked',function(){
 												+ ' <input type="hidden" name="attribOptions" value="'+global_eb_counter+'"/><input type="hidden" name="multipleOptionsList" value="'+tktnewmultoptkey+'"/><input style="width:100% !important;margin-left: 18px;" type="text" placeholder="'+props.qn_add_answer_placeholder_lbl+'" onkeyup="showSubQnsLabel(this);" class="form-control focus-tsq"'
 												+ ' name="multipleOptionsMap['+tktnewmultoptkey+']"></div><div class="col-md-3 col-sm-3 multidata labelRow links-div top-gap"><span class="dragiconDelete tktMulOptDelete"><a href="javascript:;" class="tktDeleteOption">'
 												+ ' '+props.global_delete_lnk_lbl+'</a></span>'
-												//+ ' <span class="sub-questions" style="display:none"><a href="javascript:;" class="addtktcondsubquestions" data-optionid="'+global_eb_counter+'" >Sub&nbsp;Questions</a></span>'
+												+ ' <span class="sub-questions"><a href="javascript:;" class="addtktcondsubquestions" data-optionid="'+global_eb_counter+'" >Sub&nbsp;Questions</a></span>'
 												+ ' </div></div></li>')
 										.insertAfter($("#tktSortableOptions li").last());
 								e.handled = true;

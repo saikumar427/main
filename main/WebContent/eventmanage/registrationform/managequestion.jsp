@@ -133,9 +133,9 @@
 									<div class="col-md-3 col-sm-3 multidata  labelRow top-gap links-div">
 										<span class="dragiconDelete"><a class="deleteOption" href="javascript:;"><s:text name="global.delete.lnk.lbl"/></a>
 										</span>
-										<%-- <span class="sub-questions" style="display:none">
+										<span class="sub-questions">
 										<a href="javascript:;" class="addcondsubquestions" data-optionid="1">Sub&nbsp;Questions</a>
-										</span> --%>
+										</span>
 
 									</div>
 								</div>
@@ -152,9 +152,9 @@
 									<div class="col-md-3 col-sm-3 multidata  labelRow top-gap links-div">
 										<span class="dragiconDelete"><a class="deleteOption" href="javascript:;"><s:text name="global.delete.lnk.lbl"/></a>
 										</span>
-										<%-- <span class="sub-questions" style="display:none">
+										<span class="sub-questions">
 										<a href="javascript:;" class="addcondsubquestions" data-optionid="2">Sub&nbsp;Questions</a>
-										</span> --%>
+										</span>
 
 									</div>
 								</div>
@@ -171,9 +171,9 @@
 									<div class="col-md-3 col-sm-3 multidata labelRow top-gap links-div">
 										<span class="dragiconDelete"><a class="deleteOption" href="javascript:;"><s:text name="global.delete.lnk.lbl"/></a>
 										</span>
-										<%-- <span class="sub-questions" style="display:none">
+										<span class="sub-questions">
 										<a href="javascript:;" class="addcondsubquestions" data-optionid="3">Sub&nbsp;Questions</a>
-										</span> --%>
+										</span>
 
 									</div>
 								</div>
@@ -185,9 +185,9 @@
 							</div>
 						</div>
 						
-						<!-- <div id="subqnsdiv" style="display:none;">
+						<div id="subqnsdiv" style="display:none;">
 							<iframe id="subqns_iframe" src="" width="100%" frameborder="0" scrolling="no"></iframe>
-						</div> -->
+						</div>
 					</div>
 				</div>
 				</div>
@@ -226,7 +226,7 @@
 			'<input style="width:100% !important;margin-left: 18px;" type="text" value="'+arr[i]["value"]+'" placeholder="'+props.qn_add_answer_placeholder_lbl+'" onkeyup="showSubQnsLabel(this);" class="form-control focus-sq"'+
 	          ' name="multipleOptionsMap['+arr[i]["key"]+']"></div><div class="col-md-3 col-sm-3 multidata  labelRow top-gap links-div"><span class="dragiconDelete"><a href="javascript:;" class="deleteOption">'+
 			''+props.global_delete_lnk_lbl+'</a></span>'+
-			//'<span class="sub-questions"><a href="javascript:;" class="addcondsubquestions" data-attriboptionid="'+arr[i]["key"]+'" data-optionid="'+global_eb_counter+'" >Sub&nbsp;Questions</a></span>'+
+			'<span class="sub-questions"><a href="javascript:;" class="addcondsubquestions" data-attriboptionid="'+arr[i]["key"]+'" data-optionid="'+global_eb_counter+'" >Sub&nbsp;Questions</a></span>'+
 			'</div></div></li>';
 			$('#sortableOptions').append(htmldata);
 		}
@@ -323,7 +323,7 @@ $(document).ready(function (){
 	 		 '<input style="width:100% !important;margin-left: 18px;" type="text" placeholder="'+props.qn_add_answer_placeholder_lbl+'" onkeyup="showSubQnsLabel(this);" class="form-control focus-sq"'+
              ' name="multipleOptionsMap['+buynewmultoptkey+']"></div><div class="col-md-3 col-sm-3 multidata labelRow top-gap links-div"><span class="dragiconDelete"><a href="javascript:;" class="deleteOption">'+
 			''+props.global_delete_lnk_lbl+'</a></span>'+
-			//'<span class="sub-questions" style="display:none"><a href="javascript:;" class="addcondsubquestions" data-optionid="'+global_eb_counter+'">Sub&nbsp;Questions</a></span>'+
+			'<span class="sub-questions"><a href="javascript:;" class="addcondsubquestions" data-optionid="'+global_eb_counter+'">Sub&nbsp;Questions</a></span>'+
 			'</div></div></li>').insertAfter($( "#sortableOptions li" ).last());
 	 	e.handled = true;
 	 	buynewmultoptkey++;
