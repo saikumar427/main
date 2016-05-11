@@ -15,8 +15,14 @@
 	<div class="col-lg-12 panel-heading" style="border:none !important;color: #58585a; text-align:center;padding:0px;">
 		<span style="color: #999999;font-size: 42px;">EVENTBEE FOR BUSINESS</span>
 	</div>
-	<div style="text-align:center !important;padding-bottom:60px" class="medium_desc_grey">Online registration platform to meet your custom event needs!</div>
-							
+	<div style="text-align:center !important;padding-bottom:40px" class="medium_desc_grey">Online registration platform to meet your custom event needs!</div>
+		<div class="col-md-12 col-sm-12 col-xs-12 " style="margin-bottom:40px;text-align:center;">
+				<div class="normal_desc_grey_ans responsive-video">
+					<iframe width="640" height="360"
+						src="https://www.youtube.com/embed/dqyZLA_OhGI?autoplay=1&rel=0&showinfo=0" 
+						frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>					
 	<div class="col-md-12 col-sm-12 col-xs-12 " style="margin-bottom:40px;text-align:center;">
 		<h4 class="list-group-item-heading caption_header_blue" style="color: #428bca;font-size: 32px;">
 				<img src="/main/images/en-us/ButtonTicket.png" alt="" width="55"/>Ticketing Rules

@@ -12,6 +12,20 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class FileExistsAction extends ActionSupport {
 	String pattern="";
+	String filePath="";
+	String i18nlang="";
+	public String getI18nlang() {
+		return i18nlang;
+	}
+	public void setI18nlang(String i18nlang) {
+		this.i18nlang = i18nlang;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
 	public String getPattern() {
 		return pattern;
 	}
@@ -28,11 +42,20 @@ public class FileExistsAction extends ActionSupport {
 		//i18n=I18n.getLanguageFromSession();
 		if(jspNLang.length>1){
 			i18n=jspNLang[1]; 
-			i18n=I18n.getMappingCode(i18n);	
+			i18n=I18n.getMappingCode(i18n);
+			if(i18n==null){
+				i18n=jspNLang[0];
+				jspFile=jspNLang[1];
+				setFilePath(i18n+"."+jspFile);
+			}else{
+				jspFile=jspNLang[0];
+				setFilePath(i18n+"."+jspNLang[0]);
+			}
+		}else{
+			jspFile=jspNLang[0];
+			setFilePath(i18n+"."+jspFile);
 		}
-		jspFile=jspNLang[0];
-		String filepath = EbeeConstantsF.get("help.file.path","D:\\JBoss-EB\\jboss-4.2.2.GA\\server\\default\\deploy\\main.war\\help\\");
-		
+		String filepath = EbeeConstantsF.get("help.file.path","\\mnt\\jboss\\runner\\standalone\\active\\main.war\\help\\");
 		try{
 			File file=new File(filepath+i18n+"/"+jspFile+".jsp");
 			exists = file.exists();
@@ -49,6 +72,10 @@ public class FileExistsAction extends ActionSupport {
 			return "success";
 		}
 		else{
+			if(i18n==null)
+				setI18nlang(I18n.getHyphenSessionLang());
+			else
+				setI18nlang(i18n="en-us".equals(i18n)?i18n:"es-co".equals(i18n)?i18n:"es-mx".equals(i18n)?i18n:"en-co".equals(i18n)?i18n:"en-us");
 			System.out.println("*** filepath in FileExistsAction: "+filepath+jspFile+".jsp");
 			return "error";
 		}

@@ -120,9 +120,9 @@
 		</action>
 		
 		<action name="*/" method="process" class="com.eventbee.actions.FileExistsAction">
-			<result name="success" type="tiles">helplinksold.${i18nCode}.{1}.page</result>
-			<result name="error" type="tiles">helplinksold.${i18nCode}.error.page</result>
-			<result name="pricing" type="tiles">mainhelp.${i18nCode}.{1}.page</result>
+			<result name="success" type="tiles">helplinksold.en-us.{1}.page</result>
+			<result name="error" type="tiles">helplinksold.en-us.error.page</result>
+			<result name="pricing" type="tiles">mainhelp.en-us.{1}.page</result>
 		</action>
 		
 		<!-- if we maintain seperate en_CO folder no need to main this action pattern -->
@@ -132,9 +132,9 @@
 			<result name="pricing" type="tiles">mainhelp.en-us.{1}.page</result>
 		</action>
 		<action name="*/*" method="process" class="com.eventbee.actions.FileExistsAction">
-			<result name="success" type="tiles">helplinksold.{2}.{1}.page</result>
-			<result name="error" type="tiles">helplinksold.{2}.error.page</result>
-			<result name="pricing" type="tiles">mainhelp.{2}.{1}.page</result>
+			<result name="success" type="tiles">helplinksold.${filePath}.page</result>
+			<result name="error" type="tiles">helplinksold.${i18nlang}.error.page</result>
+			<result name="pricing" type="tiles">mainhelp.${filePath}.page</result>
 		</action>
 		
 		

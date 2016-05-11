@@ -179,8 +179,8 @@ li{
 							<span  class="medium_desc_grey" style="padding: 12px;color:grey">Ticketmaster</span>
 						</div>
 						<div class="subevent" id="other">
-						<span class="medium_desc_grey" style="padding: 12px;color:grey;">Other&nbsp;&nbsp;<input type="text" size="2" class="input-field" id="pf"
-							>&nbsp;%&nbsp;&nbsp;+&nbsp;$&nbsp;<input type="text" size="2"
+						<span class="medium_desc_grey" style="padding: 12px;color:grey;">Other&nbsp;&nbsp;<input type="text" size="2" class="input-field" id="pf" style="color:#000;"
+							>&nbsp;%&nbsp;&nbsp;+&nbsp;$&nbsp;<input type="text" size="2" style="color:#000;"
 							class="input-field" id="ff"></span>
 						</div>
 					</div>
