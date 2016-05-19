@@ -13,6 +13,9 @@ body {
     font-size: 18px;
     line-height: 20px;
 }
+.navbar > .container .navbar-brand {
+   margin-left: 10px !important;
+}
 .navbar-collapse.in {
     overflow-y: hidden;
 }

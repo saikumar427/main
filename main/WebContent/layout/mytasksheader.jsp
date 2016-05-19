@@ -111,7 +111,7 @@
 			
 					
 					<a style="margin-bottom: -16px; margin-top: -23px;"
-					class="navbar-brand" href="/main/myevents/home"><img height="36px" alt="Eventbee"
+					class="navbar-brand" href="/main/myevents/home"><img alt="Eventbee"
 					src="http://www.eventbee.com/main/images/logo.png" /></a>
 				<%-- <s:if test="%{#I18N_CODE_PATH != ''}">
 				<a style="margin-bottom: -16px; margin-top: -23px;"

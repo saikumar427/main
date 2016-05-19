@@ -35,7 +35,7 @@ public class I18n {
 		mappingCodes.put("es-co", "es-co");
 		
 		mappingCodes.put("en-mx", "en-us");	
-		mappingCodes.put("es-mx", "es-co");
+		mappingCodes.put("es-mx", "es-mx");
 	}
 
 	public static  void  putLocaleInSession(Map<String, Object> session,ActionInvocation invocation){

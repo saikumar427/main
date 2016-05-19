@@ -148,7 +148,7 @@ li{
 				<div class="caption_header_blue">Básico</div>
 				<div></div>
 				</div>
-				<div class="main_header_orange">$1</div>
+				<div class="main_header_orange">MX$18</div>
 				<div class="normal_desc_grey">/TIQUETE</div>
 				<div class="normal_desc_grey"></div>
 			</div>
@@ -157,7 +157,7 @@ li{
 				<div class="caption_header_blue">Pro</div>
 				<div></div>
 				</div>
-				<div class="main_header_orange">$1.50</div>
+				<div class="main_header_orange">MX$28</div>
 				<div class="normal_desc_grey">/TIQUETE</div>
 			</div>
 			<div class="col-md-3">
@@ -165,15 +165,15 @@ li{
 				<div class="caption_header_blue">Avanzado</div>
 				<div class="normal_desc_grey" style="line-height:0.55">Con reserva de asientos</div>
 				</div>
-				<div class="main_header_orange">$2</div>
+				<div class="main_header_orange">MX$36</div>
 				<div class="normal_desc_grey">/TIQUETE</div>
 			</div>
 			<div class="col-md-3">
 				<div id="business">
-				<div class="caption_header_blue">Negocio</div>
+				<div class="caption_header_blue">Business</div>
 				<div></div>
 				</div>
-				<div class="main_header_orange">$3</div>
+				<div class="main_header_orange">MX$54</div>
 				<div class="normal_desc_grey">/TIQUETE</div>
 				<div class="normal_desc_grey"></div>
 			</div>
@@ -387,7 +387,7 @@ li{
 		<br />
 		<div class="row">
 			<div class="col-md-12 normal_desc_grey_ans">
-				¡Sí! Ofrecemos un descuento del 25% en nuestra venta de Tiquetes Avanzada y Pro para los eventos sin fines de lucro. Para obtener más detalles, visita <a href="http://www.eventbee.com/main/good" target="_blank">http://www.eventbee.com/main/good</a>
+				¡Sí! Ofrecemos un descuento del 25% en nuestra venta de Tiquetes Avanzada y Pro para los eventos sin fines de lucro.<!--  Para obtener más detalles, visita <a href="http://www.eventbee.com/main/good" target="_blank">http://www.eventbee.com/main/good</a> -->
 			</div>
 		</div>
 		<br />
@@ -457,7 +457,7 @@ Eventbee no te cobra tarifas diferentes a las mencionadas, y tampoco hay contrat
 	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Básico</th>'+
 	 	'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Pro</th>'
 	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Avanzado</th>'
-	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Negocio</th>'
+	 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Business</th>'
 	 	+'</tr></thead><tbody>';
         $.each(ticketingdata,function(index,value){
         	data+= '<tr><td class="normal_desc_grey_ans">'+value.name+'</td><td style="text-align:center">'+((value.b)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+((value.p)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+ ((value.a)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td><td style="text-align:center">'+ ((value.bi)?'<img src="/main/images/Check_Mark_Symbol-011.png" width="20" height="20"/>':'<img src="/main/images/Check_Mark_Symbol-022.png" width="20" height="20"/>')+'</td></tr>';
@@ -472,7 +472,7 @@ Eventbee no te cobra tarifas diferentes a las mencionadas, y tampoco hay contrat
         		pricingData = res;
     			 var html='<table class="table table-bordered" style="border-top: none !important;padding-top:20px">'+
     			 	'<thead><tr><th  class="section_header" style="text-align:left;font-size:24px">MONEDA</th>'
-    			 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Básico</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Pro</th>'+'<th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Avanzado</th><th class="caption_header_blue" style="font-weight:normal;font-size:24px">Negocio</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Procesadores de pago admitidas</th>'
+    			 	+'<th class="caption_header_blue" style="font-weight:normal;font-size:24px">Básico</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Pro</th>'+'<th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Avanzado</th><th class="caption_header_blue" style="font-weight:normal;font-size:24px">Business</th><th  class="caption_header_blue" style="font-weight:normal;font-size:24px">Procesadores de pago admitidas</th>'
     			 	+'</tr></thead><tbody>';
     			 	
         		  $.each(pricingData,function(index,value){

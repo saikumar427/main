@@ -559,19 +559,18 @@ a {
 		<div
 			style="background-color: #F3F6FA; width: 100%; padding: 60px 0px 50px 0px;">
 			<div class="row">
-				<div class="col-md-2"></div>
-				<div class="col-md-4" id="fbappimg" style="position:relative;left:-295px;max-width:100%;overflow-x:hidden;">
-					<img src="/main/images/es-co/fbapp.png" alt="Install Facebook Ticketing App on Your Fan Page, Sell Tickets on Facebook!"
-						width="100%" alt="Eventbee Ticketing Application for Facebook">
+				<div class="col-md-12" id="fbappimg">
+					<div class="col-md-12"><img width="348px" src="/main/images/es-co/fbapp.png"  alt="Install Facebook Ticketing App on Your Fan Page, Sell Tickets on Facebook!"
+						alt="Eventbee Ticketing Application for Facebook">
+						<a style="position: relative;" href="http://apps.facebook.com/eventbeeticketing" class="btn btn-lg btn-primary" target="_blank" style="">Instalar Aplicación de Facebook</a>
 				</div>
-				<div class="col-md-4">
-					<br>
-					<br>
-					<br>
-					<br> <a href="http://apps.facebook.com/eventbeeticketing" class="btn btn-lg btn-primary" target="_blank" style="position: absolute;left:-330px;overflow-x:hidden;">Instalar Aplicación en Venta de Tiquetes de Facebook</a>
-				</div>
+				
 			</div>
 		</div>
+
+
+
+	</div>
 
 
 

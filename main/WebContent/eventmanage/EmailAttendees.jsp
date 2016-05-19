@@ -100,7 +100,7 @@ var json=${jsonData};
 var eid='${eid}';
 var powertype='${powertype}';
 </script>
-<script type="text/javascript" language="JavaScript" src="../js/emailattendees.js?id=1"></script>
+<script type="text/javascript" language="JavaScript" src="../js/emailattendees.js?id=2"></script>
 
 
             <br/>

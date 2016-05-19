@@ -999,5 +999,8 @@ var props={
 		"bu_pg_tl_tp_msg3_lbl":"To access this feature, upgrade your ticketing level to Business version.",
 		"global_bus_ticketing":"Business Ticketing",
 		"business_tip":"Bus",
-		"eml_business_lvl_lbl":"Business"
+		"eml_business_lvl_lbl":"Business",
+		"pr_plz_entr_limit_count_val_lbl":"Please enter limit count value.",
+		"pr_plz_entr_valid_limit_count_val_lbl":"Please enter valid limit count value.",
+		"ugpp_upgrate_business_lbl":"Upgrade to Business"
 };

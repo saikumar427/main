@@ -23,6 +23,7 @@ display: list-item;
 							<s:hidden name="eid" id="eid"></s:hidden>
 							<s:hidden name="blastid" id="blastid"></s:hidden>
 							<s:hidden name="powertype" id="powertype"></s:hidden>
+							<s:hidden name="mgrId" id="managerid"></s:hidden>
 							<s:hidden name="emailAttendeesData.email"></s:hidden>
 							<s:set name="buyer"  value="emailAttendeesData.buyer"></s:set>
 							<s:set name="selectAttendeeType"  value="emailAttendeesData.selectAttendeeType"></s:set>
@@ -140,11 +141,11 @@ display: list-item;
 								<div  class="col-md-2 col-sm-3 control-label"><s:text name="event.description.lbl"/></div>
 								<div class="col-md-6 col-sm-8">
 					   
-								<div class="btn-group pull-right"> 
+								<%-- <div class="btn-group pull-right" style="display:none"> 
 									<s:set name="desctype" value="emailAttendeesData.descriptiontype"></s:set>  
 										<div class="center btn-group btn-toggle" data-toggle="buttons">
-											<label  id="selection_block" class="optiontype btn <s:if test="%{#desctype=='wysiwyg' || #desctype==''}">btn-default </s:if><s:else>btn-active</s:else>  ">
-												<input class="radiotype"  id="wysiwyg"  name="emailAttendeesData.descriptiontype" value="wysiwyg"  type="radio" <s:if test="%{#desctype=='wysiwyg'}">checked='checked' </s:if> >&nbsp;
+											<label  id="selection_block" class="optiontype btn btn-default active">
+												<input class="radiotype"  id="wysiwyg"  name="emailAttendeesData.descriptiontype" value="wysiwyg"  type="radio" checked='checked' >&nbsp;
 													<s:text name="event.description.btn.wysiwyg.lbl"/>
 											</label>  
 											<label   id="textarea_block" class="optiontype btn <s:if test="%{#desctype=='html'}">btn-default </s:if><s:else>btn-active</s:else>"  >
@@ -156,7 +157,7 @@ display: list-item;
 													<s:text name="event.description.btn.text.lbl"/>
 											</label>
 										</div>
-					  			</div> 
+					  			</div>  
 								</div>
 								
 								<div class="col-md-4 col-sm-3"></div>
@@ -165,13 +166,13 @@ display: list-item;
                                   
                                   <div class="row">
                                   <div  class="col-md-2 col-sm-3 control-label">   </div>
- 						 		  <div class="col-md-6 col-sm-6">	
+ 						 		  <div class="col-md-6 col-sm-6">--%>	
                             			<div id="textboxx" style="display:none;">                                                   		
 											<s:textarea name="emailAttendeesData.content" rows="15" cols="101" id="textmsg" cssClass="form-control"></s:textarea>									
                             				<br>
                             			</div>
                             			<div id="wysiwygboxx">                          
-									 		<%@include file="/eventmanage/emailatteendeesdescription.jsp" %>	 
+									 		 <%@include file="/myevents/description.jsp" %>		 
                                  	 		<br>
                                 		</div>                            
  						    	  </div>
@@ -233,23 +234,24 @@ display: list-item;
                               
                                $('input.radiotype').change(function() {
                 					var selected=$(this).attr('id');
-                					activatedesc(selected);		
+                					activatedesc("wysiwyg");		
                 				});
                                 
                               function   activatedesc(selected){
-                            	  if("wysiwyg"==selected)
+                            //	  if("wysiwyg"==selected)\
+                            	 if(true)
                             	  {
                             		$('#selection_block').addClass("btn-default").removeClass("btn-active");
               				        $('#textarea_block').addClass('btn-active').removeClass("btn-default");
               				        $('#text_block').addClass('btn-active').removeClass("btn-default");
               				        $('#wysiwygboxx').show();
               				        $('#textboxx').hide(); 
-              				        $('#wysiwyg').attr('checked',true);
+              				      //  $('#wysiwyg').attr('checked',true);
               				        $('#html').attr('checked',false);
               				        $('#text').attr('checked',false); 
                             	  }
                                 	
-                            	if("html"==selected)
+                            	/* if("html"==selected)
                         		{
                         		$('#selection_block').addClass("btn-active").removeClass("btn-default");
           				        $('#textarea_block').addClass('btn-default').removeClass("btn-active");
@@ -271,14 +273,14 @@ display: list-item;
         				        $('#wysiwyg').attr('checked',false);
         				        $('#html').attr('checked',false);
         				        $('#text').attr('checked',true);
-                        		}
+                        		} */
                             	  
                                 }
                                 
                                 $(document).ready(function() {
                                 	var dbdesctypee=$('#desctypedb').val();
                                 	 /* alert(dbdesctypee); */
-                                	if("wysiwyg"==dbdesctypee)
+                                	if(true)
                                 		{
                                 		 $('#wysiwygboxx').show();
                    				         $('#textboxx').hide();
@@ -455,12 +457,12 @@ display: list-item;
 	else
 		header="scheduled";
 	
-	var selecteddecktype=typedtext=$('input[class=radiotype]:checked').val(); 
+	/* var selecteddecktype=typedtext=$('input[class=radiotype]:checked').val(); 
 	if("wysiwyg"==selecteddecktype )
-	{
-		typedtext=$('#editor').html();
+	{ */
+		typedtext=tinymce.get('editor').getContent();  	//$('#editor').html();
 		$('#wysiwygcontent').val(typedtext);
-	}
+//	}
 	
 	var valid=false;
 	$(errormsg).html('');
@@ -475,10 +477,10 @@ display: list-item;
 	}
 	 
 	 
-	 if("wysiwyg"==selecteddecktype)
-		 Content=$('#editor').html();
-	 else
-		 Content=document.getElementById("textmsg").value;
+	// if("wysiwyg"==selecteddecktype)
+		 Content=tinymce.get('editor').getContent()//$('#editor').html();
+	 /* else
+		 Content=document.getElementById("textmsg").value; */
 		 if(Content=='') 
 		 {
 			 $('#attendeesubmit').removeAttr('disabled');

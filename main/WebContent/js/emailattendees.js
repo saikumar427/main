@@ -111,7 +111,7 @@ function deleteMail(blastid, eventid) {
 }
 
 function selecttoggle(contenttype) {
-	if ("wysiwyg" == contenttype) {
+	if (true) {
 		$('#selection_block').addClass("btn-default").removeClass("btn-active");
 		$('#textarea_block').addClass('btn-active').removeClass("btn-default");
 		$('#text_block').addClass('btn-active').removeClass("btn-default");
@@ -120,9 +120,10 @@ function selecttoggle(contenttype) {
 		$('#wysiwyg').attr('checked', true);
 		$('#html').attr('checked', false);
 		$('#text').attr('checked', false);
+		
 	}
 
-	if ("html" == contenttype) {
+	if (false) {
 		$('#selection_block').addClass("btn-active").removeClass("btn-default");
 		$('#textarea_block').addClass('btn-default').removeClass("btn-active");
 		$('#text_block').addClass('btn-active').removeClass("btn-default");
@@ -133,7 +134,7 @@ function selecttoggle(contenttype) {
 		$('#text').attr('checked', false);
 	}
 
-	if ("text" == contenttype) {
+	if (false) {
 		$('#selection_block').addClass('btn-active').removeClass("btn-default");
 		$('#textarea_block').addClass('btn-active').removeClass("btn-default");
 		$('#text_block').addClass("btn-default").removeClass("btn-active");
@@ -166,10 +167,12 @@ var fillBlastDetails = function(response) {
 	var powertype = document.getElementById('powertype').value;
 	document.getElementById("subject").value = obj.blast.subject;
 	var contenttype = obj.blast.contenttype;
-	if ("wysiwyg" == contenttype)
-		$('#editor').html(obj.blast.content);
-	else
-		$('#textmsg').val(obj.blast.content);
+	//if ("wysiwyg" == contenttype){
+		//$('#editor').html(obj.blast.content);
+		tinymce.activeEditor.setContent(obj.blast.content);
+	//}
+	//else
+	//	$('#textmsg').val(obj.blast.content);
 
 	selecttoggle(contenttype);
 	evt_date = obj.blast.evt_date;
@@ -377,9 +380,9 @@ function generateEmailAtteendeeTable(json) {
 	
 	var tempentry='';
 	
-	$.each(json.scheduled, function(key, valueobj) {
-	   tempentry += '<tr id="email_'+ valueobj.blastid+'">   <td> <div class="row">  <div class="col-md-5"> '+ valueobj.date+'</div>   <div class="col-md-3 sm-font" >'+ valueobj.subject+'</div>'
-		
+	
+	$.each(json.scheduled, function(key, valueobj) {     		
+		tempentry += '<tr id="email_'+ valueobj.blastid+'">   <td> <div class="row">  <div class="col-md-5"> '+ valueobj.date   +'</div>   <div class="col-md-3 sm-font" >'+ valueobj.subject+'</div>'
 		    + '<div class="col-md-4" > <span  class="hideThis sm-font" style="display:none;">  <a href="javascript:;" onclick=editEmails(\''
 			+ valueobj.blastid+ '\','+ eid
 			+ ')>  '+props.global_edit_lnk_lbl+' </a> </span>&nbsp;&nbsp;   <span  class="hideThis sm-font" style="display:none;"> <a href="javascript:;" onclick=deleteMail(\''+ valueobj.blastid+ '\','+ eid+ ')> '+props.global_delete_lnk_lbl+'  </a></span>&nbsp;&nbsp;    <span class="hideThis sm-font" style="display:none;"><a href="javascript:;" onclick=showContent(\''

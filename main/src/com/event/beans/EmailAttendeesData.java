@@ -8,7 +8,7 @@ import com.eventbee.beans.Entity;
 public class EmailAttendeesData {
 	private ArrayList<Entity> contentlist=new ArrayList<Entity>();
 	private ArrayList<Entity> recurringlist=new ArrayList<Entity>();
-	private String descriptiontype="text";
+	private String descriptiontype="wysiwyg";
 	private String description="";
 	private String email="";
 	private String count="";

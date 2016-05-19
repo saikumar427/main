@@ -55,7 +55,7 @@
                              <div style="height:15px;"></div>
                                     <s:textfield id="promocode" name="userData.promotionCode"  placeholder="%{getText('ac.place.hldr.prmcode.lbl')}" cssClass="form-control"/>
                              <div style="height:15px;"></div>
-                                    <button type="submit" id="activatebtn" class="btn btn-block btn-primary pull-right" data-style="expand-right"data-size="l" style="height:36px;"> <s:text name="ac.user.name.lbl"/>  </button>
+                                    <button type="submit" id="activatebtn" class="btn btn-block btn-primary pull-right" data-style="expand-right"data-size="l" style="height:36px;margin-bottom:30px;"> <s:text name="ac.user.name.lbl"/>  </button>
                         </form>
                         </div>
                          <div class="col-md-2"></div>

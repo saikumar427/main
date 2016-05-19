@@ -31,13 +31,13 @@
 				</button>
 				<br /> 
 				<s:if test="%{#I18N_CODE_PATH != ''}">
-				<a style="margin-bottom: -16px; margin-top: -15px;"
-					class="navbar-brand" href="/<s:property value="I18N_ACTUAL_CODE"/>"><img height="50" alt="Eventbee"
+				<a style="margin-bottom: -16px; margin-top: -10px;"
+					class="navbar-brand" href="/<s:property value="I18N_ACTUAL_CODE"/>"><img alt="Eventbee"
 					src="http://www.eventbee.com/main/images/logo.png" /></a>
 				</s:if>
 				<s:else>
-				<a style="margin-bottom: -16px; margin-top: -15px;"
-					class="navbar-brand" href="/"><img height="50" alt="Eventbee"
+				<a style="margin-bottom: -16px; margin-top: -10px;"
+					class="navbar-brand" href="/"><img alt="Eventbee"
 					src="http://www.eventbee.com/main/images/logo.png" /></a>
 				</s:else>
 				

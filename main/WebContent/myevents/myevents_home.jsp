@@ -1,4 +1,6 @@
+<%@page import="com.event.helpers.I18n"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
+<% String lang=I18n.getHyphenSessionLang(); %>
 <html>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
  <script type="text/javascript" src="/main/js/creditcardpopupscreen.js"></script>
@@ -134,7 +136,7 @@
 		                 <div class="content" >
 		                     <p>
 		                     <%-- <s:text name="mes.we.exicted.lbl"/> <span> <a href="javascript:;" id="uiFeedback"><s:text name='mes.we.excited.lnk'/></a></span> --%>
-		                        <s:text name="mes.we.exicted.lbl"/> <span> <a href="/main/eventbee-for-business" target="_blank"><s:text name='mes.we.excited.lnk'/></a></span>
+		                        <s:text name="mes.we.exicted.lbl"/> <span> <a href="/main/eventbee-for-business/<s:property value="I18N_ACTUAL_CODE"/>" target="_blank"><s:text name='mes.we.excited.lnk'/></a></span>
 		                     </p>
 		                  		                 
 		                 </div>	                
@@ -176,10 +178,18 @@
 		                <div><label class="icon"><span class="section-main-header" style="cursor:pointer"><s:text name="mes.connect.us.lbl"/></span > <span style="cursor:pointer" class="glyphicon glyphicon-menu-right original"></span></label></div>
 		                 <div class="content" style="display:none">                 		
 		                     <p>
+		                     <% if(lang.equals("en-us")) {%>
 								<a target="new" href="http://www.facebook.com/eventbeeinc"><img border="0" src="http://www.eventbee.com/main/images/home/icon_facebook.png"> <s:text name="mes.click.to.fan.fb.lbl"/></a>
+								<%} else{%>
+							    	<a target="new" href="http://www.facebook.com/EventbeeSpanish"><img border="0" src="http://www.eventbee.com/main/images/home/icon_facebook.png"> <s:text name="mes.click.to.fan.fb.lbl"/></a>
+							    <%}%>
 							</p>
 							<p>
+							 <% if (lang.equals("en-us")) {%>
 								<a target="new" href="http://www.twitter.com/eventbee"><img border="0" src="http://www.eventbee.com/main/images/home/icon_twitter.png"> <s:text name="mes.click.to.fan.twitter.lbl"/></a>
+						    	<%}else{ %>
+							     <a target="new" href="http://www.twitter.com/eventbeespanish"><img border="0" src="http://www.eventbee.com/main/images/home/icon_twitter.png"> <s:text name="mes.click.to.fan.twitter.lbl"/></a> 
+							      <%} %>
 							</p>
 		                    <p><s:text name="mes.any.qno.ask.msg1.lbl"/> <a href="javascript:;" id="emailus"><s:text name="mes.any.qno.ask.msg2.lbl"/></a></p>
 		                 </div>

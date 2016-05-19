@@ -120,7 +120,7 @@
 			UserData user=(UserData)session.getAttribute("SESSION_USER");
 			username=user.getBeeId();%>
 			<div class="row" style="background-color: white;">	
-					<div  style="text-align: center">	<span>You are logged in as <%=username%>. Please <a href="javascript:mgrlogout();">Logout</a> and try again.</span></div>
+					<div  style="text-align: center">	<span><s:text name="la.you.logged.lbl"/> <%=username%>. <s:text name="la.please.lbl"/> <a href="javascript:mgrlogout();"><s:text name="la.logout.lbl"/></a> <s:text name="la.try.again.lbl"/></span></div>
 					<br/>
 			</div>
 		<%}

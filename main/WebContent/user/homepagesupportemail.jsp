@@ -140,9 +140,8 @@
                     }
 
                var message=$('#message').val();
-	          if(message=='<Click here> and type your Message - Required')
+	          if(message=='<%=I18n.getString("la.supp.ph.desc")%>')
             	   $('#message').val('');
-        	   
                 if($('#message').val()==''){
                 	$('.alert-danger').show();
                     $('.alert-danger').html(props.la_supp_popup_enter_msg);

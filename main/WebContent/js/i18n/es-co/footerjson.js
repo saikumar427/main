@@ -10,7 +10,7 @@ var i18nFooter={
 		              "limg": "<i style='padding-right: 20px' class='fa fa-fw fa-2x fa-facebook'></i>",
 		              "type": "text",
 		              "label": "Facebook",
-		              "href": "https://www.facebook.com/eventbeeinc",
+		              "href": "https://www.facebook.com/EventbeeSpanish",
 		              "target":"_blank",
 		              "i18n_include":false
 		            },
@@ -18,7 +18,7 @@ var i18nFooter={
 		              "limg": "<i style='padding-right: 20px' class='fa fa-fw fa-2x fa-twitter'></i>",
 		              "type": "text",
 		              "label": "Twitter",
-		              "href": "https://twitter.com/eventbee",
+		              "href": "https://twitter.com/eventbeespanish",
 		              "target":"_blank",
 		              "i18n_include":false
 		            },

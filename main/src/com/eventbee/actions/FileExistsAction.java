@@ -38,24 +38,24 @@ public class FileExistsAction extends ActionSupport {
 		String jspFileNi18n = request.getRequestURL().substring(request.getRequestURL().indexOf("main/")+5);	
 		String[] jspNLang=jspFileNi18n.split("/");
 		String jspFile="";
-		String i18n="en-us";
-		//i18n=I18n.getLanguageFromSession();
+		String i18n=I18n.getActualLangFromSession();
+		setI18nlang(i18n);
 		if(jspNLang.length>1){
 			i18n=jspNLang[1]; 
-			i18n=I18n.getMappingCode(i18n);
-			if(i18n==null){
+			if(I18n.getMappingCode(i18n)==null){
 				i18n=jspNLang[0];
 				jspFile=jspNLang[1];
 				setFilePath(i18n+"."+jspFile);
 			}else{
 				jspFile=jspNLang[0];
 				setFilePath(i18n+"."+jspNLang[0]);
+				setI18nlang(i18n);
 			}
 		}else{
 			jspFile=jspNLang[0];
 			setFilePath(i18n+"."+jspFile);
 		}
-		String filepath = EbeeConstantsF.get("help.file.path","\\mnt\\jboss\\runner\\standalone\\active\\main.war\\help\\");
+		String filepath = EbeeConstantsF.get("help.file.path","D:\\workspace\\DatePickerLive1\\jboss\\runner\\standalone\\deployments\\main.war\\help\\");
 		try{
 			File file=new File(filepath+i18n+"/"+jspFile+".jsp");
 			exists = file.exists();
@@ -72,11 +72,8 @@ public class FileExistsAction extends ActionSupport {
 			return "success";
 		}
 		else{
-			if(i18n==null)
-				setI18nlang(I18n.getHyphenSessionLang());
-			else
-				setI18nlang(i18n="en-us".equals(i18n)?i18n:"es-co".equals(i18n)?i18n:"es-mx".equals(i18n)?i18n:"en-co".equals(i18n)?i18n:"en-us");
-			System.out.println("*** filepath in FileExistsAction: "+filepath+jspFile+".jsp");
+			setI18nlang(i18n="en-us".equals(i18n)?i18n:"es-co".equals(i18n)?i18n:"es-mx".equals(i18n)?i18n:"en-co".equals(i18n)?i18n:"en-us");
+			System.out.println("*** filepath in FileExistsAction: "+filepath+jspFile+".jsp"+" :: Lang"+i18n);
 			return "error";
 		}
 				

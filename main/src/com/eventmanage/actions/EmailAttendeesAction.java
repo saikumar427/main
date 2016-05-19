@@ -235,6 +235,7 @@ public class EmailAttendeesAction extends ActionSupport implements Preparable,Va
 	}
 	public String getEmailAttendee(){
 		System.out.println("in get attendee");
+		mgrId=ActionContext.getContext().getParameters().get("mgrId").toString();
 		powertype=EventDB.getPowerType(eid);
 		populateDescriptionTypes();
 		//populateYearTypes();

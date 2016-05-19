@@ -8,21 +8,31 @@
   String eventurl=request.getParameter("eventurl");
   String message=request.getParameter("message");
   String token=request.getParameter("token");
-  if("<Click here> and type your Name - Required".equals(username.trim()))username="";
-  if("<Click here> and type your Email - Required".equals(useremail.trim()))useremail="";
-  if("<Click here> and type your Phone".equals(phone.trim()))phone="";
-  if("<Click here> and type your Event URL".equals(eventurl.trim()))eventurl="";
-  if("<Click here> and type your Message - Required".equals(message.trim()))message="";
+  if(I18n.getString("la.supp.ph.username").equals(username.trim()))username="";
+  if(I18n.getString("la.supp.ph.email").equals(useremail.trim()))useremail="";
+  if(I18n.getString("la.supp.ph.phone").equals(phone.trim()))phone="";
+  if(I18n.getString("la.supp.ph.eventurl").equals(eventurl.trim()))eventurl="";
+  if(I18n.getString("la.supp.ph.desc").equals(message.trim()))message="";
   try{
   if(!"".equals(useremail)){  
   EmailObj emailobj=EventbeeMail.getEmailObj();
   StringBuffer sb=new StringBuffer();
+  String mailTo="support@eventbee.com";
   emailobj.setFrom("messages@eventbee.com");
-	if("1234".equals(token))
-	emailobj.setTo("support@eventbee.com");
-	else
-	emailobj.setTo("support@volumebee.com");	
-	emailobj.setSubject("Eventbee Support Email");
+	//if("1234".equals(token)){
+	String lang=I18n.getHyphenSessionLang();
+	if(lang.equals("en-us")){
+		emailobj.setTo("support@eventbee.com");
+		mailTo="support@eventbee.com";	
+	}
+	else{
+		emailobj.setTo("contacto@eventbee.com");
+		mailTo="contacto@eventbee.com";
+	}
+	/* }
+	else  
+	emailobj.setTo("support@volumebee.com");*/
+	emailobj.setSubject(I18n.getString("hpsm.contact.support.subject"));
 	String mailmessage="";
 	sb.append("<p>"+I18n.getString("myo.name.header.lbl")+": "+username);          
 	if(!"".equals(phone))
@@ -39,8 +49,8 @@
 	String currentdate=DateUtil.getCurrDBFormatDate();
 	String straymailinsertqry="insert into stray_email(mail_count,status,sch_time,unit_id,purpose,html_message,mail_to,emailtype,"+
 	" mail_from,mail_subject,mail_replyto) values(to_number('1','99999999'),'S',to_timestamp(?,'yyyy-MM-dd HH24:MI:ss.S'),CAST('13579' as integer),'Eventbee_Support_Mail',"+
-	" ?,'support@eventbee.com','html',?,'"+I18n.getString("hpsm.contact.support.subject")+"',?)";
-	DbUtil.executeUpdateQuery(straymailinsertqry, new String[]{currentdate,mailmessage,useremail,useremail});
+	" ?,?,'html',?,'"+I18n.getString("hpsm.contact.support.subject")+"',?)";
+	DbUtil.executeUpdateQuery(straymailinsertqry, new String[]{currentdate,mailmessage,mailTo,useremail,useremail});
     JSONObject json=new JSONObject();
     json.put("result","success");
     out.println(json.toString());  

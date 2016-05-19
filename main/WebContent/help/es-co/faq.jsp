@@ -565,8 +565,8 @@ Para una descripción más detallada acerca de cómo funciona Eventbee, visita n
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-md-12 normal_desc_grey_ans">Hemos utilizado nuestros más de 10 años de experiencia en la industria implementando una gran tecnología, para que nuestros clientes puedan gestionar más fácilmente sus eventos de principio a fin. Por favor, visita el siguiente link para obtener más información:
-					<a href="/main/features/es-co" target="_blank">http://www.eventbee.com/main/features</a></div>
+				<div class="col-md-12 normal_desc_grey_ans">Hemos utilizado nuestros más de 10 años de experiencia en la industria implementando una gran tecnología, para que nuestros clientes puedan gestionar más fácilmente sus eventos de principio a fin. <!-- Por favor, visita el siguiente link para obtener más información:
+					<a href="/main/features/es-co" target="_blank">http://www.eventbee.com/main/features</a> --></div>
 			</div>
 			<br>
 			<div class="row">
@@ -665,8 +665,8 @@ Para una descripción más detallada acerca de cómo funciona Eventbee, visita n
 				<br>
 				<div class="row">
 					<div class="col-md-12 normal_desc_grey_ans">
-						¡Sí! Ofrecemos un descuento del 25% con nuestro servicio para venta de tiquetes Avanzado y Pro para los eventos de organizaciones sin fines de lucro. Para obtener más detalles, visita  <a
-							href="/main/good/es-co" target="_blank">http://www.eventbee.com/main/good</a>
+						¡Sí! Ofrecemos un descuento del 25% con nuestro servicio para venta de tiquetes Avanzado y Pro para los eventos de organizaciones sin fines de lucro.<!--  Para obtener más detalles, visita  <a
+							href="/main/good/es-co" target="_blank">http://www.eventbee.com/main/good</a> -->
 					</div>
 				</div>
 				<br>
@@ -760,14 +760,14 @@ Para una descripción más detallada acerca de cómo funciona Eventbee, visita n
 					<br>
 					<div class="row">
 						<div class="col-md-12 normal_desc_grey_ans">
-							Facebook: <a href="http://facebook.com/eventbeeinc"
-								target="_blank">http://facebook.com/eventbeeinc</a>
+							Facebook: <a href="http://facebook.com/EventbeeSpanish"
+								target="_blank">http://facebook.com/EventbeeSpanish</a>
 						</div>
 					</div>
 					<br>
 					<div class="row">
 						<div class="col-md-12 normal_desc_grey_ans">
-							Twitter: <a href="http://twitter.com/eventbee" target="_blank">http://twitter.com/eventbee</a>
+							Twitter: <a href="https://twitter.com/eventbeespanish" target="_blank">https://twitter.com/eventbeespanish</a>
 						</div>
 					</div>
 					<br>
