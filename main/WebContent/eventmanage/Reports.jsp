@@ -11,7 +11,7 @@ border-top:0px !important;
 </style>
 <script type="text/javascript" src="../js/eventmanage/reports.js?timestamp=<%=(new java.util.Date()).getTime()%>"></script>
 <script type="text/javascript" src="../js/eventmanage/transactiondetails.js?timestamp=<%=(new java.util.Date()).getTime()%>"></script>
-<link type="text/css" rel="stylesheet" href="../css/reportscustom.css" />	
+<link type="text/css" rel="stylesheet" href="../css/reportscustom.css?id=1" />	
 <script type="text/javascript">
 var pajson = ${pendingApprovalJson};
 var purpose='${purpose}';

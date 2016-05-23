@@ -513,7 +513,7 @@ function getDataTable(jdata,divid){
 			  				content+='<td></td>';
    		  			
    		  			if(data.fields.length-1==index){
-	  					content+='<td><div style="position: relative;"><ul style="display:none; margin-left: -94px;" class="dropdown-menu" id="ul_'+tid+'">'+
+	  					content+='<td><a style="cursor:pointer" class="manage" data-manage="'+tid+'">'+props.rep_manage_btn_lbl+'</a><div style="position: absolute;z-index:1000;right:0px;"><ul style="display:none; margin-left: -94px;" class="dropdown-menu" id="ul_'+tid+'">'+
 	  					'<li><a role="menuitem" tabindex="-1" href="javascript:;" class="clickk" data-tid="'+tid+'" data-type="transactiondetails">'+props.rep_manage_trans_details_lbl+'</a></li>';
 	  					if(paymentstatus=='Completed' || paymentstatus=='Pending Approval')
 	  					content+='<li><a role="menuitem" tabindex="-1" href="javascript:;" class="changestatus" data-tid="'+tid+'">'+props.rep_manage_change_status_lbl+'</a></li>';
@@ -525,7 +525,7 @@ function getDataTable(jdata,divid){
 	  					'<li><a role="menuitem" tabindex="-1" href="javascript:;" class="clickk" data-tid="'+tid+'" data-type="ticketdetails">'+props.rep_manage_tkt_details_lbl+'</a></li>'+
 	  					'<li><a role="menuitem" tabindex="-1" href="javascript:;" class="clickk" data-tid="'+tid+'" data-type="buyerdetails" >'+props.rep_manage_buyer_details_lbl+'</a></li>'+
 	  					'<li><a role="menuitem" tabindex="-1" href="javascript:;" class="clickk" data-tid="'+tid+'" data-type="attendeedetails">'+props.rep_manage_attendee_details_lbl+'</a></li>'+
-	  					'</ul><a style="cursor:pointer" class="manage" data-manage="'+tid+'">'+props.rep_manage_btn_lbl+'</a></div></td>';
+	  					'</ul></div></td>';
    		  			}		  			
 		  			  
 					  });
@@ -637,7 +637,7 @@ function getDataTable(jdata,divid){
 	   		  				
 	   		  				
 	   		  				//content+='<td><a class="clickk '+tid+'" data-tid="'+tid+'">Manage</a></td>';
-	   		  			content+='<td><div style="position: relative;">';
+	   		  			content+='<td><a style="cursor:pointer" class="manage" data-manage="'+tid+'">'+props.rep_manage_btn_lbl+'</a><div style="position: absolute;z-index:1000;right:0px;">';
 	   		  			
 	   		  			
 	   		  			if(paymentstatus!='Deleted'){
@@ -659,7 +659,7 @@ function getDataTable(jdata,divid){
 	  					'<li><a role="menuitem" tabindex="-1" href="javascript:;" class="clickk" data-tid="'+tid+'" data-type="attendeedetails">'+props.rep_manage_attendee_details_lbl+'</a></li>'+
 	  					'</ul>';
 	   		  			}
-	  					content+='<a style="cursor:pointer" class="manage" data-manage="'+tid+'">'+props.rep_manage_btn_lbl+'</a></div></td>';
+	  					content+='</div></td>';
 	   		  			}
 	   		  			});	
     				 content+='</tr>';
@@ -712,7 +712,7 @@ function getDataTable(jdata,divid){
    		  			
    		  			//var paymentstatus='Completed';
 		  				//content+='<td><a class="clickk '+tid+'" data-tid="'+tid+'">Manage</a></td>';
-		  			content+='<td><div style="position: relative;"><ul style="display:none; margin-left: -94px;" class="dropdown-menu" id="ul_'+tid+'">'+
+		  			content+='<td><a style="cursor:pointer" class="manage" data-manage="'+tid+'">'+props.rep_manage_btn_lbl+'</a><div style="position: absolute;z-index:1000;right:0px;"><ul style="display:none; margin-left: -94px;" class="dropdown-menu" id="ul_'+tid+'">'+
 					'<li><a role="menuitem" tabindex="-1" href="javascript:;" class="clickk" data-tid="'+tid+'" data-type="transactiondetails">'+props.rep_manage_trans_details_lbl+'</a></li>';
 					if(paymentstatus=='Completed' || paymentstatus=='Pending Approval')
 					content+='<li><a role="menuitem" tabindex="-1" href="javascript:;" class="changestatus" data-tid="'+tid+'">'+props.rep_manage_change_status_lbl+'</a></li>';
@@ -725,7 +725,7 @@ function getDataTable(jdata,divid){
 					content+='<li><a role="menuitem" tabindex="-1" href="javascript:;" class="clickk" data-tid="'+tid+'" data-type="buyerdetails" >'+props.rep_manage_buyer_details_lbl+'</a></li>';
 					
 					content+='<li><a role="menuitem" tabindex="-1" href="javascript:;" class="clickk" data-tid="'+tid+'" data-type="attendeedetails">'+props.rep_manage_attendee_details_lbl+'</a></li>'+
-					          '</ul><a style="cursor:pointer" class="manage" data-manage="'+tid+'">'+props.rep_manage_btn_lbl+'</a></div></td>';
+					          '</ul></div></td>';
    		  				
    		  				
    		  				//content+='<td><a class="clickk '+tid+'" data-tid="'+tid+'">Manage</a></td>';
@@ -1096,12 +1096,12 @@ function validateEmail(email){
 } 
 
 function searchReports(){
-	if ($("#attendeeDisFldsData").is(':visible'))
+	/*if ($("#attendeeDisFldsData").is(':visible'))
 		$(".attnddisplayflds").slideToggle(800);
 	if ($("#salesDisFldsData").is(':visible'))
 		$(".salesdisplayflds").slideToggle(800);
 	if ($("#checkInDisFldsData").is(':visible'))
-		$(".chkindisplayflds").slideToggle(800);
+		$(".chkindisplayflds").slideToggle(800);*/
 	
 	var searchcontent=$('input[name="reportsData.searchContent"]').val();
 	searchcontent=searchcontent.replace(/^(?:\s)*/g,'').replace(/(?:\s)*$/g,'');
@@ -1142,6 +1142,9 @@ function searchReports(){
 	if ($("#attendeeRepBlock").is(':visible')) {
 		$("#attendee_tx_type").val("1");
 		$("#ticket").val("1");
+		if(!$("#displayflds_id").is(":checked")){
+			checkDefaultAttFields();
+		}
 		actionType='attendee';
 		formaction('attendee');
 	}else if ($("#salesRepBlock").is(':visible')) {
@@ -1151,6 +1154,9 @@ function searchReports(){
 		$("#transticket").val("1");
 		$("#pti").val("7");
 		$("#transsource").val("1");
+		if(!$("#sales_displayflds_id").is(":checked")){
+			checkDefaultSalesFields();
+		}
 		actionType='registration';
 		formaction('registration');
 	}else{

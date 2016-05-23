@@ -177,7 +177,9 @@ if(jobj["sel_"+eventid]!=undefined){
 		var avail_qty=Number(jobj['remaining_'+eventid]);
 		if(Number(avail_qty)<0)
 			avail_qty=0;
-				message=message+"<li>"+props.sea_for_lbl2+" \""+jobj['Name']+"\" "+props.sea_sel_qty_is_lbl+" "+jobj['sel_'+eventid]+" "+props.sea_cur_avail_qty_is_lbl+" "+avail_qty+"</li>";
+		
+		//message=message+"<li>"+props.sea_for_lbl2+" \""+jobj['Name']+"\" "+props.sea_sel_qty_is_lbl+" "+jobj['sel_'+eventid]+" "+props.sea_cur_avail_qty_is_lbl+" "+avail_qty+"</li>";
+		message=message+"<li>"+props.event_max_capacity_reachd_msg+"</li>";
 	}
     getTicketsAvailabilityMsg();
 	message=message+"</ul>";

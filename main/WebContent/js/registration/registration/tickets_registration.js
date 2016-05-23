@@ -99,8 +99,14 @@ for(i=0;i<tktsData.groups.length;i++){
 	var discnbuy='dn';
 	var discsec='';
 	var domain="/";
-	if(tktsData.i18nActualLang!=undefined && tktsData.i18nActualLang=='es-co') domain="http://www.eventbee.co";
-	else if(tktsData.i18nActualLang!=undefined && tktsData.i18nActualLang=='es-mx') domain="http://www.eventbee.mx";
+	var i18nActlang='en-us';
+	if(tktsData.i18nActualLang!=undefined && tktsData.i18nActualLang=='es-co'){
+		i18nActlang='es-co';
+		domain="http://www.eventbee.co";
+	}else if(tktsData.i18nActualLang!=undefined && tktsData.i18nActualLang=='es-mx'){
+		i18nActlang='es-mx';
+		domain="http://www.eventbee.mx";
+	}
 	
 	if(tktsData.isDiscountExists){
 		discountboxlabel="event.reg.discount.box.label","Have a discount code, enter it here";
@@ -121,9 +127,9 @@ for(i=0;i<tktsData.groups.length;i++){
 						  +'<span id="discountmsg"></span><span id="invaliddiscount"></span>'
 						  +'</td><td align="right" id="registerBttn" class="yui-skin-sam"><div class="buyticketssubmit"><input type="hidden" id="actiontype" name="actiontype" value="" /><input type="button" name="submit"  id="orderbutton" value="'+orderbutton+'"  onClick="priorityTimeCheck();"  class="buyticketsbutton" onmouseover="javascript:this.className=\'buyticketsbuttonhover\';" onmouseout="javascript:this.className=\'buyticketsbutton\';" /></div></td></tr></table></td></tr><tr><td height="10px"></td></tr>';
 	
-		discsec+='<tr><td width="100%"><table width="100%" cellpadding="0" cellspacing="0"><tr><td align="left"><a href="'+domain+'" target="_blank"><img src="/main/images/home/poweredbyeventbee.jpg" alt="Powered by Eventbee Online Registration & Ticketing" title="Powered by Eventbee" border="0" style="width:78px !important;height:42px !important"> </a> </td><td align="right" width="100%"></td></tr>';
+		discsec+='<tr><td width="100%"><table width="100%" cellpadding="0" cellspacing="0"><tr><td align="left"><a href="'+domain+'" target="_blank"><img src="/home/images/'+i18nActlang+'/poweredby.jpg" alt="Powered by Eventbee Online Registration & Ticketing" title="'+props.global_powerd_by_ebee_lbl+'" border="0" style="width:78px !important;height:42px !important"> </a> </td><td align="right" width="100%"></td></tr>';
 	}else{
-	discsec+='<tr><td width="100%"><table width="100%" cellpadding="0" cellspacing="0"><tr><td align="left"><a href="'+domain+'" target="_blank"><img src="/main/images/home/poweredbyeventbee.jpg" alt="Powered by Eventbee Online Registration & Ticketing" title="Powered by Eventbee" border="0" style="width:78px !important;height:42px !important"> </a> </td><td align="right" width="100%" id="registerBttn" class="yui-skin-sam"><div class="buyticketssubmit"><input type="hidden" id="actiontype" name="actiontype" value="" /><input type="button" name="submit"  id="orderbutton" value="'+orderbutton+'"  onClick="priorityTimeCheck();"  class="buyticketsbutton" onmouseover="javascript:this.className=\'buyticketsbuttonhover\';" onmouseout="javascript:this.className=\'buyticketsbutton\';" /></div></td></tr>';
+	discsec+='<tr><td width="100%"><table width="100%" cellpadding="0" cellspacing="0"><tr><td align="left"><a href="'+domain+'" target="_blank"><img src="/home/images/'+i18nActlang+'/poweredby.jpg" alt="Powered by Eventbee Online Registration & Ticketing" title="'+props.global_powerd_by_ebee_lbl+'" border="0" style="width:78px !important;height:42px !important"> </a> </td><td align="right" width="100%" id="registerBttn" class="yui-skin-sam"><div class="buyticketssubmit"><input type="hidden" id="actiontype" name="actiontype" value="" /><input type="button" name="submit"  id="orderbutton" value="'+orderbutton+'"  onClick="priorityTimeCheck();"  class="buyticketsbutton" onmouseover="javascript:this.className=\'buyticketsbuttonhover\';" onmouseout="javascript:this.className=\'buyticketsbutton\';" /></div></td></tr>';
 	}
 	
 	

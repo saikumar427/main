@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.TimeZone;
 import java.util.Vector;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import com.event.beans.EmailAttendeesData;
@@ -25,7 +24,6 @@ import com.eventbee.general.SendMailStatus;
 import com.eventbee.general.StatusObj;
 import com.eventbee.util.RandomStringUUID;
 import com.eventregister.dbhelper.RegistrationTiketingManager; 
-import com.opensymphony.xwork2.ActionContext;
 
 public class EmailAttendeesDB {
 	static String[] monthvals=new String[]{"01","02","03","04","05","06","07","08","08","10","11","12"};
@@ -52,7 +50,7 @@ public class EmailAttendeesDB {
 		String msg="";
 		String description=emailAttendeesData.getDescription();
 		String descriptiontype=emailAttendeesData.getDescriptiontype();
-		if("wysiwyg".equals(descriptiontype)) description=fckdesc;
+		//if("wysiwyg".equals(descriptiontype)) description=fckdesc;
 		String mgrId=DbUtil.getVal("select mgr_id from eventinfo where eventid=CAST(? AS BIGINT)", new String[] {eid});
 		String server_address="http://"+EbeeConstantsF.get("serveraddress","www.eventbee.com");
 		String messagefrommgr="";
